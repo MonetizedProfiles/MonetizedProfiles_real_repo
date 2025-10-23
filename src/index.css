@@ -20,6 +20,9 @@ All colors MUST be HSL.
     --primary: 0 84% 60%;
     --primary-foreground: 0 0% 100%;
     --primary-glow: 0 84% 70%;
+    
+    --accent-blue: 221 79% 56%;
+    --accent-blue-foreground: 0 0% 100%;
 
     --secondary: 0 0% 98%;
     --secondary-foreground: 0 0% 20%;
@@ -68,6 +71,9 @@ All colors MUST be HSL.
     --primary: 0 100% 58%;
     --primary-foreground: 0 0% 100%;
     --primary-glow: 0 100% 68%;
+    
+    --accent-blue: 221 79% 56%;
+    --accent-blue-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 10%;
@@ -113,12 +119,12 @@ All colors MUST be HSL.
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-350px * 5 - 24px * 5));
+      transform: translateX(calc(-350px * 25 - 24px * 25));
     }
   }
 
   .animate-scroll-left {
-    animation: scroll-left 30s linear infinite;
+    animation: scroll-left 180s linear infinite;
   }
 
   .pause-animation:hover {

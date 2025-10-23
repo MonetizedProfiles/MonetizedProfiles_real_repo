@@ -43,15 +43,15 @@ const Index = () => {
     }
   }, [data]);
 
-  // Increment accounts sold counter randomly every 3-10 seconds
+  // Increment accounts sold counter randomly every 10-25 seconds
   useEffect(() => {
     const incrementCounter = () => {
       setAccountsSold(prev => prev + 1);
-      const nextInterval = (Math.random() * 7000) + 3000; // 3-10 seconds
+      const nextInterval = (Math.random() * 15000) + 10000; // 10-25 seconds
       setTimeout(incrementCounter, nextInterval);
     };
     
-    const initialDelay = (Math.random() * 7000) + 3000;
+    const initialDelay = (Math.random() * 15000) + 10000;
     const timeoutId = setTimeout(incrementCounter, initialDelay);
     
     return () => clearTimeout(timeoutId);
@@ -214,10 +214,10 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Animated floating icons - New diagonal float animation */}
-            <div className="relative h-40 mt-12">
+            {/* Enhanced animated floating icons */}
+            <div className="relative h-48 mt-12">
               <div 
-                className="absolute left-[15%] top-0" 
+                className="absolute left-[10%] top-0" 
                 style={{ 
                   animation: 'float-diagonal 6s ease-in-out infinite',
                   animationDelay: '0s'
@@ -228,7 +228,7 @@ const Index = () => {
                 </div>
               </div>
               <div 
-                className="absolute right-[15%] top-0" 
+                className="absolute right-[10%] top-0" 
                 style={{ 
                   animation: 'float-diagonal 6s ease-in-out infinite',
                   animationDelay: '2s'
@@ -239,7 +239,7 @@ const Index = () => {
                 </div>
               </div>
               <div 
-                className="absolute left-[35%] top-12" 
+                className="absolute left-[28%] top-16" 
                 style={{ 
                   animation: 'float-diagonal 6s ease-in-out infinite',
                   animationDelay: '1s'
@@ -250,7 +250,7 @@ const Index = () => {
                 </div>
               </div>
               <div 
-                className="absolute right-[35%] top-8" 
+                className="absolute right-[28%] top-12" 
                 style={{ 
                   animation: 'float-diagonal 6s ease-in-out infinite',
                   animationDelay: '1.5s'
@@ -258,6 +258,39 @@ const Index = () => {
               >
                 <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '2s' }}>
                   <Zap className="w-7 h-7 text-primary" />
+                </div>
+              </div>
+              <div 
+                className="absolute left-1/2 -translate-x-1/2 top-4" 
+                style={{ 
+                  animation: 'float-diagonal 7s ease-in-out infinite',
+                  animationDelay: '0.5s'
+                }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-xl flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '1.5s' }}>
+                  <Users className="w-6 h-6 text-[hsl(var(--accent-blue))]" />
+                </div>
+              </div>
+              <div 
+                className="absolute left-[20%] bottom-4" 
+                style={{ 
+                  animation: 'float-diagonal 5.5s ease-in-out infinite',
+                  animationDelay: '2.5s'
+                }}
+              >
+                <div className="w-10 h-10 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-lg flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '2.5s' }}>
+                  <Lock className="w-5 h-5 text-[hsl(var(--accent-blue))]" />
+                </div>
+              </div>
+              <div 
+                className="absolute right-[22%] bottom-0" 
+                style={{ 
+                  animation: 'float-diagonal 6.5s ease-in-out infinite',
+                  animationDelay: '3s'
+                }}
+              >
+                <div className="w-11 h-11 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-lg flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '0.8s' }}>
+                  <Star className="w-5 h-5 text-[hsl(var(--accent-blue))]" />
                 </div>
               </div>
             </div>
@@ -299,7 +332,7 @@ const Index = () => {
         )}
       </section>
 
-      {/* Features Section - More Interactive */}
+      {/* Features Section - Unique Layouts */}
       <section className="py-20 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
@@ -308,6 +341,7 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {/* Card 1 - Icon Top Center */}
             <div className="group relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
               <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full">
@@ -333,49 +367,52 @@ const Index = () => {
               </Card>
             </div>
 
+            {/* Card 2 - Horizontal Layout with Icon Left */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
-              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full">
-                <CardHeader className="text-center pb-4">
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
-                    <Users className="w-10 h-10 text-primary" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--accent-blue))]/20 to-[hsl(var(--accent-blue))]/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
+              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-[hsl(var(--accent-blue))]/50 transition-all h-full">
+                <CardContent className="pt-6 flex items-start gap-4">
+                  <div className="w-16 h-16 bg-[hsl(var(--accent-blue))]/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-all">
+                    <Users className="w-8 h-8 text-[hsl(var(--accent-blue))]" />
                   </div>
-                  <CardTitle className="text-xl">Real Audiences</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-muted-foreground mb-4">Genuine, engaged followers with proven interaction history and organic growth</p>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2 text-left">
-                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                      <span>5-15% engagement rate</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-left">
-                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                      <span>No bots or fake followers</span>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Real Audiences</h3>
+                    <p className="text-muted-foreground mb-3 text-sm">Genuine, engaged followers with proven interaction history and organic growth</p>
+                    <div className="space-y-1.5 text-sm">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-3.5 h-3.5 text-[hsl(var(--accent-blue))] shrink-0" />
+                        <span>5-15% engagement rate</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-3.5 h-3.5 text-[hsl(var(--accent-blue))] shrink-0" />
+                        <span>No bots or fake followers</span>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
 
+            {/* Card 3 - Icon Top with Badge */}
             <div className="group relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
-              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full">
-                <CardHeader className="text-center pb-4">
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
-                    <Zap className="w-10 h-10 text-primary" />
+              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full overflow-hidden">
+                <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-bl-lg">FAST</div>
+                <CardHeader className="text-center pb-3 pt-8">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all">
+                    <Zap className="w-8 h-8 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">Instant Transfer</CardTitle>
+                  <CardTitle className="text-lg">Instant Transfer</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <p className="text-muted-foreground mb-4">Complete ownership transferred within 24 hours, often much faster</p>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2 text-left">
-                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                  <p className="text-muted-foreground mb-3 text-sm">Complete ownership transferred within 24 hours, often much faster</p>
+                  <div className="space-y-1.5 text-xs">
+                    <div className="flex items-center gap-2 justify-center">
+                      <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />
                       <span>Same-day access possible</span>
                     </div>
-                    <div className="flex items-center gap-2 text-left">
-                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                    <div className="flex items-center gap-2 justify-center">
+                      <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />
                       <span>Full account credentials</span>
                     </div>
                   </div>
@@ -383,24 +420,30 @@ const Index = () => {
               </Card>
             </div>
 
+            {/* Card 4 - Large Icon Background */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
-              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full">
-                <CardHeader className="text-center pb-4">
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
-                    <HeadphonesIcon className="w-10 h-10 text-primary" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--accent-blue))]/20 to-[hsl(var(--accent-blue))]/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
+              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-[hsl(var(--accent-blue))]/50 transition-all h-full overflow-hidden">
+                <div className="absolute top-0 right-0 opacity-5 group-hover:opacity-10 transition-opacity">
+                  <HeadphonesIcon className="w-32 h-32 text-[hsl(var(--accent-blue))]" />
+                </div>
+                <CardHeader className="pb-3 relative z-10">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-12 h-12 bg-[hsl(var(--accent-blue))]/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-all">
+                      <HeadphonesIcon className="w-6 h-6 text-[hsl(var(--accent-blue))]" />
+                    </div>
+                    <CardTitle className="text-xl">Expert Support</CardTitle>
                   </div>
-                  <CardTitle className="text-xl">Expert Support</CardTitle>
                 </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-muted-foreground mb-4">Dedicated support team ready to help with any questions or issues</p>
+                <CardContent className="relative z-10">
+                  <p className="text-muted-foreground mb-4 text-sm">Dedicated support team ready to help with any questions or issues</p>
                   <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2 text-left">
-                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-[hsl(var(--accent-blue))] shrink-0" />
                       <span>1-hour response time</span>
                     </div>
-                    <div className="flex items-center gap-2 text-left">
-                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-[hsl(var(--accent-blue))] shrink-0" />
                       <span>Transfer guidance included</span>
                     </div>
                   </div>
@@ -411,7 +454,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section - Scrolling Carousel */}
+      {/* Testimonials Section - Scrolling Carousel with 25 Reviews */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
@@ -423,9 +466,10 @@ const Index = () => {
             <div className="flex gap-6 animate-scroll-left pause-animation">
               {[...Array(2)].map((_, groupIdx) => (
                 <div key={groupIdx} className="flex gap-6">
+                  {/* Review 1 */}
                   <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl font-bold text-primary border-2 border-primary/20">SM</div>
+                      <img src="/placeholder.svg" alt="Sarah M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Game Changer!</h4>
@@ -434,20 +478,22 @@ const Index = () => {
                     </div>
                     <p className="text-muted-foreground">"Bought a monetized YouTube channel and started earning from day one. The account was exactly as described!"</p>
                   </div>
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                  {/* Review 2 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl font-bold text-primary border-2 border-primary/20">JK</div>
+                      <img src="/placeholder.svg" alt="James K." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
                         <h4 className="font-bold text-lg">Excellent Service</h4>
                         <p className="text-sm text-muted-foreground">James K.</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Transfer was smooth and support was incredibly helpful. My TikTok account has active followers!"</p>
                   </div>
+                  {/* Review 3 */}
                   <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl font-bold text-primary border-2 border-primary/20">EL</div>
+                      <img src="/placeholder.svg" alt="Emma L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Worth Every Penny</h4>
@@ -455,6 +501,270 @@ const Index = () => {
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Skip months of growing an audience. Perfect shortcut to start my content creator journey!"</p>
+                  </div>
+                  {/* Review 4 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Michael R." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Best Investment</h4>
+                        <p className="text-sm text-muted-foreground">Michael R.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"The monetization was active immediately. Making money within hours of purchase!"</p>
+                  </div>
+                  {/* Review 5 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Lisa T." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Seamless Process</h4>
+                        <p className="text-sm text-muted-foreground">Lisa T.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Everything was handled professionally. Account transfer took less than 12 hours!"</p>
+                  </div>
+                  {/* Review 6 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="David P." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Highly Recommend</h4>
+                        <p className="text-sm text-muted-foreground">David P.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Great for anyone wanting to skip the grind of building from scratch. Real engagement!"</p>
+                  </div>
+                  {/* Review 7 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Amanda G." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Amazing Quality</h4>
+                        <p className="text-sm text-muted-foreground">Amanda G.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"The followers are real people, not bots. Engagement rate is exactly as promised!"</p>
+                  </div>
+                  {/* Review 8 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Chris B." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Fast & Reliable</h4>
+                        <p className="text-sm text-muted-foreground">Chris B.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Support team answered all my questions before purchase. Very transparent process!"</p>
+                  </div>
+                  {/* Review 9 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Rachel W." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Perfect Start</h4>
+                        <p className="text-sm text-muted-foreground">Rachel W.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Launched my content career with a running start. Analytics show genuine audience interest!"</p>
+                  </div>
+                  {/* Review 10 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Tom H." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Trustworthy Service</h4>
+                        <p className="text-sm text-muted-foreground">Tom H.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Was skeptical at first but they delivered exactly what they promised. Very happy!"</p>
+                  </div>
+                  {/* Review 11 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Nina S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Life Changing</h4>
+                        <p className="text-sm text-muted-foreground">Nina S.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"This gave me the platform I needed to quit my 9-5 job. Forever grateful!"</p>
+                  </div>
+                  {/* Review 12 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Kevin D." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Great Value</h4>
+                        <p className="text-sm text-muted-foreground">Kevin D.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Considering how long it would take to build this myself, the price is absolutely fair!"</p>
+                  </div>
+                  {/* Review 13 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Olivia M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Superb Quality</h4>
+                        <p className="text-sm text-muted-foreground">Olivia M.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"The account history is clean and the audience demographics match my niche perfectly!"</p>
+                  </div>
+                  {/* Review 14 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Brandon F." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Outstanding Support</h4>
+                        <p className="text-sm text-muted-foreground">Brandon F.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Had a few questions post-purchase and support responded within 30 minutes. Impressive!"</p>
+                  </div>
+                  {/* Review 15 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Jessica A." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Incredible Service</h4>
+                        <p className="text-sm text-muted-foreground">Jessica A.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Everything from browsing to transfer was smooth. Would definitely buy again!"</p>
+                  </div>
+                  {/* Review 16 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Marcus J." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Top Notch</h4>
+                        <p className="text-sm text-muted-foreground">Marcus J.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Monetization kicked in immediately. Already seeing ad revenue come through!"</p>
+                  </div>
+                  {/* Review 17 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Sophie L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Exactly As Described</h4>
+                        <p className="text-sm text-muted-foreground">Sophie L.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"No hidden surprises. The account stats matched the listing perfectly. Very honest!"</p>
+                  </div>
+                  {/* Review 18 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Daniel C." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Smart Investment</h4>
+                        <p className="text-sm text-muted-foreground">Daniel C.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Best way to jumpstart a content business. Saves months or even years of effort!"</p>
+                  </div>
+                  {/* Review 19 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Megan K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Five Stars</h4>
+                        <p className="text-sm text-muted-foreground">Megan K.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Professional service from start to finish. Will recommend to all my creator friends!"</p>
+                  </div>
+                  {/* Review 20 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Alex V." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Brilliant Service</h4>
+                        <p className="text-sm text-muted-foreground">Alex V.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"The guarantee gave me confidence to purchase. Glad I did - account is perfect!"</p>
+                  </div>
+                  {/* Review 21 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Lauren P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Highly Satisfied</h4>
+                        <p className="text-sm text-muted-foreground">Lauren P.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Account came with great engagement metrics. My first video got thousands of views!"</p>
+                  </div>
+                  {/* Review 22 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Ryan N." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Exceeded Expectations</h4>
+                        <p className="text-sm text-muted-foreground">Ryan N.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Better than I hoped for. The audience quality is exceptional!"</p>
+                  </div>
+                  {/* Review 23 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Victoria S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Wonderful Experience</h4>
+                        <p className="text-sm text-muted-foreground">Victoria S.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"From purchase to full control in under 8 hours. Extremely efficient!"</p>
+                  </div>
+                  {/* Review 24 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Jason W." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <h4 className="font-bold text-lg">Premium Quality</h4>
+                        <p className="text-sm text-muted-foreground">Jason W.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"You get what you pay for - and this is premium quality all the way!"</p>
+                  </div>
+                  {/* Review 25 */}
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="/placeholder.svg" alt="Natalie H." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Best Decision</h4>
+                        <p className="text-sm text-muted-foreground">Natalie H.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"This was the best business decision I made this year. Already profitable!"</p>
                   </div>
                 </div>
               ))}
