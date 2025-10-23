@@ -16,9 +16,11 @@ import logo from "@/assets/logo.png";
 
 const Index = () => {
   const [email, setEmail] = useState("");
+  const [footerEmail, setFooterEmail] = useState("");
   const [accountsSold, setAccountsSold] = useState(623 + Math.floor(Math.random() * 100));
   const [totalStock, setTotalStock] = useState<number | null>(null);
   const [ugcOpen, setUgcOpen] = useState(false);
+  const [currentProductIndex, setCurrentProductIndex] = useState(0);
   
   const { data, isLoading } = useQuery({
     queryKey: ['products'],
@@ -59,10 +61,12 @@ const Index = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // Filter to show featured products (2 YouTube + 1 TikTok)
+  // Filter to show featured products - include Aged YouTube Channel
   const featuredProducts = data?.filter(p => 
-    p.node.title.includes("Monetized YouTube") || p.node.title.includes("Monetized TikTok")
-  ).slice(0, 3);
+    p.node.title.includes("Monetized YouTube") || 
+    p.node.title.includes("Monetized TikTok") ||
+    p.node.title.includes("Aged YouTube")
+  ).slice(0, 6) || [];
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,6 +74,26 @@ const Index = () => {
       toast.success("Thanks! We'll notify you when products are restocked.");
       setEmail("");
     }
+  };
+
+  const handleFooterEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (footerEmail) {
+      toast.success("Thanks! We'll notify you when products are restocked.");
+      setFooterEmail("");
+    }
+  };
+
+  const handlePrevProduct = () => {
+    setCurrentProductIndex((prev) => 
+      prev === 0 ? Math.max(0, featuredProducts.length - 3) : prev - 1
+    );
+  };
+
+  const handleNextProduct = () => {
+    setCurrentProductIndex((prev) => 
+      prev >= featuredProducts.length - 3 ? 0 : prev + 1
+    );
   };
 
   return (
@@ -216,109 +240,109 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Enhanced animated floating icons - spread around title */}
+            {/* Enhanced animated floating icons - spread further towards edges and higher */}
             <div className="relative h-32 mt-12">
-              {/* Top left - Red */}
+              {/* Top left - Red (far edge) */}
               <div 
-                className="absolute left-[5%] -top-24" 
+                className="absolute left-[2%] -top-32 lg:left-[5%] lg:-top-36" 
                 style={{ 
                   animation: 'float-diagonal 6s ease-in-out infinite',
                   animationDelay: '0s'
                 }}
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)]">
-                  <DollarSign className="w-10 h-10" style={{ color: '#FF2929' }} />
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border-2 border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)] p-3">
+                  <DollarSign className="w-full h-full" style={{ color: '#FF2929' }} />
                 </div>
               </div>
               
-              {/* Top right - Red */}
+              {/* Top right - Red (far edge) */}
               <div 
-                className="absolute right-[5%] -top-20" 
+                className="absolute right-[2%] -top-28 lg:right-[5%] lg:-top-32" 
                 style={{ 
                   animation: 'float-diagonal 6s ease-in-out infinite',
                   animationDelay: '2s'
                 }}
               >
-                <div className="w-24 h-24 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)]">
-                  <TrendingUp className="w-12 h-12" style={{ color: '#FF2929' }} />
+                <div className="w-24 h-24 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border-2 border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)] p-3">
+                  <TrendingUp className="w-full h-full" style={{ color: '#FF2929' }} />
                 </div>
               </div>
 
               {/* Mid left - Blue (YouTube Play) */}
               <div 
-                className="absolute left-[15%] -top-8" 
+                className="absolute left-[10%] -top-16 lg:left-[15%] lg:-top-20" 
                 style={{ 
                   animation: 'float-diagonal 5.5s ease-in-out infinite',
                   animationDelay: '1s'
                 }}
               >
-                <div className="w-18 h-18 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-xl flex items-center justify-center border border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)]">
-                  <Play className="w-9 h-9" style={{ color: '#306BE4' }} />
+                <div className="w-20 h-20 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-xl flex items-center justify-center border-2 border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)] p-4">
+                  <Play className="w-full h-full" style={{ color: '#306BE4' }} />
                 </div>
               </div>
 
               {/* Mid right - Blue */}
               <div 
-                className="absolute right-[15%] -top-12" 
+                className="absolute right-[10%] -top-20 lg:right-[15%] lg:-top-24" 
                 style={{ 
                   animation: 'float-diagonal 6.5s ease-in-out infinite',
                   animationDelay: '1.5s'
                 }}
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-xl flex items-center justify-center border border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)]">
-                  <Users className="w-10 h-10" style={{ color: '#306BE4' }} />
+                <div className="w-20 h-20 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-xl flex items-center justify-center border-2 border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)] p-3">
+                  <Users className="w-full h-full" style={{ color: '#306BE4' }} />
                 </div>
               </div>
 
-              {/* Bottom center - Red */}
+              {/* Bottom center left - Red */}
               <div 
-                className="absolute left-[12%] top-8" 
+                className="absolute left-[8%] top-8 lg:left-[12%]" 
                 style={{ 
                   animation: 'float-diagonal 7s ease-in-out infinite',
                   animationDelay: '0.5s'
                 }}
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)]">
-                  <Shield className="w-10 h-10" style={{ color: '#FF2929' }} />
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border-2 border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)] p-3">
+                  <Shield className="w-full h-full" style={{ color: '#FF2929' }} />
                 </div>
               </div>
 
-              {/* Bottom right - Red */}
+              {/* Bottom right - Red (with proper padding for Zap) */}
               <div 
-                className="absolute right-[18%] top-4" 
+                className="absolute right-[14%] top-4 lg:right-[18%]" 
                 style={{ 
                   animation: 'float-diagonal 6s ease-in-out infinite',
                   animationDelay: '2.5s'
                 }}
               >
-                <div className="w-18 h-18 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)]">
-                  <Zap className="w-9 h-9" style={{ color: '#FF2929' }} />
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center border-2 border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)] p-4">
+                  <Zap className="w-full h-full" style={{ color: '#FF2929' }} />
                 </div>
               </div>
 
               {/* Bottom mid-left - Blue */}
               <div 
-                className="absolute left-[35%] top-12" 
+                className="absolute left-[30%] top-12 lg:left-[35%]" 
                 style={{ 
                   animation: 'float-diagonal 5.5s ease-in-out infinite',
                   animationDelay: '3s'
                 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-lg flex items-center justify-center border border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)]">
-                  <Lock className="w-8 h-8" style={{ color: '#306BE4' }} />
+                <div className="w-16 h-16 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-lg flex items-center justify-center border-2 border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)] p-3">
+                  <Lock className="w-full h-full" style={{ color: '#306BE4' }} />
                 </div>
               </div>
 
               {/* Bottom mid-right - Blue (TikTok style) */}
               <div 
-                className="absolute right-[35%] top-10" 
+                className="absolute right-[30%] top-10 lg:right-[35%]" 
                 style={{ 
                   animation: 'float-diagonal 6.5s ease-in-out infinite',
                   animationDelay: '3.5s'
                 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-lg flex items-center justify-center border border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)]">
-                  <Video className="w-8 h-8" style={{ color: '#306BE4' }} />
+                <div className="w-16 h-16 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-lg flex items-center justify-center border-2 border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)] p-3">
+                  <Video className="w-full h-full" style={{ color: '#306BE4' }} />
                 </div>
               </div>
             </div>
@@ -326,7 +350,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Products Section - 3 Products Display with Scroll */}
+      {/* Featured Products Section - Scrollable with 3 visible */}
       <section className="py-16 container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold mb-2" style={{ color: '#FF2929' }}>Featured Accounts</h2>
@@ -348,9 +372,29 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto relative">
+            {featuredProducts.length > 3 && (
+              <>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-4 md:-translate-x-12 bg-background shadow-lg hover:bg-primary hover:text-primary-foreground"
+                  onClick={handlePrevProduct}
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-4 md:translate-x-12 bg-background shadow-lg hover:bg-primary hover:text-primary-foreground"
+                  onClick={handleNextProduct}
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </Button>
+              </>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {featuredProducts.map((product) => (
+              {featuredProducts.slice(currentProductIndex, currentProductIndex + 3).map((product) => (
                 <ProductCard key={product.node.id} product={product} />
               ))}
             </div>
@@ -430,8 +474,12 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">Join hundreds of satisfied content creators</p>
           </div>
 
-          <div className="relative overflow-hidden">
-            <div className="flex gap-6 animate-scroll-left pause-animation">
+          <div className="relative overflow-hidden max-w-full">
+            <div className="flex gap-6 animate-scroll-left pause-animation"
+              style={{
+                width: 'max-content'
+              }}
+            >
               {[...Array(2)].map((_, groupIdx) => (
                 <div key={groupIdx} className="flex gap-6">
                   {/* Review 1 */}
@@ -1027,7 +1075,7 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">Products</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                {data?.map((product) => (
+                {data?.slice(0, 5).map((product) => (
                   <li key={product.node.id}>
                     <Link to={`/product/${product.node.handle}`} className="hover:text-primary transition-colors">
                       {product.node.title}
@@ -1047,18 +1095,35 @@ const Index = () => {
             </div>
             
             <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Refund Policy</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Cookie Policy</a></li>
-              </ul>
+              <h4 className="font-semibold mb-4">Get Notified</h4>
+              <p className="text-sm text-muted-foreground mb-3">
+                Be first to know when we restock!
+              </p>
+              <form onSubmit={handleFooterEmailSubmit} className="space-y-2">
+                <Input 
+                  type="email" 
+                  placeholder="Your email" 
+                  value={footerEmail}
+                  onChange={(e) => setFooterEmail(e.target.value)}
+                  required
+                  className="text-sm"
+                />
+                <Button type="submit" size="sm" className="w-full" style={{ backgroundColor: '#FF2929' }}>
+                  Notify Me
+                </Button>
+              </form>
             </div>
           </div>
           
-          <div className="border-t pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
+          <div className="border-t pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+              <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
+              <div className="flex gap-4">
+                <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+                <a href="#" className="hover:text-primary transition-colors">Refund Policy</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
