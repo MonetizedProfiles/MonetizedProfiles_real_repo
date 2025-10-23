@@ -8,13 +8,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const Index = () => {
   const [email, setEmail] = useState("");
+  const [accountsSold, setAccountsSold] = useState(623 + Math.floor(Math.random() * 100));
+  const [totalStock, setTotalStock] = useState<number | null>(null);
+  
   const { data, isLoading } = useQuery({
     queryKey: ['products'],
     queryFn: async () => {
@@ -22,6 +25,37 @@ const Index = () => {
       return response.data.products.edges as ShopifyProduct[];
     },
   });
+
+  // Calculate total stock from all product variants
+  useEffect(() => {
+    if (data) {
+      let total = 0;
+      data.forEach((product) => {
+        product.node.variants.edges.forEach((variant) => {
+          // Shopify doesn't expose inventory in Storefront API, so we'll use a placeholder
+          // In production, you'd need to use Admin API or set a manual count
+          if (variant.node.availableForSale) {
+            total += Math.floor(Math.random() * 5) + 1; // Simulated stock per variant
+          }
+        });
+      });
+      setTotalStock(total || 12); // Default to 12 if no products
+    }
+  }, [data]);
+
+  // Increment accounts sold counter randomly every 3-10 seconds
+  useEffect(() => {
+    const incrementCounter = () => {
+      setAccountsSold(prev => prev + 1);
+      const nextInterval = (Math.random() * 7000) + 3000; // 3-10 seconds
+      setTimeout(incrementCounter, nextInterval);
+    };
+    
+    const initialDelay = (Math.random() * 7000) + 3000;
+    const timeoutId = setTimeout(incrementCounter, initialDelay);
+    
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   // Filter to show only featured products
   const featuredProducts = data?.filter(p => 
@@ -152,7 +186,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section - Simplified */}
-      <section className="relative overflow-hidden py-24 md:py-32 bg-gradient-to-br from-background via-secondary/20 to-background">
+      <section className="relative overflow-hidden py-24 md:py-32 bg-gradient-to-br from-background via-secondary/50 to-background">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -180,21 +214,50 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Animated floating icons */}
-            <div className="relative h-32 mt-12">
-              <div className="absolute left-1/4 top-0 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}>
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
-                  <DollarSign className="w-8 h-8 text-primary" />
+            {/* Animated floating icons - New diagonal float animation */}
+            <div className="relative h-40 mt-12">
+              <div 
+                className="absolute left-[15%] top-0" 
+                style={{ 
+                  animation: 'float-diagonal 6s ease-in-out infinite',
+                  animationDelay: '0s'
+                }}
+              >
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite' }}>
+                  <DollarSign className="w-10 h-10 text-primary" />
                 </div>
               </div>
-              <div className="absolute right-1/4 top-0 animate-bounce" style={{ animationDelay: '1s', animationDuration: '3s' }}>
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
-                  <TrendingUp className="w-8 h-8 text-primary" />
+              <div 
+                className="absolute right-[15%] top-0" 
+                style={{ 
+                  animation: 'float-diagonal 6s ease-in-out infinite',
+                  animationDelay: '2s'
+                }}
+              >
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '1s' }}>
+                  <TrendingUp className="w-10 h-10 text-primary" />
                 </div>
               </div>
-              <div className="absolute left-1/2 -translate-x-1/2 top-8 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '3s' }}>
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+              <div 
+                className="absolute left-[35%] top-12" 
+                style={{ 
+                  animation: 'float-diagonal 6s ease-in-out infinite',
+                  animationDelay: '1s'
+                }}
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '0.5s' }}>
                   <Shield className="w-8 h-8 text-primary" />
+                </div>
+              </div>
+              <div 
+                className="absolute right-[35%] top-8" 
+                style={{ 
+                  animation: 'float-diagonal 6s ease-in-out infinite',
+                  animationDelay: '1.5s'
+                }}
+              >
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '2s' }}>
+                  <Zap className="w-7 h-7 text-primary" />
                 </div>
               </div>
             </div>
@@ -237,7 +300,7 @@ const Index = () => {
       </section>
 
       {/* Features Section - More Interactive */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">Why Choose MonetizedProfiles?</h2>
@@ -349,7 +412,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section - Scrolling Carousel */}
-      <section className="py-20 bg-gradient-to-br from-background to-secondary/20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold mb-4">What Our Customers Say</h2>
@@ -411,7 +474,7 @@ const Index = () => {
 
             <div className="relative">
               {/* Main guarantee card */}
-              <div className="bg-gradient-to-br from-primary/10 via-background to-primary/5 rounded-3xl p-8 md:p-12 border-2 border-primary/20 shadow-2xl">
+              <div className="bg-gradient-to-br from-secondary via-background to-secondary/50 rounded-3xl p-8 md:p-12 border-2 border-border shadow-2xl">
                 <div className="grid md:grid-cols-3 gap-8">
                   {/* Replacement Warranty */}
                   <div className="text-center space-y-4">
@@ -479,7 +542,7 @@ const Index = () => {
       </section>
 
       {/* Urgency Section - Limited Stock */}
-      <section className="py-12 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border-y border-primary/20">
+      <section className="py-12 bg-secondary/50 border-y border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -492,7 +555,7 @@ const Index = () => {
             <div className="flex flex-wrap gap-4 justify-center items-center text-sm">
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Users className="w-4 h-4 text-primary" />
-                <span><strong>237</strong> accounts sold this month</span>
+                <span><strong>{accountsSold}</strong> accounts sold this month</span>
               </div>
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Star className="w-4 h-4 text-primary" />
@@ -500,7 +563,7 @@ const Index = () => {
               </div>
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Zap className="w-4 h-4 text-primary" />
-                <span><strong>12</strong> accounts left in stock</span>
+                <span><strong>{totalStock ?? "..."}</strong> accounts left in stock</span>
               </div>
             </div>
           </div>
@@ -509,7 +572,7 @@ const Index = () => {
 
       {/* Restock Email Capture */}
       <section className="py-16 container mx-auto px-4">
-        <Card className="max-w-2xl mx-auto text-center bg-gradient-to-br from-primary/5 to-background border-primary/20">
+        <Card className="max-w-2xl mx-auto text-center bg-gradient-to-br from-secondary to-background border-border">
           <CardHeader>
             <Mail className="w-12 h-12 text-primary mx-auto mb-4" />
             <CardTitle className="text-2xl">Get Notified on Restock</CardTitle>
@@ -536,7 +599,7 @@ const Index = () => {
       </section>
 
       {/* Affiliate Program Section */}
-      <section id="affiliate" className="py-16 bg-gradient-to-br from-primary/5 to-background">
+      <section id="affiliate" className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
