@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Mail, ArrowRight, TrendingUp, Users, DollarSign, Video } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { CheckCircle, Mail, ArrowRight, TrendingUp, Users, DollarSign, Video, Package, Zap, BarChart, Quote } from "lucide-react";
 
 const Affiliate = () => {
   return (
@@ -143,6 +144,383 @@ const Affiliate = () => {
           </div>
         </div>
       </section>
+
+      {/* Earnings Breakdown Section */}
+      <section className="py-20 border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+              Your Earnings <span className="text-primary">Potential</span>
+            </h2>
+            <p className="text-xl text-center text-muted-foreground mb-16">
+              See how much you can earn with our generous commission structure
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-2 hover:border-primary/50 transition-colors">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <BarChart className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl mb-2">Starter Package</CardTitle>
+                  <div className="text-4xl font-bold text-primary mb-2">$100</div>
+                  <p className="text-sm text-muted-foreground">per sale at $500</p>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">20% commission</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">Entry-level products</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">High conversion rate</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-primary shadow-lg scale-105">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl mb-2">Premium Package</CardTitle>
+                  <div className="text-4xl font-bold text-primary mb-2">$200</div>
+                  <p className="text-sm text-muted-foreground">per sale at $1,000</p>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">20% commission</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">Most popular tier</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">Balanced price point</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 hover:border-primary/50 transition-colors">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <DollarSign className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl mb-2">Elite Package</CardTitle>
+                  <div className="text-4xl font-bold text-primary mb-2">$400</div>
+                  <p className="text-sm text-muted-foreground">per sale at $2,000</p>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">20% commission</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">Premium accounts</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm">Highest earnings</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-12 text-center bg-secondary/20 rounded-lg p-6 border">
+              <p className="text-lg mb-2">
+                <strong className="text-primary">Example:</strong> 10 sales per month at $1,000 average
+              </p>
+              <p className="text-3xl font-bold">= $2,000/month in commissions</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marketing Resources Section */}
+      <section className="py-20 bg-secondary/20 border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+              Marketing <span className="text-primary">Resources</span>
+            </h2>
+            <p className="text-xl text-center text-muted-foreground mb-16">
+              Everything you need to succeed as an affiliate
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
+                <CardHeader>
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Package className="w-7 h-7 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl">Ready-to-Use Creatives</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>High-quality product images and banners</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Pre-written promotional copy templates</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Social media post templates</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Email marketing templates</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
+                <CardHeader>
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Zap className="w-7 h-7 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl">Tracking & Analytics</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Real-time sales tracking dashboard</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Conversion rate analytics</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Commission history and reports</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Performance insights and tips</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
+                <CardHeader>
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Users className="w-7 h-7 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl">Dedicated Support</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Personal affiliate manager</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Priority email support</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Monthly strategy calls</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Exclusive affiliate community</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
+                <CardHeader>
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Video className="w-7 h-7 text-primary" />
+                  </div>
+                  <CardTitle className="text-2xl">Training Materials</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Video tutorials and best practices</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Conversion optimization guides</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Platform-specific strategies</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>Case studies from top affiliates</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+              What Our Affiliates <span className="text-primary">Are Saying</span>
+            </h2>
+            <p className="text-xl text-center text-muted-foreground mb-16">
+              Success stories from our affiliate partners
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="hover:shadow-lg transition-all">
+                <CardContent className="pt-6">
+                  <Quote className="w-10 h-10 text-primary/20 mb-4" />
+                  <p className="text-muted-foreground mb-6 italic">
+                    "I've been promoting MonetizedProfiles for 6 months and consistently make $3-5k/month. The products sell themselves and the support team is incredible."
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Users className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Sarah M.</p>
+                      <p className="text-sm text-muted-foreground">YouTube Creator</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-lg transition-all">
+                <CardContent className="pt-6">
+                  <Quote className="w-10 h-10 text-primary/20 mb-4" />
+                  <p className="text-muted-foreground mb-6 italic">
+                    "The commission structure is unbeatable. I made my first $1,000 in the first week! The dashboard makes tracking everything so easy."
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Users className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Mike R.</p>
+                      <p className="text-sm text-muted-foreground">Instagram Influencer</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-lg transition-all">
+                <CardContent className="pt-6">
+                  <Quote className="w-10 h-10 text-primary/20 mb-4" />
+                  <p className="text-muted-foreground mb-6 italic">
+                    "Best affiliate program I've joined. High-quality products, great conversion rates, and payments always on time. Highly recommend!"
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Users className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">Jessica L.</p>
+                      <p className="text-sm text-muted-foreground">TikTok Creator</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-secondary/20 border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+              Frequently Asked <span className="text-primary">Questions</span>
+            </h2>
+            <p className="text-xl text-center text-muted-foreground mb-16">
+              Everything you need to know about our affiliate program
+            </p>
+
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="item-1" className="bg-background border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                  How do I get paid?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  We offer multiple payment methods including PayPal, bank transfer, and Wise. Payments are processed on the 1st and 15th of each month for all commissions earned in the previous period. There's a minimum payout threshold of $50.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="bg-background border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                  What is the commission rate?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  All affiliates earn a flat 20% commission on every sale. There are no tiers or complex structures - just straightforward 20% on all products, whether they're $500 or $2,000+.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="bg-background border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                  How long is the cookie duration?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  We use a 30-day cookie window. This means if someone clicks your affiliate link, you'll earn commission on any purchase they make within 30 days, even if they don't buy immediately.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="bg-background border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                  Who can become an affiliate?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Anyone with an audience interested in social media growth and monetization! Whether you're a YouTuber, TikToker, Instagram influencer, blogger, or run a Discord/Telegram community - if you can promote to people interested in growing their social media, you're a great fit.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="bg-background border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                  How long does approval take?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Most applications are reviewed and approved within 24 hours. Once approved, you'll receive your unique affiliate link and access to all marketing materials immediately.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="bg-background border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                  Can I promote on multiple platforms?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Absolutely! You can use your affiliate link across all your platforms - YouTube, TikTok, Instagram, Twitter, blog, email list, Discord, or anywhere else you have an audience. We encourage multi-platform promotion for maximum earnings.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
 
       {/* Affiliate Examples Section */}
       <section className="py-20 border-b border-border">
