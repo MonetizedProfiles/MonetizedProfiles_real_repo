@@ -430,7 +430,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">Join hundreds of satisfied content creators</p>
           </div>
 
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden max-w-full">
             <div className="flex gap-6 animate-scroll-left pause-animation">
               {[...Array(2)].map((_, groupIdx) => (
                 <div key={groupIdx} className="flex gap-6">
