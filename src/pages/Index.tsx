@@ -220,110 +220,146 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Floating Icons - Spread around the title */}
-            <div className="relative h-32 mt-12">
-              {/* Top Left - Red Dollar */}
+            {/* Animated Revenue Growth Visualization */}
+            <div className="relative h-40 mt-16">
+              {/* Animated rising bars - revenue growth */}
+              <div className="absolute left-1/2 -translate-x-1/2 -top-20 flex items-end gap-3">
+                <div 
+                  className="w-12 h-24 bg-gradient-to-t from-[#FF2929] to-[#FF2929]/50 rounded-t-lg"
+                  style={{ 
+                    animation: "grow-bar 2s ease-out infinite",
+                    animationDelay: "0s"
+                  }}
+                />
+                <div 
+                  className="w-12 h-32 bg-gradient-to-t from-[#FF2929] to-[#FF2929]/50 rounded-t-lg"
+                  style={{ 
+                    animation: "grow-bar 2s ease-out infinite",
+                    animationDelay: "0.3s"
+                  }}
+                />
+                <div 
+                  className="w-12 h-40 bg-gradient-to-t from-[#FF2929] to-[#FF2929]/50 rounded-t-lg"
+                  style={{ 
+                    animation: "grow-bar 2s ease-out infinite",
+                    animationDelay: "0.6s"
+                  }}
+                />
+              </div>
+
+              {/* Floating dollar signs rising */}
               <div 
-                className="absolute left-[5%] lg:left-[8%] -top-32 lg:-top-40" 
+                className="absolute left-[20%] top-0"
                 style={{ 
-                  animation: "float-diagonal 6s ease-in-out infinite",
+                  animation: "float-up 3s ease-in-out infinite",
                   animationDelay: "0s"
                 }}
               >
-                <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border-2 border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)] p-3">
-                  <DollarSign className="w-full h-full" style={{ color: "#FF2929" }} />
-                </div>
+                <div className="text-4xl font-bold opacity-60" style={{ color: "#FF2929" }}>$</div>
               </div>
-              
-              {/* Top Right - Red Trending */}
               <div 
-                className="absolute right-[5%] lg:right-[8%] -top-28 lg:-top-36" 
+                className="absolute left-[25%] top-8"
                 style={{ 
-                  animation: "float-diagonal 6s ease-in-out infinite",
-                  animationDelay: "2s"
-                }}
-              >
-                <div className="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border-2 border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)] p-3">
-                  <TrendingUp className="w-full h-full" style={{ color: "#FF2929" }} />
-                </div>
-              </div>
-
-              {/* Mid Left - Blue Play */}
-              <div 
-                className="absolute left-[15%] lg:left-[18%] -top-16 lg:-top-20" 
-                style={{ 
-                  animation: "float-diagonal 5.5s ease-in-out infinite",
+                  animation: "float-up 3s ease-in-out infinite",
                   animationDelay: "1s"
                 }}
               >
-                <div className="w-14 h-14 lg:w-18 lg:h-18 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-xl flex items-center justify-center border-2 border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)] p-2.5">
-                  <Play className="w-full h-full" style={{ color: "#306BE4" }} />
-                </div>
+                <div className="text-3xl font-bold opacity-40" style={{ color: "#FF2929" }}>$</div>
               </div>
-
-              {/* Mid Right - Blue Users */}
               <div 
-                className="absolute right-[15%] lg:right-[18%] -top-20 lg:-top-24" 
+                className="absolute right-[20%] top-4"
                 style={{ 
-                  animation: "float-diagonal 6.5s ease-in-out infinite",
-                  animationDelay: "1.5s"
-                }}
-              >
-                <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-xl flex items-center justify-center border-2 border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)] p-3">
-                  <Users className="w-full h-full" style={{ color: "#306BE4" }} />
-                </div>
-              </div>
-
-              {/* Bottom Left - Red Shield */}
-              <div 
-                className="absolute left-[12%] lg:left-[15%] top-4 lg:top-8" 
-                style={{ 
-                  animation: "float-diagonal 7s ease-in-out infinite",
+                  animation: "float-up 3s ease-in-out infinite",
                   animationDelay: "0.5s"
                 }}
               >
-                <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border-2 border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)] p-3">
-                  <Shield className="w-full h-full" style={{ color: "#FF2929" }} />
+                <div className="text-4xl font-bold opacity-60" style={{ color: "#FF2929" }}>$</div>
+              </div>
+              <div 
+                className="absolute right-[25%] top-12"
+                style={{ 
+                  animation: "float-up 3s ease-in-out infinite",
+                  animationDelay: "1.5s"
+                }}
+              >
+                <div className="text-3xl font-bold opacity-40" style={{ color: "#FF2929" }}>$</div>
+              </div>
+
+              {/* Pulsing success circles */}
+              <div 
+                className="absolute left-[15%] -top-8"
+                style={{ 
+                  animation: "pulse-glow 2s ease-in-out infinite",
+                  animationDelay: "0s"
+                }}
+              >
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#306BE4]/30 to-[#306BE4]/10 border-2 border-[#306BE4]/40 flex items-center justify-center shadow-[0_0_30px_rgba(48,107,228,0.4)]">
+                  <CheckCircle className="w-8 h-8" style={{ color: "#306BE4" }} />
+                </div>
+              </div>
+              <div 
+                className="absolute right-[15%] -top-4"
+                style={{ 
+                  animation: "pulse-glow 2s ease-in-out infinite",
+                  animationDelay: "1s"
+                }}
+              >
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#306BE4]/30 to-[#306BE4]/10 border-2 border-[#306BE4]/40 flex items-center justify-center shadow-[0_0_30px_rgba(48,107,228,0.4)]">
+                  <TrendingUp className="w-8 h-8" style={{ color: "#306BE4" }} />
                 </div>
               </div>
 
-              {/* Bottom Right - Red Zap */}
+              {/* Animated Play and Video icons */}
               <div 
-                className="absolute right-[18%] lg:right-[20%] top-0 lg:top-4" 
+                className="absolute left-[30%] top-6"
                 style={{ 
-                  animation: "float-diagonal 6s ease-in-out infinite",
-                  animationDelay: "2.5s"
+                  animation: "bounce-soft 2.5s ease-in-out infinite",
+                  animationDelay: "0.2s"
                 }}
               >
-                <div className="w-14 h-14 lg:w-18 lg:h-18 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center border-2 border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)] p-2.5">
-                  <Zap className="w-full h-full" style={{ color: "#FF2929" }} />
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FF2929]/20 to-[#FF2929]/5 border-2 border-[#FF2929]/30 flex items-center justify-center shadow-[0_0_20px_rgba(255,41,41,0.3)]">
+                  <Play className="w-7 h-7" style={{ color: "#FF2929" }} />
+                </div>
+              </div>
+              <div 
+                className="absolute right-[30%] top-10"
+                style={{ 
+                  animation: "bounce-soft 2.5s ease-in-out infinite",
+                  animationDelay: "0.8s"
+                }}
+              >
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FF2929]/20 to-[#FF2929]/5 border-2 border-[#FF2929]/30 flex items-center justify-center shadow-[0_0_20px_rgba(255,41,41,0.3)]">
+                  <Video className="w-7 h-7" style={{ color: "#FF2929" }} />
                 </div>
               </div>
 
-              {/* Bottom Mid-Left - Blue Lock */}
+              {/* Sparkle effects */}
               <div 
-                className="absolute left-[35%] lg:left-[38%] top-8 lg:top-12" 
+                className="absolute left-[40%] -top-4"
                 style={{ 
-                  animation: "float-diagonal 5.5s ease-in-out infinite",
-                  animationDelay: "3s"
+                  animation: "twinkle 1.5s ease-in-out infinite",
+                  animationDelay: "0s"
                 }}
               >
-                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-lg flex items-center justify-center border-2 border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)] p-2">
-                  <Lock className="w-full h-full" style={{ color: "#306BE4" }} />
-                </div>
+                <Star className="w-5 h-5 fill-[#FF2929] text-[#FF2929]" />
               </div>
-
-              {/* Bottom Mid-Right - Blue Video */}
               <div 
-                className="absolute right-[35%] lg:right-[38%] top-6 lg:top-10" 
+                className="absolute right-[40%] top-2"
                 style={{ 
-                  animation: "float-diagonal 6.5s ease-in-out infinite",
-                  animationDelay: "3.5s"
+                  animation: "twinkle 1.5s ease-in-out infinite",
+                  animationDelay: "0.5s"
                 }}
               >
-                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-lg flex items-center justify-center border-2 border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)] p-2">
-                  <Video className="w-full h-full" style={{ color: "#306BE4" }} />
-                </div>
+                <Star className="w-4 h-4 fill-[#306BE4] text-[#306BE4]" />
+              </div>
+              <div 
+                className="absolute left-[35%] top-14"
+                style={{ 
+                  animation: "twinkle 1.5s ease-in-out infinite",
+                  animationDelay: "1s"
+                }}
+              >
+                <Star className="w-4 h-4 fill-[#FF2929] text-[#FF2929]" />
               </div>
             </div>
           </div>
