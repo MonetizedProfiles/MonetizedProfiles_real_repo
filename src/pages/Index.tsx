@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 import { CartDrawer } from "@/components/CartDrawer";
-import { Footer } from "@/components/Footer";
 import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail, DollarSign, Percent, Video, Play, ChevronLeft, ChevronRight, ChevronDown, Sparkles, Wallet } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
@@ -963,7 +962,55 @@ const Index = () => {
         </Card>
       </section>
 
-      <Footer />
+      {/* Footer */}
+      <footer className="border-t py-12 mt-20 bg-secondary/50">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <img src={logo} alt="MonetizedProfiles" className="h-8 mb-4" />
+              <p className="text-sm text-muted-foreground">
+                Premium monetized social media accounts for content creators.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Products</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                {data?.map((product) => (
+                  <li key={product.node.id}>
+                    <Link to={`/product/${product.node.handle}`} className="hover:text-primary transition-colors">
+                      {product.node.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">FAQ</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Refund Policy</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Cookie Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t pt-8 text-center text-sm text-muted-foreground">
+            <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

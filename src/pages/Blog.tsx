@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Skeleton } from "@/components/ui/skeleton";
 import { Calendar, ArrowRight } from "lucide-react";
 import { CartDrawer } from "@/components/CartDrawer";
-import { Footer } from "@/components/Footer";
 import logo from "@/assets/logo.png";
 
 // Shopify Blog API setup
@@ -158,8 +157,6 @@ const Blog = () => {
           </div>
         )}
       </section>
-
-      <Footer />
     </div>
   );
 };
