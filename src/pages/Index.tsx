@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 import { CartDrawer } from "@/components/CartDrawer";
-import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail, DollarSign, Percent, Video } from "lucide-react";
+import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail, DollarSign, Percent, Video, Play, ChevronLeft, ChevronRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,6 +17,7 @@ const Index = () => {
   const [email, setEmail] = useState("");
   const [accountsSold, setAccountsSold] = useState(623 + Math.floor(Math.random() * 100));
   const [totalStock, setTotalStock] = useState<number | null>(null);
+  const [currentProductIndex, setCurrentProductIndex] = useState(0);
   
   const { data, isLoading } = useQuery({
     queryKey: ['products'],
@@ -195,7 +196,7 @@ const Index = () => {
               Start Earning in 24 Hours
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight text-foreground animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Monetized Accounts
               <span className="block text-primary mt-2">Ready to Earn</span>
             </h1>
@@ -205,92 +206,118 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all">
+              <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all bg-primary hover:bg-primary/90">
                 <ShoppingBag className="w-5 h-5 mr-2" />
                 Browse Accounts
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2">
                 Learn More
               </Button>
             </div>
 
-            {/* Enhanced animated floating icons */}
-            <div className="relative h-48 mt-12">
+            {/* Enhanced animated floating icons - spread around title */}
+            <div className="relative h-32 mt-12">
+              {/* Top left - Red */}
               <div 
-                className="absolute left-[10%] top-0" 
+                className="absolute left-[5%] -top-24" 
                 style={{ 
                   animation: 'float-diagonal 6s ease-in-out infinite',
                   animationDelay: '0s'
                 }}
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite' }}>
-                  <DollarSign className="w-10 h-10 text-primary" />
+                <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
+                  <DollarSign className="w-8 h-8 text-primary" />
                 </div>
               </div>
+              
+              {/* Top right - Red */}
               <div 
-                className="absolute right-[10%] top-0" 
+                className="absolute right-[5%] -top-20" 
                 style={{ 
                   animation: 'float-diagonal 6s ease-in-out infinite',
                   animationDelay: '2s'
                 }}
               >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '1s' }}>
-                  <TrendingUp className="w-10 h-10 text-primary" />
+                <div className="w-18 h-18 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
+                  <TrendingUp className="w-9 h-9 text-primary" />
                 </div>
               </div>
+
+              {/* Mid left - Blue */}
               <div 
-                className="absolute left-[28%] top-16" 
+                className="absolute left-[15%] -top-8" 
                 style={{ 
-                  animation: 'float-diagonal 6s ease-in-out infinite',
+                  animation: 'float-diagonal 5.5s ease-in-out infinite',
                   animationDelay: '1s'
                 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '0.5s' }}>
-                  <Shield className="w-8 h-8 text-primary" />
+                <div className="w-14 h-14 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-xl flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-[0_0_20px_hsl(var(--accent-blue)/0.3)]">
+                  <Play className="w-7 h-7 text-[hsl(var(--accent-blue))]" />
                 </div>
               </div>
+
+              {/* Mid right - Blue */}
               <div 
-                className="absolute right-[28%] top-12" 
+                className="absolute right-[15%] -top-12" 
                 style={{ 
-                  animation: 'float-diagonal 6s ease-in-out infinite',
+                  animation: 'float-diagonal 6.5s ease-in-out infinite',
                   animationDelay: '1.5s'
                 }}
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '2s' }}>
-                  <Zap className="w-7 h-7 text-primary" />
+                <div className="w-15 h-15 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-xl flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-[0_0_20px_hsl(var(--accent-blue)/0.3)]">
+                  <Users className="w-7 h-7 text-[hsl(var(--accent-blue))]" />
                 </div>
               </div>
+
+              {/* Bottom center - Red */}
               <div 
-                className="absolute left-1/2 -translate-x-1/2 top-4" 
+                className="absolute left-[12%] top-8" 
                 style={{ 
                   animation: 'float-diagonal 7s ease-in-out infinite',
                   animationDelay: '0.5s'
                 }}
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-xl flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '1.5s' }}>
-                  <Users className="w-6 h-6 text-[hsl(var(--accent-blue))]" />
+                <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
+                  <Shield className="w-8 h-8 text-primary" />
                 </div>
               </div>
+
+              {/* Bottom right - Red */}
               <div 
-                className="absolute left-[20%] bottom-4" 
+                className="absolute right-[18%] top-4" 
                 style={{ 
-                  animation: 'float-diagonal 5.5s ease-in-out infinite',
+                  animation: 'float-diagonal 6s ease-in-out infinite',
                   animationDelay: '2.5s'
                 }}
               >
-                <div className="w-10 h-10 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-lg flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '2.5s' }}>
-                  <Lock className="w-5 h-5 text-[hsl(var(--accent-blue))]" />
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
+                  <Zap className="w-7 h-7 text-primary" />
                 </div>
               </div>
+
+              {/* Bottom mid-left - Blue */}
               <div 
-                className="absolute right-[22%] bottom-0" 
+                className="absolute left-[35%] top-12" 
                 style={{ 
-                  animation: 'float-diagonal 6.5s ease-in-out infinite',
+                  animation: 'float-diagonal 5.5s ease-in-out infinite',
                   animationDelay: '3s'
                 }}
               >
-                <div className="w-11 h-11 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-lg flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-lg" style={{ animation: 'pulse-glow 3s ease-in-out infinite', animationDelay: '0.8s' }}>
-                  <Star className="w-5 h-5 text-[hsl(var(--accent-blue))]" />
+                <div className="w-12 h-12 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-lg flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-[0_0_20px_hsl(var(--accent-blue)/0.3)]">
+                  <Lock className="w-6 h-6 text-[hsl(var(--accent-blue))]" />
+                </div>
+              </div>
+
+              {/* Bottom mid-right - Blue */}
+              <div 
+                className="absolute right-[35%] top-10" 
+                style={{ 
+                  animation: 'float-diagonal 6.5s ease-in-out infinite',
+                  animationDelay: '3.5s'
+                }}
+              >
+                <div className="w-13 h-13 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-lg flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-[0_0_20px_hsl(var(--accent-blue)/0.3)]">
+                  <Star className="w-6 h-6 text-[hsl(var(--accent-blue))]" />
                 </div>
               </div>
             </div>
@@ -298,22 +325,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Products Section */}
+      {/* Featured Products Section - Carousel */}
       <section className="py-16 container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-2">Featured Accounts</h2>
+          <h2 className="text-3xl font-bold mb-2 text-primary">Featured Accounts</h2>
           <p className="text-muted-foreground">Start earning today with our most popular monetized accounts</p>
         </div>
 
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="space-y-4">
-                <Skeleton className="aspect-square w-full" />
-                <Skeleton className="h-4 w-3/4" />
-                <Skeleton className="h-4 w-1/2" />
-              </div>
-            ))}
+          <div className="max-w-2xl mx-auto">
+            <Skeleton className="aspect-square w-full" />
           </div>
         ) : !featuredProducts || featuredProducts.length === 0 ? (
           <div className="text-center py-20">
@@ -324,132 +345,127 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.node.id} product={product} />
-            ))}
+          <div className="relative max-w-2xl mx-auto">
+            <div className="relative overflow-hidden">
+              {/* Background cards with blur */}
+              <div className="absolute inset-0 flex items-center justify-center gap-8 pointer-events-none">
+                {/* Left background card */}
+                <div className="w-[45%] opacity-30 blur-sm scale-90 -translate-x-12">
+                  {featuredProducts[(currentProductIndex - 1 + featuredProducts.length) % featuredProducts.length] && (
+                    <ProductCard product={featuredProducts[(currentProductIndex - 1 + featuredProducts.length) % featuredProducts.length]} />
+                  )}
+                </div>
+                {/* Right background card */}
+                <div className="w-[45%] opacity-30 blur-sm scale-90 translate-x-12">
+                  {featuredProducts[(currentProductIndex + 1) % featuredProducts.length] && (
+                    <ProductCard product={featuredProducts[(currentProductIndex + 1) % featuredProducts.length]} />
+                  )}
+                </div>
+              </div>
+
+              {/* Main card */}
+              <div className="relative z-10 transition-all duration-500 ease-in-out">
+                <ProductCard product={featuredProducts[currentProductIndex]} />
+              </div>
+            </div>
+
+            {/* Navigation buttons */}
+            <div className="flex justify-center gap-4 mt-8">
+              <Button
+                onClick={() => setCurrentProductIndex((prev) => (prev - 1 + featuredProducts.length) % featuredProducts.length)}
+                variant="outline"
+                size="icon"
+                className="rounded-full border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </Button>
+              <Button
+                onClick={() => setCurrentProductIndex((prev) => (prev + 1) % featuredProducts.length)}
+                variant="outline"
+                size="icon"
+                className="rounded-full border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </div>
+
+            {/* Dots indicator */}
+            <div className="flex justify-center gap-2 mt-4">
+              {featuredProducts.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentProductIndex(idx)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    idx === currentProductIndex ? 'bg-primary w-8' : 'bg-muted-foreground/30'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         )}
       </section>
 
-      {/* Features Section - Unique Layouts */}
+      {/* Features Section - Simplified Unique Layouts */}
       <section className="py-20 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4">Why Choose MonetizedProfiles?</h2>
+            <h2 className="text-4xl font-bold mb-4 text-primary">Why Choose MonetizedProfiles?</h2>
             <p className="text-lg text-muted-foreground">We've perfected the process of transferring monetized accounts safely and securely</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {/* Card 1 - Icon Top Center */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
-              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full">
-                <CardHeader className="text-center pb-4">
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
-                    <Shield className="w-10 h-10 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl">Verified & Secure</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-muted-foreground mb-4">Every account is fully verified with platform monetization enabled and ready to earn</p>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2 text-left">
-                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                      <span>YouTube Partner approved</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-left">
-                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                      <span>TikTok monetization active</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Card 2 - Horizontal Layout with Icon Left */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--accent-blue))]/20 to-[hsl(var(--accent-blue))]/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
-              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-[hsl(var(--accent-blue))]/50 transition-all h-full">
-                <CardContent className="pt-6 flex items-start gap-4">
-                  <div className="w-16 h-16 bg-[hsl(var(--accent-blue))]/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-all">
-                    <Users className="w-8 h-8 text-[hsl(var(--accent-blue))]" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Real Audiences</h3>
-                    <p className="text-muted-foreground mb-3 text-sm">Genuine, engaged followers with proven interaction history and organic growth</p>
-                    <div className="space-y-1.5 text-sm">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="w-3.5 h-3.5 text-[hsl(var(--accent-blue))] shrink-0" />
-                        <span>5-15% engagement rate</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle className="w-3.5 h-3.5 text-[hsl(var(--accent-blue))] shrink-0" />
-                        <span>No bots or fake followers</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Card 3 - Icon Top with Badge */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
-              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full overflow-hidden">
-                <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-bl-lg">FAST</div>
-                <CardHeader className="text-center pb-3 pt-8">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all">
-                    <Zap className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Instant Transfer</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-muted-foreground mb-3 text-sm">Complete ownership transferred within 24 hours, often much faster</p>
-                  <div className="space-y-1.5 text-xs">
-                    <div className="flex items-center gap-2 justify-center">
-                      <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />
-                      <span>Same-day access possible</span>
-                    </div>
-                    <div className="flex items-center gap-2 justify-center">
-                      <CheckCircle className="w-3.5 h-3.5 text-primary shrink-0" />
-                      <span>Full account credentials</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Card 4 - Large Icon Background */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--accent-blue))]/20 to-[hsl(var(--accent-blue))]/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
-              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-[hsl(var(--accent-blue))]/50 transition-all h-full overflow-hidden">
-                <div className="absolute top-0 right-0 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <HeadphonesIcon className="w-32 h-32 text-[hsl(var(--accent-blue))]" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {/* Card 1 - Vertical centered */}
+            <Card className="bg-card border-2 hover:border-primary/50 transition-all hover:shadow-lg">
+              <CardHeader className="text-center space-y-4 pb-3">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+                  <Shield className="w-8 h-8 text-primary" />
                 </div>
-                <CardHeader className="pb-3 relative z-10">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-12 h-12 bg-[hsl(var(--accent-blue))]/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-all">
-                      <HeadphonesIcon className="w-6 h-6 text-[hsl(var(--accent-blue))]" />
-                    </div>
-                    <CardTitle className="text-xl">Expert Support</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="relative z-10">
-                  <p className="text-muted-foreground mb-4 text-sm">Dedicated support team ready to help with any questions or issues</p>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-[hsl(var(--accent-blue))] shrink-0" />
-                      <span>1-hour response time</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-[hsl(var(--accent-blue))] shrink-0" />
-                      <span>Transfer guidance included</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+                <CardTitle className="text-lg">Verified & Secure</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-sm text-muted-foreground">
+                <p>Every account is fully verified with platform monetization enabled and ready to earn</p>
+              </CardContent>
+            </Card>
+
+            {/* Card 2 - Horizontal with icon left */}
+            <Card className="bg-card border-2 hover:border-[hsl(var(--accent-blue))]/50 transition-all hover:shadow-lg">
+              <CardContent className="pt-6 flex gap-4">
+                <div className="w-14 h-14 bg-[hsl(var(--accent-blue))]/10 rounded-xl flex items-center justify-center shrink-0">
+                  <Users className="w-7 h-7 text-[hsl(var(--accent-blue))]" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-lg font-bold">Real Audiences</h3>
+                  <p className="text-sm text-muted-foreground">Genuine, engaged followers with proven interaction history</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Card 3 - Vertical with badge */}
+            <Card className="bg-card border-2 hover:border-primary/50 transition-all hover:shadow-lg relative overflow-hidden">
+              <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-md">FAST</div>
+              <CardHeader className="text-center space-y-4 pb-3 pt-6">
+                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                  <Zap className="w-7 h-7 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Instant Transfer</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-sm text-muted-foreground">
+                <p>Complete ownership transferred within 24 hours, often much faster</p>
+              </CardContent>
+            </Card>
+
+            {/* Card 4 - Horizontal with icon left */}
+            <Card className="bg-card border-2 hover:border-[hsl(var(--accent-blue))]/50 transition-all hover:shadow-lg">
+              <CardContent className="pt-6 flex gap-4">
+                <div className="w-14 h-14 bg-[hsl(var(--accent-blue))]/10 rounded-xl flex items-center justify-center shrink-0">
+                  <HeadphonesIcon className="w-7 h-7 text-[hsl(var(--accent-blue))]" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-lg font-bold">Expert Support</h3>
+                  <p className="text-sm text-muted-foreground">Dedicated support with 1-hour response time</p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -479,11 +495,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"Bought a monetized YouTube channel and started earning from day one. The account was exactly as described!"</p>
                   </div>
                   {/* Review 2 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="James K." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="James K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Excellent Service</h4>
                         <p className="text-sm text-muted-foreground">James K.</p>
                       </div>
@@ -503,11 +519,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"Skip months of growing an audience. Perfect shortcut to start my content creator journey!"</p>
                   </div>
                   {/* Review 4 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Michael R." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="Michael R." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Best Investment</h4>
                         <p className="text-sm text-muted-foreground">Michael R.</p>
                       </div>
@@ -527,11 +543,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"Everything was handled professionally. Account transfer took less than 12 hours!"</p>
                   </div>
                   {/* Review 6 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="David P." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="David P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Highly Recommend</h4>
                         <p className="text-sm text-muted-foreground">David P.</p>
                       </div>
@@ -551,11 +567,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"The followers are real people, not bots. Engagement rate is exactly as promised!"</p>
                   </div>
                   {/* Review 8 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Chris B." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="Chris B." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Fast & Reliable</h4>
                         <p className="text-sm text-muted-foreground">Chris B.</p>
                       </div>
@@ -575,11 +591,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"Launched my content career with a running start. Analytics show genuine audience interest!"</p>
                   </div>
                   {/* Review 10 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Tom H." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="Tom H." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Trustworthy Service</h4>
                         <p className="text-sm text-muted-foreground">Tom H.</p>
                       </div>
@@ -599,11 +615,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"This gave me the platform I needed to quit my 9-5 job. Forever grateful!"</p>
                   </div>
                   {/* Review 12 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Kevin D." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="Kevin D." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Great Value</h4>
                         <p className="text-sm text-muted-foreground">Kevin D.</p>
                       </div>
@@ -623,11 +639,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"The account history is clean and the audience demographics match my niche perfectly!"</p>
                   </div>
                   {/* Review 14 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Brandon F." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="Brandon F." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Outstanding Support</h4>
                         <p className="text-sm text-muted-foreground">Brandon F.</p>
                       </div>
@@ -647,11 +663,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"Everything from browsing to transfer was smooth. Would definitely buy again!"</p>
                   </div>
                   {/* Review 16 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Marcus J." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="Marcus J." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Top Notch</h4>
                         <p className="text-sm text-muted-foreground">Marcus J.</p>
                       </div>
@@ -671,11 +687,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"No hidden surprises. The account stats matched the listing perfectly. Very honest!"</p>
                   </div>
                   {/* Review 18 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Daniel C." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="Daniel C." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Smart Investment</h4>
                         <p className="text-sm text-muted-foreground">Daniel C.</p>
                       </div>
@@ -695,11 +711,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"Professional service from start to finish. Will recommend to all my creator friends!"</p>
                   </div>
                   {/* Review 20 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Alex V." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="Alex V." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Brilliant Service</h4>
                         <p className="text-sm text-muted-foreground">Alex V.</p>
                       </div>
@@ -719,11 +735,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"Account came with great engagement metrics. My first video got thousands of views!"</p>
                   </div>
                   {/* Review 22 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Ryan N." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="Ryan N." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Exceeded Expectations</h4>
                         <p className="text-sm text-muted-foreground">Ryan N.</p>
                       </div>
@@ -743,11 +759,11 @@ const Index = () => {
                     <p className="text-muted-foreground">"From purchase to full control in under 8 hours. Extremely efficient!"</p>
                   </div>
                   {/* Review 24 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-[hsl(var(--accent-blue))]/50">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Jason W." className="w-16 h-16 rounded-full object-cover border-2 border-[hsl(var(--accent-blue))]/20" />
+                      <img src="/placeholder.svg" alt="Jason W." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
-                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[hsl(var(--accent-blue))] text-[hsl(var(--accent-blue))]" />)}</div>
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Premium Quality</h4>
                         <p className="text-sm text-muted-foreground">Jason W.</p>
                       </div>
@@ -880,12 +896,53 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Success Stories - New Conversion Section */}
+      <section className="py-20 bg-gradient-to-br from-secondary/50 via-background to-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-4 text-primary">Real Results From Real Creators</h2>
+              <p className="text-xl text-muted-foreground">See how our accounts have transformed content careers</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {/* Stat 1 */}
+              <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
+                <div className="text-5xl font-bold text-primary mb-2">$847K+</div>
+                <p className="text-lg text-muted-foreground">Total Revenue Generated</p>
+                <p className="text-sm text-muted-foreground/70 mt-2">By our customers in the last 12 months</p>
+              </div>
+
+              {/* Stat 2 */}
+              <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
+                <div className="text-5xl font-bold text-primary mb-2">24 hrs</div>
+                <p className="text-lg text-muted-foreground">Average Time to First Dollar</p>
+                <p className="text-sm text-muted-foreground/70 mt-2">Most customers earn within the first day</p>
+              </div>
+
+              {/* Stat 3 */}
+              <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
+                <div className="text-5xl font-bold text-primary mb-2">98.7%</div>
+                <p className="text-lg text-muted-foreground">Customer Satisfaction</p>
+                <p className="text-sm text-muted-foreground/70 mt-2">Would recommend to other creators</p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-10 py-6">
+                Start Your Success Story Today
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Restock Email Capture */}
       <section className="py-16 container mx-auto px-4">
         <Card className="max-w-2xl mx-auto text-center bg-gradient-to-br from-secondary to-background border-border">
           <CardHeader>
             <Mail className="w-12 h-12 text-primary mx-auto mb-4" />
-            <CardTitle className="text-2xl">Get Notified on Restock</CardTitle>
+            <CardTitle className="text-2xl text-primary">Get Notified on Restock</CardTitle>
             <CardDescription className="text-base">
               Premium accounts sell fast! Enter your email to be notified when we restock your favorite products.
             </CardDescription>
@@ -900,7 +957,7 @@ const Index = () => {
                 required
                 className="flex-1"
               />
-              <Button type="submit" className="shrink-0">
+              <Button type="submit" className="shrink-0 bg-primary hover:bg-primary/90">
                 Notify Me
               </Button>
             </form>
@@ -976,49 +1033,56 @@ const Index = () => {
               </Card>
             </div>
 
-            <div className="text-center mb-12">
-              <h3 className="text-2xl font-bold mb-8">See Our Affiliates in Action</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Video Slot 1 */}
-                <Card className="overflow-hidden hover:shadow-glow transition-all">
-                  <CardContent className="p-0">
-                    <div className="aspect-[9/16] bg-secondary/30 flex items-center justify-center relative group">
-                      <Video className="w-16 h-16 text-muted-foreground" />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p className="text-white text-sm px-4 text-center">Video slot for UGC ad #1</p>
-                      </div>
+            <div className="bg-card rounded-2xl p-8 border-2 border-border">
+              <h3 className="text-2xl font-bold mb-6 text-center text-primary">Success Stories From Our Affiliates</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                {/* Compact Video Slot 1 */}
+                <div className="overflow-hidden rounded-xl hover:shadow-lg transition-all group cursor-pointer">
+                  <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
+                    <Video className="w-10 h-10 text-muted-foreground" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Play className="w-8 h-8 text-primary" />
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
-                {/* Video Slot 2 */}
-                <Card className="overflow-hidden hover:shadow-glow transition-all">
-                  <CardContent className="p-0">
-                    <div className="aspect-[9/16] bg-secondary/30 flex items-center justify-center relative group">
-                      <Video className="w-16 h-16 text-muted-foreground" />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p className="text-white text-sm px-4 text-center">Video slot for UGC ad #2</p>
-                      </div>
+                {/* Compact Video Slot 2 */}
+                <div className="overflow-hidden rounded-xl hover:shadow-lg transition-all group cursor-pointer">
+                  <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
+                    <Video className="w-10 h-10 text-muted-foreground" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Play className="w-8 h-8 text-primary" />
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
-                {/* Video Slot 3 */}
-                <Card className="overflow-hidden hover:shadow-glow transition-all">
-                  <CardContent className="p-0">
-                    <div className="aspect-[9/16] bg-secondary/30 flex items-center justify-center relative group">
-                      <Video className="w-16 h-16 text-muted-foreground" />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p className="text-white text-sm px-4 text-center">Video slot for UGC ad #3</p>
-                      </div>
+                {/* Compact Video Slot 3 */}
+                <div className="overflow-hidden rounded-xl hover:shadow-lg transition-all group cursor-pointer">
+                  <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
+                    <Video className="w-10 h-10 text-muted-foreground" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Play className="w-8 h-8 text-primary" />
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
+
+                {/* Compact Video Slot 4 */}
+                <div className="overflow-hidden rounded-xl hover:shadow-lg transition-all group cursor-pointer">
+                  <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
+                    <Video className="w-10 h-10 text-muted-foreground" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Play className="w-8 h-8 text-primary" />
+                    </div>
+                  </div>
+                </div>
               </div>
+              <p className="text-center text-sm text-muted-foreground mb-6">
+                Watch how our affiliates promote MonetizedProfiles and earn commissions
+              </p>
             </div>
 
-            <div className="text-center">
-              <Button size="lg" className="text-lg px-8">
+            <div className="text-center mt-8">
+              <Button size="lg" className="text-lg px-8 bg-primary hover:bg-primary/90">
                 Apply Now - Start Earning Today
               </Button>
             </div>
