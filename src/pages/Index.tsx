@@ -203,7 +203,7 @@ const Index = () => {
             {/* Big Animated Gradient Headline */}
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-tight">
               <span className="block mb-2">Monetized Accounts,</span>
-              <span className="block bg-gradient-to-r from-[#CC0000] via-[#FF2929] to-[#FF5555] bg-clip-text text-transparent animate-gradient-flow" style={{ backgroundSize: "200% auto" }}>
+              <span className="block bg-gradient-to-r from-[#FF2929] via-[#FF6B6B] to-[#306BE4] bg-clip-text text-transparent animate-gradient-flow" style={{ backgroundSize: "200% auto" }}>
                 Instant Revenue
               </span>
             </h1>
