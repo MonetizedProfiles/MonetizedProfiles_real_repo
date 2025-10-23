@@ -4,22 +4,21 @@ import { CheckCircle, Mail, ArrowRight, TrendingUp, Users, DollarSign, Video } f
 
 const Affiliate = () => {
   return (
-    <div className="bg-background">`
-
+    <div className="bg-background">
       {/* Hero Section */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+      <section className="py-20 relative overflow-hidden border-b border-border">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Promote Our Accounts.<br />
-              <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
+              <span className="text-primary">Get Paid Generously.</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
               Join 500+ creators earning 20% commission on every sale
             </p>
-            <Button size="lg" className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
+            <Button size="lg" className="text-xl px-12 py-6">
               Apply Now
             </Button>
           </div>
@@ -27,7 +26,7 @@ const Affiliate = () => {
       </section>
 
       {/* Why Join Section */}
-      <section className="py-20 border-t border-border">
+      <section className="py-20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
@@ -35,9 +34,9 @@ const Affiliate = () => {
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <Card className="border-2">
+              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <DollarSign className="w-8 h-8 text-primary" />
                   </div>
                   <CardTitle className="text-2xl">High Commissions</CardTitle>
@@ -49,9 +48,9 @@ const Affiliate = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
+              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <TrendingUp className="w-8 h-8 text-primary" />
                   </div>
                   <CardTitle className="text-2xl">Proven Results</CardTitle>
@@ -63,9 +62,9 @@ const Affiliate = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-2">
+              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
                 <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <Users className="w-8 h-8 text-primary" />
                   </div>
                   <CardTitle className="text-2xl">Full Support</CardTitle>
@@ -82,18 +81,18 @@ const Affiliate = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-secondary/20 border-y border-border">
+      <section className="py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-              Getting Started is <span style={{ color: '#FF2929' }}>Easy</span>
+              Getting Started is <span className="text-primary">Easy</span>
             </h2>
             
             <div className="grid md:grid-cols-3 gap-12">
               {/* Step 1 */}
               <div className="relative">
                 <div className="text-center">
-                  <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl font-bold border-4 border-primary" style={{ backgroundColor: '#FF2929', color: 'white' }}>
+                  <div className="w-20 h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-6 text-4xl font-bold shadow-lg">
                     1
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Sign Up</h3>
@@ -109,7 +108,7 @@ const Affiliate = () => {
               {/* Step 2 */}
               <div className="relative">
                 <div className="text-center">
-                  <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl font-bold border-4 border-primary" style={{ backgroundColor: '#FF2929', color: 'white' }}>
+                  <div className="w-20 h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-6 text-4xl font-bold shadow-lg">
                     2
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Promote Your Link</h3>
@@ -125,7 +124,7 @@ const Affiliate = () => {
               {/* Step 3 */}
               <div>
                 <div className="text-center">
-                  <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl font-bold border-4 border-primary" style={{ backgroundColor: '#FF2929', color: 'white' }}>
+                  <div className="w-20 h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-6 text-4xl font-bold shadow-lg">
                     3
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Get Paid</h3>
@@ -137,7 +136,7 @@ const Affiliate = () => {
             </div>
 
             <div className="text-center mt-16">
-              <Button size="lg" className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
+              <Button size="lg" className="text-xl px-12 py-6">
                 Start Earning Today
               </Button>
             </div>
@@ -150,7 +149,7 @@ const Affiliate = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
-              See Our Affiliates <span style={{ color: '#FF2929' }}>in Action</span>
+              See Our Affiliates <span className="text-primary">in Action</span>
             </h2>
             <p className="text-xl text-center text-muted-foreground mb-16">
               Real creators getting real results promoting our products
@@ -160,11 +159,11 @@ const Affiliate = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {/* Placeholder Cards - Replace these with actual video embeds or images */}
               {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                <Card key={item} className="overflow-hidden group cursor-pointer hover:shadow-xl transition-all">
+                <Card key={item} className="overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
                   <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                    <Video className="w-12 h-12 text-muted-foreground" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                      <p className="text-white text-sm font-medium">Affiliate Example {item}</p>
+                    <Video className="w-12 h-12 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                      <p className="text-foreground text-sm font-medium">Affiliate Example {item}</p>
                     </div>
                   </div>
                 </Card>
@@ -184,7 +183,9 @@ const Affiliate = () => {
       <section className="py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <Mail className="w-16 h-16 mx-auto mb-6" style={{ color: '#FF2929' }} />
+            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+              <Mail className="w-10 h-10 text-primary" />
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Questions About Our Program?
             </h2>
@@ -193,8 +194,7 @@ const Affiliate = () => {
             </p>
             <a 
               href="mailto:affiliates@monetizedprofiles.com" 
-              className="text-2xl font-bold hover:underline inline-flex items-center gap-2"
-              style={{ color: '#FF2929' }}
+              className="text-2xl font-bold hover:underline inline-flex items-center gap-2 text-primary transition-colors hover:opacity-80"
             >
               <Mail className="w-6 h-6" />
               affiliates@monetizedprofiles.com
@@ -207,10 +207,10 @@ const Affiliate = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-2">
+            <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 border-2 hover:shadow-lg transition-shadow">
               <CardContent className="p-12 text-center">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                  Ready to Start <span style={{ color: '#FF2929' }}>Earning?</span>
+                  Ready to Start <span className="text-primary">Earning?</span>
                 </h2>
                 <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                   Join hundreds of successful affiliates who are already earning generous commissions promoting our premium monetized accounts.
@@ -231,7 +231,7 @@ const Affiliate = () => {
                   </div>
                 </div>
 
-                <Button size="lg" className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
+                <Button size="lg" className="text-xl px-12 py-6">
                   Apply for Affiliate Program
                 </Button>
               </CardContent>
