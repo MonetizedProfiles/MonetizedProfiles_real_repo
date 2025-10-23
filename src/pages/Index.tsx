@@ -1003,14 +1003,38 @@ const Index = () => {
                 <li><a href="#" className="hover:text-primary transition-colors">Refund Policy</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Cookie Policy</a></li>
               </ul>
-            </div>
-          </div>
-          
-          <div className="border-t pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
           </div>
         </div>
-      </footer>
+
+        {/* Email Capture */}
+        <div className="pt-8 border-t max-w-md mx-auto text-center">
+          <p className="text-sm text-muted-foreground mb-3">Get notified about restocking and exclusive offers</p>
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const email = formData.get('email');
+              toast.success("Thanks for subscribing!");
+              e.currentTarget.reset();
+            }}
+            className="flex gap-2"
+          >
+            <Input 
+              type="email" 
+              name="email"
+              placeholder="Enter your email" 
+              required 
+              className="flex-1"
+            />
+            <Button type="submit" size="sm">Subscribe</Button>
+          </form>
+        </div>
+        
+        <div className="pt-8 text-center text-sm text-muted-foreground">
+          <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
     </div>
   );
 };
