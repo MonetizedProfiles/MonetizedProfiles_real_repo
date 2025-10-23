@@ -193,21 +193,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-background to-background" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto text-center relative">
-            {/* Floating Icons with Glow */}
-            <div className="absolute top-0 left-1/4 -translate-x-1/2 animate-[float_6s_ease-in-out_infinite]">
-              <TrendingUp className="w-12 h-12 text-[#FF2929]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 41, 41, 0.6))' }} />
-            </div>
-            <div className="absolute top-20 right-1/4 translate-x-1/2 animate-[float_5s_ease-in-out_infinite_1s]">
-              <DollarSign className="w-14 h-14 text-[#C74DFF]" style={{ filter: 'drop-shadow(0 0 20px rgba(199, 77, 255, 0.6))' }} />
-            </div>
-            <div className="absolute top-40 left-1/3 -translate-x-full animate-[float_7s_ease-in-out_infinite_0.5s]">
-              <Zap className="w-10 h-10 text-[#FF5C8D]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 92, 141, 0.6))' }} />
-            </div>
-            <div className="absolute top-32 right-1/3 translate-x-full animate-[float_6.5s_ease-in-out_infinite_1.5s]">
-              <Star className="w-11 h-11 text-[#FF2929] fill-[#FF2929]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 41, 41, 0.6))' }} />
-            </div>
-
+          <div className="max-w-5xl mx-auto text-center">
             {/* Badges */}
             <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary rounded-full text-sm font-medium">
