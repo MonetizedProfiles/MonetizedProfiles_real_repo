@@ -187,94 +187,90 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section - Modern SaaS Style */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-background">
-        {/* Animated gradient orbs */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 -left-48 w-96 h-96 bg-[#FF2929]/10 rounded-full blur-3xl animate-float-slow" />
-          <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-[#306BE4]/10 rounded-full blur-3xl animate-float-slow-delay" />
+      {/* Hero Section - Unique Bold Style */}
+      <section className="relative py-24 md:py-36 overflow-hidden">
+        {/* Dynamic striped background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/30 to-background">
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              #FF2929,
+              #FF2929 10px,
+              transparent 10px,
+              transparent 20px
+            )`
+          }} />
         </div>
 
+        {/* Floating accent elements */}
+        <div className="absolute top-20 right-[10%] w-20 h-20 border-4 border-[#FF2929]/20 rounded-full animate-spin-slow" />
+        <div className="absolute bottom-32 left-[15%] w-16 h-16 border-4 border-[#306BE4]/20 rounded-full animate-spin-slow-reverse" />
+        
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Status pill */}
-            <div 
-              className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-secondary/50 backdrop-blur-sm rounded-full border border-border/50 animate-fade-in"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF2929] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF2929]"></span>
-              </span>
-              <span className="text-sm font-medium text-muted-foreground">
-                {accountsSold} accounts sold this month
-              </span>
+          <div className="max-w-5xl mx-auto">
+            {/* Badge */}
+            <div className="flex justify-center mb-10">
+              <div className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#FF2929] text-white rounded-full font-semibold text-sm shadow-lg animate-bounce-subtle">
+                <Star className="w-4 h-4 fill-white" />
+                <span>Trusted by {accountsSold}+ Creators</span>
+              </div>
             </div>
 
-            {/* Main headline */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-slide-up">
-              Monetized accounts,
-              <br />
-              <span className="bg-gradient-to-r from-[#FF2929] to-[#FF2929]/70 bg-clip-text text-transparent">
-                delivered instantly
-              </span>
-            </h1>
-
-            {/* Subheadline */}
-            <p 
-              className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-slide-up"
-              style={{ animationDelay: "0.1s" }}
-            >
-              Skip the grind. Buy verified YouTube and TikTok accounts ready to earn.
-            </p>
-
-            {/* CTA buttons */}
-            <div 
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <Button 
-                size="lg"
-                className="px-8 py-6 text-lg font-semibold bg-[#FF2929] hover:bg-[#FF2929]/90 text-white shadow-lg hover:shadow-xl transition-all"
-              >
-                View Accounts
-                <TrendingUp className="ml-2 w-5 h-5" />
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="px-8 py-6 text-lg font-semibold border-2"
-              >
-                See How It Works
-              </Button>
-            </div>
-
-            {/* Feature cards */}
-            <div 
-              className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto animate-slide-up"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <div className="group p-6 bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 hover:border-[#FF2929]/30 transition-all hover:shadow-lg">
-                <div className="w-10 h-10 mb-4 bg-[#FF2929]/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Zap className="w-5 h-5" style={{ color: "#FF2929" }} />
+            {/* Main Content */}
+            <div className="text-center space-y-8">
+              {/* Headline with unique typography */}
+              <div className="space-y-4">
+                <div className="inline-block">
+                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none">
+                    <span className="block opacity-20 text-muted-foreground">BUY</span>
+                    <span className="block -mt-6 md:-mt-10" style={{ color: "#FF2929" }}>EARN</span>
+                    <span className="block -mt-6 md:-mt-10 opacity-20 text-muted-foreground">GROW</span>
+                  </h1>
                 </div>
-                <h3 className="font-semibold mb-1">Instant Access</h3>
-                <p className="text-sm text-muted-foreground">Account transferred in 24 hours</p>
               </div>
 
-              <div className="group p-6 bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 hover:border-[#306BE4]/30 transition-all hover:shadow-lg">
-                <div className="w-10 h-10 mb-4 bg-[#306BE4]/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Shield className="w-5 h-5" style={{ color: "#306BE4" }} />
-                </div>
-                <h3 className="font-semibold mb-1">Fully Verified</h3>
-                <p className="text-sm text-muted-foreground">Real followers, real engagement</p>
-              </div>
+              {/* Subheadline */}
+              <p className="text-2xl md:text-3xl font-medium text-foreground max-w-3xl mx-auto leading-relaxed">
+                Pre-monetized YouTube & TikTok accounts.
+                <br />
+                <span className="text-muted-foreground">Your shortcut to content creator success.</span>
+              </p>
 
-              <div className="group p-6 bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 hover:border-[#FF2929]/30 transition-all hover:shadow-lg">
-                <div className="w-10 h-10 mb-4 bg-[#FF2929]/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <DollarSign className="w-5 h-5" style={{ color: "#FF2929" }} />
+              {/* CTA Section */}
+              <div className="pt-6">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Button 
+                    size="lg"
+                    className="px-12 py-8 text-xl font-bold bg-[#FF2929] hover:bg-[#FF2929]/90 text-white shadow-2xl hover:shadow-3xl transition-all hover:-translate-y-1 group"
+                  >
+                    <span>Shop Now</span>
+                    <TrendingUp className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                  <Button 
+                    size="lg"
+                    variant="ghost"
+                    className="px-12 py-8 text-xl font-bold hover:bg-secondary/50 transition-all group"
+                  >
+                    <Play className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform" />
+                    <span>Watch Demo</span>
+                  </Button>
                 </div>
-                <h3 className="font-semibold mb-1">Start Earning</h3>
-                <p className="text-sm text-muted-foreground">Monetization enabled from day 1</p>
+
+                {/* Quick stats */}
+                <div className="flex flex-wrap justify-center gap-6 mt-10 text-sm font-semibold">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5" style={{ color: "#FF2929" }} />
+                    <span>Instant Delivery</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5" style={{ color: "#FF2929" }} />
+                    <span>30-Day Warranty</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5" style={{ color: "#FF2929" }} />
+                    <span>24/7 Support</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
