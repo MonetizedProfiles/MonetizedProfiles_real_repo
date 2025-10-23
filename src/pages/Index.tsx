@@ -220,146 +220,150 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Animated Revenue Growth Visualization */}
-            <div className="relative h-40 mt-16">
-              {/* Animated rising bars - revenue growth */}
-              <div className="absolute left-1/2 -translate-x-1/2 -top-20 flex items-end gap-3">
+            {/* Monetization Ecosystem Animation */}
+            <div className="relative h-48 mt-16 -mb-8">
+              {/* Orbiting Platforms - Left Side */}
+              <div 
+                className="absolute left-[10%] -top-32"
+                style={{ 
+                  animation: "orbit-left 8s ease-in-out infinite",
+                  transformOrigin: "center"
+                }}
+              >
+                <div className="relative">
+                  <div className="w-24 h-24 bg-gradient-to-br from-[#FF2929]/20 to-[#FF2929]/5 rounded-2xl flex flex-col items-center justify-center border-2 border-[#FF2929]/40 shadow-[0_0_30px_rgba(255,41,41,0.4)] backdrop-blur-sm">
+                    <Play className="w-8 h-8 mb-1" style={{ color: "#FF2929" }} />
+                    <span className="text-xs font-bold" style={{ color: "#FF2929" }}>YouTube</span>
+                  </div>
+                  {/* Flowing money particles */}
+                  <div 
+                    className="absolute -right-4 top-1/2"
+                    style={{ animation: "flow-right 2s ease-in-out infinite" }}
+                  >
+                    <DollarSign className="w-5 h-5" style={{ color: "#FF2929", opacity: 0.6 }} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Orbiting Platforms - Right Side */}
+              <div 
+                className="absolute right-[10%] -top-28"
+                style={{ 
+                  animation: "orbit-right 8s ease-in-out infinite",
+                  transformOrigin: "center"
+                }}
+              >
+                <div className="relative">
+                  <div className="w-24 h-24 bg-gradient-to-br from-[#306BE4]/20 to-[#306BE4]/5 rounded-2xl flex flex-col items-center justify-center border-2 border-[#306BE4]/40 shadow-[0_0_30px_rgba(48,107,228,0.4)] backdrop-blur-sm">
+                    <Video className="w-8 h-8 mb-1" style={{ color: "#306BE4" }} />
+                    <span className="text-xs font-bold" style={{ color: "#306BE4" }}>TikTok</span>
+                  </div>
+                  {/* Flowing money particles */}
+                  <div 
+                    className="absolute -left-4 top-1/2"
+                    style={{ animation: "flow-left 2s ease-in-out infinite" }}
+                  >
+                    <DollarSign className="w-5 h-5" style={{ color: "#306BE4", opacity: 0.6 }} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Center Energy Core */}
+              <div className="absolute left-1/2 -translate-x-1/2 -top-20">
                 <div 
-                  className="w-12 h-24 bg-gradient-to-t from-[#FF2929] to-[#FF2929]/50 rounded-t-lg"
-                  style={{ 
-                    animation: "grow-bar 2s ease-out infinite",
-                    animationDelay: "0s"
-                  }}
+                  className="relative w-32 h-32"
+                  style={{ animation: "rotate-slow 20s linear infinite" }}
+                >
+                  {/* Outer ring */}
+                  <div className="absolute inset-0 rounded-full border-2 border-[#FF2929]/30 border-dashed" />
+                  
+                  {/* Inner core */}
+                  <div 
+                    className="absolute inset-4 rounded-full bg-gradient-to-br from-[#FF2929]/30 to-[#306BE4]/30 flex items-center justify-center backdrop-blur-sm"
+                    style={{ animation: "pulse-core 2s ease-in-out infinite" }}
+                  >
+                    <div className="text-center">
+                      <TrendingUp className="w-10 h-10 mx-auto mb-1" style={{ color: "#FF2929" }} />
+                      <div className="text-xs font-bold" style={{ color: "#FF2929" }}>$$$</div>
+                    </div>
+                  </div>
+
+                  {/* Spinning particles */}
+                  <div 
+                    className="absolute -top-2 left-1/2 -translate-x-1/2"
+                    style={{ animation: "spin-particle 3s linear infinite" }}
+                  >
+                    <Star className="w-4 h-4 fill-[#FF2929] text-[#FF2929]" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Revenue Indicators */}
+              <div 
+                className="absolute left-[25%] top-0"
+                style={{ animation: "float-revenue 4s ease-in-out infinite", animationDelay: "0s" }}
+              >
+                <div className="bg-[#FF2929]/10 px-3 py-1 rounded-lg border border-[#FF2929]/30 backdrop-blur-sm">
+                  <span className="text-sm font-bold" style={{ color: "#FF2929" }}>+$247</span>
+                </div>
+              </div>
+              
+              <div 
+                className="absolute right-[25%] top-8"
+                style={{ animation: "float-revenue 4s ease-in-out infinite", animationDelay: "1s" }}
+              >
+                <div className="bg-[#306BE4]/10 px-3 py-1 rounded-lg border border-[#306BE4]/30 backdrop-blur-sm">
+                  <span className="text-sm font-bold" style={{ color: "#306BE4" }}>+$189</span>
+                </div>
+              </div>
+
+              <div 
+                className="absolute left-[30%] top-16"
+                style={{ animation: "float-revenue 4s ease-in-out infinite", animationDelay: "2s" }}
+              >
+                <div className="bg-[#FF2929]/10 px-3 py-1 rounded-lg border border-[#FF2929]/30 backdrop-blur-sm">
+                  <span className="text-sm font-bold" style={{ color: "#FF2929" }}>+$412</span>
+                </div>
+              </div>
+
+              {/* Connection Lines Animation */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ top: "-120px" }}>
+                <line 
+                  x1="20%" y1="50%" x2="50%" y2="50%" 
+                  stroke="#FF2929" 
+                  strokeWidth="2" 
+                  strokeDasharray="5,5"
+                  opacity="0.3"
+                  style={{ animation: "dash-flow 2s linear infinite" }}
                 />
-                <div 
-                  className="w-12 h-32 bg-gradient-to-t from-[#FF2929] to-[#FF2929]/50 rounded-t-lg"
-                  style={{ 
-                    animation: "grow-bar 2s ease-out infinite",
-                    animationDelay: "0.3s"
-                  }}
+                <line 
+                  x1="80%" y1="50%" x2="50%" y2="50%" 
+                  stroke="#306BE4" 
+                  strokeWidth="2" 
+                  strokeDasharray="5,5"
+                  opacity="0.3"
+                  style={{ animation: "dash-flow 2s linear infinite reverse" }}
                 />
-                <div 
-                  className="w-12 h-40 bg-gradient-to-t from-[#FF2929] to-[#FF2929]/50 rounded-t-lg"
-                  style={{ 
-                    animation: "grow-bar 2s ease-out infinite",
-                    animationDelay: "0.6s"
-                  }}
-                />
-              </div>
+              </svg>
 
-              {/* Floating dollar signs rising */}
+              {/* Ambient Glow Particles */}
               <div 
-                className="absolute left-[20%] top-0"
-                style={{ 
-                  animation: "float-up 3s ease-in-out infinite",
-                  animationDelay: "0s"
-                }}
+                className="absolute left-[15%] -top-4"
+                style={{ animation: "drift 6s ease-in-out infinite", animationDelay: "0s" }}
               >
-                <div className="text-4xl font-bold opacity-60" style={{ color: "#FF2929" }}>$</div>
+                <div className="w-2 h-2 rounded-full bg-[#FF2929] opacity-40 blur-sm" />
               </div>
               <div 
-                className="absolute left-[25%] top-8"
-                style={{ 
-                  animation: "float-up 3s ease-in-out infinite",
-                  animationDelay: "1s"
-                }}
+                className="absolute right-[20%] top-12"
+                style={{ animation: "drift 5s ease-in-out infinite", animationDelay: "1s" }}
               >
-                <div className="text-3xl font-bold opacity-40" style={{ color: "#FF2929" }}>$</div>
+                <div className="w-2 h-2 rounded-full bg-[#306BE4] opacity-40 blur-sm" />
               </div>
               <div 
-                className="absolute right-[20%] top-4"
-                style={{ 
-                  animation: "float-up 3s ease-in-out infinite",
-                  animationDelay: "0.5s"
-                }}
+                className="absolute left-[40%] top-4"
+                style={{ animation: "drift 7s ease-in-out infinite", animationDelay: "2s" }}
               >
-                <div className="text-4xl font-bold opacity-60" style={{ color: "#FF2929" }}>$</div>
-              </div>
-              <div 
-                className="absolute right-[25%] top-12"
-                style={{ 
-                  animation: "float-up 3s ease-in-out infinite",
-                  animationDelay: "1.5s"
-                }}
-              >
-                <div className="text-3xl font-bold opacity-40" style={{ color: "#FF2929" }}>$</div>
-              </div>
-
-              {/* Pulsing success circles */}
-              <div 
-                className="absolute left-[15%] -top-8"
-                style={{ 
-                  animation: "pulse-glow 2s ease-in-out infinite",
-                  animationDelay: "0s"
-                }}
-              >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#306BE4]/30 to-[#306BE4]/10 border-2 border-[#306BE4]/40 flex items-center justify-center shadow-[0_0_30px_rgba(48,107,228,0.4)]">
-                  <CheckCircle className="w-8 h-8" style={{ color: "#306BE4" }} />
-                </div>
-              </div>
-              <div 
-                className="absolute right-[15%] -top-4"
-                style={{ 
-                  animation: "pulse-glow 2s ease-in-out infinite",
-                  animationDelay: "1s"
-                }}
-              >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#306BE4]/30 to-[#306BE4]/10 border-2 border-[#306BE4]/40 flex items-center justify-center shadow-[0_0_30px_rgba(48,107,228,0.4)]">
-                  <TrendingUp className="w-8 h-8" style={{ color: "#306BE4" }} />
-                </div>
-              </div>
-
-              {/* Animated Play and Video icons */}
-              <div 
-                className="absolute left-[30%] top-6"
-                style={{ 
-                  animation: "bounce-soft 2.5s ease-in-out infinite",
-                  animationDelay: "0.2s"
-                }}
-              >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FF2929]/20 to-[#FF2929]/5 border-2 border-[#FF2929]/30 flex items-center justify-center shadow-[0_0_20px_rgba(255,41,41,0.3)]">
-                  <Play className="w-7 h-7" style={{ color: "#FF2929" }} />
-                </div>
-              </div>
-              <div 
-                className="absolute right-[30%] top-10"
-                style={{ 
-                  animation: "bounce-soft 2.5s ease-in-out infinite",
-                  animationDelay: "0.8s"
-                }}
-              >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#FF2929]/20 to-[#FF2929]/5 border-2 border-[#FF2929]/30 flex items-center justify-center shadow-[0_0_20px_rgba(255,41,41,0.3)]">
-                  <Video className="w-7 h-7" style={{ color: "#FF2929" }} />
-                </div>
-              </div>
-
-              {/* Sparkle effects */}
-              <div 
-                className="absolute left-[40%] -top-4"
-                style={{ 
-                  animation: "twinkle 1.5s ease-in-out infinite",
-                  animationDelay: "0s"
-                }}
-              >
-                <Star className="w-5 h-5 fill-[#FF2929] text-[#FF2929]" />
-              </div>
-              <div 
-                className="absolute right-[40%] top-2"
-                style={{ 
-                  animation: "twinkle 1.5s ease-in-out infinite",
-                  animationDelay: "0.5s"
-                }}
-              >
-                <Star className="w-4 h-4 fill-[#306BE4] text-[#306BE4]" />
-              </div>
-              <div 
-                className="absolute left-[35%] top-14"
-                style={{ 
-                  animation: "twinkle 1.5s ease-in-out infinite",
-                  animationDelay: "1s"
-                }}
-              >
-                <Star className="w-4 h-4 fill-[#FF2929] text-[#FF2929]" />
+                <div className="w-2 h-2 rounded-full bg-[#FF2929] opacity-40 blur-sm" />
               </div>
             </div>
           </div>
