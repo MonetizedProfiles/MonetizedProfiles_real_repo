@@ -16,6 +16,7 @@ import logo from "@/assets/logo.png";
 
 const Index = () => {
   const [email, setEmail] = useState("");
+  const [footerEmail, setFooterEmail] = useState("");
   const [accountsSold, setAccountsSold] = useState(27708 + Math.floor(Math.random() * 100));
   const [accountsSoldThisMonth, setAccountsSoldThisMonth] = useState(639 + Math.floor(Math.random() * 10));
   const [totalStock, setTotalStock] = useState<number | null>(null);
@@ -84,6 +85,14 @@ const Index = () => {
     if (email) {
       toast.success("Thanks! We'll notify you when products are restocked.");
       setEmail("");
+    }
+  };
+
+  const handleFooterEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (footerEmail) {
+      toast.success("Success! You're now subscribed to our updates.");
+      setFooterEmail("");
     }
   };
 
@@ -963,8 +972,29 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t py-12 mt-20 bg-secondary/50">
+      <footer className="border-t py-12 mt-20 bg-background">
         <div className="container mx-auto px-4">
+          {/* Email Capture Section */}
+          <div className="mb-12 max-w-xl mx-auto text-center">
+            <h3 className="text-2xl font-bold mb-2">Stay in the Loop</h3>
+            <p className="text-muted-foreground mb-6">
+              Get notified when new accounts are in stock and receive exclusive offers
+            </p>
+            <form onSubmit={handleFooterEmailSubmit} className="flex gap-2">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={footerEmail}
+                onChange={(e) => setFooterEmail(e.target.value)}
+                className="flex-1"
+                required
+              />
+              <Button type="submit" style={{ backgroundColor: '#FF2929' }}>
+                Subscribe
+              </Button>
+            </form>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <img src={logo} alt="MonetizedProfiles" className="h-8 mb-4" />
