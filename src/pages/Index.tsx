@@ -349,16 +349,15 @@ const Index = () => {
             {/* Scrollable container */}
             <div 
               ref={scrollContainerRef}
-              className="overflow-x-hidden scroll-smooth"
+              className="overflow-x-auto scrollbar-hide scroll-smooth"
               onScroll={checkScrollButtons}
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               <div 
-                className="flex gap-6 transition-transform"
+                className="grid gap-6"
                 style={{ 
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(0, 1fr))',
                   gridAutoFlow: 'column',
-                  gridAutoColumns: 'calc(33.333% - 1rem)'
+                  gridAutoColumns: 'calc((100% - 3rem) / 3)'
                 }}
               >
                 {data.map((product) => (
