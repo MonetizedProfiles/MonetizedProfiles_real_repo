@@ -213,22 +213,6 @@ const Affiliate = () => {
                     </div>
                   </div>
 
-                  {/* Quick Stats */}
-                  <div className="grid grid-cols-3 gap-4 pt-4">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-primary">{conversions[0]}</div>
-                      <div className="text-xs text-muted-foreground">Sales/Month</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-primary">20%</div>
-                      <div className="text-xs text-muted-foreground">Commission</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-primary">30d</div>
-                      <div className="text-xs text-muted-foreground">Cookie Life</div>
-                    </div>
-                  </div>
-
                   {/* CTA */}
                   <div className="text-center pt-4">
                     <Button size="lg" className="text-lg px-10 py-6">
