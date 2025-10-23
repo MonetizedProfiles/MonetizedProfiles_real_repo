@@ -201,13 +201,13 @@ const Index = () => {
             <div className="absolute -right-32 top-24 hidden lg:block animate-float" style={{ animationDelay: '1s' }}>
               <DollarSign className="w-14 h-14 text-[#C74DFF]" style={{ filter: 'drop-shadow(0 0 20px rgba(199, 77, 255, 0.6))' }} />
             </div>
-            <div className="absolute -left-20 bottom-24 hidden lg:block animate-float" style={{ animationDelay: '0.5s' }}>
+            <div className="absolute -left-24 bottom-24 hidden lg:block animate-float" style={{ animationDelay: '0.5s' }}>
               <Zap className="w-10 h-10 text-[#FF5C8D]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 92, 141, 0.6))' }} />
             </div>
             <div className="absolute -right-28 bottom-32 hidden lg:block animate-float" style={{ animationDelay: '1.5s' }}>
               <Star className="w-11 h-11 text-[#FF2929]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 41, 41, 0.6))' }} />
             </div>
-            <div className="absolute left-[14%] bottom-0 hidden lg:block animate-float" style={{ animationDelay: '0.75s' }}>
+            <div className="absolute left-[12%] bottom-0 hidden lg:block animate-float" style={{ animationDelay: '0.75s' }}>
               <Sparkles className="w-12 h-12 text-[#C74DFF]" style={{ filter: 'drop-shadow(0 0 20px rgba(199, 77, 255, 0.6))' }} />
             </div>
             
