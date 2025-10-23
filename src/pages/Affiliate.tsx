@@ -22,7 +22,7 @@ const Affiliate = () => {
               Promote Our Accounts.<br />
               <span className="text-primary">Get Paid Generously.</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
               Join 500+ creators earning 20% commission on every sale
             </p>
             <Button size="lg" className="text-xl px-12 py-6">
