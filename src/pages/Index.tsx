@@ -77,13 +77,6 @@ const Index = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // Filter to show featured products (2 YouTube + 1 TikTok + 1 Aged YouTube)
-  const featuredProducts = data?.filter(p => 
-    p.node.title.includes("Monetized YouTube") || 
-    p.node.title.includes("Monetized TikTok") ||
-    p.node.title.includes("Aged YouTube Channel")
-  );
-
   // Check scroll position
   const checkScrollButtons = () => {
     if (scrollContainerRef.current) {
@@ -97,11 +90,11 @@ const Index = () => {
     checkScrollButtons();
     window.addEventListener('resize', checkScrollButtons);
     return () => window.removeEventListener('resize', checkScrollButtons);
-  }, [featuredProducts]);
+  }, [data]);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 400;
+      const scrollAmount = scrollContainerRef.current.clientWidth;
       scrollContainerRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -306,7 +299,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Products Section - 4 Products Display with Scroll */}
+      {/* Featured Products Section - 3 Products Display with Scroll */}
       <section className="py-16 container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold mb-2" style={{ color: '#FF2929' }}>Featured Accounts</h2>
@@ -319,7 +312,7 @@ const Index = () => {
             <Skeleton className="aspect-square w-full" />
             <Skeleton className="aspect-square w-full" />
           </div>
-        ) : !featuredProducts || featuredProducts.length === 0 ? (
+        ) : !data || data.length === 0 ? (
           <div className="text-center py-20">
             <ShoppingBag className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
             <h4 className="text-2xl font-semibold mb-2">No Products Found</h4>
@@ -328,7 +321,7 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-7xl mx-auto relative">
+          <div className="max-w-6xl mx-auto relative">
             {/* Left Scroll Button */}
             {canScrollLeft && (
               <Button
@@ -345,14 +338,14 @@ const Index = () => {
             <div 
               ref={scrollContainerRef}
               onScroll={checkScrollButtons}
-              className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth"
+              className="overflow-x-auto scrollbar-hide scroll-smooth"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              {featuredProducts.map((product) => (
-                <div key={product.node.id} className="flex-shrink-0 w-[calc(100%-2rem)] md:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]">
-                  <ProductCard product={product} />
-                </div>
-              ))}
+              <div className="grid grid-cols-3 gap-6" style={{ gridAutoFlow: 'column', gridAutoColumns: 'calc(33.333% - 1rem)' }}>
+                {data.map((product) => (
+                  <ProductCard key={product.node.id} product={product} />
+                ))}
+              </div>
             </div>
 
             {/* Right Scroll Button */}
