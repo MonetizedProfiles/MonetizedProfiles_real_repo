@@ -188,7 +188,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section - Modern SaaS Minimal */}
-      <section className="relative py-32 md:py-40 overflow-hidden bg-background">
+      <section className="relative pt-24 pb-32 md:pt-32 md:pb-40 overflow-hidden bg-background">
         {/* Subtle background */}
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-background to-background" />
         
