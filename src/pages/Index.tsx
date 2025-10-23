@@ -901,18 +901,17 @@ const Index = () => {
       </section>
 
       {/* Affiliate Program Section - Simple & Unique */}
-      <section id="affiliate" className="py-32 relative overflow-hidden">
+      <section id="affiliate" className="py-32 relative overflow-hidden border-t border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto">
             {/* Main Pitch */}
             <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Promote Premium Accounts.<br />
-                <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-3 leading-tight">
+                Promote Premium Accounts. <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
               </h2>
-              <p className="text-2xl text-muted-foreground mb-8">
+              <p className="text-xl text-muted-foreground mb-8">
                 20% commission on every sale. No strings attached.
               </p>
             </div>
