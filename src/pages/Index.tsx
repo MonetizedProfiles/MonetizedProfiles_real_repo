@@ -2,16 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 import { CartDrawer } from "@/components/CartDrawer";
-import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail } from "lucide-react";
+import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail, DollarSign, Percent, Video } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
-import iphoneMockup from "@/assets/iphone-youtube-mockup.png";
 
 const Index = () => {
   const [email, setEmail] = useState("");
@@ -41,12 +41,109 @@ const Index = () => {
       {/* Header */}
       <header className="border-b bg-background/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <img src={logo} alt="MonetizedProfiles" className="h-8" />
+          <Link to="/">
+            <img src={logo} alt="MonetizedProfiles" className="h-8" />
+          </Link>
+          
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                    {data?.map((product) => (
+                      <li key={product.node.id}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to={`/product/${product.node.handle}`}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">{product.node.title}</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              {product.node.description}
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Affiliate Program</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 w-[400px]">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <a href="#affiliate" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Become an Affiliate</div>
+                          <p className="text-sm leading-snug text-muted-foreground">Earn 20% commission on every sale</p>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Support</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 w-[300px]">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <a href="#contact" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Contact Us</div>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <a href="#faq" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">FAQ</div>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Policies</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 w-[300px]">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <a href="#privacy" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Privacy Policy</div>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <a href="#terms" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Terms of Service</div>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <a href="#refund" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Refund Policy</div>
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+
           <CartDrawer />
         </div>
       </header>
 
-      {/* Hero Section with iPhone Mockup */}
+      {/* Hero Section with Animation */}
       <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-secondary to-background">
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -73,12 +170,55 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <img 
-                src={iphoneMockup} 
-                alt="YouTube Dashboard on iPhone" 
-                className="w-full max-w-md mx-auto drop-shadow-2xl"
-              />
+            <div className="relative flex items-center justify-center">
+              {/* Animated Icon Grid */}
+              <div className="grid grid-cols-3 gap-6 p-8">
+                <div className="animate-fade-in" style={{ animationDelay: '0s' }}>
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
+                    <TrendingUp className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+                <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
+                    <DollarSign className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+                <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
+                    <Shield className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+                <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
+                    <Users className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+                <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20 animate-pulse">
+                    <Zap className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+                <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
+                    <Lock className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+                <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
+                    <Star className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+                <div className="animate-fade-in" style={{ animationDelay: '0.7s' }}>
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
+                    <CheckCircle className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+                <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
+                    <Video className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -118,7 +258,7 @@ const Index = () => {
         )}
       </section>
 
-      {/* Features Section */}
+      {/* Enhanced Features Section */}
       <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
@@ -126,44 +266,148 @@ const Index = () => {
             <p className="text-muted-foreground">Everything you need to start earning immediately</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <Card className="text-center hover:shadow-glow transition-all">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
+            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
               <CardHeader>
-                <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
-                <CardTitle>100% Verified</CardTitle>
+                <Shield className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <CardTitle>100% Verified Accounts</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>All accounts are fully verified and meet platform requirements for monetization</CardDescription>
+                <CardDescription className="text-base mb-4">All accounts are fully verified and meet platform requirements for monetization</CardDescription>
+                <ul className="text-sm text-left space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>YouTube Partner Program approved</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>TikTok Creator Marketplace access</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Full monetization features enabled</span>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
 
-            <Card className="text-center hover:shadow-glow transition-all">
+            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
               <CardHeader>
-                <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-                <CardTitle>Real Audiences</CardTitle>
+                <Users className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <CardTitle>Real Engaged Audiences</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>Genuine followers and subscribers with proven engagement metrics</CardDescription>
+                <CardDescription className="text-base mb-4">Genuine followers and subscribers with proven engagement metrics</CardDescription>
+                <ul className="text-sm text-left space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Organic growth history</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>High engagement rates (5-15%)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Active, real followers only</span>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
 
-            <Card className="text-center hover:shadow-glow transition-all">
+            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
               <CardHeader>
-                <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                <CardTitle>Instant Transfer</CardTitle>
+                <Zap className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <CardTitle>Lightning Fast Transfer</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>Complete account ownership transferred within 24 hours of purchase</CardDescription>
+                <CardDescription className="text-base mb-4">Complete account ownership transferred within 24 hours of purchase</CardDescription>
+                <ul className="text-sm text-left space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Instant access after payment</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Full credentials transferred</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Step-by-step migration guide</span>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
 
-            <Card className="text-center hover:shadow-glow transition-all">
+            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
               <CardHeader>
-                <Lock className="w-12 h-12 text-primary mx-auto mb-4" />
-                <CardTitle>Secure Process</CardTitle>
+                <Lock className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <CardTitle>Bank-Level Security</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>Protected transactions with escrow service and full documentation</CardDescription>
+                <CardDescription className="text-base mb-4">Protected transactions with escrow service and full documentation</CardDescription>
+                <ul className="text-sm text-left space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Secure payment processing</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Legal transfer documentation</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Privacy guaranteed</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
+              <CardHeader>
+                <DollarSign className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <CardTitle>Immediate Revenue</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base mb-4">Start earning from day one with pre-monetized accounts</CardDescription>
+                <ul className="text-sm text-left space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>No waiting for monetization approval</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Existing revenue streams</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Multiple income opportunities</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
+              <CardHeader>
+                <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <CardTitle>Growth Potential</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base mb-4">Accounts with proven track records and growth trajectories</CardDescription>
+                <ul className="text-sm text-left space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Historical analytics included</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Audience insights provided</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <span>Scalable platform ready</span>
+                  </li>
+                </ul>
               </CardContent>
             </Card>
           </div>
@@ -307,6 +551,124 @@ const Index = () => {
             </form>
           </CardContent>
         </Card>
+      </section>
+
+      {/* Affiliate Program Section */}
+      <section id="affiliate" className="py-16 bg-gradient-to-br from-primary/5 to-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-block mb-4">
+                <Percent className="w-16 h-16 text-primary mx-auto" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Affiliate Program</h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Earn 20% commission on every sale you refer. Perfect for content creators, influencers, and marketers.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <Card className="hover:shadow-glow transition-all">
+                <CardHeader>
+                  <DollarSign className="w-10 h-10 text-primary mb-4" />
+                  <CardTitle className="text-2xl">20% Recurring Commission</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base mb-4">
+                    Earn generous commissions on every sale. Our premium products mean higher earnings for you.
+                  </CardDescription>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>Earn up to $200+ per sale</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>30-day cookie duration</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>Monthly payouts via PayPal or bank transfer</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-glow transition-all">
+                <CardHeader>
+                  <Zap className="w-10 h-10 text-primary mb-4" />
+                  <CardTitle className="text-2xl">Marketing Resources</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base mb-4">
+                    Get access to professionally designed marketing materials to boost your conversions.
+                  </CardDescription>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>Custom affiliate dashboard</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>Ready-to-use banners and creatives</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>Real-time tracking and analytics</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold mb-8">See Our Affiliates in Action</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Video Slot 1 */}
+                <Card className="overflow-hidden hover:shadow-glow transition-all">
+                  <CardContent className="p-0">
+                    <div className="aspect-[9/16] bg-secondary/30 flex items-center justify-center relative group">
+                      <Video className="w-16 h-16 text-muted-foreground" />
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p className="text-white text-sm px-4 text-center">Video slot for UGC ad #1</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Video Slot 2 */}
+                <Card className="overflow-hidden hover:shadow-glow transition-all">
+                  <CardContent className="p-0">
+                    <div className="aspect-[9/16] bg-secondary/30 flex items-center justify-center relative group">
+                      <Video className="w-16 h-16 text-muted-foreground" />
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p className="text-white text-sm px-4 text-center">Video slot for UGC ad #2</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Video Slot 3 */}
+                <Card className="overflow-hidden hover:shadow-glow transition-all">
+                  <CardContent className="p-0">
+                    <div className="aspect-[9/16] bg-secondary/30 flex items-center justify-center relative group">
+                      <Video className="w-16 h-16 text-muted-foreground" />
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p className="text-white text-sm px-4 text-center">Video slot for UGC ad #3</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Button size="lg" className="text-lg px-8">
+                Apply Now - Start Earning Today
+              </Button>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
