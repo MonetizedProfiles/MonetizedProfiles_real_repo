@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 import { CartDrawer } from "@/components/CartDrawer";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
-import { ArrowLeft, ShoppingCart, ShoppingBag, Check } from "lucide-react";
+import { ArrowLeft, ShoppingCart, Check } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
+import logo from "@/assets/logo.png";
 
 const ProductDetail = () => {
   const { handle } = useParams();
@@ -51,7 +52,7 @@ const ProductDetail = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background">
-        <header className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+        <header className="border-b bg-background/95 backdrop-blur-sm sticky top-0 z-50">
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <Button variant="ghost" onClick={() => navigate(-1)}>
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -94,16 +95,14 @@ const ProductDetail = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b bg-background/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Button variant="ghost" onClick={() => navigate(-1)}>
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
           </Button>
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center">
-              <ShoppingBag className="w-5 h-5 text-white" />
-            </div>
+          <div className="flex items-center gap-4">
+            <img src={logo} alt="MonetizedProfiles" className="h-6" />
             <CartDrawer />
           </div>
         </div>
@@ -113,7 +112,7 @@ const ProductDetail = () => {
       <main className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
           {/* Image */}
-          <div className="aspect-square rounded-lg overflow-hidden bg-secondary/20">
+          <div className="aspect-square rounded-lg overflow-hidden bg-secondary border">
             {image ? (
               <img 
                 src={image} 
@@ -122,7 +121,7 @@ const ProductDetail = () => {
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center">
-                <span className="text-muted-foreground">No image available</span>
+                <ShoppingCart className="w-16 h-16 text-muted-foreground" />
               </div>
             )}
           </div>
@@ -137,8 +136,8 @@ const ProductDetail = () => {
             </div>
 
             <div className="space-y-4">
-              <p className="text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-                {currency} ${price.toFixed(2)}
+              <p className="text-4xl font-bold text-primary">
+                ${price.toFixed(2)} {currency}
               </p>
 
               {product.options.length > 0 && product.options[0].values.length > 1 && (

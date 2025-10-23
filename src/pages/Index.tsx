@@ -4,6 +4,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { CartDrawer } from "@/components/CartDrawer";
 import { ShoppingBag, TrendingUp, Shield, Zap } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   const { data, isLoading } = useQuery({
@@ -17,24 +18,18 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b bg-background/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center">
-              <ShoppingBag className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-2xl font-bold">TikTok & YouTube Marketplace</h1>
-          </div>
+          <img src={logo} alt="MonetizedProfiles" className="h-8" />
           <CartDrawer />
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 md:py-32">
-        <div className="absolute inset-0 bg-gradient-hero opacity-20"></div>
+      <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-secondary to-background">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+            <h2 className="text-4xl md:text-6xl font-bold leading-tight text-foreground">
               Premium Monetized Social Media Accounts
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -42,17 +37,17 @@ const Index = () => {
               Fast, secure, and ready to generate revenue from day one.
             </p>
             <div className="flex flex-wrap gap-6 justify-center pt-8">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Shield className="w-5 h-5 text-primary" />
-                <span className="text-sm">Verified Accounts</span>
+                <span className="text-sm font-medium">Verified Accounts</span>
               </div>
-              <div className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-accent" />
-                <span className="text-sm">Real Engagement</span>
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
+                <TrendingUp className="w-5 h-5 text-primary" />
+                <span className="text-sm font-medium">Real Engagement</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Zap className="w-5 h-5 text-primary-glow" />
-                <span className="text-sm">Instant Transfer</span>
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
+                <Zap className="w-5 h-5 text-primary" />
+                <span className="text-sm font-medium">Instant Transfer</span>
               </div>
             </div>
           </div>
@@ -97,9 +92,9 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 py-8 mt-20">
+      <footer className="border-t py-8 mt-20 bg-secondary/50">
         <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>&copy; 2024 TikTok & YouTube Marketplace. All rights reserved.</p>
+          <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
         </div>
       </footer>
     </div>

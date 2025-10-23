@@ -93,6 +93,7 @@ export default {
       },
       boxShadow: {
         glow: "var(--shadow-glow)",
+        card: "var(--shadow-card)",
       },
       transitionProperty: {
         smooth: "var(--transition-smooth)",

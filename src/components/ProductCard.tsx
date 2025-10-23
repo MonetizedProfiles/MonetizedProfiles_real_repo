@@ -44,10 +44,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <Card 
-      className="group cursor-pointer overflow-hidden border-border/50 bg-gradient-card hover:border-primary/50 transition-all duration-300 hover:shadow-glow"
+      className="group cursor-pointer overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-glow bg-card"
       onClick={() => navigate(`/product/${product.node.handle}`)}
     >
-      <div className="aspect-square overflow-hidden bg-secondary/20">
+      <div className="aspect-square overflow-hidden bg-secondary">
         {image ? (
           <img 
             src={image} 
@@ -56,7 +56,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <span className="text-muted-foreground">No image</span>
+            <ShoppingCart className="w-12 h-12 text-muted-foreground" />
           </div>
         )}
       </div>
@@ -67,8 +67,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       </CardHeader>
       
       <CardContent>
-        <p className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-          {currency} ${price.toFixed(2)}
+        <p className="text-2xl font-bold text-primary">
+          ${price.toFixed(2)} {currency}
         </p>
       </CardContent>
       
