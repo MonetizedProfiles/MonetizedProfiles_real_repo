@@ -2,12 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 import { CartDrawer } from "@/components/CartDrawer";
-import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail, DollarSign, Percent, Video, Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail, DollarSign, Percent, Video, Play, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
@@ -17,7 +18,7 @@ const Index = () => {
   const [email, setEmail] = useState("");
   const [accountsSold, setAccountsSold] = useState(623 + Math.floor(Math.random() * 100));
   const [totalStock, setTotalStock] = useState<number | null>(null);
-  const [currentProductIndex, setCurrentProductIndex] = useState(0);
+  const [ugcOpen, setUgcOpen] = useState(false);
   
   const { data, isLoading } = useQuery({
     queryKey: ['products'],
@@ -58,10 +59,10 @@ const Index = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // Filter to show only featured products
+  // Filter to show featured products (2 YouTube + 1 TikTok)
   const featuredProducts = data?.filter(p => 
     p.node.title.includes("Monetized YouTube") || p.node.title.includes("Monetized TikTok")
-  ).slice(0, 2);
+  ).slice(0, 3);
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -198,7 +199,7 @@ const Index = () => {
             
             <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Monetized Accounts
-              <span className="block text-primary mt-2">Ready to Earn</span>
+              <span className="block mt-2" style={{ color: '#FF2929' }}>Ready to Earn</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
@@ -206,7 +207,7 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all bg-primary hover:bg-primary/90">
+              <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
                 <ShoppingBag className="w-5 h-5 mr-2" />
                 Browse Accounts
               </Button>
@@ -225,8 +226,8 @@ const Index = () => {
                   animationDelay: '0s'
                 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
-                  <DollarSign className="w-8 h-8 text-primary" />
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)]">
+                  <DollarSign className="w-10 h-10" style={{ color: '#FF2929' }} />
                 </div>
               </div>
               
@@ -238,12 +239,12 @@ const Index = () => {
                   animationDelay: '2s'
                 }}
               >
-                <div className="w-18 h-18 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
-                  <TrendingUp className="w-9 h-9 text-primary" />
+                <div className="w-24 h-24 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)]">
+                  <TrendingUp className="w-12 h-12" style={{ color: '#FF2929' }} />
                 </div>
               </div>
 
-              {/* Mid left - Blue */}
+              {/* Mid left - Blue (YouTube Play) */}
               <div 
                 className="absolute left-[15%] -top-8" 
                 style={{ 
@@ -251,8 +252,8 @@ const Index = () => {
                   animationDelay: '1s'
                 }}
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-xl flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-[0_0_20px_hsl(var(--accent-blue)/0.3)]">
-                  <Play className="w-7 h-7 text-[hsl(var(--accent-blue))]" />
+                <div className="w-18 h-18 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-xl flex items-center justify-center border border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)]">
+                  <Play className="w-9 h-9" style={{ color: '#306BE4' }} />
                 </div>
               </div>
 
@@ -264,8 +265,8 @@ const Index = () => {
                   animationDelay: '1.5s'
                 }}
               >
-                <div className="w-15 h-15 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-xl flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-[0_0_20px_hsl(var(--accent-blue)/0.3)]">
-                  <Users className="w-7 h-7 text-[hsl(var(--accent-blue))]" />
+                <div className="w-20 h-20 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-xl flex items-center justify-center border border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)]">
+                  <Users className="w-10 h-10" style={{ color: '#306BE4' }} />
                 </div>
               </div>
 
@@ -277,8 +278,8 @@ const Index = () => {
                   animationDelay: '0.5s'
                 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
-                  <Shield className="w-8 h-8 text-primary" />
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)]">
+                  <Shield className="w-10 h-10" style={{ color: '#FF2929' }} />
                 </div>
               </div>
 
@@ -290,8 +291,8 @@ const Index = () => {
                   animationDelay: '2.5s'
                 }}
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
-                  <Zap className="w-7 h-7 text-primary" />
+                <div className="w-18 h-18 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center border border-primary/20 shadow-[0_0_20px_rgba(255,41,41,0.3)]">
+                  <Zap className="w-9 h-9" style={{ color: '#FF2929' }} />
                 </div>
               </div>
 
@@ -303,12 +304,12 @@ const Index = () => {
                   animationDelay: '3s'
                 }}
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-lg flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-[0_0_20px_hsl(var(--accent-blue)/0.3)]">
-                  <Lock className="w-6 h-6 text-[hsl(var(--accent-blue))]" />
+                <div className="w-16 h-16 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-lg flex items-center justify-center border border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)]">
+                  <Lock className="w-8 h-8" style={{ color: '#306BE4' }} />
                 </div>
               </div>
 
-              {/* Bottom mid-right - Blue */}
+              {/* Bottom mid-right - Blue (TikTok style) */}
               <div 
                 className="absolute right-[35%] top-10" 
                 style={{ 
@@ -316,8 +317,8 @@ const Index = () => {
                   animationDelay: '3.5s'
                 }}
               >
-                <div className="w-13 h-13 bg-gradient-to-br from-[hsl(var(--accent-blue))]/10 to-[hsl(var(--accent-blue))]/5 rounded-lg flex items-center justify-center border border-[hsl(var(--accent-blue))]/20 shadow-[0_0_20px_hsl(var(--accent-blue)/0.3)]">
-                  <Star className="w-6 h-6 text-[hsl(var(--accent-blue))]" />
+                <div className="w-16 h-16 bg-gradient-to-br from-[#306BE4]/10 to-[#306BE4]/5 rounded-lg flex items-center justify-center border border-[#306BE4]/20 shadow-[0_0_20px_rgba(48,107,228,0.3)]">
+                  <Video className="w-8 h-8" style={{ color: '#306BE4' }} />
                 </div>
               </div>
             </div>
@@ -325,15 +326,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Products Section - Carousel */}
+      {/* Featured Products Section - 3 Products Display with Scroll */}
       <section className="py-16 container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-2 text-primary">Featured Accounts</h2>
+          <h2 className="text-3xl font-bold mb-2" style={{ color: '#FF2929' }}>Featured Accounts</h2>
           <p className="text-muted-foreground">Start earning today with our most popular monetized accounts</p>
         </div>
 
         {isLoading ? (
-          <div className="max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <Skeleton className="aspect-square w-full" />
+            <Skeleton className="aspect-square w-full" />
             <Skeleton className="aspect-square w-full" />
           </div>
         ) : !featuredProducts || featuredProducts.length === 0 ? (
@@ -345,76 +348,26 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="relative max-w-2xl mx-auto">
-            <div className="relative overflow-hidden">
-              {/* Background cards with blur */}
-              <div className="absolute inset-0 flex items-center justify-center gap-8 pointer-events-none">
-                {/* Left background card */}
-                <div className="w-[45%] opacity-30 blur-sm scale-90 -translate-x-12">
-                  {featuredProducts[(currentProductIndex - 1 + featuredProducts.length) % featuredProducts.length] && (
-                    <ProductCard product={featuredProducts[(currentProductIndex - 1 + featuredProducts.length) % featuredProducts.length]} />
-                  )}
-                </div>
-                {/* Right background card */}
-                <div className="w-[45%] opacity-30 blur-sm scale-90 translate-x-12">
-                  {featuredProducts[(currentProductIndex + 1) % featuredProducts.length] && (
-                    <ProductCard product={featuredProducts[(currentProductIndex + 1) % featuredProducts.length]} />
-                  )}
-                </div>
-              </div>
-
-              {/* Main card */}
-              <div className="relative z-10 transition-all duration-500 ease-in-out">
-                <ProductCard product={featuredProducts[currentProductIndex]} />
-              </div>
-            </div>
-
-            {/* Navigation buttons */}
-            <div className="flex justify-center gap-4 mt-8">
-              <Button
-                onClick={() => setCurrentProductIndex((prev) => (prev - 1 + featuredProducts.length) % featuredProducts.length)}
-                variant="outline"
-                size="icon"
-                className="rounded-full border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </Button>
-              <Button
-                onClick={() => setCurrentProductIndex((prev) => (prev + 1) % featuredProducts.length)}
-                variant="outline"
-                size="icon"
-                className="rounded-full border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </Button>
-            </div>
-
-            {/* Dots indicator */}
-            <div className="flex justify-center gap-2 mt-4">
-              {featuredProducts.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentProductIndex(idx)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    idx === currentProductIndex ? 'bg-primary w-8' : 'bg-muted-foreground/30'
-                  }`}
-                />
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {featuredProducts.map((product) => (
+                <ProductCard key={product.node.id} product={product} />
               ))}
             </div>
           </div>
         )}
       </section>
 
-      {/* Features Section - Simplified Unique Layouts */}
+      {/* Features Section - Standardized Symmetrical */}
       <section className="py-20 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4 text-primary">Why Choose MonetizedProfiles?</h2>
+            <h2 className="text-4xl font-bold mb-4" style={{ color: '#FF2929' }}>Why Choose MonetizedProfiles?</h2>
             <p className="text-lg text-muted-foreground">We've perfected the process of transferring monetized accounts safely and securely</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {/* Card 1 - Vertical centered */}
+            {/* Card 1 */}
             <Card className="bg-card border-2 hover:border-primary/50 transition-all hover:shadow-lg">
               <CardHeader className="text-center space-y-4 pb-3">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
@@ -427,25 +380,24 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Card 2 - Horizontal with icon left */}
-            <Card className="bg-card border-2 hover:border-[hsl(var(--accent-blue))]/50 transition-all hover:shadow-lg">
-              <CardContent className="pt-6 flex gap-4">
-                <div className="w-14 h-14 bg-[hsl(var(--accent-blue))]/10 rounded-xl flex items-center justify-center shrink-0">
-                  <Users className="w-7 h-7 text-[hsl(var(--accent-blue))]" />
+            {/* Card 2 */}
+            <Card className="bg-card border-2 hover:border-primary/50 transition-all hover:shadow-lg">
+              <CardHeader className="text-center space-y-4 pb-3">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+                  <Users className="w-8 h-8 text-primary" />
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg font-bold">Real Audiences</h3>
-                  <p className="text-sm text-muted-foreground">Genuine, engaged followers with proven interaction history</p>
-                </div>
+                <CardTitle className="text-lg">Real Audiences</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-sm text-muted-foreground">
+                <p>Genuine, engaged followers with proven interaction history</p>
               </CardContent>
             </Card>
 
-            {/* Card 3 - Vertical with badge */}
-            <Card className="bg-card border-2 hover:border-primary/50 transition-all hover:shadow-lg relative overflow-hidden">
-              <div className="absolute top-3 right-3 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-md">FAST</div>
-              <CardHeader className="text-center space-y-4 pb-3 pt-6">
-                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                  <Zap className="w-7 h-7 text-primary" />
+            {/* Card 3 */}
+            <Card className="bg-card border-2 hover:border-primary/50 transition-all hover:shadow-lg">
+              <CardHeader className="text-center space-y-4 pb-3">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+                  <Zap className="w-8 h-8 text-primary" />
                 </div>
                 <CardTitle className="text-lg">Instant Transfer</CardTitle>
               </CardHeader>
@@ -454,16 +406,16 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Card 4 - Horizontal with icon left */}
-            <Card className="bg-card border-2 hover:border-[hsl(var(--accent-blue))]/50 transition-all hover:shadow-lg">
-              <CardContent className="pt-6 flex gap-4">
-                <div className="w-14 h-14 bg-[hsl(var(--accent-blue))]/10 rounded-xl flex items-center justify-center shrink-0">
-                  <HeadphonesIcon className="w-7 h-7 text-[hsl(var(--accent-blue))]" />
+            {/* Card 4 */}
+            <Card className="bg-card border-2 hover:border-primary/50 transition-all hover:shadow-lg">
+              <CardHeader className="text-center space-y-4 pb-3">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+                  <HeadphonesIcon className="w-8 h-8 text-primary" />
                 </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg font-bold">Expert Support</h3>
-                  <p className="text-sm text-muted-foreground">Dedicated support with 1-hour response time</p>
-                </div>
+                <CardTitle className="text-lg">Expert Support</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center text-sm text-muted-foreground">
+                <p>Dedicated support with 1-hour response time</p>
               </CardContent>
             </Card>
           </div>
@@ -901,35 +853,35 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 text-primary">Real Results From Real Creators</h2>
+              <h2 className="text-4xl font-bold mb-4" style={{ color: '#FF2929' }}>Real Results From Real Creators</h2>
               <p className="text-xl text-muted-foreground">See how our accounts have transformed content careers</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               {/* Stat 1 */}
               <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
-                <div className="text-5xl font-bold text-primary mb-2">$847K+</div>
+                <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>$847K+</div>
                 <p className="text-lg text-muted-foreground">Total Revenue Generated</p>
                 <p className="text-sm text-muted-foreground/70 mt-2">By our customers in the last 12 months</p>
               </div>
 
               {/* Stat 2 */}
               <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
-                <div className="text-5xl font-bold text-primary mb-2">24 hrs</div>
+                <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>24 hrs</div>
                 <p className="text-lg text-muted-foreground">Average Time to First Dollar</p>
                 <p className="text-sm text-muted-foreground/70 mt-2">Most customers earn within the first day</p>
               </div>
 
               {/* Stat 3 */}
               <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
-                <div className="text-5xl font-bold text-primary mb-2">98.7%</div>
+                <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>98.7%</div>
                 <p className="text-lg text-muted-foreground">Customer Satisfaction</p>
                 <p className="text-sm text-muted-foreground/70 mt-2">Would recommend to other creators</p>
               </div>
             </div>
 
             <div className="text-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-10 py-6">
+              <Button size="lg" className="text-lg px-10 py-6" style={{ backgroundColor: '#FF2929' }}>
                 Start Your Success Story Today
               </Button>
             </div>
@@ -937,12 +889,108 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Restock Email Capture */}
+      {/* Affiliate Program Section - Compact with Collapsible UGC */}
+      <section id="affiliate" className="py-12 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: '#FF2929' }}>Join Our Affiliate Program</h2>
+              <p className="text-lg text-muted-foreground">
+                Earn 20% commission on every sale. Perfect for content creators and influencers.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <Card className="hover:shadow-lg transition-all border-2">
+                <CardHeader className="pb-3">
+                  <DollarSign className="w-8 h-8 text-primary mb-2" />
+                  <CardTitle className="text-xl">20% Commission</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-1.5 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>Earn up to $200+ per sale</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>30-day cookie duration</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>Monthly payouts</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-lg transition-all border-2">
+                <CardHeader className="pb-3">
+                  <Zap className="w-8 h-8 text-primary mb-2" />
+                  <CardTitle className="text-xl">Marketing Tools</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-1.5 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>Affiliate dashboard</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>Banners and creatives</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>Real-time analytics</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Collapsible open={ugcOpen} onOpenChange={setUgcOpen} className="mb-6">
+              <CollapsibleTrigger asChild>
+                <Button variant="outline" className="w-full border-2 hover:border-primary/50 transition-all">
+                  <span className="flex-1 text-left font-semibold">View UGC Examples from Our Affiliates</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform ${ugcOpen ? 'rotate-180' : ''}`} />
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="mt-4">
+                <div className="bg-card rounded-xl p-6 border-2 border-border">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="overflow-hidden rounded-lg hover:shadow-lg transition-all group cursor-pointer">
+                        <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
+                          <Video className="w-8 h-8 text-muted-foreground" />
+                          <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <Play className="w-6 h-6 text-primary" />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-center text-xs text-muted-foreground">
+                    See how our affiliates promote MonetizedProfiles
+                  </p>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+
+            <div className="text-center">
+              <Button size="lg" className="text-base px-8" style={{ backgroundColor: '#FF2929' }}>
+                Apply Now - Start Earning Today
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Restock Email Capture - Moved to bottom */}
       <section className="py-16 container mx-auto px-4">
         <Card className="max-w-2xl mx-auto text-center bg-gradient-to-br from-secondary to-background border-border">
           <CardHeader>
-            <Mail className="w-12 h-12 text-primary mx-auto mb-4" />
-            <CardTitle className="text-2xl text-primary">Get Notified on Restock</CardTitle>
+            <Mail className="w-12 h-12 mx-auto mb-4" style={{ color: '#FF2929' }} />
+            <CardTitle className="text-2xl" style={{ color: '#FF2929' }}>Get Notified on Restock</CardTitle>
             <CardDescription className="text-base">
               Premium accounts sell fast! Enter your email to be notified when we restock your favorite products.
             </CardDescription>
@@ -957,137 +1005,12 @@ const Index = () => {
                 required
                 className="flex-1"
               />
-              <Button type="submit" className="shrink-0 bg-primary hover:bg-primary/90">
+              <Button type="submit" className="shrink-0" style={{ backgroundColor: '#FF2929' }}>
                 Notify Me
               </Button>
             </form>
           </CardContent>
         </Card>
-      </section>
-
-      {/* Affiliate Program Section */}
-      <section id="affiliate" className="py-16 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="inline-block mb-4">
-                <Percent className="w-16 h-16 text-primary mx-auto" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Affiliate Program</h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Earn 20% commission on every sale you refer. Perfect for content creators, influencers, and marketers.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card className="hover:shadow-glow transition-all">
-                <CardHeader>
-                  <DollarSign className="w-10 h-10 text-primary mb-4" />
-                  <CardTitle className="text-2xl">20% Recurring Commission</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base mb-4">
-                    Earn generous commissions on every sale. Our premium products mean higher earnings for you.
-                  </CardDescription>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>Earn up to $200+ per sale</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>30-day cookie duration</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>Monthly payouts via PayPal or bank transfer</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-glow transition-all">
-                <CardHeader>
-                  <Zap className="w-10 h-10 text-primary mb-4" />
-                  <CardTitle className="text-2xl">Marketing Resources</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base mb-4">
-                    Get access to professionally designed marketing materials to boost your conversions.
-                  </CardDescription>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>Custom affiliate dashboard</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>Ready-to-use banners and creatives</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>Real-time tracking and analytics</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="bg-card rounded-2xl p-8 border-2 border-border">
-              <h3 className="text-2xl font-bold mb-6 text-center text-primary">Success Stories From Our Affiliates</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                {/* Compact Video Slot 1 */}
-                <div className="overflow-hidden rounded-xl hover:shadow-lg transition-all group cursor-pointer">
-                  <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
-                    <Video className="w-10 h-10 text-muted-foreground" />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Play className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Compact Video Slot 2 */}
-                <div className="overflow-hidden rounded-xl hover:shadow-lg transition-all group cursor-pointer">
-                  <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
-                    <Video className="w-10 h-10 text-muted-foreground" />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Play className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Compact Video Slot 3 */}
-                <div className="overflow-hidden rounded-xl hover:shadow-lg transition-all group cursor-pointer">
-                  <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
-                    <Video className="w-10 h-10 text-muted-foreground" />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Play className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Compact Video Slot 4 */}
-                <div className="overflow-hidden rounded-xl hover:shadow-lg transition-all group cursor-pointer">
-                  <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
-                    <Video className="w-10 h-10 text-muted-foreground" />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Play className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p className="text-center text-sm text-muted-foreground mb-6">
-                Watch how our affiliates promote MonetizedProfiles and earn commissions
-              </p>
-            </div>
-
-            <div className="text-center mt-8">
-              <Button size="lg" className="text-lg px-8 bg-primary hover:bg-primary/90">
-                Apply Now - Start Earning Today
-              </Button>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Footer */}
