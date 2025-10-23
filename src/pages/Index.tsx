@@ -952,8 +952,8 @@ const Index = () => {
 
             {/* CTA */}
             <div className="text-center">
-              <Button size="lg" className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
-                Become an Affiliate
+              <Button asChild size="lg" className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
+                <Link to="/affiliate">Learn More About Our Program</Link>
               </Button>
               <p className="text-muted-foreground mt-6">
                 Join 500+ creators earning with us
