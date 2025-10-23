@@ -1,9 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Slider } from "@/components/ui/slider";
 import { CheckCircle, Mail, ArrowRight, TrendingUp, Users, DollarSign, Video, Package, Zap, BarChart, Quote } from "lucide-react";
+import { useState } from "react";
 
 const Affiliate = () => {
+  const [conversions, setConversions] = useState([10]);
+  const conversionValue = 80;
+  const monthlyEarnings = conversions[0] * conversionValue;
+
   return (
     <div className="bg-background">
       {/* Hero Section */}
@@ -145,105 +151,98 @@ const Affiliate = () => {
         </div>
       </section>
 
-      {/* Earnings Breakdown Section */}
+      {/* Revenue Predictor Section */}
       <section className="py-20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
               Your Earnings <span className="text-primary">Potential</span>
             </h2>
             <p className="text-xl text-center text-muted-foreground mb-16">
-              See how much you can earn with our generous commission structure
+              Calculate how much you can earn with our affiliate program
             </p>
             
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-2 hover:border-primary/50 transition-colors">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <BarChart className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl mb-2">Starter Package</CardTitle>
-                  <div className="text-4xl font-bold text-primary mb-2">$100</div>
-                  <p className="text-sm text-muted-foreground">per sale at $500</p>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">20% commission</span>
+            <Card className="border-2 shadow-lg">
+              <CardContent className="p-8 md:p-12">
+                <div className="space-y-8">
+                  {/* Slider */}
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <label className="text-lg font-semibold">Monthly Conversions</label>
+                      <span className="text-2xl font-bold text-primary">{conversions[0]}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">Entry-level products</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">High conversion rate</span>
+                    <Slider
+                      value={conversions}
+                      onValueChange={setConversions}
+                      max={100}
+                      min={1}
+                      step={1}
+                      className="w-full"
+                    />
+                    <div className="flex justify-between text-sm text-muted-foreground">
+                      <span>1 sale</span>
+                      <span>100 sales</span>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
 
-              <Card className="border-2 border-primary shadow-lg scale-105">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <TrendingUp className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl mb-2">Premium Package</CardTitle>
-                  <div className="text-4xl font-bold text-primary mb-2">$200</div>
-                  <p className="text-sm text-muted-foreground">per sale at $1,000</p>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">20% commission</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">Most popular tier</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">Balanced price point</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  {/* Results Display */}
+                  <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg p-8 border-2 border-primary/20">
+                    <div className="text-center space-y-4">
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-2">Commission per sale</p>
+                        <p className="text-2xl font-bold">${conversionValue}</p>
+                      </div>
+                      
+                      <div className="w-16 h-0.5 bg-border mx-auto"></div>
+                      
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-2">Estimated Monthly Earnings</p>
+                        <p className="text-5xl md:text-6xl font-bold text-primary">
+                          ${monthlyEarnings.toLocaleString()}
+                        </p>
+                      </div>
 
-              <Card className="border-2 hover:border-primary/50 transition-colors">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <DollarSign className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl mb-2">Elite Package</CardTitle>
-                  <div className="text-4xl font-bold text-primary mb-2">$400</div>
-                  <p className="text-sm text-muted-foreground">per sale at $2,000</p>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">20% commission</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">Premium accounts</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">Highest earnings</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+                      <div className="w-16 h-0.5 bg-border mx-auto"></div>
 
-            <div className="mt-12 text-center bg-secondary/20 rounded-lg p-6 border">
-              <p className="text-lg mb-2">
-                <strong className="text-primary">Example:</strong> 10 sales per month at $1,000 average
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-2">Annual Potential</p>
+                        <p className="text-3xl font-bold">
+                          ${(monthlyEarnings * 12).toLocaleString()}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Quick Stats */}
+                  <div className="grid grid-cols-3 gap-4 pt-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary">{conversions[0]}</div>
+                      <div className="text-xs text-muted-foreground">Sales/Month</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary">20%</div>
+                      <div className="text-xs text-muted-foreground">Commission</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary">30d</div>
+                      <div className="text-xs text-muted-foreground">Cookie Life</div>
+                    </div>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="text-center pt-4">
+                    <Button size="lg" className="text-lg px-10 py-6">
+                      Start Earning Today
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="mt-8 text-center">
+              <p className="text-sm text-muted-foreground">
+                * Earnings are estimated based on average product value. Actual earnings may vary.
               </p>
-              <p className="text-3xl font-bold">= $2,000/month in commissions</p>
             </div>
           </div>
         </div>
