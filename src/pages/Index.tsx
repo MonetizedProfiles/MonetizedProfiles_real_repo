@@ -900,96 +900,59 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Affiliate Program Section - Compact with Collapsible UGC */}
-      <section id="affiliate" className="py-12 bg-secondary/30">
+      {/* Affiliate Program Section - Simplified with UGC Showcase */}
+      <section id="affiliate" className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: '#FF2929' }}>Join Our Affiliate Program</h2>
-              <p className="text-lg text-muted-foreground">
-                Earn 20% commission on every sale. Perfect for content creators and influencers.
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#FF2929' }}>Join Our Affiliate Program</h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Earn 20% commission promoting premium monetized accounts
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <Card className="hover:shadow-lg transition-all border-2">
-                <CardHeader className="pb-3">
-                  <DollarSign className="w-8 h-8 text-primary mb-2" />
-                  <CardTitle className="text-xl">20% Commission</CardTitle>
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              {/* Commission Card */}
+              <Card className="hover:shadow-lg transition-all border-2 text-center">
+                <CardHeader>
+                  <DollarSign className="w-10 h-10 text-primary mx-auto mb-3" />
+                  <CardTitle className="text-2xl">20% Commission</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-1.5 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>Earn up to $200+ per sale</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>30-day cookie duration</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>Monthly payouts</span>
-                    </li>
-                  </ul>
+                  <p className="text-muted-foreground">Earn up to $200+ per sale with 30-day cookies</p>
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-all border-2">
-                <CardHeader className="pb-3">
-                  <Zap className="w-8 h-8 text-primary mb-2" />
-                  <CardTitle className="text-xl">Marketing Tools</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-1.5 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>Affiliate dashboard</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>Banners and creatives</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>Real-time analytics</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+              {/* UGC Video 1 */}
+              <div className="overflow-hidden rounded-xl border-2 hover:shadow-lg transition-all group cursor-pointer">
+                <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
+                  <Video className="w-12 h-12 text-muted-foreground" />
+                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <Play className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                    <p className="text-white text-sm font-medium">UGC Example #1</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* UGC Video 2 */}
+              <div className="overflow-hidden rounded-xl border-2 hover:shadow-lg transition-all group cursor-pointer">
+                <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
+                  <Video className="w-12 h-12 text-muted-foreground" />
+                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <Play className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                    <p className="text-white text-sm font-medium">UGC Example #2</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <Collapsible open={ugcOpen} onOpenChange={setUgcOpen} className="mb-6">
-              <CollapsibleTrigger asChild>
-                <Button variant="outline" className="w-full border-2 hover:border-primary/50 transition-all">
-                  <span className="flex-1 text-left font-semibold">View UGC Examples from Our Affiliates</span>
-                  <ChevronDown className={`w-5 h-5 transition-transform ${ugcOpen ? 'rotate-180' : ''}`} />
-                </Button>
-              </CollapsibleTrigger>
-              <CollapsibleContent className="mt-4">
-                <div className="bg-card rounded-xl p-6 border-2 border-border">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="overflow-hidden rounded-lg hover:shadow-lg transition-all group cursor-pointer">
-                        <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
-                          <Video className="w-8 h-8 text-muted-foreground" />
-                          <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <Play className="w-6 h-6 text-primary" />
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-center text-xs text-muted-foreground">
-                    See how our affiliates promote MonetizedProfiles
-                  </p>
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
-
             <div className="text-center">
-              <Button size="lg" className="text-base px-8" style={{ backgroundColor: '#FF2929' }}>
-                Apply Now - Start Earning Today
+              <Button size="lg" className="text-lg px-10 py-6" style={{ backgroundColor: '#FF2929' }}>
+                Apply Now - Start Earning
               </Button>
             </div>
           </div>
