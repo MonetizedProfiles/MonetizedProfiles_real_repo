@@ -901,7 +901,7 @@ const Index = () => {
       </section>
 
       {/* Affiliate Program Section - Simple & Unique */}
-      <section id="affiliate" className="py-32 relative overflow-hidden border-t border-border">
+      <section id="affiliate" className="py-20 relative overflow-hidden border-t border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -964,7 +964,7 @@ const Index = () => {
       </section>
 
       {/* Restock Email Capture - Moved to bottom */}
-      <section className="py-16 container mx-auto px-4">
+      <section className="py-8 container mx-auto px-4">
         <Card className="max-w-2xl mx-auto text-center bg-gradient-to-br from-secondary to-background border-border">
           <CardHeader>
             <Mail className="w-12 h-12 mx-auto mb-4" style={{ color: '#FF2929' }} />
