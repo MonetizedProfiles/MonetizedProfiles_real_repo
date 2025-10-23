@@ -187,183 +187,146 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-24 md:py-32 bg-gradient-to-br from-background via-secondary/50 to-background">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      {/* Hero Section - Brand New Design */}
+      <section className="relative overflow-hidden py-32 md:py-40 bg-gradient-to-b from-background via-secondary/30 to-background">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#FF2929]/5 rounded-full blur-3xl animate-blob" />
+          <div className="absolute top-40 right-10 w-96 h-96 bg-[#306BE4]/5 rounded-full blur-3xl animate-blob animation-delay-2000" />
+          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-[#FF2929]/5 rounded-full blur-3xl animate-blob animation-delay-4000" />
+        </div>
+
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium border border-primary/20 animate-fade-in">
-              <Zap className="w-4 h-4" />
-              Start Earning in 24 Hours
-            </div>
-            
-            {/* Main Headline */}
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              Monetized Accounts
-              <span className="block mt-2" style={{ color: "#FF2929" }}>Ready to Earn</span>
-            </h1>
-            
-            {/* Description */}
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Buy verified YouTube and TikTok accounts with real audiences. Start generating revenue from day one.
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: "#FF2929" }}>
-                <ShoppingBag className="w-5 h-5 mr-2" />
-                Browse Accounts
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2">
-                Learn More
-              </Button>
+          <div className="max-w-5xl mx-auto">
+            {/* Status Badge with Live Counter */}
+            <div className="flex justify-center mb-8 animate-fade-in">
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FF2929]/10 via-[#FF2929]/5 to-transparent px-6 py-3 rounded-full border border-[#FF2929]/20 backdrop-blur-sm">
+                <div className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF2929] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#FF2929]" />
+                </div>
+                <span className="text-sm font-semibold" style={{ color: "#FF2929" }}>
+                  {accountsSold}+ Accounts Sold This Month
+                </span>
+              </div>
             </div>
 
-            {/* Monetization Ecosystem Animation */}
-            <div className="relative h-48 mt-16 -mb-8">
-              {/* Orbiting Platforms - Left Side */}
-              <div 
-                className="absolute left-[10%] -top-32"
-                style={{ 
-                  animation: "orbit-left 8s ease-in-out infinite",
-                  transformOrigin: "center"
-                }}
-              >
-                <div className="relative">
-                  <div className="w-24 h-24 bg-gradient-to-br from-[#FF2929]/20 to-[#FF2929]/5 rounded-2xl flex flex-col items-center justify-center border-2 border-[#FF2929]/40 shadow-[0_0_30px_rgba(255,41,41,0.4)] backdrop-blur-sm">
-                    <Play className="w-8 h-8 mb-1" style={{ color: "#FF2929" }} />
-                    <span className="text-xs font-bold" style={{ color: "#FF2929" }}>YouTube</span>
-                  </div>
-                  {/* Flowing money particles */}
-                  <div 
-                    className="absolute -right-4 top-1/2"
-                    style={{ animation: "flow-right 2s ease-in-out infinite" }}
-                  >
-                    <DollarSign className="w-5 h-5" style={{ color: "#FF2929", opacity: 0.6 }} />
-                  </div>
-                </div>
-              </div>
-
-              {/* Orbiting Platforms - Right Side */}
-              <div 
-                className="absolute right-[10%] -top-28"
-                style={{ 
-                  animation: "orbit-right 8s ease-in-out infinite",
-                  transformOrigin: "center"
-                }}
-              >
-                <div className="relative">
-                  <div className="w-24 h-24 bg-gradient-to-br from-[#306BE4]/20 to-[#306BE4]/5 rounded-2xl flex flex-col items-center justify-center border-2 border-[#306BE4]/40 shadow-[0_0_30px_rgba(48,107,228,0.4)] backdrop-blur-sm">
-                    <Video className="w-8 h-8 mb-1" style={{ color: "#306BE4" }} />
-                    <span className="text-xs font-bold" style={{ color: "#306BE4" }}>TikTok</span>
-                  </div>
-                  {/* Flowing money particles */}
-                  <div 
-                    className="absolute -left-4 top-1/2"
-                    style={{ animation: "flow-left 2s ease-in-out infinite" }}
-                  >
-                    <DollarSign className="w-5 h-5" style={{ color: "#306BE4", opacity: 0.6 }} />
-                  </div>
-                </div>
-              </div>
-
-              {/* Center Energy Core */}
-              <div className="absolute left-1/2 -translate-x-1/2 -top-20">
-                <div 
-                  className="relative w-32 h-32"
-                  style={{ animation: "rotate-slow 20s linear infinite" }}
-                >
-                  {/* Outer ring */}
-                  <div className="absolute inset-0 rounded-full border-2 border-[#FF2929]/30 border-dashed" />
-                  
-                  {/* Inner core */}
-                  <div 
-                    className="absolute inset-4 rounded-full bg-gradient-to-br from-[#FF2929]/30 to-[#306BE4]/30 flex items-center justify-center backdrop-blur-sm"
-                    style={{ animation: "pulse-core 2s ease-in-out infinite" }}
-                  >
-                    <div className="text-center">
-                      <TrendingUp className="w-10 h-10 mx-auto mb-1" style={{ color: "#FF2929" }} />
-                      <div className="text-xs font-bold" style={{ color: "#FF2929" }}>$$$</div>
-                    </div>
-                  </div>
-
-                  {/* Spinning particles */}
-                  <div 
-                    className="absolute -top-2 left-1/2 -translate-x-1/2"
-                    style={{ animation: "spin-particle 3s linear infinite" }}
-                  >
-                    <Star className="w-4 h-4 fill-[#FF2929] text-[#FF2929]" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Revenue Indicators */}
-              <div 
-                className="absolute left-[25%] top-0"
-                style={{ animation: "float-revenue 4s ease-in-out infinite", animationDelay: "0s" }}
-              >
-                <div className="bg-[#FF2929]/10 px-3 py-1 rounded-lg border border-[#FF2929]/30 backdrop-blur-sm">
-                  <span className="text-sm font-bold" style={{ color: "#FF2929" }}>+$247</span>
-                </div>
-              </div>
+            {/* Main Headline with Gradient Effect */}
+            <div className="text-center mb-8 space-y-4">
+              <h1 className="text-6xl md:text-8xl font-black leading-none animate-fade-in" style={{ animationDelay: "0.1s" }}>
+                <span className="block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  Your Path to
+                </span>
+                <span className="block mt-3 bg-gradient-to-r from-[#FF2929] via-[#FF2929] to-[#306BE4] bg-clip-text text-transparent animate-gradient-x">
+                  Instant Income
+                </span>
+              </h1>
               
-              <div 
-                className="absolute right-[25%] top-8"
-                style={{ animation: "float-revenue 4s ease-in-out infinite", animationDelay: "1s" }}
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: "0.2s" }}>
+                Skip the years of grinding. Get a verified, monetized social media account and start earning today.
+              </p>
+            </div>
+
+            {/* Feature Pills */}
+            <div className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+              <div className="px-5 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border shadow-sm flex items-center gap-2">
+                <CheckCircle className="w-4 h-4" style={{ color: "#FF2929" }} />
+                <span className="text-sm font-medium">Verified & Monetized</span>
+              </div>
+              <div className="px-5 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border shadow-sm flex items-center gap-2">
+                <Zap className="w-4 h-4" style={{ color: "#FF2929" }} />
+                <span className="text-sm font-medium">Instant Transfer</span>
+              </div>
+              <div className="px-5 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border shadow-sm flex items-center gap-2">
+                <Shield className="w-4 h-4" style={{ color: "#FF2929" }} />
+                <span className="text-sm font-medium">30-Day Guarantee</span>
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+              <Button 
+                size="lg" 
+                className="text-lg px-10 py-7 shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105 group relative overflow-hidden"
+                style={{ backgroundColor: "#FF2929" }}
               >
-                <div className="bg-[#306BE4]/10 px-3 py-1 rounded-lg border border-[#306BE4]/30 backdrop-blur-sm">
-                  <span className="text-sm font-bold" style={{ color: "#306BE4" }}>+$189</span>
+                <span className="relative z-10 flex items-center gap-2">
+                  <ShoppingBag className="w-5 h-5" />
+                  View Accounts
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="text-lg px-10 py-7 border-2 hover:bg-secondary/50 transition-all"
+              >
+                <Play className="w-5 h-5 mr-2" />
+                How It Works
+              </Button>
+            </div>
+
+            {/* Animated Platform Showcase */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+              {/* YouTube Platform */}
+              <div 
+                className="group relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-2xl p-6 border-2 border-border hover:border-[#FF2929]/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
+                style={{ animation: "float-card 3s ease-in-out infinite", animationDelay: "0s" }}
+              >
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#FF2929] rounded-full flex items-center justify-center shadow-lg">
+                  <CheckCircle className="w-4 h-4 text-white" />
                 </div>
-              </div>
-
-              <div 
-                className="absolute left-[30%] top-16"
-                style={{ animation: "float-revenue 4s ease-in-out infinite", animationDelay: "2s" }}
-              >
-                <div className="bg-[#FF2929]/10 px-3 py-1 rounded-lg border border-[#FF2929]/30 backdrop-blur-sm">
-                  <span className="text-sm font-bold" style={{ color: "#FF2929" }}>+$412</span>
+                <div className="w-12 h-12 bg-[#FF2929]/10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                  <Play className="w-6 h-6" style={{ color: "#FF2929" }} />
                 </div>
+                <h3 className="font-bold text-lg mb-1">YouTube</h3>
+                <p className="text-sm text-muted-foreground">Channels ready to monetize</p>
               </div>
 
-              {/* Connection Lines Animation */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ top: "-120px" }}>
-                <line 
-                  x1="20%" y1="50%" x2="50%" y2="50%" 
-                  stroke="#FF2929" 
-                  strokeWidth="2" 
-                  strokeDasharray="5,5"
-                  opacity="0.3"
-                  style={{ animation: "dash-flow 2s linear infinite" }}
-                />
-                <line 
-                  x1="80%" y1="50%" x2="50%" y2="50%" 
-                  stroke="#306BE4" 
-                  strokeWidth="2" 
-                  strokeDasharray="5,5"
-                  opacity="0.3"
-                  style={{ animation: "dash-flow 2s linear infinite reverse" }}
-                />
-              </svg>
+              {/* TikTok Platform */}
+              <div 
+                className="group relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-2xl p-6 border-2 border-border hover:border-[#306BE4]/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
+                style={{ animation: "float-card 3s ease-in-out infinite", animationDelay: "0.3s" }}
+              >
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#306BE4] rounded-full flex items-center justify-center shadow-lg">
+                  <CheckCircle className="w-4 h-4 text-white" />
+                </div>
+                <div className="w-12 h-12 bg-[#306BE4]/10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                  <Video className="w-6 h-6" style={{ color: "#306BE4" }} />
+                </div>
+                <h3 className="font-bold text-lg mb-1">TikTok</h3>
+                <p className="text-sm text-muted-foreground">Viral-ready accounts</p>
+              </div>
 
-              {/* Ambient Glow Particles */}
+              {/* Revenue Icon */}
               <div 
-                className="absolute left-[15%] -top-4"
-                style={{ animation: "drift 6s ease-in-out infinite", animationDelay: "0s" }}
+                className="group relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-2xl p-6 border-2 border-border hover:border-[#FF2929]/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
+                style={{ animation: "float-card 3s ease-in-out infinite", animationDelay: "0.6s" }}
               >
-                <div className="w-2 h-2 rounded-full bg-[#FF2929] opacity-40 blur-sm" />
+                <div className="absolute -top-2 -right-2 px-2 py-0.5 bg-[#FF2929] rounded-full shadow-lg">
+                  <span className="text-white text-xs font-bold">Hot</span>
+                </div>
+                <div className="w-12 h-12 bg-[#FF2929]/10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                  <TrendingUp className="w-6 h-6" style={{ color: "#FF2929" }} />
+                </div>
+                <h3 className="font-bold text-lg mb-1">Revenue</h3>
+                <p className="text-sm text-muted-foreground">Earn from day 1</p>
               </div>
+
+              {/* Support Icon */}
               <div 
-                className="absolute right-[20%] top-12"
-                style={{ animation: "drift 5s ease-in-out infinite", animationDelay: "1s" }}
+                className="group relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-2xl p-6 border-2 border-border hover:border-[#306BE4]/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
+                style={{ animation: "float-card 3s ease-in-out infinite", animationDelay: "0.9s" }}
               >
-                <div className="w-2 h-2 rounded-full bg-[#306BE4] opacity-40 blur-sm" />
-              </div>
-              <div 
-                className="absolute left-[40%] top-4"
-                style={{ animation: "drift 7s ease-in-out infinite", animationDelay: "2s" }}
-              >
-                <div className="w-2 h-2 rounded-full bg-[#FF2929] opacity-40 blur-sm" />
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#306BE4] rounded-full flex items-center justify-center shadow-lg">
+                  <CheckCircle className="w-4 h-4 text-white" />
+                </div>
+                <div className="w-12 h-12 bg-[#306BE4]/10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                  <HeadphonesIcon className="w-6 h-6" style={{ color: "#306BE4" }} />
+                </div>
+                <h3 className="font-bold text-lg mb-1">Support</h3>
+                <p className="text-sm text-muted-foreground">24/7 assistance</p>
               </div>
             </div>
           </div>

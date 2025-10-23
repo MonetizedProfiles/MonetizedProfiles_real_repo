@@ -164,110 +164,54 @@ All colors MUST be HSL.
     }
   }
 
-  @keyframes orbit-left {
+  @keyframes blob {
     0%, 100% {
-      transform: translateY(0) translateX(0);
-    }
-    50% {
-      transform: translateY(-30px) translateX(-15px);
-    }
-  }
-
-  @keyframes orbit-right {
-    0%, 100% {
-      transform: translateY(0) translateX(0);
-    }
-    50% {
-      transform: translateY(-25px) translateX(15px);
-    }
-  }
-
-  @keyframes flow-right {
-    0% {
-      transform: translateX(0);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(40px);
-      opacity: 0;
-    }
-  }
-
-  @keyframes flow-left {
-    0% {
-      transform: translateX(0);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(-40px);
-      opacity: 0;
-    }
-  }
-
-  @keyframes rotate-slow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes pulse-core {
-    0%, 100% {
-      transform: scale(1);
-      opacity: 0.8;
-    }
-    50% {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-  }
-
-  @keyframes spin-particle {
-    from {
-      transform: translateX(-50%) rotate(0deg) translateY(-60px) rotate(0deg);
-    }
-    to {
-      transform: translateX(-50%) rotate(360deg) translateY(-60px) rotate(-360deg);
-    }
-  }
-
-  @keyframes float-revenue {
-    0%, 100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(-20px);
-      opacity: 0.7;
-    }
-  }
-
-  @keyframes dash-flow {
-    to {
-      stroke-dashoffset: -10;
-    }
-  }
-
-  @keyframes drift {
-    0%, 100% {
-      transform: translate(0, 0);
+      transform: translate(0, 0) scale(1);
     }
     25% {
-      transform: translate(20px, -30px);
+      transform: translate(20px, -30px) scale(1.1);
     }
     50% {
-      transform: translate(-15px, -50px);
+      transform: translate(-20px, 20px) scale(0.9);
     }
     75% {
-      transform: translate(25px, -35px);
+      transform: translate(30px, 10px) scale(1.05);
+    }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  @keyframes gradient-x {
+    0%, 100% {
+      background-position: 0% 50%;
+      background-size: 200% 200%;
+    }
+    50% {
+      background-position: 100% 50%;
+      background-size: 200% 200%;
+    }
+  }
+
+  .animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
+  }
+
+  @keyframes float-card {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
     }
   }
 }
