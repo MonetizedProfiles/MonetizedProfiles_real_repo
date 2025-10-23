@@ -763,7 +763,7 @@ const Index = () => {
 
             <div className="relative">
               {/* Main guarantee card */}
-              <div className="bg-gradient-to-br from-secondary via-background to-secondary/50 rounded-3xl p-8 md:p-12 border-2 border-border shadow-2xl">
+              <div className="bg-gradient-to-br from-secondary via-background to-secondary/50 rounded-3xl p-8 md:p-12 border-2 border-border shadow-md">
                 <div className="grid md:grid-cols-3 gap-8">
                   {/* Replacement Warranty */}
                   <div className="text-center space-y-4">
