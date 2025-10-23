@@ -16,7 +16,7 @@ import logo from "@/assets/logo.png";
 
 const Index = () => {
   const [email, setEmail] = useState("");
-  const [accountsSold, setAccountsSold] = useState(623 + Math.floor(Math.random() * 100));
+  const [accountsSold, setAccountsSold] = useState(27708 + Math.floor(Math.random() * 100));
   const [totalStock, setTotalStock] = useState<number | null>(null);
   const [ugcOpen, setUgcOpen] = useState(false);
   
@@ -194,10 +194,16 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            {/* Small badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-secondary rounded-full text-sm font-medium">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#FF2929] animate-pulse" />
-              <span>{accountsSold}+ accounts sold</span>
+            {/* Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary rounded-full text-sm font-medium">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#FF2929] animate-pulse" />
+                <span>{accountsSold.toLocaleString()}+ accounts sold</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary rounded-full text-sm font-medium">
+                <Star className="w-4 h-4 fill-[#FFD700] text-[#FFD700]" />
+                <span>4.8 rating</span>
+              </div>
             </div>
 
             {/* Big Animated Gradient Headline */}
