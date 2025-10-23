@@ -900,91 +900,104 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Affiliate Program Section - Simplified with UGC Showcase */}
-      <section id="affiliate" className="py-20 bg-gradient-to-br from-secondary/50 via-background to-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#FF2929' }}>Join Our Affiliate Program</h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Promote premium accounts and earn generous commissions
+      {/* Affiliate Program Section - Compelling Pitch */}
+      <section id="affiliate" className="py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/20 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full">
+              <span className="text-primary font-semibold text-sm">LIMITED SPOTS AVAILABLE</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
+              Partner With Us & Earn Big
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              Join the fastest-growing affiliate program for premium social media accounts. 
+              Our affiliates are making <span className="text-primary font-bold">$5,000-$15,000/month</span>
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto">
+            {/* Benefit 1 */}
+            <div className="bg-card border-2 border-border hover:border-primary/50 rounded-2xl p-8 text-center transition-all hover:shadow-2xl group">
+              <div className="relative inline-block mb-6">
+                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
+                <div className="relative w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center">
+                  <DollarSign className="w-10 h-10 text-primary" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-3">20% Per Sale</h3>
+              <p className="text-muted-foreground mb-4">
+                Earn <span className="text-primary font-bold">$100-$400</span> per account sold
+              </p>
+              <p className="text-sm text-muted-foreground">
+                30-day cookie tracking
               </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-6 mb-10">
-              {/* Left column - Stacked Info Cards */}
-              <div className="md:col-span-1 space-y-6">
-                {/* Commission Card */}
-                <Card className="hover:shadow-xl transition-all border-2 hover:border-primary/50">
-                  <CardHeader className="pb-3">
-                    <DollarSign className="w-8 h-8 text-primary mb-2" />
-                    <CardTitle className="text-lg">20% Commission</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground leading-relaxed">Earn up to $200+ per sale</p>
-                  </CardContent>
-                </Card>
-
-                {/* Benefits Card */}
-                <Card className="hover:shadow-xl transition-all border-2 hover:border-primary/50">
-                  <CardHeader className="pb-3">
-                    <Zap className="w-8 h-8 text-primary mb-2" />
-                    <CardTitle className="text-lg">Premium Tools</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground leading-relaxed">Dashboard, analytics & support</p>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Right columns - UGC Video Slots */}
-              <div className="md:col-span-3 grid grid-cols-3 gap-4">
-                {/* UGC Video 1 */}
-                <div className="overflow-hidden rounded-xl border-2 hover:shadow-xl transition-all group cursor-pointer hover:border-primary/50">
-                  <div className="aspect-[9/16] bg-gradient-to-br from-secondary to-secondary/50 flex items-center justify-center relative">
-                    <Video className="w-10 h-10 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Play className="w-10 h-10 text-primary" />
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                      <p className="text-white text-xs font-medium">UGC Example 1</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* UGC Video 2 */}
-                <div className="overflow-hidden rounded-xl border-2 hover:shadow-xl transition-all group cursor-pointer hover:border-primary/50">
-                  <div className="aspect-[9/16] bg-gradient-to-br from-secondary to-secondary/50 flex items-center justify-center relative">
-                    <Video className="w-10 h-10 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Play className="w-10 h-10 text-primary" />
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                      <p className="text-white text-xs font-medium">UGC Example 2</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* UGC Video 3 */}
-                <div className="overflow-hidden rounded-xl border-2 hover:shadow-xl transition-all group cursor-pointer hover:border-primary/50">
-                  <div className="aspect-[9/16] bg-gradient-to-br from-secondary to-secondary/50 flex items-center justify-center relative">
-                    <Video className="w-10 h-10 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Play className="w-10 h-10 text-primary" />
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
-                      <p className="text-white text-xs font-medium">UGC Example 3</p>
-                    </div>
-                  </div>
+            {/* Benefit 2 */}
+            <div className="bg-card border-2 border-border hover:border-primary/50 rounded-2xl p-8 text-center transition-all hover:shadow-2xl group">
+              <div className="relative inline-block mb-6">
+                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
+                <div className="relative w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center">
+                  <Zap className="w-10 h-10 text-primary" />
                 </div>
               </div>
+              <h3 className="text-2xl font-bold mb-3">Easy Promotion</h3>
+              <p className="text-muted-foreground mb-4">
+                Our accounts <span className="text-primary font-bold">sell themselves</span>
+              </p>
+              <p className="text-sm text-muted-foreground">
+                High conversion rates
+              </p>
             </div>
 
-            <div className="text-center">
-              <Button size="lg" className="text-lg px-10 py-6 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
-                Apply Now - Start Earning
-              </Button>
+            {/* Benefit 3 */}
+            <div className="bg-card border-2 border-border hover:border-primary/50 rounded-2xl p-8 text-center transition-all hover:shadow-2xl group">
+              <div className="relative inline-block mb-6">
+                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
+                <div className="relative w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-10 h-10 text-primary" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-3">Full Support</h3>
+              <p className="text-muted-foreground mb-4">
+                Dedicated affiliate <span className="text-primary font-bold">manager</span>
+              </p>
+              <p className="text-sm text-muted-foreground">
+                24/7 support & resources
+              </p>
             </div>
+          </div>
+
+          {/* Stats Row */}
+          <div className="bg-card/50 backdrop-blur-sm border-2 rounded-2xl p-8 mb-12 max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-4xl font-bold text-primary mb-2">92%</div>
+                <p className="text-sm text-muted-foreground">Conversion Rate</p>
+              </div>
+              <div className="border-x border-border">
+                <div className="text-4xl font-bold text-primary mb-2">$8.5K</div>
+                <p className="text-sm text-muted-foreground">Avg. Monthly Earnings</p>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-primary mb-2">500+</div>
+                <p className="text-sm text-muted-foreground">Active Affiliates</p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <Button size="lg" className="text-xl px-12 py-8 shadow-2xl hover:shadow-primary/50 transition-all hover:scale-105" style={{ backgroundColor: '#FF2929' }}>
+              Join Now - Start Earning This Week
+            </Button>
+            <p className="text-sm text-muted-foreground mt-4">
+              No upfront costs • Instant approval • First payout in 7 days
+            </p>
           </div>
         </div>
       </section>
