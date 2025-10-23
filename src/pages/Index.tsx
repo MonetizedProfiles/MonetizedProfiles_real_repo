@@ -900,104 +900,65 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Affiliate Program Section - Compelling Pitch */}
-      <section id="affiliate" className="py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/20 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      {/* Affiliate Program Section - Simple & Unique */}
+      <section id="affiliate" className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block mb-4 px-4 py-2 bg-primary/10 rounded-full">
-              <span className="text-primary font-semibold text-sm">LIMITED SPOTS AVAILABLE</span>
+          <div className="max-w-3xl mx-auto">
+            {/* Main Pitch */}
+            <div className="text-center mb-16">
+              <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Promote Premium Accounts.<br />
+                <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
+              </h2>
+              <p className="text-2xl text-muted-foreground mb-8">
+                20% commission on every sale. No strings attached.
+              </p>
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
-              Partner With Us & Earn Big
-            </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-              Join the fastest-growing affiliate program for premium social media accounts. 
-              Our affiliates are making <span className="text-primary font-bold">$5,000-$15,000/month</span>
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto">
-            {/* Benefit 1 */}
-            <div className="bg-card border-2 border-border hover:border-primary/50 rounded-2xl p-8 text-center transition-all hover:shadow-2xl group">
-              <div className="relative inline-block mb-6">
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-                <div className="relative w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center">
-                  <DollarSign className="w-10 h-10 text-primary" />
+            {/* Simple Benefits List */}
+            <div className="bg-card/50 backdrop-blur-sm border-2 rounded-3xl p-12 mb-12 space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                  <CheckCircle className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Earn $100-$400 per sale</h3>
+                  <p className="text-muted-foreground">Simple 20% commission structure. The more you sell, the more you earn.</p>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold mb-3">20% Per Sale</h3>
-              <p className="text-muted-foreground mb-4">
-                Earn <span className="text-primary font-bold">$100-$400</span> per account sold
-              </p>
-              <p className="text-sm text-muted-foreground">
-                30-day cookie tracking
-              </p>
-            </div>
 
-            {/* Benefit 2 */}
-            <div className="bg-card border-2 border-border hover:border-primary/50 rounded-2xl p-8 text-center transition-all hover:shadow-2xl group">
-              <div className="relative inline-block mb-6">
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-                <div className="relative w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center">
-                  <Zap className="w-10 h-10 text-primary" />
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                  <CheckCircle className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Your audience will love these</h3>
+                  <p className="text-muted-foreground">Premium monetized accounts that actually deliver results. High satisfaction = high conversions.</p>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold mb-3">Easy Promotion</h3>
-              <p className="text-muted-foreground mb-4">
-                Our accounts <span className="text-primary font-bold">sell themselves</span>
-              </p>
-              <p className="text-sm text-muted-foreground">
-                High conversion rates
-              </p>
-            </div>
 
-            {/* Benefit 3 */}
-            <div className="bg-card border-2 border-border hover:border-primary/50 rounded-2xl p-8 text-center transition-all hover:shadow-2xl group">
-              <div className="relative inline-block mb-6">
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all"></div>
-                <div className="relative w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-10 h-10 text-primary" />
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                  <CheckCircle className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">We handle everything else</h3>
+                  <p className="text-muted-foreground">You promote, we deliver. Support, fulfillment, and customer service all taken care of.</p>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold mb-3">Full Support</h3>
-              <p className="text-muted-foreground mb-4">
-                Dedicated affiliate <span className="text-primary font-bold">manager</span>
-              </p>
-              <p className="text-sm text-muted-foreground">
-                24/7 support & resources
+            </div>
+
+            {/* CTA */}
+            <div className="text-center">
+              <Button size="lg" className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
+                Become an Affiliate
+              </Button>
+              <p className="text-muted-foreground mt-6">
+                Join 500+ creators earning with us
               </p>
             </div>
-          </div>
-
-          {/* Stats Row */}
-          <div className="bg-card/50 backdrop-blur-sm border-2 rounded-2xl p-8 mb-12 max-w-4xl mx-auto">
-            <div className="grid grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">92%</div>
-                <p className="text-sm text-muted-foreground">Conversion Rate</p>
-              </div>
-              <div className="border-x border-border">
-                <div className="text-4xl font-bold text-primary mb-2">$8.5K</div>
-                <p className="text-sm text-muted-foreground">Avg. Monthly Earnings</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">500+</div>
-                <p className="text-sm text-muted-foreground">Active Affiliates</p>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="text-center">
-            <Button size="lg" className="text-xl px-12 py-8 shadow-2xl hover:shadow-primary/50 transition-all hover:scale-105" style={{ backgroundColor: '#FF2929' }}>
-              Join Now - Start Earning This Week
-            </Button>
-            <p className="text-sm text-muted-foreground mt-4">
-              No upfront costs • Instant approval • First payout in 7 days
-            </p>
           </div>
         </div>
       </section>
