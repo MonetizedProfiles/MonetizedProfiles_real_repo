@@ -1,22 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Mail, ArrowRight, TrendingUp, Users, DollarSign, Video } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const Affiliate = () => {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header/Navigation */}
-      <header className="border-b border-border sticky top-0 bg-background/80 backdrop-blur-md z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold">
-            Monetized<span style={{ color: '#FF2929' }}>Profiles</span>
-          </Link>
-          <Button asChild variant="outline">
-            <Link to="/">Back to Store</Link>
-          </Button>
-        </div>
-      </header>
+    <div className="bg-background">`
 
       {/* Hero Section */}
       <section className="py-20 relative overflow-hidden">
@@ -252,12 +240,6 @@ const Affiliate = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border py-8">
-        <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 };

@@ -1,15 +1,12 @@
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { PRODUCT_BY_HANDLE_QUERY, storefrontApiRequest } from "@/lib/shopify";
 import { Button } from "@/components/ui/button";
-import { CartDrawer } from "@/components/CartDrawer";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
-import { ArrowLeft, ShoppingCart, Check } from "lucide-react";
+import { ShoppingCart, Check } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Input } from "@/components/ui/input";
 import { useState } from "react";
-import logo from "@/assets/logo.png";
 
 const ProductDetail = () => {
   const { handle } = useParams();
@@ -52,17 +49,7 @@ const ProductDetail = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background">
-        <header className="border-b bg-background/95 backdrop-blur-sm sticky top-0 z-50">
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <Button variant="ghost" onClick={() => navigate(-1)}>
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back
-            </Button>
-            <CartDrawer />
-          </div>
-        </header>
-        
+      <div className="bg-background">
         <div className="container mx-auto px-4 py-12">
           <div className="grid md:grid-cols-2 gap-12">
             <Skeleton className="aspect-square w-full" />
@@ -79,7 +66,7 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="bg-background flex items-center justify-center min-h-[400px]">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-4">Product not found</h2>
           <Button onClick={() => navigate('/')}>Return to Home</Button>
@@ -94,21 +81,7 @@ const ProductDetail = () => {
   const image = product.images.edges[0]?.node.url;
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-background/95 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Button variant="ghost" onClick={() => navigate(-1)}>
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back
-          </Button>
-          <div className="flex items-center gap-4">
-            <img src={logo} alt="MonetizedProfiles" className="h-6" />
-            <CartDrawer />
-          </div>
-        </div>
-      </header>
-
+    <div className="bg-background">
       {/* Product Details */}
       <main className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
@@ -181,68 +154,6 @@ const ProductDetail = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-secondary/50 border-t mt-20">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            {/* Brand */}
-            <div className="md:col-span-2">
-              <img src={logo} alt="MonetizedProfiles" className="h-8 mb-4" />
-              <p className="text-muted-foreground text-sm max-w-md">
-                Premium digital products for social media professionals. Turn your followers into customers.
-              </p>
-            </div>
-
-            {/* Links */}
-            <div className="space-y-2">
-              <h3 className="font-semibold mb-3">Quick Links</h3>
-              <div className="flex flex-col space-y-2 text-sm">
-                <Link to="/" className="hover:text-primary transition-colors">Shop</Link>
-                <a href="#" className="hover:text-primary transition-colors">About</a>
-                <a href="#" className="hover:text-primary transition-colors">Contact</a>
-              </div>
-            </div>
-
-            {/* Legal */}
-            <div className="space-y-2">
-              <h3 className="font-semibold mb-3">Legal</h3>
-              <div className="flex flex-col space-y-2 text-sm">
-                <a href="#" className="hover:text-primary transition-colors">Terms</a>
-                <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-              </div>
-            </div>
-          </div>
-
-          {/* Email Capture */}
-          <div className="pt-8 border-t max-w-md mx-auto text-center">
-            <p className="text-sm text-muted-foreground mb-3">Get notified about restocking and exclusive offers</p>
-            <form 
-              onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                const email = formData.get('email');
-                toast.success("Thanks for subscribing!");
-                e.currentTarget.reset();
-              }}
-              className="flex gap-2"
-            >
-              <Input 
-                type="email" 
-                name="email"
-                placeholder="Enter your email" 
-                required 
-                className="flex-1"
-              />
-              <Button type="submit" size="sm">Subscribe</Button>
-            </form>
-          </div>
-
-          {/* Copyright */}
-          <div className="text-center text-sm text-muted-foreground pt-8">
-            <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

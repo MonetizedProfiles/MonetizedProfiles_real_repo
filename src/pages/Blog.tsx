@@ -3,11 +3,6 @@ import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Calendar, ArrowRight } from "lucide-react";
-import { CartDrawer } from "@/components/CartDrawer";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-import logo from "@/assets/logo.png";
 
 // Shopify Blog API setup
 const SHOPIFY_API_VERSION = '2025-07';
@@ -75,16 +70,7 @@ const Blog = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-background/95 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/">
-            <img src={logo} alt="MonetizedProfiles" className="h-8" />
-          </Link>
-          <CartDrawer />
-        </div>
-      </header>
+    <div className="bg-background">
 
       {/* Blog Header */}
       <section className="py-16 bg-gradient-to-br from-background via-secondary/20 to-background">
@@ -161,68 +147,6 @@ const Blog = () => {
         )}
       </section>
 
-      {/* Footer */}
-      <footer className="bg-secondary/50 border-t mt-20">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            {/* Brand */}
-            <div className="md:col-span-2">
-              <img src={logo} alt="MonetizedProfiles" className="h-8 mb-4" />
-              <p className="text-muted-foreground text-sm max-w-md">
-                Premium digital products for social media professionals. Turn your followers into customers.
-              </p>
-            </div>
-
-            {/* Links */}
-            <div className="space-y-2">
-              <h3 className="font-semibold mb-3">Quick Links</h3>
-              <div className="flex flex-col space-y-2 text-sm">
-                <Link to="/" className="hover:text-primary transition-colors">Shop</Link>
-                <a href="#" className="hover:text-primary transition-colors">About</a>
-                <a href="#" className="hover:text-primary transition-colors">Contact</a>
-              </div>
-            </div>
-
-            {/* Legal */}
-            <div className="space-y-2">
-              <h3 className="font-semibold mb-3">Legal</h3>
-              <div className="flex flex-col space-y-2 text-sm">
-                <a href="#" className="hover:text-primary transition-colors">Terms</a>
-                <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-              </div>
-            </div>
-          </div>
-
-          {/* Email Capture */}
-          <div className="pt-8 border-t max-w-md mx-auto text-center">
-            <p className="text-sm text-muted-foreground mb-3">Get notified about restocking and exclusive offers</p>
-            <form 
-              onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                const email = formData.get('email');
-                toast.success("Thanks for subscribing!");
-                e.currentTarget.reset();
-              }}
-              className="flex gap-2"
-            >
-              <Input 
-                type="email" 
-                name="email"
-                placeholder="Enter your email" 
-                required 
-                className="flex-1"
-              />
-              <Button type="submit" size="sm">Subscribe</Button>
-            </form>
-          </div>
-
-          {/* Copyright */}
-          <div className="text-center text-sm text-muted-foreground pt-8">
-            <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
