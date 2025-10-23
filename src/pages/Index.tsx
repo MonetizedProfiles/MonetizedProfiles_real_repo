@@ -187,91 +187,48 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section - Unique Bold Style */}
-      <section className="relative py-24 md:py-36 overflow-hidden">
-        {/* Dynamic striped background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/30 to-background">
-          <div className="absolute inset-0 opacity-[0.03]" style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              #FF2929,
-              #FF2929 10px,
-              transparent 10px,
-              transparent 20px
-            )`
-          }} />
-        </div>
-
-        {/* Floating accent elements */}
-        <div className="absolute top-20 right-[10%] w-20 h-20 border-4 border-[#FF2929]/20 rounded-full animate-spin-slow" />
-        <div className="absolute bottom-32 left-[15%] w-16 h-16 border-4 border-[#306BE4]/20 rounded-full animate-spin-slow-reverse" />
+      {/* Hero Section - Modern SaaS Minimal */}
+      <section className="relative py-32 md:py-40 overflow-hidden bg-background">
+        {/* Subtle background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-background to-background" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            {/* Badge */}
-            <div className="flex justify-center mb-10">
-              <div className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#FF2929] text-white rounded-full font-semibold text-sm shadow-lg animate-bounce-subtle">
-                <Star className="w-4 h-4 fill-white" />
-                <span>Trusted by {accountsSold}+ Creators</span>
-              </div>
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Small badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-secondary rounded-full text-sm font-medium">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#FF2929] animate-pulse" />
+              <span>{accountsSold}+ accounts sold</span>
             </div>
 
-            {/* Main Content */}
-            <div className="text-center space-y-8">
-              {/* Headline with unique typography */}
-              <div className="space-y-4">
-                <div className="inline-block">
-                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none">
-                    <span className="block opacity-20 text-muted-foreground">BUY</span>
-                    <span className="block -mt-6 md:-mt-10" style={{ color: "#FF2929" }}>EARN</span>
-                    <span className="block -mt-6 md:-mt-10 opacity-20 text-muted-foreground">GROW</span>
-                  </h1>
-                </div>
-              </div>
+            {/* Big Animated Gradient Headline */}
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-tight">
+              <span className="block mb-2">Monetized Accounts,</span>
+              <span className="block bg-gradient-to-r from-[#FF2929] via-[#FF6B6B] to-[#306BE4] bg-clip-text text-transparent animate-gradient-flow" style={{ backgroundSize: "200% auto" }}>
+                Instant Revenue
+              </span>
+            </h1>
 
-              {/* Subheadline */}
-              <p className="text-2xl md:text-3xl font-medium text-foreground max-w-3xl mx-auto leading-relaxed">
-                Pre-monetized YouTube & TikTok accounts.
-                <br />
-                <span className="text-muted-foreground">Your shortcut to content creator success.</span>
-              </p>
+            {/* Simple subtitle */}
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+              Buy verified social media accounts and start earning immediately. 
+              No waiting, no building from scratch.
+            </p>
 
-              {/* CTA Section */}
-              <div className="pt-6">
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <Button 
-                    size="lg"
-                    className="px-12 py-8 text-xl font-bold bg-[#FF2929] hover:bg-[#FF2929]/90 text-white shadow-2xl hover:shadow-3xl transition-all hover:-translate-y-1 group"
-                  >
-                    <span>Shop Now</span>
-                    <TrendingUp className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  <Button 
-                    size="lg"
-                    variant="ghost"
-                    className="px-12 py-8 text-xl font-bold hover:bg-secondary/50 transition-all group"
-                  >
-                    <Play className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform" />
-                    <span>Watch Demo</span>
-                  </Button>
-                </div>
-
-                {/* Quick stats */}
-                <div className="flex flex-wrap justify-center gap-6 mt-10 text-sm font-semibold">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5" style={{ color: "#FF2929" }} />
-                    <span>Instant Delivery</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5" style={{ color: "#FF2929" }} />
-                    <span>30-Day Warranty</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5" style={{ color: "#FF2929" }} />
-                    <span>24/7 Support</span>
-                  </div>
-                </div>
-              </div>
+            {/* Clean CTA */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                className="px-10 py-6 text-lg font-semibold bg-[#FF2929] hover:bg-[#FF2929]/90 text-white"
+              >
+                Browse Accounts
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                className="px-10 py-6 text-lg font-semibold border-2"
+              >
+                Learn More
+              </Button>
             </div>
           </div>
         </div>
