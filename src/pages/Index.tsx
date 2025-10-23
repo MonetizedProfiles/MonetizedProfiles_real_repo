@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
 import { CartDrawer } from "@/components/CartDrawer";
-import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail, DollarSign, Percent, Video, Play, ChevronLeft, ChevronRight, ChevronDown, Lightbulb } from "lucide-react";
+import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail, DollarSign, Percent, Video, Play, ChevronLeft, ChevronRight, ChevronDown, Sparkles } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -207,8 +207,8 @@ const Index = () => {
             <div className="absolute -right-28 bottom-32 hidden lg:block animate-float" style={{ animationDelay: '1.5s' }}>
               <Star className="w-11 h-11 text-[#FF2929]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 41, 41, 0.6))' }} />
             </div>
-            <div className="absolute left-1/4 -translate-x-1/2 bottom-8 hidden lg:block animate-float" style={{ animationDelay: '0.75s' }}>
-              <Lightbulb className="w-12 h-12 text-[#FFD700]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.6))' }} />
+            <div className="absolute left-1/6 bottom-8 hidden lg:block animate-float" style={{ animationDelay: '0.75s' }}>
+              <Sparkles className="w-12 h-12 text-[#FFD700]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.6))' }} />
             </div>
             
             {/* Badges */}
