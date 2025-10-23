@@ -1,7 +1,8 @@
 import { ShopifyProduct } from "@/lib/shopify";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShoppingCart, Check } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ShoppingCart, Check, Star } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 import { useState } from "react";
@@ -47,7 +48,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       className="group cursor-pointer overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-glow bg-card"
       onClick={() => navigate(`/product/${product.node.handle}`)}
     >
-      <div className="aspect-square overflow-hidden bg-secondary">
+      <div className="aspect-square overflow-hidden bg-secondary relative">
         {image ? (
           <img 
             src={image} 
@@ -59,6 +60,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <ShoppingCart className="w-12 h-12 text-muted-foreground" />
           </div>
         )}
+        
+        {/* Review Badge */}
+        <Badge className="absolute top-3 right-3 bg-background/95 text-foreground border shadow-sm">
+          <Star className="w-3 h-3 fill-primary text-primary mr-1" />
+          <span className="font-semibold">4.9</span>
+        </Badge>
       </div>
       
       <CardHeader>
