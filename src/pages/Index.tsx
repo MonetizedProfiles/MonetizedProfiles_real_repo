@@ -207,7 +207,7 @@ const Index = () => {
             <div className="absolute -right-28 bottom-32 hidden lg:block animate-float" style={{ animationDelay: '1.5s' }}>
               <Star className="w-11 h-11 text-[#FF2929]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 41, 41, 0.6))' }} />
             </div>
-            <div className="absolute left-[18%] bottom-5 hidden lg:block animate-float" style={{ animationDelay: '0.75s' }}>
+            <div className="absolute left-[17%] bottom-3 hidden lg:block animate-float" style={{ animationDelay: '0.75s' }}>
               <Sparkles className="w-12 h-12 text-[#C74DFF]" style={{ filter: 'drop-shadow(0 0 20px rgba(199, 77, 255, 0.6))' }} />
             </div>
             
