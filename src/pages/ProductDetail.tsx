@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { PRODUCT_BY_HANDLE_QUERY, storefrontApiRequest } from "@/lib/shopify";
 import { Button } from "@/components/ui/button";
 import { CartDrawer } from "@/components/CartDrawer";
+import { Footer } from "@/components/Footer";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 import { ArrowLeft, ShoppingCart, Check } from "lucide-react";
@@ -179,6 +180,8 @@ const ProductDetail = () => {
           </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };
