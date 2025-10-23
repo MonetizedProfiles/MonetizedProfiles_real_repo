@@ -901,57 +901,87 @@ const Index = () => {
       </section>
 
       {/* Affiliate Program Section - Simplified with UGC Showcase */}
-      <section id="affiliate" className="py-16 bg-secondary/30">
+      <section id="affiliate" className="py-20 bg-gradient-to-br from-secondary/50 via-background to-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#FF2929' }}>Join Our Affiliate Program</h2>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#FF2929' }}>Join Our Affiliate Program</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Earn 20% commission promoting premium monetized accounts
+                Promote premium accounts and earn generous commissions
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              {/* Commission Card */}
-              <Card className="hover:shadow-lg transition-all border-2 text-center">
-                <CardHeader>
-                  <DollarSign className="w-10 h-10 text-primary mx-auto mb-3" />
-                  <CardTitle className="text-2xl">20% Commission</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Earn up to $200+ per sale with 30-day cookies</p>
-                </CardContent>
-              </Card>
+            <div className="grid md:grid-cols-4 gap-6 mb-10">
+              {/* Left column - Stacked Info Cards */}
+              <div className="md:col-span-1 space-y-6">
+                {/* Commission Card */}
+                <Card className="hover:shadow-xl transition-all border-2 hover:border-primary/50">
+                  <CardHeader className="pb-3">
+                    <DollarSign className="w-8 h-8 text-primary mb-2" />
+                    <CardTitle className="text-lg">20% Commission</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground leading-relaxed">Earn up to $200+ per sale</p>
+                  </CardContent>
+                </Card>
 
-              {/* UGC Video 1 */}
-              <div className="overflow-hidden rounded-xl border-2 hover:shadow-lg transition-all group cursor-pointer">
-                <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
-                  <Video className="w-12 h-12 text-muted-foreground" />
-                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <Play className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
-                    <p className="text-white text-sm font-medium">UGC Example #1</p>
-                  </div>
-                </div>
+                {/* Benefits Card */}
+                <Card className="hover:shadow-xl transition-all border-2 hover:border-primary/50">
+                  <CardHeader className="pb-3">
+                    <Zap className="w-8 h-8 text-primary mb-2" />
+                    <CardTitle className="text-lg">Premium Tools</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground leading-relaxed">Dashboard, analytics & support</p>
+                  </CardContent>
+                </Card>
               </div>
 
-              {/* UGC Video 2 */}
-              <div className="overflow-hidden rounded-xl border-2 hover:shadow-lg transition-all group cursor-pointer">
-                <div className="aspect-[9/16] bg-secondary/50 flex items-center justify-center relative">
-                  <Video className="w-12 h-12 text-muted-foreground" />
-                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <Play className="w-8 h-8 text-primary" />
+              {/* Right columns - UGC Video Slots */}
+              <div className="md:col-span-3 grid grid-cols-3 gap-4">
+                {/* UGC Video 1 */}
+                <div className="overflow-hidden rounded-xl border-2 hover:shadow-xl transition-all group cursor-pointer hover:border-primary/50">
+                  <div className="aspect-[9/16] bg-gradient-to-br from-secondary to-secondary/50 flex items-center justify-center relative">
+                    <Video className="w-10 h-10 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Play className="w-10 h-10 text-primary" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+                      <p className="text-white text-xs font-medium">UGC Example 1</p>
+                    </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
-                    <p className="text-white text-sm font-medium">UGC Example #2</p>
+                </div>
+
+                {/* UGC Video 2 */}
+                <div className="overflow-hidden rounded-xl border-2 hover:shadow-xl transition-all group cursor-pointer hover:border-primary/50">
+                  <div className="aspect-[9/16] bg-gradient-to-br from-secondary to-secondary/50 flex items-center justify-center relative">
+                    <Video className="w-10 h-10 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Play className="w-10 h-10 text-primary" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+                      <p className="text-white text-xs font-medium">UGC Example 2</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* UGC Video 3 */}
+                <div className="overflow-hidden rounded-xl border-2 hover:shadow-xl transition-all group cursor-pointer hover:border-primary/50">
+                  <div className="aspect-[9/16] bg-gradient-to-br from-secondary to-secondary/50 flex items-center justify-center relative">
+                    <Video className="w-10 h-10 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Play className="w-10 h-10 text-primary" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2">
+                      <p className="text-white text-xs font-medium">UGC Example 3</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="text-center">
-              <Button size="lg" className="text-lg px-10 py-6" style={{ backgroundColor: '#FF2929' }}>
+              <Button size="lg" className="text-lg px-10 py-6 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
                 Apply Now - Start Earning
               </Button>
             </div>
