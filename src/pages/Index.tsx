@@ -109,6 +109,14 @@ const Index = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link to="/blog" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                    Blog
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
                 <NavigationMenuTrigger>Policies</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-4 w-[300px]">
@@ -143,80 +151,50 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section with Animation */}
-      <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-secondary to-background">
+      {/* Hero Section - Simplified */}
+      <section className="relative overflow-hidden py-24 md:py-32 bg-gradient-to-br from-background via-secondary/20 to-background">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight text-foreground">
-                Premium Monetized Social Media Accounts
-              </h1>
-              <p className="text-xl text-muted-foreground">
-                Buy verified, monetized YouTube and TikTok accounts with real audiences. 
-                Fast, secure, and ready to generate revenue from day one.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-4">
-                <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
-                  <Shield className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium">Verified Accounts</span>
-                </div>
-                <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
-                  <TrendingUp className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium">Real Engagement</span>
-                </div>
-                <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
-                  <Zap className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium">Instant Transfer</span>
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium border border-primary/20 animate-fade-in">
+              <Zap className="w-4 h-4" />
+              Start Earning in 24 Hours
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight text-foreground animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              Monetized Accounts
+              <span className="block text-primary mt-2">Ready to Earn</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              Buy verified YouTube and TikTok accounts with real audiences. Start generating revenue from day one.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all">
+                <ShoppingBag className="w-5 h-5 mr-2" />
+                Browse Accounts
+              </Button>
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+                Learn More
+              </Button>
+            </div>
+
+            {/* Animated floating icons */}
+            <div className="relative h-32 mt-12">
+              <div className="absolute left-1/4 top-0 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}>
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+                  <DollarSign className="w-8 h-8 text-primary" />
                 </div>
               </div>
-            </div>
-            <div className="relative flex items-center justify-center">
-              {/* Animated Icon Grid */}
-              <div className="grid grid-cols-3 gap-6 p-8">
-                <div className="animate-fade-in" style={{ animationDelay: '0s' }}>
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
-                    <TrendingUp className="w-10 h-10 text-primary" />
-                  </div>
+              <div className="absolute right-1/4 top-0 animate-bounce" style={{ animationDelay: '1s', animationDuration: '3s' }}>
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+                  <TrendingUp className="w-8 h-8 text-primary" />
                 </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
-                    <DollarSign className="w-10 h-10 text-primary" />
-                  </div>
-                </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
-                    <Shield className="w-10 h-10 text-primary" />
-                  </div>
-                </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
-                    <Users className="w-10 h-10 text-primary" />
-                  </div>
-                </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20 animate-pulse">
-                    <Zap className="w-10 h-10 text-primary" />
-                  </div>
-                </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
-                    <Lock className="w-10 h-10 text-primary" />
-                  </div>
-                </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
-                    <Star className="w-10 h-10 text-primary" />
-                  </div>
-                </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.7s' }}>
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
-                    <CheckCircle className="w-10 h-10 text-primary" />
-                  </div>
-                </div>
-                <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-primary/20">
-                    <Video className="w-10 h-10 text-primary" />
-                  </div>
+              </div>
+              <div className="absolute left-1/2 -translate-x-1/2 top-8 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '3s' }}>
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20">
+                  <Shield className="w-8 h-8 text-primary" />
                 </div>
               </div>
             </div>
@@ -258,268 +236,272 @@ const Index = () => {
         )}
       </section>
 
-      {/* Enhanced Features Section */}
-      <section className="py-16 bg-secondary/30">
+      {/* Features Section - More Interactive */}
+      <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold mb-2">Why Choose MonetizedProfiles?</h2>
-            <p className="text-muted-foreground">Everything you need to start earning immediately</p>
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">Why Choose MonetizedProfiles?</h2>
+            <p className="text-lg text-muted-foreground">We've perfected the process of transferring monetized accounts safely and securely</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
-              <CardHeader>
-                <Shield className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <CardTitle>100% Verified Accounts</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-4">All accounts are fully verified and meet platform requirements for monetization</CardDescription>
-                <ul className="text-sm text-left space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>YouTube Partner Program approved</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>TikTok Creator Marketplace access</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Full monetization features enabled</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
+              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
+                    <Shield className="w-10 h-10 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Verified & Secure</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-muted-foreground mb-4">Every account is fully verified with platform monetization enabled and ready to earn</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2 text-left">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                      <span>YouTube Partner approved</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-left">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                      <span>TikTok monetization active</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
-            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
-              <CardHeader>
-                <Users className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <CardTitle>Real Engaged Audiences</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-4">Genuine followers and subscribers with proven engagement metrics</CardDescription>
-                <ul className="text-sm text-left space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Organic growth history</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>High engagement rates (5-15%)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Active, real followers only</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
+              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
+                    <Users className="w-10 h-10 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Real Audiences</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-muted-foreground mb-4">Genuine, engaged followers with proven interaction history and organic growth</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2 text-left">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                      <span>5-15% engagement rate</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-left">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                      <span>No bots or fake followers</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
-            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
-              <CardHeader>
-                <Zap className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <CardTitle>Lightning Fast Transfer</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-4">Complete account ownership transferred within 24 hours of purchase</CardDescription>
-                <ul className="text-sm text-left space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Instant access after payment</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Full credentials transferred</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Step-by-step migration guide</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
+              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
+                    <Zap className="w-10 h-10 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Instant Transfer</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-muted-foreground mb-4">Complete ownership transferred within 24 hours, often much faster</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2 text-left">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                      <span>Same-day access possible</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-left">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                      <span>Full account credentials</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
-            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
-              <CardHeader>
-                <Lock className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <CardTitle>Bank-Level Security</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-4">Protected transactions with escrow service and full documentation</CardDescription>
-                <ul className="text-sm text-left space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Secure payment processing</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Legal transfer documentation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Privacy guaranteed</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
-              <CardHeader>
-                <DollarSign className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <CardTitle>Immediate Revenue</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-4">Start earning from day one with pre-monetized accounts</CardDescription>
-                <ul className="text-sm text-left space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>No waiting for monetization approval</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Existing revenue streams</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Multiple income opportunities</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="group text-center hover:shadow-glow transition-all hover:scale-105 hover:border-primary/50 cursor-pointer">
-              <CardHeader>
-                <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <CardTitle>Growth Potential</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base mb-4">Accounts with proven track records and growth trajectories</CardDescription>
-                <ul className="text-sm text-left space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Historical analytics included</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Audience insights provided</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>Scalable platform ready</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
+              <Card className="relative bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 transition-all h-full">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
+                    <HeadphonesIcon className="w-10 h-10 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">Expert Support</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-muted-foreground mb-4">Dedicated support team ready to help with any questions or issues</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2 text-left">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                      <span>1-hour response time</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-left">
+                      <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                      <span>Transfer guidance included</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 container mx-auto px-4">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-2">What Our Customers Say</h2>
-          <p className="text-muted-foreground">Join hundreds of satisfied content creators</p>
-        </div>
+      {/* Testimonials Section - Scrolling Carousel */}
+      <section className="py-20 bg-gradient-to-br from-background to-secondary/20">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl font-bold mb-4">What Our Customers Say</h2>
+            <p className="text-lg text-muted-foreground">Join hundreds of satisfied content creators</p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-1 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <CardTitle className="text-lg">Amazing Service!</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-base">
-                "Bought a YouTube channel and started earning within days. The transfer was smooth and the account had exactly what was promised."
-              </CardDescription>
-              <p className="text-sm font-medium mt-4">- Sarah M.</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-1 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <CardTitle className="text-lg">Highly Recommend</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-base">
-                "The TikTok Shop account I purchased already had great engagement. Support team answered all my questions quickly."
-              </CardDescription>
-              <p className="text-sm font-medium mt-4">- James K.</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-1 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <CardTitle className="text-lg">Worth Every Penny</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-base">
-                "Skip months of growing an audience. This was the perfect shortcut to start my content creator journey professionally."
-              </CardDescription>
-              <p className="text-sm font-medium mt-4">- Emma L.</p>
-            </CardContent>
-          </Card>
+          <div className="relative overflow-hidden">
+            <div className="flex gap-6 animate-scroll-left pause-animation">
+              {[...Array(2)].map((_, groupIdx) => (
+                <div key={groupIdx} className="flex gap-6">
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl font-bold text-primary border-2 border-primary/20">SM</div>
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Game Changer!</h4>
+                        <p className="text-sm text-muted-foreground">Sarah M.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Bought a monetized YouTube channel and started earning from day one. The account was exactly as described!"</p>
+                  </div>
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl font-bold text-primary border-2 border-primary/20">JK</div>
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Excellent Service</h4>
+                        <p className="text-sm text-muted-foreground">James K.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Transfer was smooth and support was incredibly helpful. My TikTok account has active followers!"</p>
+                  </div>
+                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:border-primary/50">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl font-bold text-primary border-2 border-primary/20">EL</div>
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Worth Every Penny</h4>
+                        <p className="text-sm text-muted-foreground">Emma L.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"Skip months of growing an audience. Perfect shortcut to start my content creator journey!"</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Warranty & Guarantee Section */}
-      <section className="py-16 bg-secondary/30">
+      {/* Creative Guarantee Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-2">Our Guarantee to You</h2>
-              <p className="text-muted-foreground">Shop with confidence</p>
+              <h2 className="text-4xl font-bold mb-4">Risk-Free Purchase Guarantee</h2>
+              <p className="text-xl text-muted-foreground">Your success is our priority. We stand behind every account we sell.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="text-center">
-                <CardHeader>
-                  <RefreshCw className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <CardTitle>Replacement Warranty</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    If any issues occur with your account within 30 days, we'll replace it at no extra cost.
-                  </CardDescription>
-                </CardContent>
-              </Card>
+            <div className="relative">
+              {/* Main guarantee card */}
+              <div className="bg-gradient-to-br from-primary/10 via-background to-primary/5 rounded-3xl p-8 md:p-12 border-2 border-primary/20 shadow-2xl">
+                <div className="grid md:grid-cols-3 gap-8">
+                  {/* Replacement Warranty */}
+                  <div className="text-center space-y-4">
+                    <div className="relative inline-block">
+                      <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl"></div>
+                      <div className="relative w-24 h-24 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-primary/30 shadow-lg">
+                        <RefreshCw className="w-12 h-12 text-primary" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">30-Day Replacement</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Account issues within 30 days? We'll replace it immediately at no cost. 
+                        <span className="block mt-2 font-semibold text-foreground">Zero questions asked.</span>
+                      </p>
+                    </div>
+                  </div>
 
-              <Card className="text-center">
-                <CardHeader>
-                  <CheckCircle className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <CardTitle>Money-Back Guarantee</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    Not satisfied? Get a full refund within 7 days, no questions asked.
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                  {/* Money-Back Guarantee */}
+                  <div className="text-center space-y-4 md:border-x md:border-primary/20 md:px-4">
+                    <div className="relative inline-block">
+                      <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl"></div>
+                      <div className="relative w-24 h-24 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-primary/30 shadow-lg">
+                        <CheckCircle className="w-12 h-12 text-primary" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">7-Day Money Back</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Not satisfied for any reason? Full refund within 7 days of purchase.
+                        <span className="block mt-2 font-semibold text-foreground">100% guaranteed.</span>
+                      </p>
+                    </div>
+                  </div>
 
-              <Card className="text-center">
-                <CardHeader>
-                  <HeadphonesIcon className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <CardTitle>1-Hour Support</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    Our support team responds within 1 hour on weekdays. We're here to help!
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                  {/* Fast Support */}
+                  <div className="text-center space-y-4">
+                    <div className="relative inline-block">
+                      <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl"></div>
+                      <div className="relative w-24 h-24 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-primary/30 shadow-lg">
+                        <HeadphonesIcon className="w-12 h-12 text-primary" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">1-Hour Response</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Expert support team available on weekdays. Get help when you need it.
+                        <span className="block mt-2 font-semibold text-foreground">Fast & friendly.</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom CTA */}
+                <div className="mt-12 text-center">
+                  <div className="inline-flex items-center gap-2 bg-primary/10 px-6 py-3 rounded-full border border-primary/30">
+                    <Shield className="w-5 h-5 text-primary" />
+                    <span className="font-semibold">Your purchase is 100% protected</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Urgency Section - Limited Stock */}
+      <section className="py-12 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border-y border-primary/20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Clock className="w-8 h-8 text-primary animate-pulse" />
+              <h3 className="text-2xl md:text-3xl font-bold">Limited Stock Available</h3>
+            </div>
+            <p className="text-lg text-muted-foreground mb-6">
+              Premium monetized accounts sell out fast. Don't miss your chance to start earning today.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center items-center text-sm">
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
+                <Users className="w-4 h-4 text-primary" />
+                <span><strong>237</strong> accounts sold this month</span>
+              </div>
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
+                <Star className="w-4 h-4 text-primary" />
+                <span><strong>4.9/5</strong> average rating</span>
+              </div>
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
+                <Zap className="w-4 h-4 text-primary" />
+                <span><strong>12</strong> accounts left in stock</span>
+              </div>
             </div>
           </div>
         </div>
