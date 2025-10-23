@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
@@ -20,6 +20,9 @@ const Index = () => {
   const [accountsSoldThisMonth, setAccountsSoldThisMonth] = useState(639 + Math.floor(Math.random() * 10));
   const [totalStock, setTotalStock] = useState<number | null>(null);
   const [ugcOpen, setUgcOpen] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   
   const { data, isLoading } = useQuery({
     queryKey: ['products'],
@@ -74,10 +77,31 @@ const Index = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // Filter to show featured products (2 YouTube + 1 TikTok)
-  const featuredProducts = data?.filter(p => 
-    p.node.title.includes("Monetized YouTube") || p.node.title.includes("Monetized TikTok")
-  ).slice(0, 3);
+  // Check scroll position
+  const checkScrollButtons = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    checkScrollButtons();
+    window.addEventListener('resize', checkScrollButtons);
+    return () => window.removeEventListener('resize', checkScrollButtons);
+  }, [data]);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = scrollContainerRef.current.clientWidth;
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+      setTimeout(checkScrollButtons, 300);
+    }
+  };
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -288,7 +312,7 @@ const Index = () => {
             <Skeleton className="aspect-square w-full" />
             <Skeleton className="aspect-square w-full" />
           </div>
-        ) : !featuredProducts || featuredProducts.length === 0 ? (
+        ) : !data || data.length === 0 ? (
           <div className="text-center py-20">
             <ShoppingBag className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
             <h4 className="text-2xl font-semibold mb-2">No Products Found</h4>
@@ -297,11 +321,49 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {featuredProducts.map((product) => (
-                <ProductCard key={product.node.id} product={product} />
-              ))}
+          <div className="max-w-6xl mx-auto relative">
+            {/* Left scroll button */}
+            {canScrollLeft && (
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/95 backdrop-blur-sm"
+                onClick={() => scroll('left')}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+            )}
+            
+            {/* Right scroll button */}
+            {canScrollRight && (
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/95 backdrop-blur-sm"
+                onClick={() => scroll('right')}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            )}
+
+            {/* Scrollable container */}
+            <div 
+              ref={scrollContainerRef}
+              className="overflow-x-auto scrollbar-hide scroll-smooth"
+              onScroll={checkScrollButtons}
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              <div 
+                className="grid grid-cols-3 gap-6"
+                style={{ 
+                  gridAutoFlow: 'column',
+                  gridAutoColumns: 'calc(33.333% - 1rem)'
+                }}
+              >
+                {data.map((product) => (
+                  <ProductCard key={product.node.id} product={product} />
+                ))}
+              </div>
             </div>
           </div>
         )}
