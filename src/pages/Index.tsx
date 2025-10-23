@@ -909,7 +909,8 @@ const Index = () => {
             {/* Main Pitch */}
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-3 leading-tight">
-                Promote Premium Accounts. <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
+                Promote Our Accounts.<br />
+                <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
                 20% commission on every sale. No strings attached.
