@@ -379,8 +379,8 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">Join hundreds of satisfied content creators</p>
           </div>
 
-          <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)]">
-            <div className="flex gap-6 animate-scroll-left pause-animation">
+          <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
+            <div className="flex gap-6 py-3 animate-scroll-left pause-animation">
               {[...Array(2)].map((_, groupIdx) => (
                 <div key={groupIdx} className="flex gap-6">
                   {/* Review 1 */}
