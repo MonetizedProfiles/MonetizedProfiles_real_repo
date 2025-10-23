@@ -187,146 +187,73 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section - Brand New Design */}
-      <section className="relative overflow-hidden py-32 md:py-40 bg-gradient-to-b from-background via-secondary/30 to-background">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#FF2929]/5 rounded-full blur-3xl animate-blob" />
-          <div className="absolute top-40 right-10 w-96 h-96 bg-[#306BE4]/5 rounded-full blur-3xl animate-blob animation-delay-2000" />
-          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-[#FF2929]/5 rounded-full blur-3xl animate-blob animation-delay-4000" />
-        </div>
-
+      {/* Hero Section - Simple & Clean */}
+      <section className="relative py-20 md:py-32 bg-background">
+        {/* Subtle gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
+        
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            {/* Status Badge with Live Counter */}
-            <div className="flex justify-center mb-8 animate-fade-in">
-              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FF2929]/10 via-[#FF2929]/5 to-transparent px-6 py-3 rounded-full border border-[#FF2929]/20 backdrop-blur-sm">
-                <div className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF2929] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#FF2929]" />
-                </div>
-                <span className="text-sm font-semibold" style={{ color: "#FF2929" }}>
-                  {accountsSold}+ Accounts Sold This Month
-                </span>
-              </div>
-            </div>
-
-            {/* Main Headline with Gradient Effect */}
-            <div className="text-center mb-8 space-y-4">
-              <h1 className="text-6xl md:text-8xl font-black leading-none animate-fade-in" style={{ animationDelay: "0.1s" }}>
-                <span className="block bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                  Your Path to
-                </span>
-                <span className="block mt-3 bg-gradient-to-r from-[#FF2929] via-[#FF2929] to-[#306BE4] bg-clip-text text-transparent animate-gradient-x">
-                  Instant Income
-                </span>
+          <div className="max-w-4xl mx-auto text-center space-y-10">
+            {/* Headline */}
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
+                Buy Monetized Accounts.
+                <br />
+                <span style={{ color: "#FF2929" }}>Start Earning Today.</span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: "0.2s" }}>
-                Skip the years of grinding. Get a verified, monetized social media account and start earning today.
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+                Verified YouTube and TikTok accounts with real audiences ready to generate revenue from day one.
               </p>
             </div>
 
-            {/* Feature Pills */}
-            <div className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              <div className="px-5 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border shadow-sm flex items-center gap-2">
-                <CheckCircle className="w-4 h-4" style={{ color: "#FF2929" }} />
-                <span className="text-sm font-medium">Verified & Monetized</span>
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap justify-center gap-8 text-sm py-6">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-[#FF2929]" />
+                <span className="font-semibold">{accountsSold}+ Accounts Sold</span>
               </div>
-              <div className="px-5 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border shadow-sm flex items-center gap-2">
-                <Zap className="w-4 h-4" style={{ color: "#FF2929" }} />
-                <span className="text-sm font-medium">Instant Transfer</span>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-[#FF2929]" />
+                <span className="font-semibold">4.9/5 Rating</span>
               </div>
-              <div className="px-5 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border shadow-sm flex items-center gap-2">
-                <Shield className="w-4 h-4" style={{ color: "#FF2929" }} />
-                <span className="text-sm font-medium">30-Day Guarantee</span>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-[#FF2929]" />
+                <span className="font-semibold">30-Day Guarantee</span>
               </div>
             </div>
 
-            {/* CTA Section */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="text-lg px-10 py-7 shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105 group relative overflow-hidden"
+                className="text-lg px-12 py-7 text-white font-semibold"
                 style={{ backgroundColor: "#FF2929" }}
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  <ShoppingBag className="w-5 h-5" />
-                  View Accounts
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                Browse Accounts
               </Button>
-              
               <Button 
                 size="lg" 
                 variant="outline"
-                className="text-lg px-10 py-7 border-2 hover:bg-secondary/50 transition-all"
+                className="text-lg px-12 py-7 border-2 font-semibold"
               >
-                <Play className="w-5 h-5 mr-2" />
-                How It Works
+                Learn More
               </Button>
             </div>
 
-            {/* Animated Platform Showcase */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-              {/* YouTube Platform */}
-              <div 
-                className="group relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-2xl p-6 border-2 border-border hover:border-[#FF2929]/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
-                style={{ animation: "float-card 3s ease-in-out infinite", animationDelay: "0s" }}
-              >
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#FF2929] rounded-full flex items-center justify-center shadow-lg">
-                  <CheckCircle className="w-4 h-4 text-white" />
-                </div>
-                <div className="w-12 h-12 bg-[#FF2929]/10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+            {/* Platform Icons */}
+            <div className="pt-12 flex justify-center gap-12 opacity-60">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-lg bg-[#FF2929]/10 flex items-center justify-center">
                   <Play className="w-6 h-6" style={{ color: "#FF2929" }} />
                 </div>
-                <h3 className="font-bold text-lg mb-1">YouTube</h3>
-                <p className="text-sm text-muted-foreground">Channels ready to monetize</p>
+                <span className="font-medium">YouTube</span>
               </div>
-
-              {/* TikTok Platform */}
-              <div 
-                className="group relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-2xl p-6 border-2 border-border hover:border-[#306BE4]/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
-                style={{ animation: "float-card 3s ease-in-out infinite", animationDelay: "0.3s" }}
-              >
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#306BE4] rounded-full flex items-center justify-center shadow-lg">
-                  <CheckCircle className="w-4 h-4 text-white" />
-                </div>
-                <div className="w-12 h-12 bg-[#306BE4]/10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-lg bg-[#306BE4]/10 flex items-center justify-center">
                   <Video className="w-6 h-6" style={{ color: "#306BE4" }} />
                 </div>
-                <h3 className="font-bold text-lg mb-1">TikTok</h3>
-                <p className="text-sm text-muted-foreground">Viral-ready accounts</p>
-              </div>
-
-              {/* Revenue Icon */}
-              <div 
-                className="group relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-2xl p-6 border-2 border-border hover:border-[#FF2929]/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
-                style={{ animation: "float-card 3s ease-in-out infinite", animationDelay: "0.6s" }}
-              >
-                <div className="absolute -top-2 -right-2 px-2 py-0.5 bg-[#FF2929] rounded-full shadow-lg">
-                  <span className="text-white text-xs font-bold">Hot</span>
-                </div>
-                <div className="w-12 h-12 bg-[#FF2929]/10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-6 h-6" style={{ color: "#FF2929" }} />
-                </div>
-                <h3 className="font-bold text-lg mb-1">Revenue</h3>
-                <p className="text-sm text-muted-foreground">Earn from day 1</p>
-              </div>
-
-              {/* Support Icon */}
-              <div 
-                className="group relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-2xl p-6 border-2 border-border hover:border-[#306BE4]/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
-                style={{ animation: "float-card 3s ease-in-out infinite", animationDelay: "0.9s" }}
-              >
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#306BE4] rounded-full flex items-center justify-center shadow-lg">
-                  <CheckCircle className="w-4 h-4 text-white" />
-                </div>
-                <div className="w-12 h-12 bg-[#306BE4]/10 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <HeadphonesIcon className="w-6 h-6" style={{ color: "#306BE4" }} />
-                </div>
-                <h3 className="font-bold text-lg mb-1">Support</h3>
-                <p className="text-sm text-muted-foreground">24/7 assistance</p>
+                <span className="font-medium">TikTok</span>
               </div>
             </div>
           </div>
