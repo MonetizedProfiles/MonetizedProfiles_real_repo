@@ -321,16 +321,16 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto relative">
+          <div className="max-w-6xl mx-auto relative px-12">
             {/* Left scroll button */}
             {canScrollLeft && (
               <Button
                 variant="outline"
                 size="icon"
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/95 backdrop-blur-sm"
+                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
                 onClick={() => scroll('left')}
               >
-                <ChevronLeft className="h-4 w-4" />
+                <ChevronLeft className="h-5 w-5" />
               </Button>
             )}
             
@@ -339,10 +339,10 @@ const Index = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/95 backdrop-blur-sm"
+                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
                 onClick={() => scroll('right')}
               >
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="h-5 w-5" />
               </Button>
             )}
 
