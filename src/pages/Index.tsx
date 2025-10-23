@@ -210,7 +210,7 @@ const Index = () => {
             <div className="absolute left-[12%] bottom-0 hidden lg:block animate-float" style={{ animationDelay: '0.75s' }}>
               <Sparkles className="w-12 h-12 text-[#C74DFF]" style={{ filter: 'drop-shadow(0 0 20px rgba(199, 77, 255, 0.6))' }} />
             </div>
-            <div className="absolute right-[10%] -bottom-2 hidden lg:block animate-float" style={{ animationDelay: '1.25s' }}>
+            <div className="absolute right-[10%] -bottom-4 hidden lg:block animate-float" style={{ animationDelay: '1.25s' }}>
               <Wallet className="w-12 h-12 text-[#FF2929]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 41, 41, 0.6))' }} />
             </div>
             
