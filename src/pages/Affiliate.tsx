@@ -4,11 +4,32 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Slider } from "@/components/ui/slider";
 import { CheckCircle, Mail, ArrowRight, TrendingUp, Users, DollarSign, Video, Package, Zap, BarChart, Quote, UserPlus, Share2, Wallet, Play } from "lucide-react";
 import { useState } from "react";
+import { useEffect, useRef } from "react";
 
 const Affiliate = () => {
   const [conversions, setConversions] = useState([10]);
   const conversionValue = 80;
   const monthlyEarnings = conversions[0] * conversionValue;
+  const videoScrollRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll videos
+  useEffect(() => {
+    const scrollContainer = videoScrollRef.current;
+    if (!scrollContainer) return;
+
+    const scrollInterval = setInterval(() => {
+      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const currentScroll = scrollContainer.scrollLeft;
+      
+      if (currentScroll >= maxScroll) {
+        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        scrollContainer.scrollBy({ left: 1, behavior: 'auto' });
+      }
+    }, 30);
+
+    return () => clearInterval(scrollInterval);
+  }, []);
 
   return (
     <div className="bg-background">
@@ -539,9 +560,13 @@ const Affiliate = () => {
             
             {/* Horizontal Scrolling Video Carousel */}
             <div className="relative">
-              <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+              <div 
+                ref={videoScrollRef}
+                className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide items-center"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
                 {/* Short-form Video 1 (9:16) */}
-                <div className="flex-none w-[200px] snap-start">
+                <div className="flex-none w-[200px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                       <iframe
@@ -556,7 +581,7 @@ const Affiliate = () => {
                 </div>
 
                 {/* Long-form Video 1 (16:9) */}
-                <div className="flex-none w-[356px] snap-start">
+                <div className="flex-none w-[356px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
                       <iframe
@@ -571,7 +596,7 @@ const Affiliate = () => {
                 </div>
 
                 {/* Short-form Video 2 (9:16) */}
-                <div className="flex-none w-[200px] snap-start">
+                <div className="flex-none w-[200px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                       <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
@@ -582,7 +607,7 @@ const Affiliate = () => {
                 </div>
 
                 {/* Short-form Video 3 (9:16) */}
-                <div className="flex-none w-[200px] snap-start">
+                <div className="flex-none w-[200px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                       <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
@@ -593,7 +618,7 @@ const Affiliate = () => {
                 </div>
 
                 {/* Long-form Video 2 (16:9) */}
-                <div className="flex-none w-[356px] snap-start">
+                <div className="flex-none w-[356px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
                       <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
@@ -604,7 +629,7 @@ const Affiliate = () => {
                 </div>
 
                 {/* Short-form Video 4 (9:16) */}
-                <div className="flex-none w-[200px] snap-start">
+                <div className="flex-none w-[200px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                       <iframe
@@ -619,7 +644,7 @@ const Affiliate = () => {
                 </div>
 
                 {/* Long-form Video 3 (16:9) */}
-                <div className="flex-none w-[356px] snap-start">
+                <div className="flex-none w-[356px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
                       <iframe
