@@ -206,13 +206,13 @@ const Affiliate = () => {
           
           <div className="max-w-4xl mx-auto">
             <Card className="border-2 shadow-lg">
-              <CardContent className="p-8 md:p-12">
-                <div className="space-y-8">
+              <CardContent className="p-6 md:p-8">
+                <div className="space-y-6">
                   {/* Slider */}
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <label className="text-lg font-semibold">Monthly Conversions</label>
-                      <span className="text-2xl font-bold text-primary">{conversions[0]}</span>
+                      <label className="text-base font-semibold">Monthly Conversions</label>
+                      <span className="text-xl font-bold text-primary">{conversions[0]}</span>
                     </div>
                     <Slider
                       value={conversions}
@@ -222,34 +222,30 @@ const Affiliate = () => {
                       step={1}
                       className="w-full"
                     />
-                    <div className="flex justify-between text-sm text-muted-foreground">
+                    <div className="flex justify-between text-xs text-muted-foreground">
                       <span>1 sale</span>
                       <span>100 sales</span>
                     </div>
                   </div>
 
                   {/* Results Display */}
-                  <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg p-8 border-2 border-primary/20">
-                    <div className="text-center space-y-4">
+                  <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg p-6 border border-primary/20">
+                    <div className="grid grid-cols-3 gap-4 text-center">
                       <div>
-                        <p className="text-sm text-muted-foreground mb-2">Commission per sale</p>
-                        <p className="text-2xl font-bold">${conversionValue}</p>
+                        <p className="text-xs text-muted-foreground mb-1">Per Sale</p>
+                        <p className="text-xl font-bold">${conversionValue}</p>
                       </div>
                       
-                      <div className="w-16 h-0.5 bg-border mx-auto"></div>
-                      
                       <div>
-                        <p className="text-sm text-muted-foreground mb-2">Estimated Monthly Earnings</p>
-                        <p className="text-5xl md:text-6xl font-bold text-primary">
+                        <p className="text-xs text-muted-foreground mb-1">Monthly</p>
+                        <p className="text-3xl font-bold text-primary">
                           ${monthlyEarnings.toLocaleString()}
                         </p>
                       </div>
 
-                      <div className="w-16 h-0.5 bg-border mx-auto"></div>
-
                       <div>
-                        <p className="text-sm text-muted-foreground mb-2">Annual Potential</p>
-                        <p className="text-3xl font-bold">
+                        <p className="text-xs text-muted-foreground mb-1">Annually</p>
+                        <p className="text-xl font-bold">
                           ${(monthlyEarnings * 12).toLocaleString()}
                         </p>
                       </div>
@@ -257,153 +253,20 @@ const Affiliate = () => {
                   </div>
 
                   {/* CTA */}
-                  <div className="text-center pt-4">
-                    <Button size="lg" className="text-lg px-10 py-6">
+                  <div className="text-center">
+                    <Button size="lg" className="text-base px-8 py-5">
                       Start Earning Today
                     </Button>
                   </div>
+
+                  {/* Disclaimer inside card */}
+                  <p className="text-xs text-center text-muted-foreground pt-2">
+                    * Earnings are estimated based on average product value. Actual earnings may vary.
+                  </p>
                 </div>
               </CardContent>
             </Card>
-
-            <div className="mt-8 text-center">
-              <p className="text-sm text-muted-foreground">
-                * Earnings are estimated based on average product value. Actual earnings may vary.
-              </p>
-            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Marketing Resources Section */}
-      <section className="py-20 bg-secondary/20 border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4">
-              Marketing Resources
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Everything you need to succeed as an affiliate
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
-                <CardHeader>
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Package className="w-7 h-7 text-primary" />
-                  </div>
-                  <CardTitle className="text-2xl">Ready-to-Use Creatives</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>High-quality product images and banners</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Pre-written promotional copy templates</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Social media post templates</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Email marketing templates</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
-                <CardHeader>
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Zap className="w-7 h-7 text-primary" />
-                  </div>
-                  <CardTitle className="text-2xl">Tracking & Analytics</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Real-time sales tracking dashboard</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Conversion rate analytics</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Commission history and reports</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Performance insights and tips</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
-                <CardHeader>
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Users className="w-7 h-7 text-primary" />
-                  </div>
-                  <CardTitle className="text-2xl">Dedicated Support</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Personal affiliate manager</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Priority email support</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Monthly strategy calls</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Exclusive affiliate community</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
-                <CardHeader>
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Video className="w-7 h-7 text-primary" />
-                  </div>
-                  <CardTitle className="text-2xl">Training Materials</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Video tutorials and best practices</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Conversion optimization guides</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Platform-specific strategies</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Case studies from top affiliates</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
         </div>
       </section>
 
