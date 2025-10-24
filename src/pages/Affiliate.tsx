@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Slider } from "@/components/ui/slider";
-import { CheckCircle, Mail, ArrowRight, TrendingUp, Users, DollarSign, Video, Package, Zap, BarChart, Quote, UserPlus, Share2, Wallet } from "lucide-react";
+import { CheckCircle, Mail, ArrowRight, TrendingUp, Users, DollarSign, Video, Package, Zap, BarChart, Quote, UserPlus, Share2, Wallet, Play } from "lucide-react";
 import { useState } from "react";
 
 const Affiliate = () => {
@@ -529,7 +529,7 @@ const Affiliate = () => {
       {/* Affiliate Examples Section */}
       <section className="py-20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
               See Our Affiliates <span className="text-primary">in Action</span>
             </h2>
@@ -537,24 +537,128 @@ const Affiliate = () => {
               Real creators getting real results promoting our products
             </p>
             
-            {/* Video Grid - Placeholder for UGC/YouTube/Organic Content */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {/* Placeholder Cards - Replace these with actual video embeds or images */}
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                <Card key={item} className="overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
-                  <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                    <Video className="w-12 h-12 text-muted-foreground group-hover:text-primary transition-colors" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                      <p className="text-foreground text-sm font-medium">Affiliate Example {item}</p>
-                    </div>
+            {/* Mixed Video Grid - Long-form and Short-form */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-fr">
+              {/* Long-form Video 1 (16:9) - YouTube Embed */}
+              <Card className="md:col-span-8 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+                <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Affiliate Success Story"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <p className="font-semibold text-sm">How I Made $5,000 in 30 Days as an Affiliate</p>
+                  <p className="text-xs text-muted-foreground mt-1">Sarah M. - YouTube Creator</p>
+                </CardContent>
+              </Card>
+
+              {/* Short-form Video 1 (9:16) - MP4 Upload Placeholder */}
+              <Card className="md:col-span-4 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                    <Play className="w-16 h-16 text-primary" />
                   </div>
-                </Card>
-              ))}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-4">
+                    <p className="text-foreground text-sm font-medium">TikTok Success Story</p>
+                  </div>
+                </div>
+                <CardContent className="p-4">
+                  <p className="font-semibold text-sm">My First Sale!</p>
+                  <p className="text-xs text-muted-foreground mt-1">Mike R. - TikTok</p>
+                </CardContent>
+              </Card>
+
+              {/* Short-form Video 2 (9:16) - YouTube Short */}
+              <Card className="md:col-span-4 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Short-form Affiliate Content"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <p className="font-semibold text-sm">Easy Money with Affiliates</p>
+                  <p className="text-xs text-muted-foreground mt-1">Jessica L. - YouTube Shorts</p>
+                </CardContent>
+              </Card>
+
+              {/* Long-form Video 2 (16:9) - MP4 Upload Placeholder */}
+              <Card className="md:col-span-8 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+                <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                    <Play className="w-20 h-20 text-primary" />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
+                    <p className="text-foreground font-medium">Complete Affiliate Marketing Guide</p>
+                  </div>
+                </div>
+                <CardContent className="p-4">
+                  <p className="font-semibold text-sm">The Ultimate Guide to Monetization</p>
+                  <p className="text-xs text-muted-foreground mt-1">David K. - Content Creator</p>
+                </CardContent>
+              </Card>
+
+              {/* Short-form Video 3 (9:16) - MP4 Upload Placeholder */}
+              <Card className="md:col-span-4 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                    <Play className="w-16 h-16 text-primary" />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-4">
+                    <p className="text-foreground text-sm font-medium">Instagram Reel</p>
+                  </div>
+                </div>
+                <CardContent className="p-4">
+                  <p className="font-semibold text-sm">Quick Commission Win</p>
+                  <p className="text-xs text-muted-foreground mt-1">Emma T. - Instagram</p>
+                </CardContent>
+              </Card>
+
+              {/* Short-form Video 4 (9:16) - YouTube Short */}
+              <Card className="md:col-span-4 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Affiliate Tips Short"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <p className="font-semibold text-sm">3 Affiliate Secrets</p>
+                  <p className="text-xs text-muted-foreground mt-1">Alex P. - TikTok</p>
+                </CardContent>
+              </Card>
+
+              {/* Long-form Video 3 (16:9) - YouTube Embed */}
+              <Card className="md:col-span-8 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+                <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Passive Income Journey"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <p className="font-semibold text-sm">My Passive Income Journey with Affiliate Marketing</p>
+                  <p className="text-xs text-muted-foreground mt-1">Chris B. - YouTube Creator</p>
+                </CardContent>
+              </Card>
             </div>
 
             <div className="text-center mt-12">
               <p className="text-muted-foreground text-lg">
-                Upload your UGC clips, link YouTube videos, or add organic short-form content here
+                Want to be featured? Share your success story with us!
               </p>
             </div>
           </div>
