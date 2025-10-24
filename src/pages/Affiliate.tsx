@@ -12,23 +12,32 @@ const Affiliate = () => {
   const monthlyEarnings = conversions[0] * conversionValue;
   const videoScrollRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll videos
+  // Auto-scroll videos with seamless loop
   useEffect(() => {
     const scrollContainer = videoScrollRef.current;
     if (!scrollContainer) return;
 
-    const scrollInterval = setInterval(() => {
-      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-      const currentScroll = scrollContainer.scrollLeft;
-      
-      if (currentScroll >= maxScroll) {
-        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        scrollContainer.scrollBy({ left: 1, behavior: 'auto' });
-      }
-    }, 30);
+    let animationFrameId: number;
+    const scrollSpeed = 0.5; // pixels per frame
 
-    return () => clearInterval(scrollInterval);
+    const scroll = () => {
+      if (scrollContainer) {
+        scrollContainer.scrollLeft += scrollSpeed;
+        
+        // Get the width of one set of videos (half of total since we duplicate)
+        const singleSetWidth = scrollContainer.scrollWidth / 2;
+        
+        // Reset to beginning when we've scrolled past the first set
+        if (scrollContainer.scrollLeft >= singleSetWidth) {
+          scrollContainer.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   return (
@@ -565,7 +574,7 @@ const Affiliate = () => {
                 className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide items-center"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
-                {/* Short-form Video 1 (9:16) */}
+                {/* First set of videos */}
                 <div className="flex-none w-[200px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
@@ -580,7 +589,6 @@ const Affiliate = () => {
                   </div>
                 </div>
 
-                {/* Long-form Video 1 (16:9) */}
                 <div className="flex-none w-[356px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
@@ -595,7 +603,6 @@ const Affiliate = () => {
                   </div>
                 </div>
 
-                {/* Short-form Video 2 (9:16) */}
                 <div className="flex-none w-[200px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
@@ -606,7 +613,6 @@ const Affiliate = () => {
                   </div>
                 </div>
 
-                {/* Short-form Video 3 (9:16) */}
                 <div className="flex-none w-[200px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
@@ -617,7 +623,6 @@ const Affiliate = () => {
                   </div>
                 </div>
 
-                {/* Long-form Video 2 (16:9) */}
                 <div className="flex-none w-[356px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
@@ -628,7 +633,6 @@ const Affiliate = () => {
                   </div>
                 </div>
 
-                {/* Short-form Video 4 (9:16) */}
                 <div className="flex-none w-[200px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
@@ -643,7 +647,93 @@ const Affiliate = () => {
                   </div>
                 </div>
 
-                {/* Long-form Video 3 (16:9) */}
+                <div className="flex-none w-[356px]">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Journey Story"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Duplicate set for seamless loop */}
+                <div className="flex-none w-[200px]">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Short-form Content"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex-none w-[356px]">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Affiliate Success Story"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex-none w-[200px]">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                        <Play className="w-10 h-10 text-primary" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex-none w-[200px]">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                        <Play className="w-10 h-10 text-primary" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex-none w-[356px]">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                        <Play className="w-12 h-12 text-primary" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex-none w-[200px]">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Affiliate Tips"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex-none w-[356px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
