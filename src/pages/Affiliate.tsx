@@ -529,18 +529,18 @@ const Affiliate = () => {
       {/* Affiliate Examples Section */}
       <section className="py-20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
               See Our Affiliates <span className="text-primary">in Action</span>
             </h2>
-            <p className="text-xl text-center text-muted-foreground mb-16">
+            <p className="text-xl text-center text-muted-foreground mb-12">
               Real creators getting real results promoting our products
             </p>
             
-            {/* Mixed Video Grid - Long-form and Short-form */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-fr">
-              {/* Long-form Video 1 (16:9) - YouTube Embed */}
-              <Card className="md:col-span-8 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+            {/* Compact Mixed Video Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {/* Long-form Video 1 (16:9) - Spans 2 columns */}
+              <Card className="col-span-2 overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
                 <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
                   <iframe
                     className="absolute inset-0 w-full h-full"
@@ -550,114 +550,118 @@ const Affiliate = () => {
                     allowFullScreen
                   />
                 </div>
-                <CardContent className="p-4">
-                  <p className="font-semibold text-sm">How I Made $5,000 in 30 Days as an Affiliate</p>
-                  <p className="text-xs text-muted-foreground mt-1">Sarah M. - YouTube Creator</p>
+                <CardContent className="p-3">
+                  <p className="font-semibold text-xs line-clamp-1">$5K in 30 Days</p>
+                  <p className="text-xs text-muted-foreground">Sarah M.</p>
                 </CardContent>
               </Card>
 
-              {/* Short-form Video 1 (9:16) - MP4 Upload Placeholder */}
-              <Card className="md:col-span-4 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+              {/* Short-form Video 1 (9:16) */}
+              <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
                 <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-                    <Play className="w-16 h-16 text-primary" />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-4">
-                    <p className="text-foreground text-sm font-medium">TikTok Success Story</p>
+                    <Play className="w-10 h-10 text-primary" />
                   </div>
                 </div>
-                <CardContent className="p-4">
-                  <p className="font-semibold text-sm">My First Sale!</p>
-                  <p className="text-xs text-muted-foreground mt-1">Mike R. - TikTok</p>
+                <CardContent className="p-3">
+                  <p className="font-semibold text-xs line-clamp-1">First Sale!</p>
+                  <p className="text-xs text-muted-foreground">Mike R.</p>
                 </CardContent>
               </Card>
 
-              {/* Short-form Video 2 (9:16) - YouTube Short */}
-              <Card className="md:col-span-4 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+              {/* Short-form Video 2 (9:16) */}
+              <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
                 <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                   <iframe
                     className="absolute inset-0 w-full h-full"
                     src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Short-form Affiliate Content"
+                    title="Short-form Content"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
                 </div>
-                <CardContent className="p-4">
-                  <p className="font-semibold text-sm">Easy Money with Affiliates</p>
-                  <p className="text-xs text-muted-foreground mt-1">Jessica L. - YouTube Shorts</p>
+                <CardContent className="p-3">
+                  <p className="font-semibold text-xs line-clamp-1">Easy Money</p>
+                  <p className="text-xs text-muted-foreground">Jessica L.</p>
                 </CardContent>
               </Card>
 
-              {/* Long-form Video 2 (16:9) - MP4 Upload Placeholder */}
-              <Card className="md:col-span-8 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+              {/* Short-form Video 3 (9:16) */}
+              <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
+                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                    <Play className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+                <CardContent className="p-3">
+                  <p className="font-semibold text-xs line-clamp-1">Quick Win</p>
+                  <p className="text-xs text-muted-foreground">Emma T.</p>
+                </CardContent>
+              </Card>
+
+              {/* Long-form Video 2 (16:9) - Spans 2 columns */}
+              <Card className="col-span-2 overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
                 <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-                    <Play className="w-20 h-20 text-primary" />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-6">
-                    <p className="text-foreground font-medium">Complete Affiliate Marketing Guide</p>
+                    <Play className="w-12 h-12 text-primary" />
                   </div>
                 </div>
-                <CardContent className="p-4">
-                  <p className="font-semibold text-sm">The Ultimate Guide to Monetization</p>
-                  <p className="text-xs text-muted-foreground mt-1">David K. - Content Creator</p>
+                <CardContent className="p-3">
+                  <p className="font-semibold text-xs line-clamp-1">Complete Guide to Monetization</p>
+                  <p className="text-xs text-muted-foreground">David K.</p>
                 </CardContent>
               </Card>
 
-              {/* Short-form Video 3 (9:16) - MP4 Upload Placeholder */}
-              <Card className="md:col-span-4 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
-                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-                    <Play className="w-16 h-16 text-primary" />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-4">
-                    <p className="text-foreground text-sm font-medium">Instagram Reel</p>
-                  </div>
-                </div>
-                <CardContent className="p-4">
-                  <p className="font-semibold text-sm">Quick Commission Win</p>
-                  <p className="text-xs text-muted-foreground mt-1">Emma T. - Instagram</p>
-                </CardContent>
-              </Card>
-
-              {/* Short-form Video 4 (9:16) - YouTube Short */}
-              <Card className="md:col-span-4 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+              {/* Short-form Video 4 (9:16) */}
+              <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
                 <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                   <iframe
                     className="absolute inset-0 w-full h-full"
                     src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Affiliate Tips Short"
+                    title="Affiliate Tips"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
                 </div>
-                <CardContent className="p-4">
-                  <p className="font-semibold text-sm">3 Affiliate Secrets</p>
-                  <p className="text-xs text-muted-foreground mt-1">Alex P. - TikTok</p>
+                <CardContent className="p-3">
+                  <p className="font-semibold text-xs line-clamp-1">3 Secrets</p>
+                  <p className="text-xs text-muted-foreground">Alex P.</p>
                 </CardContent>
               </Card>
 
-              {/* Long-form Video 3 (16:9) - YouTube Embed */}
-              <Card className="md:col-span-8 overflow-hidden group cursor-pointer hover:shadow-xl transition-all hover:border-primary/50">
+              {/* Short-form Video 5 (9:16) */}
+              <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
+                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                    <Play className="w-10 h-10 text-primary" />
+                  </div>
+                </div>
+                <CardContent className="p-3">
+                  <p className="font-semibold text-xs line-clamp-1">Passive Income</p>
+                  <p className="text-xs text-muted-foreground">Chris B.</p>
+                </CardContent>
+              </Card>
+
+              {/* Long-form Video 3 (16:9) - Spans 2 columns */}
+              <Card className="col-span-2 overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
                 <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
                   <iframe
                     className="absolute inset-0 w-full h-full"
                     src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Passive Income Journey"
+                    title="Journey Story"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
                 </div>
-                <CardContent className="p-4">
-                  <p className="font-semibold text-sm">My Passive Income Journey with Affiliate Marketing</p>
-                  <p className="text-xs text-muted-foreground mt-1">Chris B. - YouTube Creator</p>
+                <CardContent className="p-3">
+                  <p className="font-semibold text-xs line-clamp-1">My Passive Income Journey</p>
+                  <p className="text-xs text-muted-foreground">Chris B.</p>
                 </CardContent>
               </Card>
             </div>
 
-            <div className="text-center mt-12">
-              <p className="text-muted-foreground text-lg">
+            <div className="text-center mt-8">
+              <p className="text-muted-foreground">
                 Want to be featured? Share your success story with us!
               </p>
             </div>
