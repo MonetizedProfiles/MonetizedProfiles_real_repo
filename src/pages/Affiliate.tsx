@@ -537,95 +537,100 @@ const Affiliate = () => {
               Real creators getting real results promoting our products
             </p>
             
-            {/* Compact Mixed Video Grid - 2 Rows Only */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {/* Row 1 */}
-              {/* Long-form Video 1 (16:9) - Spans 2 columns */}
-              <div className="col-span-2 overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
-                  <iframe
-                    className="absolute inset-0 w-full h-full"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Affiliate Success Story"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-
-              {/* Short-form Video 1 (9:16) */}
-              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-                    <Play className="w-10 h-10 text-primary" />
+            {/* Horizontal Scrolling Video Carousel */}
+            <div className="relative">
+              <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+                {/* Short-form Video 1 (9:16) */}
+                <div className="flex-none w-[200px] snap-start">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Short-form Content"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Short-form Video 2 (9:16) */}
-              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                  <iframe
-                    className="absolute inset-0 w-full h-full"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Short-form Content"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-
-              {/* Short-form Video 3 (9:16) */}
-              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-                    <Play className="w-10 h-10 text-primary" />
+                {/* Long-form Video 1 (16:9) */}
+                <div className="flex-none w-[356px] snap-start">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Affiliate Success Story"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Row 2 */}
-              {/* Short-form Video 4 (9:16) */}
-              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                  <iframe
-                    className="absolute inset-0 w-full h-full"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Affiliate Tips"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-
-              {/* Long-form Video 2 (16:9) - Spans 2 columns */}
-              <div className="col-span-2 overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-                    <Play className="w-12 h-12 text-primary" />
+                {/* Short-form Video 2 (9:16) */}
+                <div className="flex-none w-[200px] snap-start">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                        <Play className="w-10 h-10 text-primary" />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Short-form Video 5 (9:16) */}
-              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-                    <Play className="w-10 h-10 text-primary" />
+                {/* Short-form Video 3 (9:16) */}
+                <div className="flex-none w-[200px] snap-start">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                        <Play className="w-10 h-10 text-primary" />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Short-form Video 6 (9:16) */}
-              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                  <iframe
-                    className="absolute inset-0 w-full h-full"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Journey Story"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
+                {/* Long-form Video 2 (16:9) */}
+                <div className="flex-none w-[356px] snap-start">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                        <Play className="w-12 h-12 text-primary" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Short-form Video 4 (9:16) */}
+                <div className="flex-none w-[200px] snap-start">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Affiliate Tips"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Long-form Video 3 (16:9) */}
+                <div className="flex-none w-[356px] snap-start">
+                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                    <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Journey Story"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
