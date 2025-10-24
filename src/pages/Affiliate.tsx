@@ -123,7 +123,7 @@ const Affiliate = () => {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
-              Getting Started is <span className="text-primary">Easy</span>
+              Getting Started Is Easy
             </h2>
             <p className="text-lg text-muted-foreground">Three simple steps to start earning generous commissions</p>
           </div>
@@ -197,7 +197,7 @@ const Affiliate = () => {
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
-              Your Earnings <span className="text-primary">Potential</span>
+              Your Earnings Potential
             </h2>
             <p className="text-lg text-muted-foreground">
               Calculate how much you can earn with our affiliate program
@@ -280,7 +280,7 @@ const Affiliate = () => {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
-              Marketing <span className="text-primary">Resources</span>
+              Marketing Resources
             </h2>
             <p className="text-lg text-muted-foreground">
               Everything you need to succeed as an affiliate
@@ -412,7 +412,7 @@ const Affiliate = () => {
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
-              What Our Affiliates <span className="text-primary">Are Saying</span>
+              What Our Affiliates Are Saying
             </h2>
             <p className="text-lg text-muted-foreground">
               Success stories from our affiliate partners
@@ -482,7 +482,7 @@ const Affiliate = () => {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
-              Frequently Asked <span className="text-primary">Questions</span>
+              Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground">
               Everything you need to know about our affiliate program
@@ -553,7 +553,7 @@ const Affiliate = () => {
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
-              See Our Affiliates <span className="text-primary">in Action</span>
+              See Our Affiliates In Action
             </h2>
             <p className="text-lg text-muted-foreground">
               Real creators getting real results promoting our products
@@ -784,7 +784,7 @@ const Affiliate = () => {
             <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 border-2 hover:shadow-lg transition-shadow">
               <CardContent className="p-12 text-center">
                 <h2 className="text-4xl font-bold mb-4">
-                  Ready to Start <span className="text-primary">Earning?</span>
+                  Ready To Start Earning?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                   Join hundreds of successful affiliates who are already earning generous commissions promoting our premium monetized accounts.
