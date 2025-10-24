@@ -65,12 +65,14 @@ const Affiliate = () => {
       {/* Why Join Section */}
       <section className="py-20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">
               Why Partner With Us?
             </h2>
+            <p className="text-lg text-muted-foreground">We've perfected the affiliate experience with generous commissions and full support</p>
+          </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
                 <CardHeader>
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -113,19 +115,20 @@ const Affiliate = () => {
                 </CardContent>
               </Card>
             </div>
-          </div>
         </div>
       </section>
 
       {/* How It Works Section */}
       <section className="py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">
               Getting Started is <span className="text-primary">Easy</span>
             </h2>
+            <p className="text-lg text-muted-foreground">Three simple steps to start earning generous commissions</p>
+          </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {/* Step 1 */}
               <Card className="group hover:shadow-xl transition-all duration-300 hover:border-primary/50">
                 <CardContent className="p-8 text-center">
@@ -185,7 +188,6 @@ const Affiliate = () => {
               <Button size="lg" className="text-lg px-10 py-6">
                 Start Earning Today
               </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -193,14 +195,16 @@ const Affiliate = () => {
       {/* Revenue Predictor Section */}
       <section className="py-20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+          <div className="mb-12 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">
               Your Earnings <span className="text-primary">Potential</span>
             </h2>
-            <p className="text-xl text-center text-muted-foreground mb-16">
+            <p className="text-lg text-muted-foreground">
               Calculate how much you can earn with our affiliate program
             </p>
-            
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
             <Card className="border-2 shadow-lg">
               <CardContent className="p-8 md:p-12">
                 <div className="space-y-8">
@@ -274,15 +278,16 @@ const Affiliate = () => {
       {/* Marketing Resources Section */}
       <section className="py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">
               Marketing <span className="text-primary">Resources</span>
             </h2>
-            <p className="text-xl text-center text-muted-foreground mb-16">
+            <p className="text-lg text-muted-foreground">
               Everything you need to succeed as an affiliate
             </p>
+          </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <Card className="group hover:shadow-lg transition-all hover:border-primary/50">
                 <CardHeader>
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -399,22 +404,22 @@ const Affiliate = () => {
                 </CardContent>
               </Card>
             </div>
-          </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
       <section className="py-20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+          <div className="mb-12 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">
               What Our Affiliates <span className="text-primary">Are Saying</span>
             </h2>
-            <p className="text-xl text-center text-muted-foreground mb-16">
+            <p className="text-lg text-muted-foreground">
               Success stories from our affiliate partners
             </p>
+          </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <Card className="hover:shadow-lg transition-all">
                 <CardContent className="pt-6">
                   <Quote className="w-10 h-10 text-primary/20 mb-4" />
@@ -469,22 +474,22 @@ const Affiliate = () => {
                 </CardContent>
               </Card>
             </div>
-          </div>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">
               Frequently Asked <span className="text-primary">Questions</span>
             </h2>
-            <p className="text-xl text-center text-muted-foreground mb-16">
+            <p className="text-lg text-muted-foreground">
               Everything you need to know about our affiliate program
             </p>
+          </div>
 
-            <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-4 max-w-3xl mx-auto">
               <AccordionItem value="item-1" className="bg-background border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold hover:no-underline">
                   How do I get paid?
@@ -539,7 +544,6 @@ const Affiliate = () => {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-          </div>
         </div>
       </section>
 
@@ -547,14 +551,16 @@ const Affiliate = () => {
       {/* Affiliate Examples Section */}
       <section className="py-20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+          <div className="mb-12 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">
               See Our Affiliates <span className="text-primary">in Action</span>
             </h2>
-            <p className="text-xl text-center text-muted-foreground mb-12">
+            <p className="text-lg text-muted-foreground">
               Real creators getting real results promoting our products
             </p>
+          </div>
             
+          <div className="max-w-6xl mx-auto">
             {/* Horizontal Scrolling Video Carousel */}
             <div className="relative">
               <div 
@@ -754,10 +760,10 @@ const Affiliate = () => {
             <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
               <Mail className="w-10 h-10 text-primary" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl font-bold mb-4">
               Questions About Our Program?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground mb-8">
               Our affiliate team is here to help you succeed
             </p>
             <a 
@@ -777,29 +783,29 @@ const Affiliate = () => {
           <div className="max-w-4xl mx-auto">
             <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 border-2 hover:shadow-lg transition-shadow">
               <CardContent className="p-12 text-center">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <h2 className="text-4xl font-bold mb-4">
                   Ready to Start <span className="text-primary">Earning?</span>
                 </h2>
-                <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                   Join hundreds of successful affiliates who are already earning generous commissions promoting our premium monetized accounts.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-lg">No upfront costs</span>
+                    <span>No upfront costs</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-lg">Fast approval</span>
+                    <span>Fast approval</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span className="text-lg">20% commission</span>
+                    <span>20% commission</span>
                   </div>
                 </div>
 
-                <Button size="lg" className="text-xl px-12 py-6">
+                <Button size="lg" className="text-lg px-10 py-6">
                   Apply for Affiliate Program
                 </Button>
               </CardContent>
