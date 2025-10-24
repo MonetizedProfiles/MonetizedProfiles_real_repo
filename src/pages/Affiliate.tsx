@@ -120,81 +120,69 @@ const Affiliate = () => {
       {/* How It Works Section */}
       <section className="py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
               Getting Started is <span className="text-primary">Easy</span>
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8">
               {/* Step 1 */}
-              <div className="relative">
-                <Card className="h-full group hover:shadow-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1">
-                  <CardContent className="p-8 text-center">
-                    <div className="relative mb-6">
-                      <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto shadow-lg group-hover:shadow-primary/30 transition-all">
-                        <UserPlus className="w-12 h-12 text-primary-foreground" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-10 h-10 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-md">
-                        <span className="text-xl font-bold text-primary">1</span>
-                      </div>
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:border-primary/50">
+                <CardContent className="p-8 text-center">
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
+                      <UserPlus className="w-10 h-10 text-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">Sign Up</h3>
-                    <p className="text-muted-foreground text-base leading-relaxed">
-                      Fill out our simple application form. Get approved within 24 hours and receive your unique affiliate link.
-                    </p>
-                  </CardContent>
-                </Card>
-                <div className="hidden md:block absolute top-1/2 -right-4 z-10 -translate-y-1/2">
-                  <ArrowRight className="w-8 h-8 text-primary" />
-                </div>
-              </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-sm font-bold text-primary-foreground">1</span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">Sign Up</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Fill out our simple application form and get approved within 24 hours.
+                  </p>
+                </CardContent>
+              </Card>
 
               {/* Step 2 */}
-              <div className="relative">
-                <Card className="h-full group hover:shadow-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1">
-                  <CardContent className="p-8 text-center">
-                    <div className="relative mb-6">
-                      <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto shadow-lg group-hover:shadow-primary/30 transition-all">
-                        <Share2 className="w-12 h-12 text-primary-foreground" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-10 h-10 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-md">
-                        <span className="text-xl font-bold text-primary">2</span>
-                      </div>
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:border-primary/50">
+                <CardContent className="p-8 text-center">
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
+                      <Share2 className="w-10 h-10 text-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">Promote Your Link</h3>
-                    <p className="text-muted-foreground text-base leading-relaxed">
-                      Share your affiliate link on YouTube, TikTok, Instagram, or any platform. We provide marketing materials to help you succeed.
-                    </p>
-                  </CardContent>
-                </Card>
-                <div className="hidden md:block absolute top-1/2 -right-4 z-10 -translate-y-1/2">
-                  <ArrowRight className="w-8 h-8 text-primary" />
-                </div>
-              </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-sm font-bold text-primary-foreground">2</span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">Promote</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Share your affiliate link across your platforms with our marketing materials.
+                  </p>
+                </CardContent>
+              </Card>
 
               {/* Step 3 */}
-              <div>
-                <Card className="h-full group hover:shadow-xl transition-all duration-300 hover:border-primary/50 hover:-translate-y-1">
-                  <CardContent className="p-8 text-center">
-                    <div className="relative mb-6">
-                      <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto shadow-lg group-hover:shadow-primary/30 transition-all">
-                        <Wallet className="w-12 h-12 text-primary-foreground" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-10 h-10 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-md">
-                        <span className="text-xl font-bold text-primary">3</span>
-                      </div>
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:border-primary/50">
+                <CardContent className="p-8 text-center">
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
+                      <Wallet className="w-10 h-10 text-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold mb-4">Get Paid</h3>
-                    <p className="text-muted-foreground text-base leading-relaxed">
-                      Earn 20% commission on every sale. Track your earnings in real-time and get paid regularly via your preferred method.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-sm font-bold text-primary-foreground">3</span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">Get Paid</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Earn 20% commission on every sale and get paid regularly.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
 
-            <div className="text-center mt-16">
-              <Button size="lg" className="text-xl px-12 py-6">
+            <div className="text-center mt-12">
+              <Button size="lg" className="text-lg px-10 py-6">
                 Start Earning Today
               </Button>
             </div>
