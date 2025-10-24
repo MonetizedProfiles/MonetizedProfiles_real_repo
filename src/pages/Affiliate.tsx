@@ -537,10 +537,11 @@ const Affiliate = () => {
               Real creators getting real results promoting our products
             </p>
             
-            {/* Compact Mixed Video Grid */}
+            {/* Compact Mixed Video Grid - 2 Rows Only */}
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {/* Row 1 */}
               {/* Long-form Video 1 (16:9) - Spans 2 columns */}
-              <Card className="col-span-2 overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
+              <div className="col-span-2 overflow-hidden rounded-lg hover:shadow-lg transition-all">
                 <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
                   <iframe
                     className="absolute inset-0 w-full h-full"
@@ -550,27 +551,19 @@ const Affiliate = () => {
                     allowFullScreen
                   />
                 </div>
-                <CardContent className="p-3">
-                  <p className="font-semibold text-xs line-clamp-1">$5K in 30 Days</p>
-                  <p className="text-xs text-muted-foreground">Sarah M.</p>
-                </CardContent>
-              </Card>
+              </div>
 
               {/* Short-form Video 1 (9:16) */}
-              <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
+              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                 <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
                     <Play className="w-10 h-10 text-primary" />
                   </div>
                 </div>
-                <CardContent className="p-3">
-                  <p className="font-semibold text-xs line-clamp-1">First Sale!</p>
-                  <p className="text-xs text-muted-foreground">Mike R.</p>
-                </CardContent>
-              </Card>
+              </div>
 
               {/* Short-form Video 2 (9:16) */}
-              <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
+              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                 <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                   <iframe
                     className="absolute inset-0 w-full h-full"
@@ -580,40 +573,20 @@ const Affiliate = () => {
                     allowFullScreen
                   />
                 </div>
-                <CardContent className="p-3">
-                  <p className="font-semibold text-xs line-clamp-1">Easy Money</p>
-                  <p className="text-xs text-muted-foreground">Jessica L.</p>
-                </CardContent>
-              </Card>
+              </div>
 
               {/* Short-form Video 3 (9:16) */}
-              <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
+              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                 <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
                     <Play className="w-10 h-10 text-primary" />
                   </div>
                 </div>
-                <CardContent className="p-3">
-                  <p className="font-semibold text-xs line-clamp-1">Quick Win</p>
-                  <p className="text-xs text-muted-foreground">Emma T.</p>
-                </CardContent>
-              </Card>
+              </div>
 
-              {/* Long-form Video 2 (16:9) - Spans 2 columns */}
-              <Card className="col-span-2 overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
-                <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-                    <Play className="w-12 h-12 text-primary" />
-                  </div>
-                </div>
-                <CardContent className="p-3">
-                  <p className="font-semibold text-xs line-clamp-1">Complete Guide to Monetization</p>
-                  <p className="text-xs text-muted-foreground">David K.</p>
-                </CardContent>
-              </Card>
-
+              {/* Row 2 */}
               {/* Short-form Video 4 (9:16) */}
-              <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
+              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                 <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                   <iframe
                     className="absolute inset-0 w-full h-full"
@@ -623,28 +596,29 @@ const Affiliate = () => {
                     allowFullScreen
                   />
                 </div>
-                <CardContent className="p-3">
-                  <p className="font-semibold text-xs line-clamp-1">3 Secrets</p>
-                  <p className="text-xs text-muted-foreground">Alex P.</p>
-                </CardContent>
-              </Card>
+              </div>
+
+              {/* Long-form Video 2 (16:9) - Spans 2 columns */}
+              <div className="col-span-2 overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
+                    <Play className="w-12 h-12 text-primary" />
+                  </div>
+                </div>
+              </div>
 
               {/* Short-form Video 5 (9:16) */}
-              <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
+              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                 <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
                     <Play className="w-10 h-10 text-primary" />
                   </div>
                 </div>
-                <CardContent className="p-3">
-                  <p className="font-semibold text-xs line-clamp-1">Passive Income</p>
-                  <p className="text-xs text-muted-foreground">Chris B.</p>
-                </CardContent>
-              </Card>
+              </div>
 
-              {/* Long-form Video 3 (16:9) - Spans 2 columns */}
-              <Card className="col-span-2 overflow-hidden group cursor-pointer hover:shadow-lg transition-all hover:border-primary/50">
-                <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
+              {/* Short-form Video 6 (9:16) */}
+              <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
+                <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                   <iframe
                     className="absolute inset-0 w-full h-full"
                     src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -653,11 +627,7 @@ const Affiliate = () => {
                     allowFullScreen
                   />
                 </div>
-                <CardContent className="p-3">
-                  <p className="font-semibold text-xs line-clamp-1">My Passive Income Journey</p>
-                  <p className="text-xs text-muted-foreground">Chris B.</p>
-                </CardContent>
-              </Card>
+              </div>
             </div>
 
             <div className="text-center mt-8">
