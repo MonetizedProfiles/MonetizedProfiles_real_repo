@@ -643,38 +643,74 @@ const Affiliate = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 border-2 hover:shadow-lg transition-shadow">
-              <CardContent className="p-12 text-center">
-                <h2 className="text-4xl font-bold mb-4">
-                  Ready To Start Earning?
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Join hundreds of successful affiliates who are already earning generous commissions promoting our premium monetized accounts.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>No upfront costs</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Fast approval</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>20% commission</span>
-                  </div>
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
+              <Zap className="w-4 h-4 text-primary" />
+              <span className="text-sm font-semibold text-primary">Limited Spots Available</span>
+            </div>
+            
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              Your Next Paycheck<br />
+              <span className="text-primary">Starts Today</span>
+            </h2>
+            
+            <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+              Join hundreds of successful affiliates earning life-changing commissions. 
+              No experience required. Just share and earn.
+            </p>
+            
+            {/* Stats Grid */}
+            <div className="grid grid-cols-3 gap-6 md:gap-12 mb-12 max-w-3xl mx-auto">
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                  <Zap className="w-8 h-8 text-primary" />
                 </div>
+                <div className="text-3xl md:text-4xl font-bold mb-1">24hrs</div>
+                <div className="text-sm text-muted-foreground">Approval Time</div>
+              </div>
+              
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                  <DollarSign className="w-8 h-8 text-primary" />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold mb-1">$400</div>
+                <div className="text-sm text-muted-foreground">Per Sale</div>
+              </div>
+              
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                  <TrendingUp className="w-8 h-8 text-primary" />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold mb-1">$3k+</div>
+                <div className="text-sm text-muted-foreground">Monthly Avg</div>
+              </div>
+            </div>
 
-                <Button size="lg" className="text-lg px-10 py-6">
-                  Apply for Affiliate Program
-                </Button>
-              </CardContent>
-            </Card>
+            {/* Benefits */}
+            <div className="flex flex-wrap gap-4 justify-center items-center mb-12">
+              <div className="flex items-center gap-2 px-4 py-2 bg-background/80 backdrop-blur-sm rounded-full border border-border">
+                <CheckCircle className="w-5 h-5 text-primary" />
+                <span className="font-medium">No Upfront Costs</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-background/80 backdrop-blur-sm rounded-full border border-border">
+                <CheckCircle className="w-5 h-5 text-primary" />
+                <span className="font-medium">Instant Tracking</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-background/80 backdrop-blur-sm rounded-full border border-border">
+                <CheckCircle className="w-5 h-5 text-primary" />
+                <span className="font-medium">Bi-Weekly Payouts</span>
+              </div>
+            </div>
+
+            <Button size="lg" className="text-xl px-16 py-8 shadow-lg hover:shadow-xl transition-all">
+              Apply for Affiliate Program
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
           </div>
         </div>
       </section>
