@@ -18,6 +18,7 @@ const ProductDetail = () => {
   const addItem = useCartStore(state => state.addItem);
   const [added, setAdded] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(0);
+  const [mainImage, setMainImage] = useState(0);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -83,7 +84,6 @@ const ProductDetail = () => {
   const price = parseFloat(currentVariant.price.amount);
   const currency = currentVariant.price.currencyCode;
   const images = product.images.edges;
-  const [mainImage, setMainImage] = useState(0);
 
   return (
     <div className="bg-background">
