@@ -118,103 +118,76 @@ const Affiliate = () => {
         </div>
       </section>
 
-      {/* How It Works Section - Map Style */}
-      <section className="py-20 bg-secondary/20 border-b border-border relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-primary rounded-full"></div>
-          <div className="absolute bottom-10 right-10 w-24 h-24 border-2 border-primary rounded-full"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="mb-20 text-center max-w-3xl mx-auto">
+      {/* How It Works Section */}
+      <section className="py-20 bg-secondary/20 border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
               Getting Started Is Easy
             </h2>
-            <p className="text-lg text-muted-foreground">Follow the roadmap to affiliate success</p>
+            <p className="text-lg text-muted-foreground">Three simple steps to start earning generous commissions</p>
           </div>
-          
-          {/* Map/Journey Layout */}
-          <div className="max-w-6xl mx-auto relative">
-            {/* Dotted path line - hidden on mobile, visible on md+ */}
-            <div className="hidden md:block absolute top-[60px] left-[15%] right-[15%] h-1 border-t-4 border-dotted border-primary/40"></div>
             
-            <div className="grid md:grid-cols-3 gap-12 md:gap-8 relative">
-              {/* Milestone 1 */}
-              <div className="relative flex flex-col items-center">
-                {/* Milestone marker */}
-                <div className="relative z-20 mb-6">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-xl border-4 border-background group-hover:scale-110 transition-transform">
-                    <UserPlus className="w-12 h-12 text-primary-foreground" />
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {/* Step 1 */}
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:border-primary/50">
+                <CardContent className="p-8 text-center">
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
+                      <UserPlus className="w-10 h-10 text-primary" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-sm font-bold text-primary-foreground">1</span>
+                    </div>
                   </div>
-                  <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-secondary flex items-center justify-center border-2 border-background shadow-lg">
-                    <span className="text-lg font-bold text-secondary-foreground">1</span>
-                  </div>
-                </div>
-                
-                {/* Content card */}
-                <Card className="hover:shadow-xl transition-all duration-300 hover:border-primary/50 w-full">
-                  <CardContent className="p-6 text-center">
-                    <h3 className="text-xl font-bold mb-3">Sign Up</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Fill out our simple application form and get approved within 24 hours. No experience required.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
+                  <h3 className="text-xl font-bold mb-3">Sign Up</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Fill out our simple application form and get approved within 24 hours.
+                  </p>
+                </CardContent>
+              </Card>
 
-              {/* Milestone 2 */}
-              <div className="relative flex flex-col items-center">
-                {/* Milestone marker */}
-                <div className="relative z-20 mb-6">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-xl border-4 border-background group-hover:scale-110 transition-transform">
-                    <Share2 className="w-12 h-12 text-primary-foreground" />
+              {/* Step 2 */}
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:border-primary/50">
+                <CardContent className="p-8 text-center">
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
+                      <Share2 className="w-10 h-10 text-primary" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-sm font-bold text-primary-foreground">2</span>
+                    </div>
                   </div>
-                  <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-secondary flex items-center justify-center border-2 border-background shadow-lg">
-                    <span className="text-lg font-bold text-secondary-foreground">2</span>
-                  </div>
-                </div>
-                
-                {/* Content card */}
-                <Card className="hover:shadow-xl transition-all duration-300 hover:border-primary/50 w-full">
-                  <CardContent className="p-6 text-center">
-                    <h3 className="text-xl font-bold mb-3">Promote</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Share your unique link across your platforms. We provide all marketing materials you need.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
+                  <h3 className="text-xl font-bold mb-3">Promote</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Share your affiliate link across your platforms with our marketing materials.
+                  </p>
+                </CardContent>
+              </Card>
 
-              {/* Milestone 3 */}
-              <div className="relative flex flex-col items-center">
-                {/* Milestone marker */}
-                <div className="relative z-20 mb-6">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-xl border-4 border-background group-hover:scale-110 transition-transform">
-                    <Wallet className="w-12 h-12 text-primary-foreground" />
+              {/* Step 3 */}
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:border-primary/50">
+                <CardContent className="p-8 text-center">
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto group-hover:bg-primary/20 transition-colors">
+                      <Wallet className="w-10 h-10 text-primary" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                      <span className="text-sm font-bold text-primary-foreground">3</span>
+                    </div>
                   </div>
-                  <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-secondary flex items-center justify-center border-2 border-background shadow-lg">
-                    <span className="text-lg font-bold text-secondary-foreground">3</span>
-                  </div>
-                </div>
-                
-                {/* Content card */}
-                <Card className="hover:shadow-xl transition-all duration-300 hover:border-primary/50 w-full">
-                  <CardContent className="p-6 text-center">
-                    <h3 className="text-xl font-bold mb-3">Get Paid</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Earn 20% commission on every sale. Payments processed twice monthly, directly to you.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
+                  <h3 className="text-xl font-bold mb-3">Get Paid</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Earn 20% commission on every sale and get paid regularly.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
 
-            <div className="text-center mt-16">
-              <Button size="lg" className="text-lg px-10 py-6 shadow-lg">
-                Start Your Journey Today
+            <div className="text-center mt-12">
+              <Button size="lg" className="text-lg px-10 py-6">
+                Start Earning Today
               </Button>
-            </div>
           </div>
         </div>
       </section>
