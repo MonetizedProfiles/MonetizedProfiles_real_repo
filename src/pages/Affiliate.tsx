@@ -424,8 +424,8 @@ const Affiliate = () => {
           </div>
         </div>
             
-        {/* Full-width scrolling container */}
-        <div className="w-full">
+        {/* Edge-to-edge scrolling container */}
+        <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
           <div className="relative">
               <div 
                 ref={videoScrollRef}
