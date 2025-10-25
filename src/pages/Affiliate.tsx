@@ -422,10 +422,11 @@ const Affiliate = () => {
               Real creators getting real results promoting our products
             </p>
           </div>
+        </div>
             
-          <div className="max-w-6xl mx-auto">
-            {/* Horizontal Scrolling Video Carousel */}
-            <div className="relative">
+        {/* Full-width scrolling container */}
+        <div className="w-full">
+          <div className="relative">
               <div 
                 ref={videoScrollRef}
                 className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide items-center"
@@ -606,14 +607,15 @@ const Affiliate = () => {
                 </div>
               </div>
             </div>
+          </div>
 
+          <div className="container mx-auto px-4">
             <div className="text-center mt-8">
               <p className="text-muted-foreground">
                 Want to be featured? Share your success story with us!
               </p>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Contact Section */}
