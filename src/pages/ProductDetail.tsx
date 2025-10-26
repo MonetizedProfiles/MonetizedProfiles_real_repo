@@ -384,9 +384,9 @@ const ProductDetail = () => {
                         <Check className="w-8 h-8 text-accent-foreground" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-xl mb-2">Pre-Approved</h3>
+                        <h3 className="font-bold text-xl mb-2">Fully Monetized</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">
-                          Monetization fully approved and enabled - ready to earn right away
+                          Monetization enabled and active - start earning from day one
                         </p>
                       </div>
                     </div>
