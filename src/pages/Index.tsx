@@ -258,7 +258,7 @@ const Index = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4" style={{ color: '#FF2929' }}>Why Choose MonetizedProfiles?</h2>
+            <h2 className="text-4xl font-bold mb-4 text-foreground">Why Choose MonetizedProfiles?</h2>
             <p className="text-lg text-muted-foreground">We've perfected the process of transferring monetized accounts safely and securely</p>
           </div>
           
