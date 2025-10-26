@@ -4,11 +4,9 @@ import { PRODUCT_BY_HANDLE_QUERY, storefrontApiRequest } from "@/lib/shopify";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
-import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, Package, Clock, CheckCircle2 } from "lucide-react";
+import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, Users, Zap, HeadphonesIcon, Shield } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
@@ -101,12 +99,11 @@ const ProductDetail = () => {
         </div>
       </div>
 
-      {/* Product Details */}
-      <main className="container mx-auto px-4 py-8 md:py-12">
+      {/* Product Hero Section */}
+      <section className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
           {/* Image Gallery */}
           <div className="space-y-4">
-            {/* Main Image */}
             <div className="aspect-square rounded-lg overflow-hidden bg-secondary/20 border border-border/50 relative">
               {images.length > 0 ? (
                 <img 
@@ -124,7 +121,6 @@ const ProductDetail = () => {
               )}
             </div>
 
-            {/* Thumbnails */}
             {images.length > 1 && (
               <div className="grid grid-cols-4 gap-2">
                 {images.map((image, idx) => (
@@ -146,56 +142,29 @@ const ProductDetail = () => {
             )}
           </div>
 
-          {/* Details */}
+          {/* Product Info */}
           <div className="space-y-6">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold mb-3">{product.title}</h1>
+              <h1 className="text-3xl md:text-5xl font-bold mb-4">{product.title}</h1>
               
-              {/* Rating Display */}
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-6">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                   ))}
                 </div>
-                <span className="text-sm text-muted-foreground">(Verified Product)</span>
+                <span className="text-muted-foreground">4.8 (500+ reviews)</span>
               </div>
 
-              <p className="text-4xl font-bold text-primary mb-6">
-                ${price.toFixed(2)} <span className="text-lg text-muted-foreground">{currency}</span>
+              <p className="text-5xl font-bold text-primary mb-6">
+                ${price.toFixed(2)}
+              </p>
+
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                {product.description}
               </p>
             </div>
 
-            {/* Key Features */}
-            <Card>
-              <CardContent className="pt-6">
-                <div className="grid gap-3">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-semibold">Premium Quality</h4>
-                      <p className="text-sm text-muted-foreground">Authentic verified product</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-semibold">Instant Delivery</h4>
-                      <p className="text-sm text-muted-foreground">Get started immediately after purchase</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-semibold">24/7 Support</h4>
-                      <p className="text-sm text-muted-foreground">Full customer support included</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Variant Selection */}
             {product.options.length > 0 && product.options[0].values.length > 1 && (
               <div className="space-y-3">
                 <label className="text-sm font-semibold">Select Option</label>
@@ -214,161 +183,219 @@ const ProductDetail = () => {
               </div>
             )}
 
-            {/* Add to Cart */}
-            <div className="space-y-3">
-              <Button 
-                size="lg" 
-                className="w-full text-lg h-14"
-                onClick={handleAddToCart}
-                disabled={added || !currentVariant.availableForSale}
-              >
-                {added ? (
-                  <>
-                    <Check className="w-5 h-5 mr-2" />
-                    Added to Cart
-                  </>
-                ) : !currentVariant.availableForSale ? (
-                  "Out of Stock"
-                ) : (
-                  <>
-                    <ShoppingCart className="w-5 h-5 mr-2" />
-                    Add to Cart - ${price.toFixed(2)}
-                  </>
-                )}
-              </Button>
+            <Button 
+              size="lg" 
+              className="w-full text-lg h-16"
+              onClick={handleAddToCart}
+              disabled={added || !currentVariant.availableForSale}
+            >
+              {added ? (
+                <>
+                  <Check className="w-5 h-5 mr-2" />
+                  Added to Cart
+                </>
+              ) : !currentVariant.availableForSale ? (
+                "Out of Stock"
+              ) : (
+                <>
+                  <ShoppingCart className="w-5 h-5 mr-2" />
+                  Add to Cart - ${price.toFixed(2)}
+                </>
+              )}
+            </Button>
 
-              {/* Trust Badges */}
-              <div className="grid grid-cols-3 gap-2 pt-2">
-                <div className="flex flex-col items-center gap-1 p-3 rounded-lg bg-secondary/30">
-                  <ShieldCheck className="w-5 h-5 text-accent" />
-                  <span className="text-xs text-center font-medium">Secure Checkout</span>
-                </div>
-                <div className="flex flex-col items-center gap-1 p-3 rounded-lg bg-secondary/30">
-                  <Truck className="w-5 h-5 text-accent" />
-                  <span className="text-xs text-center font-medium">Fast Delivery</span>
-                </div>
-                <div className="flex flex-col items-center gap-1 p-3 rounded-lg bg-secondary/30">
-                  <RefreshCw className="w-5 h-5 text-accent" />
-                  <span className="text-xs text-center font-medium">Guaranteed</span>
-                </div>
+            <div className="grid grid-cols-3 gap-3 pt-4">
+              <div className="text-center p-3 rounded-lg bg-secondary/30">
+                <ShieldCheck className="w-6 h-6 text-primary mx-auto mb-2" />
+                <span className="text-xs font-medium">Secure</span>
+              </div>
+              <div className="text-center p-3 rounded-lg bg-secondary/30">
+                <Truck className="w-6 h-6 text-primary mx-auto mb-2" />
+                <span className="text-xs font-medium">Fast Delivery</span>
+              </div>
+              <div className="text-center p-3 rounded-lg bg-secondary/30">
+                <RefreshCw className="w-6 h-6 text-primary mx-auto mb-2" />
+                <span className="text-xs font-medium">Guaranteed</span>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Product Information Tabs */}
-        <div className="max-w-7xl mx-auto mt-12 md:mt-16">
-          <Tabs defaultValue="description" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 mb-8">
-              <TabsTrigger value="description">Description</TabsTrigger>
-              <TabsTrigger value="delivery">Delivery & Returns</TabsTrigger>
-              <TabsTrigger value="faq">FAQ</TabsTrigger>
-            </TabsList>
+      {/* Why Choose This Product */}
+      <section className="py-16 bg-secondary/20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose This Product?</h2>
             
-            <TabsContent value="description" className="space-y-6">
-              <Card>
-                <CardContent className="pt-6">
-                  <h3 className="text-2xl font-bold mb-4">Product Details</h3>
-                  <p className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
-                    {product.description}
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
+                <CardHeader className="text-center space-y-4 pb-3">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+                    <Shield className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-lg">Verified & Secure</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center text-sm text-muted-foreground">
+                  <p>Every product is fully verified and ready to use immediately</p>
                 </CardContent>
               </Card>
-            </TabsContent>
-            
-            <TabsContent value="delivery" className="space-y-6">
-              <Card>
-                <CardContent className="pt-6 space-y-6">
-                  <div className="flex gap-4">
-                    <Truck className="w-6 h-6 text-accent flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold mb-2">Fast & Secure Delivery</h4>
-                      <p className="text-muted-foreground">All products are delivered digitally immediately after purchase confirmation.</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <Package className="w-6 h-6 text-accent flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold mb-2">What You'll Receive</h4>
-                      <p className="text-muted-foreground">Complete access credentials and instructions will be sent to your email.</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <Clock className="w-6 h-6 text-accent flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold mb-2">Processing Time</h4>
-                      <p className="text-muted-foreground">Orders are typically processed within 1-24 hours of purchase.</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-            
-            <TabsContent value="faq" className="space-y-6">
-              <Card>
-                <CardContent className="pt-6">
-                  <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="item-1">
-                      <AccordionTrigger>How quickly will I receive my order?</AccordionTrigger>
-                      <AccordionContent>
-                        All digital products are delivered instantly to your email after payment confirmation. Physical items may vary based on your location.
-                      </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                      <AccordionTrigger>Is my purchase secure?</AccordionTrigger>
-                      <AccordionContent>
-                        Yes, all transactions are processed through Shopify's secure checkout system with industry-standard encryption.
-                      </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                      <AccordionTrigger>What if I have issues with my order?</AccordionTrigger>
-                      <AccordionContent>
-                        Our 24/7 customer support team is here to help. Contact us immediately if you experience any issues with your purchase.
-                      </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-4">
-                      <AccordionTrigger>Can I get a refund?</AccordionTrigger>
-                      <AccordionContent>
-                        Refund policies vary by product type. Digital products are typically non-refundable once delivered, but we'll work with you to resolve any legitimate issues.
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
-        </div>
 
-        {/* Final CTA Section */}
-        <div className="max-w-7xl mx-auto mt-12 md:mt-16">
-          <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
-            <CardContent className="pt-8 pb-8 text-center">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to Get Started?</h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Join thousands of satisfied customers. Add to cart now and get instant access.
-              </p>
-              <Button 
-                size="lg" 
-                className="text-lg h-14 px-8"
-                onClick={handleAddToCart}
-                disabled={added || !currentVariant.availableForSale}
-              >
-                {added ? (
-                  <>
-                    <Check className="w-5 h-5 mr-2" />
-                    Added to Cart
-                  </>
-                ) : (
-                  <>
-                    <ShoppingCart className="w-5 h-5 mr-2" />
-                    Add to Cart Now
-                  </>
-                )}
-              </Button>
-            </CardContent>
-          </Card>
+              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
+                <CardHeader className="text-center space-y-4 pb-3">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+                    <Users className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-lg">Premium Quality</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center text-sm text-muted-foreground">
+                  <p>Authentic and genuine with proven quality standards</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
+                <CardHeader className="text-center space-y-4 pb-3">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+                    <Zap className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-lg">Instant Access</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center text-sm text-muted-foreground">
+                  <p>Get started immediately, no waiting required</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
+                <CardHeader className="text-center space-y-4 pb-3">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
+                    <HeadphonesIcon className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-lg">Expert Support</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center text-sm text-muted-foreground">
+                  <p>24/7 dedicated support with fast response times</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Customer Reviews */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h2>
+              <p className="text-lg text-muted-foreground">Join hundreds of satisfied customers</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="bg-card border-2">
+                <CardContent className="pt-6">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-4">"Exactly as described! Got instant access and everything works perfectly. Great quality!"</p>
+                  <p className="font-semibold">Sarah M.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card border-2">
+                <CardContent className="pt-6">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-4">"The transfer was smooth and support was incredibly helpful. Highly recommend!"</p>
+                  <p className="font-semibold">James K.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card border-2">
+                <CardContent className="pt-6">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-4">"Worth every penny! Skip months of work and get started immediately."</p>
+                  <p className="font-semibold">Emma L.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card border-2">
+                <CardContent className="pt-6">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-4">"Best investment I've made. Everything was exactly as promised!"</p>
+                  <p className="font-semibold">Michael R.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card border-2">
+                <CardContent className="pt-6">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-4">"Seamless process from purchase to delivery. Couldn't be happier!"</p>
+                  <p className="font-semibold">Lisa T.</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card border-2">
+                <CardContent className="pt-6">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-4">"Great for anyone wanting to skip the grind. Authentic quality!"</p>
+                  <p className="font-semibold">David P.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-16 bg-secondary/20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Join thousands of satisfied customers. Add to cart now and get instant access.
+            </p>
+            <Button 
+              size="lg" 
+              className="text-lg h-16 px-12"
+              onClick={handleAddToCart}
+              disabled={added || !currentVariant.availableForSale}
+            >
+              {added ? (
+                <>
+                  <Check className="w-5 h-5 mr-2" />
+                  Added to Cart
+                </>
+              ) : (
+                <>
+                  <ShoppingCart className="w-5 h-5 mr-2" />
+                  Add to Cart - ${price.toFixed(2)}
+                </>
+              )}
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
