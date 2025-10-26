@@ -1,14 +1,15 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { PRODUCT_BY_HANDLE_QUERY, storefrontApiRequest } from "@/lib/shopify";
+import { PRODUCT_BY_HANDLE_QUERY, storefrontApiRequest, STOREFRONT_QUERY, ShopifyProduct } from "@/lib/shopify";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
-import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, Users, Zap, HeadphonesIcon, Shield } from "lucide-react";
+import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import { ProductCard } from "@/components/ProductCard";
 
 const ProductDetail = () => {
   const { handle } = useParams();
@@ -25,6 +26,14 @@ const ProductDetail = () => {
       return response.data.productByHandle;
     },
     enabled: !!handle,
+  });
+
+  const { data: allProducts } = useQuery({
+    queryKey: ['products'],
+    queryFn: async () => {
+      const response = await storefrontApiRequest(STOREFRONT_QUERY, { first: 20 });
+      return response.data.products.edges as ShopifyProduct[];
+    },
   });
 
   const handleAddToCart = () => {
@@ -83,6 +92,9 @@ const ProductDetail = () => {
   const currency = currentVariant.price.currencyCode;
   const images = product.images.edges;
 
+  // Get related products (exclude current product)
+  const relatedProducts = allProducts?.filter(p => p.node.id !== product.id).slice(0, 4) || [];
+
   return (
     <div className="bg-background">
       {/* Breadcrumb */}
@@ -100,7 +112,7 @@ const ProductDetail = () => {
       </div>
 
       {/* Product Hero Section */}
-      <section className="container mx-auto px-4 py-12 md:py-16">
+      <section className="container mx-auto px-4 py-8 md:py-12">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
           {/* Image Gallery */}
           <div className="space-y-4">
@@ -207,73 +219,61 @@ const ProductDetail = () => {
             <div className="grid grid-cols-3 gap-3 pt-4">
               <div className="text-center p-3 rounded-lg bg-secondary/30">
                 <ShieldCheck className="w-6 h-6 text-primary mx-auto mb-2" />
-                <span className="text-xs font-medium">Secure</span>
+                <span className="text-xs font-medium">Secure Checkout</span>
               </div>
               <div className="text-center p-3 rounded-lg bg-secondary/30">
                 <Truck className="w-6 h-6 text-primary mx-auto mb-2" />
-                <span className="text-xs font-medium">Fast Delivery</span>
+                <span className="text-xs font-medium">Instant Delivery</span>
               </div>
               <div className="text-center p-3 rounded-lg bg-secondary/30">
                 <RefreshCw className="w-6 h-6 text-primary mx-auto mb-2" />
-                <span className="text-xs font-medium">Guaranteed</span>
+                <span className="text-xs font-medium">24/7 Support</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose This Product */}
-      <section className="py-16 bg-secondary/20">
+      {/* What You Get Section */}
+      <section className="py-12 bg-secondary/20">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose This Product?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">What You'll Get</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
-                <CardHeader className="text-center space-y-4 pb-3">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                    <Shield className="w-8 h-8 text-primary" />
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="bg-card">
+                <CardContent className="pt-6">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Check className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold mb-2">Instant Access</h3>
+                    <p className="text-sm text-muted-foreground">Complete account credentials delivered immediately after purchase</p>
                   </div>
-                  <CardTitle className="text-lg">Verified & Secure</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center text-sm text-muted-foreground">
-                  <p>Every product is fully verified and ready to use immediately</p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
-                <CardHeader className="text-center space-y-4 pb-3">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                    <Users className="w-8 h-8 text-primary" />
+              <Card className="bg-card">
+                <CardContent className="pt-6">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <ShieldCheck className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold mb-2">Verified & Secure</h3>
+                    <p className="text-sm text-muted-foreground">All accounts are fully verified and ready to use</p>
                   </div>
-                  <CardTitle className="text-lg">Premium Quality</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center text-sm text-muted-foreground">
-                  <p>Authentic and genuine with proven quality standards</p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
-                <CardHeader className="text-center space-y-4 pb-3">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                    <Zap className="w-8 h-8 text-primary" />
+              <Card className="bg-card">
+                <CardContent className="pt-6">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Star className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold mb-2">Premium Support</h3>
+                    <p className="text-sm text-muted-foreground">Dedicated support team to help with any questions</p>
                   </div>
-                  <CardTitle className="text-lg">Instant Access</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center text-sm text-muted-foreground">
-                  <p>Get started immediately, no waiting required</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
-                <CardHeader className="text-center space-y-4 pb-3">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                    <HeadphonesIcon className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Expert Support</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center text-sm text-muted-foreground">
-                  <p>24/7 dedicated support with fast response times</p>
                 </CardContent>
               </Card>
             </div>
@@ -282,84 +282,45 @@ const ProductDetail = () => {
       </section>
 
       {/* Customer Reviews */}
-      <section className="py-16 bg-background">
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h2>
-              <p className="text-lg text-muted-foreground">Join hundreds of satisfied customers</p>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Customer Reviews</h2>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
               <Card className="bg-card border-2">
                 <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-3">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-4">"Exactly as described! Got instant access and everything works perfectly. Great quality!"</p>
-                  <p className="font-semibold">Sarah M.</p>
+                  <p className="text-muted-foreground mb-3">"Exactly as described! Got instant access and everything works perfectly."</p>
+                  <p className="font-semibold text-sm">Sarah M.</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-card border-2">
                 <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-3">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-4">"The transfer was smooth and support was incredibly helpful. Highly recommend!"</p>
-                  <p className="font-semibold">James K.</p>
+                  <p className="text-muted-foreground mb-3">"The transfer was smooth and support was incredibly helpful. Highly recommend!"</p>
+                  <p className="font-semibold text-sm">James K.</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-card border-2">
                 <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-3">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-4">"Worth every penny! Skip months of work and get started immediately."</p>
-                  <p className="font-semibold">Emma L.</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card border-2">
-                <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-4">"Best investment I've made. Everything was exactly as promised!"</p>
-                  <p className="font-semibold">Michael R.</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card border-2">
-                <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-4">"Seamless process from purchase to delivery. Couldn't be happier!"</p>
-                  <p className="font-semibold">Lisa T.</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card border-2">
-                <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-4">"Great for anyone wanting to skip the grind. Authentic quality!"</p>
-                  <p className="font-semibold">David P.</p>
+                  <p className="text-muted-foreground mb-3">"Best investment I've made. Skip months of work and get started immediately!"</p>
+                  <p className="font-semibold text-sm">Emma L.</p>
                 </CardContent>
               </Card>
             </div>
@@ -367,35 +328,22 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-16 bg-secondary/20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Join thousands of satisfied customers. Add to cart now and get instant access.
-            </p>
-            <Button 
-              size="lg" 
-              className="text-lg h-16 px-12"
-              onClick={handleAddToCart}
-              disabled={added || !currentVariant.availableForSale}
-            >
-              {added ? (
-                <>
-                  <Check className="w-5 h-5 mr-2" />
-                  Added to Cart
-                </>
-              ) : (
-                <>
-                  <ShoppingCart className="w-5 h-5 mr-2" />
-                  Add to Cart - ${price.toFixed(2)}
-                </>
-              )}
-            </Button>
+      {/* You May Also Like */}
+      {relatedProducts.length > 0 && (
+        <section className="py-12 bg-secondary/20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">You May Also Like</h2>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {relatedProducts.map((product) => (
+                  <ProductCard key={product.node.id} product={product} />
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 };
