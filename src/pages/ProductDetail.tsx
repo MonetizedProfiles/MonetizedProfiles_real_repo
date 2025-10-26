@@ -366,85 +366,78 @@ const ProductDetail = () => {
             <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
               <div className="flex gap-6 py-3 animate-scroll-left">
                 {[...Array(2)].map((_, groupIdx) => (
-                  <div key={groupIdx} className="flex gap-6 flex-shrink-0">
+                  <div key={groupIdx} className="flex gap-6">
+                    {/* Review 1 */}
                     <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
-                      <div className="flex gap-1 mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                        ))}
+                      <div className="flex items-start gap-4 mb-4">
+                        <img src="/placeholder.svg" alt="Sarah M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                        <div className="flex-1">
+                          <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                          <h4 className="font-bold text-lg">Game Changer!</h4>
+                          <p className="text-sm text-muted-foreground">Sarah M.</p>
+                        </div>
                       </div>
-                      <p className="text-muted-foreground mb-3">"Exactly as described! Got instant access and everything works perfectly."</p>
-                      <p className="font-semibold text-sm">Sarah M.</p>
+                      <p className="text-muted-foreground">"Bought a monetized account and started earning from day one. The account was exactly as described!"</p>
                     </div>
-
+                    {/* Review 2 */}
                     <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
-                      <div className="flex gap-1 mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                        ))}
+                      <div className="flex items-start gap-4 mb-4">
+                        <img src="/placeholder.svg" alt="James K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                        <div className="flex-1">
+                          <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                          <h4 className="font-bold text-lg">Excellent Service</h4>
+                          <p className="text-sm text-muted-foreground">James K.</p>
+                        </div>
                       </div>
-                      <p className="text-muted-foreground mb-3">"The transfer was smooth and support was incredibly helpful. Highly recommend!"</p>
-                      <p className="font-semibold text-sm">James K.</p>
+                      <p className="text-muted-foreground">"Transfer was smooth and support was incredibly helpful. My account has active followers!"</p>
                     </div>
-
+                    {/* Review 3 */}
                     <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
-                      <div className="flex gap-1 mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                        ))}
+                      <div className="flex items-start gap-4 mb-4">
+                        <img src="/placeholder.svg" alt="Emma L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                        <div className="flex-1">
+                          <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                          <h4 className="font-bold text-lg">Worth Every Penny</h4>
+                          <p className="text-sm text-muted-foreground">Emma L.</p>
+                        </div>
                       </div>
-                      <p className="text-muted-foreground mb-3">"Best investment I've made. Skip months of work and get started immediately!"</p>
-                      <p className="font-semibold text-sm">Emma L.</p>
+                      <p className="text-muted-foreground">"Skip months of growing an audience. Perfect shortcut to start my content creator journey!"</p>
                     </div>
-
+                    {/* Review 4 */}
                     <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
-                      <div className="flex gap-1 mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                        ))}
+                      <div className="flex items-start gap-4 mb-4">
+                        <img src="/placeholder.svg" alt="Michael R." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                        <div className="flex-1">
+                          <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                          <h4 className="font-bold text-lg">Best Investment</h4>
+                          <p className="text-sm text-muted-foreground">Michael R.</p>
+                        </div>
                       </div>
-                      <p className="text-muted-foreground mb-3">"Worth every penny! The account quality exceeded my expectations."</p>
-                      <p className="font-semibold text-sm">Michael R.</p>
+                      <p className="text-muted-foreground">"The monetization was active immediately. Making money within hours of purchase!"</p>
                     </div>
-
+                    {/* Review 5 */}
                     <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
-                      <div className="flex gap-1 mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                        ))}
+                      <div className="flex items-start gap-4 mb-4">
+                        <img src="/placeholder.svg" alt="Lisa T." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                        <div className="flex-1">
+                          <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                          <h4 className="font-bold text-lg">Seamless Process</h4>
+                          <p className="text-sm text-muted-foreground">Lisa T.</p>
+                        </div>
                       </div>
-                      <p className="text-muted-foreground mb-3">"Seamless process from purchase to delivery. Couldn't be happier!"</p>
-                      <p className="font-semibold text-sm">Lisa T.</p>
+                      <p className="text-muted-foreground">"Everything was handled professionally. Account transfer took less than 12 hours!"</p>
                     </div>
-
+                    {/* Review 6 */}
                     <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
-                      <div className="flex gap-1 mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                        ))}
+                      <div className="flex items-start gap-4 mb-4">
+                        <img src="/placeholder.svg" alt="David P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                        <div className="flex-1">
+                          <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                          <h4 className="font-bold text-lg">Highly Recommend</h4>
+                          <p className="text-sm text-muted-foreground">David P.</p>
+                        </div>
                       </div>
-                      <p className="text-muted-foreground mb-3">"Great for anyone wanting to skip the grind. Authentic quality!"</p>
-                      <p className="font-semibold text-sm">David P.</p>
-                    </div>
-
-                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
-                      <div className="flex gap-1 mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                        ))}
-                      </div>
-                      <p className="text-muted-foreground mb-3">"Amazing quality accounts. Support team helped me every step of the way!"</p>
-                      <p className="font-semibold text-sm">Amanda G.</p>
-                    </div>
-
-                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
-                      <div className="flex gap-1 mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                        ))}
-                      </div>
-                      <p className="text-muted-foreground mb-3">"Fast delivery and excellent customer service. Very professional!"</p>
-                      <p className="font-semibold text-sm">Chris B.</p>
+                      <p className="text-muted-foreground">"Great for anyone wanting to skip the grind of building from scratch. Real engagement!"</p>
                     </div>
                   </div>
                 ))}
