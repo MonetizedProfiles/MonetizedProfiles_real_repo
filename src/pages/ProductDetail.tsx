@@ -4,11 +4,11 @@ import { PRODUCT_BY_HANDLE_QUERY, storefrontApiRequest, STOREFRONT_QUERY, Shopif
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
-import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star } from "lucide-react";
+import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, ChevronRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ProductCard } from "@/components/ProductCard";
 
 const ProductDetail = () => {
@@ -18,6 +18,9 @@ const ProductDetail = () => {
   const [added, setAdded] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [mainImage, setMainImage] = useState(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -59,6 +62,32 @@ const ProductDetail = () => {
     setTimeout(() => setAdded(false), 2000);
   };
 
+  // Check scroll position
+  const checkScrollButtons = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    checkScrollButtons();
+    window.addEventListener('resize', checkScrollButtons);
+    return () => window.removeEventListener('resize', checkScrollButtons);
+  }, [allProducts]);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = scrollContainerRef.current.clientWidth;
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+      setTimeout(checkScrollButtons, 300);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="bg-background">
@@ -92,8 +121,8 @@ const ProductDetail = () => {
   const currency = currentVariant.price.currencyCode;
   const images = product.images.edges;
 
-  // Get related products (exclude current product)
-  const relatedProducts = allProducts?.filter(p => p.node.id !== product.id).slice(0, 4) || [];
+  // Get related products (exclude current product, limit to 2)
+  const relatedProducts = allProducts?.filter(p => p.node.id !== product.id).slice(0, 2) || [];
 
   return (
     <div className="bg-background">
@@ -281,46 +310,46 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* Customer Reviews */}
-      <section className="py-12 bg-background">
+      {/* Guarantee Section */}
+      <section className="py-12 bg-secondary/20">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Customer Reviews</h2>
-
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Our Guarantee</h2>
+            
+            <div className="grid md:grid-cols-3 gap-6">
               <Card className="bg-card border-2">
                 <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <ShieldCheck className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-2">Money-Back Guarantee</h3>
+                    <p className="text-sm text-muted-foreground">If the account doesn't match the description, we'll refund you</p>
                   </div>
-                  <p className="text-muted-foreground mb-3">"Exactly as described! Got instant access and everything works perfectly."</p>
-                  <p className="font-semibold text-sm">Sarah M.</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-card border-2">
                 <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Check className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-2">Verified Accounts</h3>
+                    <p className="text-sm text-muted-foreground">All accounts are verified and tested before delivery</p>
                   </div>
-                  <p className="text-muted-foreground mb-3">"The transfer was smooth and support was incredibly helpful. Highly recommend!"</p>
-                  <p className="font-semibold text-sm">James K.</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-card border-2">
                 <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <RefreshCw className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-lg mb-2">Lifetime Support</h3>
+                    <p className="text-sm text-muted-foreground">Get help whenever you need it, for as long as you own the account</p>
                   </div>
-                  <p className="text-muted-foreground mb-3">"Best investment I've made. Skip months of work and get started immediately!"</p>
-                  <p className="font-semibold text-sm">Emma L.</p>
                 </CardContent>
               </Card>
             </div>
@@ -328,17 +357,134 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* You May Also Like */}
+      {/* Customer Reviews - Scrolling Carousel */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Customer Reviews</h2>
+
+            <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
+              <div className="flex gap-6 py-3 animate-scroll-left pause-animation">
+                {[...Array(2)].map((_, groupIdx) => (
+                  <div key={groupIdx} className="flex gap-6">
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex gap-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-3">"Exactly as described! Got instant access and everything works perfectly."</p>
+                      <p className="font-semibold text-sm">Sarah M.</p>
+                    </div>
+
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex gap-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-3">"The transfer was smooth and support was incredibly helpful. Highly recommend!"</p>
+                      <p className="font-semibold text-sm">James K.</p>
+                    </div>
+
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex gap-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-3">"Best investment I've made. Skip months of work and get started immediately!"</p>
+                      <p className="font-semibold text-sm">Emma L.</p>
+                    </div>
+
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex gap-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-3">"Worth every penny! The account quality exceeded my expectations."</p>
+                      <p className="font-semibold text-sm">Michael R.</p>
+                    </div>
+
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex gap-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-3">"Seamless process from purchase to delivery. Couldn't be happier!"</p>
+                      <p className="font-semibold text-sm">Lisa T.</p>
+                    </div>
+
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex gap-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-3">"Great for anyone wanting to skip the grind. Authentic quality!"</p>
+                      <p className="font-semibold text-sm">David P.</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* You May Also Like - 2 Products with Scroll */}
       {relatedProducts.length > 0 && (
         <section className="py-12 bg-secondary/20">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">You May Also Like</h2>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {relatedProducts.map((product) => (
-                  <ProductCard key={product.node.id} product={product} />
-                ))}
+              <div className="max-w-4xl mx-auto relative px-12">
+                {/* Left scroll button */}
+                {canScrollLeft && (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-primary hover:bg-primary/90 text-white border-primary shadow-lg"
+                    onClick={() => scroll('left')}
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </Button>
+                )}
+                
+                {/* Right scroll button */}
+                {canScrollRight && (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-primary hover:bg-primary/90 text-white border-primary shadow-lg"
+                    onClick={() => scroll('right')}
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </Button>
+                )}
+
+                {/* Scrollable container */}
+                <div 
+                  ref={scrollContainerRef}
+                  className="overflow-x-auto scrollbar-hide scroll-smooth"
+                  onScroll={checkScrollButtons}
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                  <div 
+                    className="grid gap-6"
+                    style={{ 
+                      gridAutoFlow: 'column',
+                      gridAutoColumns: relatedProducts.length === 1 ? '100%' : 'calc((100% - 1.5rem) / 2)'
+                    }}
+                  >
+                    {relatedProducts.map((product) => (
+                      <ProductCard key={product.node.id} product={product} />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
