@@ -341,11 +341,11 @@ const ProductDetail = () => {
 
                 {/* Benefit 2 - Earn Money First Post */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
                   <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
                     <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-lg">
-                        <Zap className="w-8 h-8 text-accent-foreground" />
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                        <Zap className="w-8 h-8 text-accent-blue-foreground" />
                       </div>
                       <div>
                         <h3 className="font-bold text-xl mb-2">Earn Immediately</h3>
@@ -377,11 +377,11 @@ const ProductDetail = () => {
 
                 {/* Benefit 4 - Monetization Enabled */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
                   <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
                     <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-lg">
-                        <Check className="w-8 h-8 text-accent-foreground" />
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                        <Check className="w-8 h-8 text-accent-blue-foreground" />
                       </div>
                       <div>
                         <h3 className="font-bold text-xl mb-2">Fully Monetized</h3>
