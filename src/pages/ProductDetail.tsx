@@ -359,11 +359,11 @@ const ProductDetail = () => {
 
                 {/* Benefit 3 - Organic Audience */}
                 <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
                   <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
                     <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
-                        <Users className="w-8 h-8 text-primary-foreground" />
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-lg">
+                        <Users className="w-8 h-8 text-accent-foreground" />
                       </div>
                       <div>
                         <h3 className="font-bold text-xl mb-2">Real Followers</h3>
@@ -384,9 +384,9 @@ const ProductDetail = () => {
                         <Check className="w-8 h-8 text-accent-foreground" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-xl mb-2">Pre-Approved</h3>
+                        <h3 className="font-bold text-xl mb-2">Fully Monetized</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">
-                          Monetization fully approved and enabled - ready to earn right away
+                          Monetization enabled and active - start earning from day one
                         </p>
                       </div>
                     </div>
