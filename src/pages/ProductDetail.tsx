@@ -311,73 +311,73 @@ const ProductDetail = () => {
       </section>
 
       {/* Guarantee Section - Risk-Free Purchase */}
-      <section className="py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+      <section className="py-12 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-t border-border/50">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Risk-Free Purchase Guarantee</h2>
-              <p className="text-xl text-muted-foreground">Your investment is 100% protected. Buy with complete confidence.</p>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">Risk-Free Purchase Guarantee</h2>
+              <p className="text-lg text-muted-foreground">Your investment is 100% protected. Buy with complete confidence.</p>
             </div>
 
-            <div className="bg-card/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border-2 border-primary/20 shadow-xl">
-              <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border-2 border-primary/20 shadow-lg">
+              <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                 {/* 7-Day Money Back */}
-                <div className="text-center space-y-4">
+                <div className="text-center space-y-3">
                   <div className="relative inline-block">
                     <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl"></div>
-                    <div className="relative w-24 h-24 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-primary/30 shadow-lg">
-                      <RefreshCw className="w-12 h-12 text-primary" />
+                    <div className="relative w-20 h-20 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-primary/30 shadow-lg">
+                      <RefreshCw className="w-10 h-10 text-primary" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">7-Day Money Back</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-xl font-bold mb-2">7-Day Money Back</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       Not satisfied? Get a full refund within 7 days, no questions asked.
-                      <span className="block mt-2 font-semibold text-foreground">100% risk-free.</span>
+                      <span className="block mt-1.5 font-semibold text-foreground text-xs">100% risk-free.</span>
                     </p>
                   </div>
                 </div>
 
                 {/* 30-Day Replacement */}
-                <div className="text-center space-y-4">
+                <div className="text-center space-y-3">
                   <div className="relative inline-block">
                     <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl"></div>
-                    <div className="relative w-24 h-24 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-primary/30 shadow-lg">
-                      <ShieldCheck className="w-12 h-12 text-primary" />
+                    <div className="relative w-20 h-20 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-primary/30 shadow-lg">
+                      <ShieldCheck className="w-10 h-10 text-primary" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">30-Day Replacement</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-xl font-bold mb-2">30-Day Replacement</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       Any issues with your account? We'll replace it free of charge within 30 days.
-                      <span className="block mt-2 font-semibold text-foreground">We stand behind quality.</span>
+                      <span className="block mt-1.5 font-semibold text-foreground text-xs">We stand behind quality.</span>
                     </p>
                   </div>
                 </div>
 
                 {/* 24/7 Support */}
-                <div className="text-center space-y-4">
+                <div className="text-center space-y-3">
                   <div className="relative inline-block">
                     <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl"></div>
-                    <div className="relative w-24 h-24 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-primary/30 shadow-lg">
-                      <Star className="w-12 h-12 text-primary" />
+                    <div className="relative w-20 h-20 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-primary/30 shadow-lg">
+                      <Star className="w-10 h-10 text-primary" />
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">24/7 Support Chat</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-xl font-bold mb-2">24/7 Support Chat</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       Get instant help anytime, day or night. Our team is always here for you.
-                      <span className="block mt-2 font-semibold text-foreground">Never alone.</span>
+                      <span className="block mt-1.5 font-semibold text-foreground text-xs">Never alone.</span>
                     </p>
                   </div>
                 </div>
               </div>
 
               {/* Bottom CTA */}
-              <div className="mt-12 text-center">
-                <div className="inline-flex items-center gap-2 bg-primary/10 px-6 py-3 rounded-full border border-primary/30">
-                  <ShieldCheck className="w-5 h-5 text-primary" />
-                  <span className="font-semibold">Your purchase is 100% protected</span>
+              <div className="mt-8 text-center">
+                <div className="inline-flex items-center gap-2 bg-primary/10 px-5 py-2.5 rounded-full border border-primary/30">
+                  <ShieldCheck className="w-4 h-4 text-primary" />
+                  <span className="font-semibold text-sm">Your purchase is 100% protected</span>
                 </div>
               </div>
             </div>
