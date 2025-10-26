@@ -481,7 +481,7 @@ const ProductDetail = () => {
 
             <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
               <div className="flex gap-6 py-3 animate-scroll-left">
-                {[...Array(2)].map((_, groupIdx) => (
+                {[...Array(3)].map((_, groupIdx) => (
                   <div key={groupIdx} className="flex gap-6">
                     {/* Review 1 */}
                     <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -554,6 +554,54 @@ const ProductDetail = () => {
                         </div>
                       </div>
                       <p className="text-muted-foreground">"Great for anyone wanting to skip the grind of building from scratch. Real engagement!"</p>
+                    </div>
+                    {/* Review 7 */}
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex items-start gap-4 mb-4">
+                        <img src="/placeholder.svg" alt="Rachel B." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                        <div className="flex-1">
+                          <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                          <h4 className="font-bold text-lg">Amazing Quality</h4>
+                          <p className="text-sm text-muted-foreground">Rachel B.</p>
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground">"The followers are genuine and actively engaged with my content. No fake accounts!"</p>
+                    </div>
+                    {/* Review 8 */}
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex items-start gap-4 mb-4">
+                        <img src="/placeholder.svg" alt="Tom W." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                        <div className="flex-1">
+                          <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                          <h4 className="font-bold text-lg">Fast Delivery</h4>
+                          <p className="text-sm text-muted-foreground">Tom W.</p>
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground">"Got my account credentials within 6 hours. The whole process was incredibly smooth!"</p>
+                    </div>
+                    {/* Review 9 */}
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex items-start gap-4 mb-4">
+                        <img src="/placeholder.svg" alt="Nina C." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                        <div className="flex-1">
+                          <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                          <h4 className="font-bold text-lg">Perfect Start</h4>
+                          <p className="text-sm text-muted-foreground">Nina C.</p>
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground">"Launching my brand was so much easier with an established account. Saved months of work!"</p>
+                    </div>
+                    {/* Review 10 */}
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex items-start gap-4 mb-4">
+                        <img src="/placeholder.svg" alt="Alex H." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                        <div className="flex-1">
+                          <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                          <h4 className="font-bold text-lg">Trustworthy Seller</h4>
+                          <p className="text-sm text-muted-foreground">Alex H.</p>
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground">"Third account I've purchased. Always reliable and exactly what's promised!"</p>
                     </div>
                   </div>
                 ))}
