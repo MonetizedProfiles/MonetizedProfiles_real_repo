@@ -212,9 +212,16 @@ const ProductDetail = () => {
                 <span className="text-muted-foreground">4.8 (500+ reviews)</span>
               </div>
 
-              <p className="text-5xl font-bold text-primary mb-6">
-                ${price.toFixed(2)}
-              </p>
+              <div className="flex items-baseline gap-3 mb-6">
+                <p className="text-5xl font-bold text-primary">
+                  ${price.toFixed(2)}
+                </p>
+                {currentVariant.compareAtPrice && parseFloat(currentVariant.compareAtPrice.amount) > price && (
+                  <p className="text-2xl text-muted-foreground line-through">
+                    ${parseFloat(currentVariant.compareAtPrice.amount).toFixed(2)}
+                  </p>
+                )}
+              </div>
 
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 {product.description}
