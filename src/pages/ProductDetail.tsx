@@ -4,7 +4,7 @@ import { PRODUCT_BY_HANDLE_QUERY, storefrontApiRequest, STOREFRONT_QUERY, Shopif
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
-import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, ChevronRight } from "lucide-react";
+import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, ChevronRight, Users, Zap } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -21,6 +21,8 @@ const ProductDetail = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [accountsSold] = useState(27708 + Math.floor(Math.random() * 100));
+  const [stockLeft] = useState(Math.floor(Math.random() * 8) + 3);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -257,6 +259,28 @@ const ProductDetail = () => {
               <div className="text-center p-3 rounded-lg bg-secondary/30">
                 <RefreshCw className="w-6 h-6 text-primary mx-auto mb-2" />
                 <span className="text-xs font-medium">24/7 Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stock Level & Urgency */}
+      <section className="py-6 bg-secondary/20 border-y border-border/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-wrap gap-4 justify-center items-center text-sm">
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
+                <Users className="w-4 h-4 text-primary" />
+                <span><strong>{accountsSold.toLocaleString()}</strong> accounts delivered</span>
+              </div>
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
+                <Star className="w-4 h-4 text-primary fill-primary" />
+                <span><strong>4.8/5</strong> rating</span>
+              </div>
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
+                <Zap className="w-4 h-4 text-primary" />
+                <span><strong>{stockLeft}</strong> left in stock</span>
               </div>
             </div>
           </div>
