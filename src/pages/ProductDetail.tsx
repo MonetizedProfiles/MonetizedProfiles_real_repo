@@ -308,47 +308,91 @@ const ProductDetail = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="py-12 bg-secondary/20">
+      <section className="py-16 bg-gradient-to-b from-secondary/20 via-background to-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">What You'll Get</h2>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">What You'll Get</h2>
+            <p className="text-center text-muted-foreground text-lg mb-12">Everything you need to start earning immediately</p>
             
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="bg-card">
-                <CardContent className="pt-6">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Check className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="font-semibold mb-2">Instant Access</h3>
-                    <p className="text-sm text-muted-foreground">Complete account credentials delivered immediately after purchase</p>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="relative">
+              {/* Connecting Lines Decoration */}
+              <div className="hidden lg:block absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+              </div>
 
-              <Card className="bg-card">
-                <CardContent className="pt-6">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <ShieldCheck className="w-6 h-6 text-primary" />
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                {/* Benefit 1 - Secure Transfer */}
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                  <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                        <ShieldCheck className="w-8 h-8 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-xl mb-2">Secure Transfer</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          Protected account handoff with verified credentials and secure delivery
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="font-semibold mb-2">Verified & Secure</h3>
-                    <p className="text-sm text-muted-foreground">All accounts are fully verified and ready to use</p>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
 
-              <Card className="bg-card">
-                <CardContent className="pt-6">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Star className="w-6 h-6 text-primary" />
+                {/* Benefit 2 - Earn Money First Post */}
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                  <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-lg">
+                        <Zap className="w-8 h-8 text-accent-foreground" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-xl mb-2">Earn Immediately</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          Start making money from your very first post with instant monetization
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="font-semibold mb-2">Premium Support</h3>
-                    <p className="text-sm text-muted-foreground">Dedicated support team to help with any questions</p>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+
+                {/* Benefit 3 - Organic Audience */}
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                  <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                        <Users className="w-8 h-8 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-xl mb-2">Real Followers</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          100% organic audience with zero bots - authentic engagement guaranteed
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Benefit 4 - Monetization Enabled */}
+                <div className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                  <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-lg">
+                        <Check className="w-8 h-8 text-accent-foreground" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-xl mb-2">Pre-Approved</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          Monetization fully approved and enabled - ready to earn right away
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
