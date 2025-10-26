@@ -231,32 +231,31 @@ const ProductDetail = () => {
             )}
 
             {/* Slim Restock Notification */}
-            <div className="bg-gradient-to-r from-accent-blue/10 to-primary/10 rounded-lg p-4 border border-accent-blue/20">
-              <form onSubmit={handleRestockEmailSubmit} className="space-y-2">
-                <div className="flex items-center gap-2 text-sm font-medium">
-                  <Mail className="w-4 h-4 text-accent-blue" />
-                  <span>Notify me when restocked</span>
-                </div>
-                <div className="flex gap-2">
-                  <Input
-                    type="email"
-                    placeholder="your@email.com"
-                    value={restockEmail}
-                    onChange={(e) => setRestockEmail(e.target.value)}
-                    className="h-9 text-sm bg-background"
-                    disabled={emailSubmitted}
-                  />
-                  <Button 
-                    type="submit" 
-                    size="sm"
-                    className="h-9 px-4 bg-accent-blue hover:bg-accent-blue/90 text-accent-blue-foreground"
-                    disabled={emailSubmitted}
-                  >
-                    {emailSubmitted ? <Check className="w-4 h-4" /> : "Notify"}
-                  </Button>
-                </div>
-              </form>
-            </div>
+            <form onSubmit={handleRestockEmailSubmit} className="space-y-2">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <Mail className="w-3.5 h-3.5" />
+                <span>Notify me when restocked</span>
+              </div>
+              <div className="flex gap-2">
+                <Input
+                  type="email"
+                  placeholder="your@email.com"
+                  value={restockEmail}
+                  onChange={(e) => setRestockEmail(e.target.value)}
+                  className="h-8 text-sm"
+                  disabled={emailSubmitted}
+                />
+                <Button 
+                  type="submit" 
+                  size="sm"
+                  variant="outline"
+                  className="h-8 px-3 text-xs"
+                  disabled={emailSubmitted}
+                >
+                  {emailSubmitted ? <Check className="w-3.5 h-3.5" /> : "Notify"}
+                </Button>
+              </div>
+            </form>
           </div>
 
           {/* Product Info */}
