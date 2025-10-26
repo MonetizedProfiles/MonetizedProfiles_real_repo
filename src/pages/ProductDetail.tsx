@@ -4,12 +4,18 @@ import { PRODUCT_BY_HANDLE_QUERY, storefrontApiRequest, STOREFRONT_QUERY, Shopif
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
-import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, ChevronRight, Users, Zap } from "lucide-react";
+import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, ChevronRight, Users, Zap, Mail } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useState, useRef, useEffect } from "react";
 import { ProductCard } from "@/components/ProductCard";
+import { Input } from "@/components/ui/input";
+import { z } from "zod";
+
+const emailSchema = z.object({
+  email: z.string().trim().email({ message: "Please enter a valid email address" }).max(255, { message: "Email must be less than 255 characters" })
+});
 
 const ProductDetail = () => {
   const { handle } = useParams();
@@ -22,6 +28,8 @@ const ProductDetail = () => {
   const [canScrollRight, setCanScrollRight] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [accountsSoldThisMonth, setAccountsSoldThisMonth] = useState(639 + Math.floor(Math.random() * 10));
+  const [restockEmail, setRestockEmail] = useState("");
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -102,6 +110,31 @@ const ProductDetail = () => {
     
     return () => clearTimeout(timeoutId);
   }, []);
+
+  const handleRestockEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      const validated = emailSchema.parse({ email: restockEmail });
+      
+      // Here you would typically send this to your backend/database
+      console.log('Restock notification requested for:', validated.email);
+      
+      setEmailSubmitted(true);
+      toast.success("You're on the list!", {
+        description: "We'll notify you when this product is back in stock.",
+        position: "top-center",
+      });
+      
+      setRestockEmail("");
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        toast.error(error.errors[0].message, {
+          position: "top-center",
+        });
+      }
+    }
+  };
 
   if (isLoading) {
     return (
@@ -301,6 +334,42 @@ const ProductDetail = () => {
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Zap className="w-4 h-4 text-primary" />
                 <span><strong>Time until restock:</strong> Unknown</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Restock Notification Section */}
+      <section className="py-8 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 border border-border/50 shadow-sm">
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                <div className="flex-1 text-center md:text-left">
+                  <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <Mail className="w-5 h-5 text-accent-blue" />
+                    <h3 className="font-bold text-lg">Want to be notified on restock?</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Get an email when this account type is available again</p>
+                </div>
+                <form onSubmit={handleRestockEmailSubmit} className="flex gap-2 w-full md:w-auto">
+                  <Input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={restockEmail}
+                    onChange={(e) => setRestockEmail(e.target.value)}
+                    className="md:w-[240px]"
+                    disabled={emailSubmitted}
+                  />
+                  <Button 
+                    type="submit" 
+                    className="bg-accent-blue hover:bg-accent-blue/90 text-accent-blue-foreground"
+                    disabled={emailSubmitted}
+                  >
+                    {emailSubmitted ? <Check className="w-4 h-4" /> : "Notify Me"}
+                  </Button>
+                </form>
               </div>
             </div>
           </div>
