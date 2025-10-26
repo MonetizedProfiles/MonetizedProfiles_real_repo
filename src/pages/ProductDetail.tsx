@@ -365,7 +365,7 @@ const ProductDetail = () => {
 
             <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
               <div className="flex gap-6 py-3 animate-scroll-left">
-                {[...Array(3)].map((_, groupIdx) => (
+                {[...Array(2)].map((_, groupIdx) => (
                   <div key={groupIdx} className="flex gap-6 flex-shrink-0">
                     <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                       <div className="flex gap-1 mb-3">
@@ -425,6 +425,26 @@ const ProductDetail = () => {
                       </div>
                       <p className="text-muted-foreground mb-3">"Great for anyone wanting to skip the grind. Authentic quality!"</p>
                       <p className="font-semibold text-sm">David P.</p>
+                    </div>
+
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex gap-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-3">"Amazing quality accounts. Support team helped me every step of the way!"</p>
+                      <p className="font-semibold text-sm">Amanda G.</p>
+                    </div>
+
+                    <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                      <div className="flex gap-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-3">"Fast delivery and excellent customer service. Very professional!"</p>
+                      <p className="font-semibold text-sm">Chris B.</p>
                     </div>
                   </div>
                 ))}
