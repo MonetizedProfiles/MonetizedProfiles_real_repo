@@ -300,6 +300,35 @@ const ProductDetail = () => {
               )}
             </Button>
 
+            {/* Subtle Restock Notification */}
+            <div className="pt-3 border-t border-border/30">
+              <form onSubmit={handleRestockEmailSubmit} className="flex flex-col gap-2">
+                <label className="text-xs text-muted-foreground flex items-center gap-1.5">
+                  <Mail className="w-3.5 h-3.5" />
+                  Get notified when back in stock
+                </label>
+                <div className="flex gap-2">
+                  <Input
+                    type="email"
+                    placeholder="your@email.com"
+                    value={restockEmail}
+                    onChange={(e) => setRestockEmail(e.target.value)}
+                    className="h-9 text-sm"
+                    disabled={emailSubmitted}
+                  />
+                  <Button 
+                    type="submit" 
+                    size="sm"
+                    variant="outline"
+                    className="h-9 px-3"
+                    disabled={emailSubmitted}
+                  >
+                    {emailSubmitted ? <Check className="w-3.5 h-3.5" /> : "Notify"}
+                  </Button>
+                </div>
+              </form>
+            </div>
+
             <div className="grid grid-cols-3 gap-3 pt-4">
               <div className="text-center p-3 rounded-lg bg-secondary/30">
                 <ShieldCheck className="w-6 h-6 text-primary mx-auto mb-2" />
@@ -334,42 +363,6 @@ const ProductDetail = () => {
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Zap className="w-4 h-4 text-primary" />
                 <span><strong>Time until restock:</strong> Unknown</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Restock Notification Section */}
-      <section className="py-8 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 border border-border/50 shadow-sm">
-              <div className="flex flex-col md:flex-row items-center gap-4">
-                <div className="flex-1 text-center md:text-left">
-                  <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-                    <Mail className="w-5 h-5 text-accent-blue" />
-                    <h3 className="font-bold text-lg">Want to be notified on restock?</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Get an email when this account type is available again</p>
-                </div>
-                <form onSubmit={handleRestockEmailSubmit} className="flex gap-2 w-full md:w-auto">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={restockEmail}
-                    onChange={(e) => setRestockEmail(e.target.value)}
-                    className="md:w-[240px]"
-                    disabled={emailSubmitted}
-                  />
-                  <Button 
-                    type="submit" 
-                    className="bg-accent-blue hover:bg-accent-blue/90 text-accent-blue-foreground"
-                    disabled={emailSubmitted}
-                  >
-                    {emailSubmitted ? <Check className="w-4 h-4" /> : "Notify Me"}
-                  </Button>
-                </form>
               </div>
             </div>
           </div>
