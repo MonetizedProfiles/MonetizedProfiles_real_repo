@@ -187,7 +187,7 @@ const Index = () => {
       {/* Featured Products Section - 3 Products Display with Scroll */}
       <section className="py-16 container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-2" style={{ color: '#FF2929' }}>Featured Accounts</h2>
+          <h2 className="text-4xl font-bold mb-4 text-foreground">Featured Accounts</h2>
           <p className="text-muted-foreground">Start earning today with our most popular monetized accounts</p>
         </div>
 
