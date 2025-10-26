@@ -22,7 +22,6 @@ const ProductDetail = () => {
   const [canScrollRight, setCanScrollRight] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [accountsSoldThisMonth, setAccountsSoldThisMonth] = useState(639 + Math.floor(Math.random() * 10));
-  const [stockLeft] = useState(Math.floor(Math.random() * 8) + 3);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -294,7 +293,7 @@ const ProductDetail = () => {
               </div>
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Zap className="w-4 h-4 text-primary" />
-                <span><strong>{stockLeft}</strong> left in stock</span>
+                <span>Restock: <strong>Unknown</strong></span>
               </div>
             </div>
           </div>
