@@ -201,6 +201,21 @@ const ProductDetail = () => {
           {/* Product Info */}
           <div className="space-y-6">
             <div>
+              {/* Stock Counter */}
+              {currentVariant.quantityAvailable !== undefined && (
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="relative">
+                    <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                    <div className="absolute inset-0 w-2 h-2 bg-accent rounded-full animate-ping"></div>
+                  </div>
+                  <span className="text-sm font-medium">
+                    {currentVariant.quantityAvailable > 0 
+                      ? `${currentVariant.quantityAvailable} in stock` 
+                      : 'Out of stock'}
+                  </span>
+                </div>
+              )}
+              
               <h1 className="text-3xl md:text-5xl font-bold mb-4">{product.title}</h1>
               
               <div className="flex items-center gap-2 mb-6">
