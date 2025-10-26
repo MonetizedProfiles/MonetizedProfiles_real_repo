@@ -121,8 +121,8 @@ const ProductDetail = () => {
   const currency = currentVariant.price.currencyCode;
   const images = product.images.edges;
 
-  // Get related products (exclude current product, limit to 2)
-  const relatedProducts = allProducts?.filter(p => p.node.id !== product.id).slice(0, 2) || [];
+  // Get related products (exclude current product, limit to 3)
+  const relatedProducts = allProducts?.filter(p => p.node.id !== product.id).slice(0, 3) || [];
 
   return (
     <div className="bg-background">
@@ -314,41 +314,41 @@ const ProductDetail = () => {
       <section className="py-12 bg-secondary/20">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Our Guarantee</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Our Guarantee To You</h2>
             
             <div className="grid md:grid-cols-3 gap-6">
-              <Card className="bg-card border-2">
+              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <ShieldCheck className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="font-bold text-lg mb-2">Money-Back Guarantee</h3>
-                    <p className="text-sm text-muted-foreground">If the account doesn't match the description, we'll refund you</p>
+                    <h3 className="font-bold text-lg mb-2">100% Verified</h3>
+                    <p className="text-sm text-muted-foreground">Every account is fully verified and monetization-ready before delivery</p>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-card border-2">
+              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Check className="w-8 h-8 text-primary" />
+                      <Truck className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="font-bold text-lg mb-2">Verified Accounts</h3>
-                    <p className="text-sm text-muted-foreground">All accounts are verified and tested before delivery</p>
+                    <h3 className="font-bold text-lg mb-2">Instant Transfer</h3>
+                    <p className="text-sm text-muted-foreground">Complete ownership transferred within 24 hours, often much faster</p>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-card border-2">
+              <Card className="bg-card border-2 hover:border-primary/50 transition-all">
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <RefreshCw className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="font-bold text-lg mb-2">Lifetime Support</h3>
-                    <p className="text-sm text-muted-foreground">Get help whenever you need it, for as long as you own the account</p>
+                    <h3 className="font-bold text-lg mb-2">Money-Back Guarantee</h3>
+                    <p className="text-sm text-muted-foreground">If the account doesn't match description, we'll make it right</p>
                   </div>
                 </CardContent>
               </Card>
@@ -357,16 +357,16 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* Customer Reviews - Scrolling Carousel */}
+      {/* Customer Reviews - Infinite Scrolling Carousel */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Customer Reviews</h2>
 
             <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
-              <div className="flex gap-6 py-3 animate-scroll-left pause-animation">
-                {[...Array(2)].map((_, groupIdx) => (
-                  <div key={groupIdx} className="flex gap-6">
+              <div className="flex gap-6 py-3 animate-scroll-left">
+                {[...Array(3)].map((_, groupIdx) => (
+                  <div key={groupIdx} className="flex gap-6 flex-shrink-0">
                     <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                       <div className="flex gap-1 mb-3">
                         {[...Array(5)].map((_, i) => (
@@ -434,14 +434,14 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* You May Also Like - 2 Products with Scroll */}
+      {/* You May Also Like - 3 Products with Scroll */}
       {relatedProducts.length > 0 && (
         <section className="py-12 bg-secondary/20">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">You May Also Like</h2>
               
-              <div className="max-w-4xl mx-auto relative px-12">
+              <div className="max-w-6xl mx-auto relative px-12">
                 {/* Left scroll button */}
                 {canScrollLeft && (
                   <Button
@@ -477,7 +477,7 @@ const ProductDetail = () => {
                     className="grid gap-6"
                     style={{ 
                       gridAutoFlow: 'column',
-                      gridAutoColumns: relatedProducts.length === 1 ? '100%' : 'calc((100% - 1.5rem) / 2)'
+                      gridAutoColumns: 'calc((100% - 3rem) / 3)'
                     }}
                   >
                     {relatedProducts.map((product) => (
