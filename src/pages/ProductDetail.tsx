@@ -21,7 +21,7 @@ const ProductDetail = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [accountsSold] = useState(27708 + Math.floor(Math.random() * 100));
+  const [accountsSoldThisMonth, setAccountsSoldThisMonth] = useState(639 + Math.floor(Math.random() * 10));
   const [stockLeft] = useState(Math.floor(Math.random() * 8) + 3);
 
   const { data: product, isLoading } = useQuery({
@@ -89,6 +89,20 @@ const ProductDetail = () => {
       setTimeout(checkScrollButtons, 300);
     }
   };
+
+  // Increment monthly accounts sold counter randomly every 10-25 seconds
+  useEffect(() => {
+    const incrementMonthlyCounter = () => {
+      setAccountsSoldThisMonth(prev => prev + 1);
+      const nextInterval = (Math.random() * 15000) + 10000; // 10-25 seconds
+      setTimeout(incrementMonthlyCounter, nextInterval);
+    };
+    
+    const initialDelay = (Math.random() * 15000) + 10000;
+    const timeoutId = setTimeout(incrementMonthlyCounter, initialDelay);
+    
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   if (isLoading) {
     return (
@@ -272,7 +286,7 @@ const ProductDetail = () => {
             <div className="flex flex-wrap gap-4 justify-center items-center text-sm">
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Users className="w-4 h-4 text-primary" />
-                <span><strong>{accountsSold.toLocaleString()}</strong> accounts delivered</span>
+                <span><strong>{accountsSoldThisMonth.toLocaleString()}</strong> accounts sold this month</span>
               </div>
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Star className="w-4 h-4 text-primary fill-primary" />
