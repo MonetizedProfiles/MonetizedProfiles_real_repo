@@ -20,6 +20,9 @@ const Index = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeftBest, setCanScrollLeftBest] = useState(false);
+  const [canScrollRightBest, setCanScrollRightBest] = useState(false);
+  const scrollContainerRefBest = useRef<HTMLDivElement>(null);
   
   const { data, isLoading } = useQuery({
     queryKey: ['products'],
@@ -74,7 +77,7 @@ const Index = () => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // Check scroll position
+  // Check scroll position for featured accounts
   const checkScrollButtons = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
@@ -83,10 +86,24 @@ const Index = () => {
     }
   };
 
+  // Check scroll position for best sellers
+  const checkScrollButtonsBest = () => {
+    if (scrollContainerRefBest.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRefBest.current;
+      setCanScrollLeftBest(scrollLeft > 0);
+      setCanScrollRightBest(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
   useEffect(() => {
     checkScrollButtons();
+    checkScrollButtonsBest();
     window.addEventListener('resize', checkScrollButtons);
-    return () => window.removeEventListener('resize', checkScrollButtons);
+    window.addEventListener('resize', checkScrollButtonsBest);
+    return () => {
+      window.removeEventListener('resize', checkScrollButtons);
+      window.removeEventListener('resize', checkScrollButtonsBest);
+    };
   }, [data]);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -97,6 +114,17 @@ const Index = () => {
         behavior: 'smooth'
       });
       setTimeout(checkScrollButtons, 300);
+    }
+  };
+
+  const scrollBest = (direction: 'left' | 'right') => {
+    if (scrollContainerRefBest.current) {
+      const scrollAmount = scrollContainerRefBest.current.clientWidth;
+      scrollContainerRefBest.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+      setTimeout(checkScrollButtonsBest, 300);
     }
   };
 
@@ -783,6 +811,76 @@ const Index = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Best Selling Products Section */}
+      <section className="py-16 container mx-auto px-4 bg-background">
+        <div className="mb-12 text-center">
+          <h2 className="text-4xl font-bold mb-4 text-foreground">Best Selling Accounts</h2>
+          <p className="text-lg text-muted-foreground">Our customers' favorite monetized accounts this month</p>
+        </div>
+
+        {isLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <Skeleton className="aspect-square w-full" />
+            <Skeleton className="aspect-square w-full" />
+            <Skeleton className="aspect-square w-full" />
+          </div>
+        ) : !data || data.length === 0 ? (
+          <div className="text-center py-20">
+            <ShoppingBag className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+            <h4 className="text-2xl font-semibold mb-2">No Products Found</h4>
+            <p className="text-muted-foreground">
+              Products coming soon!
+            </p>
+          </div>
+        ) : (
+          <div className="max-w-6xl mx-auto relative px-12">
+            {/* Left scroll button */}
+            {canScrollLeftBest && (
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
+                onClick={() => scrollBest('left')}
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </Button>
+            )}
+            
+            {/* Right scroll button */}
+            {canScrollRightBest && (
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
+                onClick={() => scrollBest('right')}
+              >
+                <ChevronRight className="h-5 w-5" />
+              </Button>
+            )}
+
+            {/* Scrollable container */}
+            <div 
+              ref={scrollContainerRefBest}
+              className="overflow-x-auto scrollbar-hide scroll-smooth"
+              onScroll={checkScrollButtonsBest}
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              <div 
+                className="grid gap-6"
+                style={{ 
+                  gridAutoFlow: 'column',
+                  gridAutoColumns: 'calc((100% - 3rem) / 3)'
+                }}
+              >
+                {data.slice(0, 3).map((product) => (
+                  <ProductCard key={product.node.id} product={product} />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Affiliate Program Section - Simple & Unique */}
