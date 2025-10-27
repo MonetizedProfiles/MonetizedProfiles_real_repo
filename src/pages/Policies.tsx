@@ -1,8 +1,19 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Shield, FileText, RefreshCcw } from "lucide-react";
 
 const Policies = () => {
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState("privacy");
+
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    if (hash && ["privacy", "terms", "refund"].includes(hash)) {
+      setActiveTab(hash);
+    }
+  }, [location.hash]);
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 py-16 max-w-4xl">
@@ -13,7 +24,7 @@ const Policies = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="privacy" className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-3 mb-8">
             <TabsTrigger value="privacy" className="flex items-center gap-2">
               <Shield className="h-4 w-4" />
