@@ -60,7 +60,7 @@ const ContactUs = () => {
           </p>
 
           {/* 24/7 Chat Notice */}
-          <div className="inline-flex items-center gap-2 bg-primary/10 px-6 py-3 rounded-full border border-primary/30 mb-8">
+          <div className="inline-flex items-center gap-2 bg-primary/10 px-6 py-3 rounded-full border border-primary/30 mb-6">
             <MessageSquare className="w-5 h-5 text-primary" />
             <span className="font-semibold">Need instant help? Use our 24/7 live chat in the bottom-right corner!</span>
           </div>
