@@ -83,19 +83,8 @@ export const Footer = () => {
           </form>
         </div>
         
-        <div className="pt-8 border-t">
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-4">
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <div className="px-3 py-1.5 bg-background border rounded">VISA</div>
-              <div className="px-3 py-1.5 bg-background border rounded">MASTERCARD</div>
-              <div className="px-3 py-1.5 bg-background border rounded">AMEX</div>
-              <div className="px-3 py-1.5 bg-background border rounded">DISCOVER</div>
-              <div className="px-3 py-1.5 bg-background border rounded">PAYPAL</div>
-            </div>
-          </div>
-          <div className="text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
-          </div>
+        <div className="pt-8 text-center text-sm text-muted-foreground">
+          <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
         </div>
       </div>
     </footer>
