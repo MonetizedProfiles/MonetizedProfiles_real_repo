@@ -3,9 +3,14 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { CartDrawer } from "@/components/CartDrawer";
 import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
+import { ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { useState } from "react";
 
 export const Header = () => {
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [supportOpen, setSupportOpen] = useState(false);
+  
   const { data } = useQuery({
     queryKey: ['products'],
     queryFn: async () => {
@@ -30,11 +35,21 @@ export const Header = () => {
             Monetized TikTok Accounts
           </Link>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium hover:bg-accent focus:bg-accent focus:outline-none">
+          <DropdownMenu open={productsOpen} onOpenChange={setProductsOpen}>
+            <DropdownMenuTrigger 
+              className="inline-flex h-9 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium hover:bg-accent focus:bg-accent focus:outline-none"
+              onMouseEnter={() => setProductsOpen(true)}
+              onMouseLeave={() => setProductsOpen(false)}
+            >
               Other Products
+              <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="z-50">
+            <DropdownMenuContent 
+              align="start" 
+              className="z-50"
+              onMouseEnter={() => setProductsOpen(true)}
+              onMouseLeave={() => setProductsOpen(false)}
+            >
               {data?.filter(
                 (product) =>
                   product.node.handle !== "monetized-youtube-channel" &&
@@ -54,11 +69,21 @@ export const Header = () => {
             Affiliate Program
           </Link>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium hover:bg-accent focus:bg-accent focus:outline-none">
+          <DropdownMenu open={supportOpen} onOpenChange={setSupportOpen}>
+            <DropdownMenuTrigger 
+              className="inline-flex h-9 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium hover:bg-accent focus:bg-accent focus:outline-none"
+              onMouseEnter={() => setSupportOpen(true)}
+              onMouseLeave={() => setSupportOpen(false)}
+            >
               Support
+              <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="z-50">
+            <DropdownMenuContent 
+              align="start" 
+              className="z-50"
+              onMouseEnter={() => setSupportOpen(true)}
+              onMouseLeave={() => setSupportOpen(false)}
+            >
               <DropdownMenuItem asChild>
                 <a href="#contact" className="w-full">Contact Us</a>
               </DropdownMenuItem>
