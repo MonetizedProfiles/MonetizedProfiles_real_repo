@@ -781,26 +781,40 @@ const Index = () => {
               <p className="text-xl text-muted-foreground">See how our accounts have transformed content careers</p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* Stat 1 */}
-              <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
-                <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>$847K+</div>
-                <p className="text-lg text-muted-foreground">Total Revenue Generated</p>
-                <p className="text-sm text-muted-foreground/70 mt-2">By our customers in the last 12 months</p>
-              </div>
+            <div className="relative">
+              {/* Connection Line - Desktop Only */}
+              <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-y-1/2 z-0"></div>
+              
+              <div className="grid md:grid-cols-3 gap-8 mb-12 relative z-10">
+                {/* Stat 1 */}
+                <div className="relative group">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full hidden md:block group-hover:scale-150 transition-transform"></div>
+                  <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg hover:scale-105">
+                    <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>$847K+</div>
+                    <p className="text-lg text-muted-foreground">Total Revenue Generated</p>
+                    <p className="text-sm text-muted-foreground/70 mt-2">By our customers in the last 12 months</p>
+                  </div>
+                </div>
 
-              {/* Stat 2 */}
-              <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
-                <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>24 hrs</div>
-                <p className="text-lg text-muted-foreground">Average Time to First Dollar</p>
-                <p className="text-sm text-muted-foreground/70 mt-2">Most customers earn within the first day</p>
-              </div>
+                {/* Stat 2 */}
+                <div className="relative group">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full hidden md:block group-hover:scale-150 transition-transform"></div>
+                  <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg hover:scale-105">
+                    <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>24 hrs</div>
+                    <p className="text-lg text-muted-foreground">Average Time to First Dollar</p>
+                    <p className="text-sm text-muted-foreground/70 mt-2">Most customers earn within the first day</p>
+                  </div>
+                </div>
 
-              {/* Stat 3 */}
-              <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
-                <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>98.7%</div>
-                <p className="text-lg text-muted-foreground">Customer Satisfaction</p>
-                <p className="text-sm text-muted-foreground/70 mt-2">Would recommend to other creators</p>
+                {/* Stat 3 */}
+                <div className="relative group">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full hidden md:block group-hover:scale-150 transition-transform"></div>
+                  <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg hover:scale-105">
+                    <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>98.7%</div>
+                    <p className="text-lg text-muted-foreground">Customer Satisfaction</p>
+                    <p className="text-sm text-muted-foreground/70 mt-2">Would recommend to other creators</p>
+                  </div>
+                </div>
               </div>
             </div>
 
