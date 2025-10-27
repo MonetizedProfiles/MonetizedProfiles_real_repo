@@ -1,8 +1,8 @@
 export const AnnouncementBar = () => {
   const announcements = [
-    "🔥 New Accounts Restocked",
+    "✅ New Accounts Restocked",
     "⭐ Trusted by Thousands of Creators",
-    "🎯 Over 27,000+ Accounts Sold",
+    "💎 Over 27,000+ Accounts Sold",
   ];
 
   return (
