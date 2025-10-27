@@ -83,8 +83,33 @@ export const Footer = () => {
           </form>
         </div>
         
-        <div className="pt-8 text-center text-sm text-muted-foreground">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
+          
+          {/* Payment Icons */}
+          <div className="flex items-center gap-2">
+            <div className="px-3 py-1.5 bg-card rounded border flex items-center justify-center text-xs font-semibold">
+              AMEX
+            </div>
+            <div className="px-3 py-1.5 bg-card rounded border flex items-center justify-center text-xs font-semibold">
+              DINERS
+            </div>
+            <div className="px-3 py-1.5 bg-card rounded border flex items-center justify-center text-xs font-semibold">
+              DISCOVER
+            </div>
+            <div className="px-3 py-1.5 bg-card rounded border flex items-center justify-center text-xs font-semibold">
+              GPAY
+            </div>
+            <div className="px-3 py-1.5 bg-card rounded border flex items-center justify-center text-xs font-semibold">
+              JCB
+            </div>
+            <div className="px-3 py-1.5 bg-card rounded border flex items-center justify-center text-xs font-semibold">
+              MASTER
+            </div>
+            <div className="px-3 py-1.5 bg-card rounded border flex items-center justify-center text-xs font-semibold">
+              VISA
+            </div>
+          </div>
         </div>
       </div>
     </footer>
