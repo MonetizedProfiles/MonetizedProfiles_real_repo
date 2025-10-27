@@ -33,7 +33,7 @@ export const Header = () => {
 
           <Menubar className="bg-transparent border-0 p-0">
             <MenubarMenu>
-              <MenubarTrigger className="inline-flex h-9 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium hover:bg-accent focus:bg-accent">
+              <MenubarTrigger className="inline-flex h-9 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium hover:bg-accent focus:bg-accent cursor-pointer">
                 Other Products
                 <ChevronDown className="h-4 w-4" />
               </MenubarTrigger>
@@ -54,7 +54,7 @@ export const Header = () => {
             </MenubarMenu>
 
             <MenubarMenu>
-              <MenubarTrigger className="inline-flex h-9 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium hover:bg-accent focus:bg-accent">
+              <MenubarTrigger className="inline-flex h-9 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium hover:bg-accent focus:bg-accent cursor-pointer">
                 Support
                 <ChevronDown className="h-4 w-4" />
               </MenubarTrigger>
