@@ -151,7 +151,7 @@ const Index = () => {
               <TrendingUp className="w-12 h-12 text-[#FF2929]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 41, 41, 0.6))' }} />
             </div>
             <div className="absolute -right-32 top-24 hidden lg:block animate-float" style={{ animationDelay: '1s' }}>
-              <DollarSign className="w-14 h-14 text-[#C74DFF]" style={{ filter: 'drop-shadow(0 0 20px rgba(199, 77, 255, 0.6))' }} />
+              <DollarSign className="w-14 h-14 text-accent-blue" style={{ filter: 'drop-shadow(0 0 20px rgba(48, 107, 228, 0.6))' }} />
             </div>
             <div className="absolute -left-24 bottom-28 hidden lg:block animate-float" style={{ animationDelay: '0.5s' }}>
               <Zap className="w-10 h-10 text-[#FF5C8D]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 92, 141, 0.6))' }} />
@@ -160,7 +160,7 @@ const Index = () => {
               <Star className="w-11 h-11 text-[#FF2929]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 41, 41, 0.6))' }} />
             </div>
             <div className="absolute left-[12%] bottom-0 hidden lg:block animate-float" style={{ animationDelay: '0.75s' }}>
-              <Sparkles className="w-12 h-12 text-[#C74DFF]" style={{ filter: 'drop-shadow(0 0 20px rgba(199, 77, 255, 0.6))' }} />
+              <Sparkles className="w-12 h-12 text-accent-blue" style={{ filter: 'drop-shadow(0 0 20px rgba(48, 107, 228, 0.6))' }} />
             </div>
             <div className="absolute right-[10%] -bottom-4 hidden lg:block animate-float" style={{ animationDelay: '1.25s' }}>
               <Wallet className="w-12 h-12 text-[#FF2929]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 41, 41, 0.6))' }} />
@@ -181,7 +181,7 @@ const Index = () => {
             {/* Big Animated Gradient Headline */}
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-tight">
               <span className="block mb-2">Monetized Accounts,</span>
-              <span className="block bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent animate-gradient-flow" style={{ backgroundSize: "200% auto" }}>
+              <span className="block bg-gradient-to-r from-[#FF2929] via-accent-blue to-[#C74DFF] bg-clip-text text-transparent animate-gradient-flow" style={{ backgroundSize: "200% auto" }}>
                 Instant Revenue
               </span>
             </h1>
@@ -305,10 +305,10 @@ const Index = () => {
             </Card>
 
             {/* Card 2 */}
-            <Card className="bg-card border-2 hover:border-primary/50 transition-all hover:shadow-lg">
+            <Card className="bg-card border-2 hover:border-accent-blue/50 transition-all hover:shadow-lg">
               <CardHeader className="text-center space-y-4 pb-3">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                  <Users className="w-8 h-8 text-primary" />
+                <div className="w-16 h-16 bg-accent-blue/10 rounded-2xl flex items-center justify-center mx-auto">
+                  <Users className="w-8 h-8 text-accent-blue" />
                 </div>
                 <CardTitle className="text-lg">Real Audiences</CardTitle>
               </CardHeader>
@@ -732,9 +732,9 @@ const Index = () => {
                   {/* Fast Support */}
                   <div className="text-center space-y-4">
                     <div className="relative inline-block">
-                      <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl"></div>
-                      <div className="relative w-24 h-24 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-primary/30 shadow-lg">
-                        <HeadphonesIcon className="w-12 h-12 text-primary" />
+                      <div className="absolute inset-0 bg-accent-blue/20 rounded-full blur-xl"></div>
+                      <div className="relative w-24 h-24 mx-auto bg-card rounded-full flex items-center justify-center border-4 border-accent-blue/30 shadow-lg">
+                        <HeadphonesIcon className="w-12 h-12 text-accent-blue" />
                       </div>
                     </div>
                     <div>
@@ -789,16 +789,16 @@ const Index = () => {
               Premium monetized accounts sell out fast. Don't miss your chance to start earning today.
             </p>
             <div className="flex flex-wrap gap-4 justify-center items-center text-sm">
-              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
-                <Users className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border border-accent-blue/30 shadow-sm">
+                <Users className="w-4 h-4 text-accent-blue" />
                 <span><strong>{accountsSoldThisMonth}</strong> accounts sold this month</span>
               </div>
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Star className="w-4 h-4 text-primary" />
                 <span><strong>4.9/5</strong> average rating</span>
               </div>
-              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
-                <Zap className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border border-accent-blue/30 shadow-sm">
+                <Zap className="w-4 h-4 text-accent-blue" />
                 <span><strong>{totalStock ?? "..."}</strong> accounts left in stock</span>
               </div>
             </div>
@@ -828,8 +828,8 @@ const Index = () => {
                 </div>
 
                 {/* Stat 2 */}
-                <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg hover:scale-105">
-                  <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>24 hrs</div>
+                <div className="bg-card rounded-2xl p-8 border-2 border-accent-blue/20 text-center hover:border-accent-blue/50 transition-all hover:shadow-lg hover:scale-105">
+                  <div className="text-5xl font-bold text-accent-blue">24 hrs</div>
                   <p className="text-lg text-muted-foreground">Average Time to First Dollar</p>
                   <p className="text-sm text-muted-foreground/70 mt-2">Most customers earn within the first day</p>
                 </div>
