@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Clock, MessageSquare, Shield, CheckCircle2, AlertCircle, Package, HeadphonesIcon } from "lucide-react";
+import { Mail, Clock, MessageSquare, HeadphonesIcon } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
 import { z } from "zod";
@@ -166,7 +166,7 @@ const ContactUs = () => {
           <Card>
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-orange-500" />
+                <Mail className="w-5 h-5 text-orange-500" />
                 Affiliate Support
               </CardTitle>
             </CardHeader>
@@ -181,85 +181,9 @@ const ContactUs = () => {
           </Card>
         </div>
 
-        {/* Order Tracking */}
-        <Card className="mb-12 bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Package className="w-6 h-6" />
-              Track Your Order
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-4">
-              Most orders are delivered within 6-12 hours. You'll receive an email with your account credentials and instructions once ready.
-            </p>
-            <div className="space-y-2">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5" />
-                <div>
-                  <p className="font-medium">Check your email</p>
-                  <p className="text-sm text-muted-foreground">Look for order confirmation and delivery emails</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5" />
-                <div>
-                  <p className="font-medium">Check spam folder</p>
-                  <p className="text-sm text-muted-foreground">Sometimes emails may land in spam</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5" />
-                <div>
-                  <p className="font-medium">Contact us with order number</p>
-                  <p className="text-sm text-muted-foreground">We can look up your order status immediately</p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Guarantee Info */}
-        <Card className="mb-12 border-2 border-primary/30">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Shield className="w-6 h-6" />
-              Our Guarantees
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-semibold mb-2">7-Day Money Back Guarantee</h3>
-                <p className="text-sm text-muted-foreground">
-                  Not satisfied? Get a full refund within 7 days, no questions asked.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">30-Day Replacement Warranty</h3>
-                <p className="text-sm text-muted-foreground">
-                  Any issues with your account? We'll replace it free of charge within 30 days.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">24/7 Support Access</h3>
-                <p className="text-sm text-muted-foreground">
-                  Get instant help anytime through our live chat or email support system.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">100% Organic Accounts</h3>
-                <p className="text-sm text-muted-foreground">
-                  All accounts come with real, engaged followers. Zero bots guaranteed.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* FAQ Section */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem value="item-1" className="bg-card border rounded-lg px-6">
               <AccordionTrigger className="text-left hover:no-underline">
@@ -317,48 +241,17 @@ const ContactUs = () => {
           </Accordion>
         </div>
 
+
         {/* Before You Dispute */}
-        <Card className="border-2 border-orange-500/30 bg-orange-50 dark:bg-orange-950/20">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-orange-700 dark:text-orange-400">
-              <AlertCircle className="w-6 h-6" />
-              Before You File a Dispute or Chargeback
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-muted-foreground">
-              <strong>Please contact us first!</strong> We're committed to resolving any issues quickly and fairly. Filing a dispute or chargeback can delay resolution and may prevent us from helping you.
-            </p>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-orange-600 dark:text-orange-400 mt-0.5 flex-shrink-0" />
-                <p className="text-sm">
-                  <strong>We respond within 1 hour during weekdays</strong> - Most issues are resolved immediately
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-orange-600 dark:text-orange-400 mt-0.5 flex-shrink-0" />
-                <p className="text-sm">
-                  <strong>7-day money-back guarantee</strong> - Get a full refund if you're not satisfied
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-orange-600 dark:text-orange-400 mt-0.5 flex-shrink-0" />
-                <p className="text-sm">
-                  <strong>30-day replacement warranty</strong> - We'll replace any problematic accounts
-                </p>
-              </div>
-            </div>
-            <div className="bg-card rounded-lg p-4 mt-4">
-              <p className="text-sm font-semibold mb-2">Contact us immediately:</p>
-              <ul className="space-y-1 text-sm text-muted-foreground">
-                <li>• Email: <a href="mailto:support@monetizedprofiles.com" className="text-primary hover:underline">support@monetizedprofiles.com</a></li>
-                <li>• Live Chat: Bottom-right corner (24/7)</li>
-                <li>• Include your order number for fastest resolution</li>
-              </ul>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="max-w-2xl mx-auto">
+          <Card className="bg-muted/30 border-muted">
+            <CardContent className="pt-6">
+              <p className="text-sm text-muted-foreground text-center mb-4">
+                Having an issue? Please contact us at <a href="mailto:support@monetizedprofiles.com" className="text-primary hover:underline font-medium">support@monetizedprofiles.com</a> before filing a dispute. We respond within 1 hour during weekdays and offer a 7-day money-back guarantee plus 30-day replacement warranty.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
