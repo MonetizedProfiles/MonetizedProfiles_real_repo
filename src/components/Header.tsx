@@ -41,7 +41,7 @@ export const Header = () => {
 
             <NavigationMenuItem>
               <NavigationMenuTrigger>Other Products</NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuContent className="left-0">
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                   {data?.filter((product) => 
                     product.node.handle !== 'monetized-youtube-channel' && 
@@ -76,7 +76,7 @@ export const Header = () => {
 
             <NavigationMenuItem>
               <NavigationMenuTrigger>Support</NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuContent className="left-0">
                 <ul className="grid gap-3 p-4 w-[300px]">
                   <li>
                     <NavigationMenuLink asChild>
