@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { PRODUCT_BY_HANDLE_QUERY, storefrontApiRequest, STOREFRONT_QUERY, ShopifyProduct } from "@/lib/shopify";
 import { Button } from "@/components/ui/button";
@@ -6,7 +6,7 @@ import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, ChevronRight, Users, Zap, Mail } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useState, useRef, useEffect } from "react";
 import { ProductCard } from "@/components/ProductCard";
@@ -671,6 +671,97 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Affiliate Program Section - Simple & Unique */}
+      <section id="affiliate" className="py-20 relative overflow-hidden border-t border-border">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto">
+            {/* Main Pitch */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-3 leading-tight">
+                Promote Our Accounts.<br />
+                <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                20% commission on every sale. No strings attached.
+              </p>
+            </div>
+
+            {/* Simple Benefits List */}
+            <div className="bg-card/50 backdrop-blur-sm border-2 rounded-3xl p-12 mb-12 space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                  <Check className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Earn $100-$400 per sale</h3>
+                  <p className="text-muted-foreground">Simple 20% commission structure. The more you sell, the more you earn.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                  <Check className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Your audience will love these</h3>
+                  <p className="text-muted-foreground">Premium monetized accounts that actually deliver results. High satisfaction = high conversions.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                  <Check className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">We handle everything else</h3>
+                  <p className="text-muted-foreground">You promote, we deliver. Support, fulfillment, and customer service all taken care of.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center">
+              <Button asChild size="lg" className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
+                <Link to="/affiliate">Learn More About Our Program</Link>
+              </Button>
+              <p className="text-muted-foreground mt-6">
+                Join 500+ creators earning with us
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Restock Email Capture */}
+      <section className="py-8 container mx-auto px-4">
+        <Card className="max-w-2xl mx-auto text-center bg-gradient-to-br from-secondary to-background border-border">
+          <CardHeader>
+            <Mail className="w-12 h-12 mx-auto mb-4" style={{ color: '#FF2929' }} />
+            <CardTitle className="text-2xl" style={{ color: '#FF2929' }}>Get Notified on Restock</CardTitle>
+            <CardDescription className="text-base">
+              Premium accounts sell fast! Enter your email to be notified when we restock your favorite products.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleRestockEmailSubmit} className="flex gap-2 max-w-md mx-auto">
+              <Input 
+                type="email" 
+                placeholder="Enter your email" 
+                value={restockEmail}
+                onChange={(e) => setRestockEmail(e.target.value)}
+                required
+                className="flex-1"
+              />
+              <Button type="submit" className="shrink-0" style={{ backgroundColor: '#FF2929' }}>
+                Notify Me
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
       </section>
 
       {/* You May Also Like - 3 Products with Scroll */}
