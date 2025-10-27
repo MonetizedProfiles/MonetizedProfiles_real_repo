@@ -3,7 +3,7 @@ import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger } fro
 import { CartDrawer } from "@/components/CartDrawer";
 import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
-import { ChevronDown, Search, User } from "lucide-react";
+import { ChevronDown, Search, User, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -127,8 +127,11 @@ export const Header = () => {
             </MenubarMenu>
           </Menubar>
 
-          <Link to="/affiliate" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-            Affiliate Program
+          <Link to="/affiliate" className="inline-flex h-9 w-max items-center justify-center gap-1.5 rounded-md px-4 py-2 text-sm font-medium transition-all hover:scale-105 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 hover:from-primary/20 hover:via-accent/20 hover:to-primary/20">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Affiliate Program
+            </span>
+            <Sparkles className="w-3 h-3 text-primary animate-pulse" />
           </Link>
         </nav>
         
