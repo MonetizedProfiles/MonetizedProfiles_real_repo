@@ -11,6 +11,9 @@ import {
 } from "@/components/ui/sheet";
 import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2 } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
+import { useQuery } from "@tanstack/react-query";
+import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
+import { Link } from "react-router-dom";
 
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,8 +22,23 @@ export const CartDrawer = () => {
     isLoading, 
     updateQuantity, 
     removeItem, 
-    createCheckout 
+    createCheckout,
+    addItem
   } = useCartStore();
+
+  const { data: allProducts } = useQuery({
+    queryKey: ['products'],
+    queryFn: async () => {
+      const response = await storefrontApiRequest(STOREFRONT_QUERY, { first: 20 });
+      return response.data.products.edges as ShopifyProduct[];
+    },
+  });
+
+  // Get recommended products (exclude items already in cart)
+  const cartProductIds = items.map(item => item.product.node.id);
+  const recommendedProducts = allProducts?.filter(
+    product => !cartProductIds.includes(product.node.id)
+  ).slice(0, 3) || [];
   
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
@@ -69,7 +87,7 @@ export const CartDrawer = () => {
             </div>
           ) : (
             <>
-              <div className="flex-1 overflow-y-auto pr-2 min-h-0">
+              <div className="flex-1 overflow-y-auto pr-2 min-h-0 space-y-6">
                 <div className="space-y-4">
                   {items.map((item) => (
                     <div key={item.variantId} className="flex gap-4 p-2">
@@ -126,6 +144,66 @@ export const CartDrawer = () => {
                     </div>
                   ))}
                 </div>
+
+                {/* Recommended Products Upsell */}
+                {recommendedProducts.length > 0 && (
+                  <div className="pt-4 border-t">
+                    <h3 className="font-semibold mb-3 text-sm">People usually purchase these</h3>
+                    <div className="space-y-3">
+                      {recommendedProducts.map((product) => {
+                        const variant = product.node.variants.edges[0]?.node;
+                        const price = parseFloat(variant?.price.amount || '0');
+                        
+                        return (
+                          <div key={product.node.id} className="flex gap-3 p-2 rounded-lg hover:bg-secondary/20 transition-colors">
+                            <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)} className="flex-shrink-0">
+                              <div className="w-14 h-14 bg-secondary/20 rounded-md overflow-hidden">
+                                {product.node.images?.edges?.[0]?.node && (
+                                  <img
+                                    src={product.node.images.edges[0].node.url}
+                                    alt={product.node.title}
+                                    className="w-full h-full object-cover"
+                                  />
+                                )}
+                              </div>
+                            </Link>
+                            
+                            <div className="flex-1 min-w-0">
+                              <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)}>
+                                <h4 className="font-medium text-sm truncate hover:text-primary transition-colors">
+                                  {product.node.title}
+                                </h4>
+                              </Link>
+                              <p className="text-sm font-semibold">
+                                ${price.toFixed(2)}
+                              </p>
+                            </div>
+                            
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="flex-shrink-0 h-8"
+                              onClick={() => {
+                                if (variant) {
+                                  addItem({
+                                    product,
+                                    variantId: variant.id,
+                                    variantTitle: variant.title,
+                                    price: variant.price,
+                                    quantity: 1,
+                                    selectedOptions: variant.selectedOptions || []
+                                  });
+                                }
+                              }}
+                            >
+                              Add
+                            </Button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
               
               <div className="flex-shrink-0 space-y-4 pt-4 border-t bg-background">
