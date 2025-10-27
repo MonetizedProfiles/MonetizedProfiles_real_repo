@@ -747,7 +747,7 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Bottom CTA */}
+                {/* Bottom Badge */}
                 <div className="mt-12 text-center">
                   <div className="inline-flex items-center gap-2 bg-primary/10 px-6 py-3 rounded-full border border-primary/30">
                     <Shield className="w-5 h-5 text-primary" />
@@ -755,6 +755,23 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="text-center mt-12">
+              <Button 
+                size="lg" 
+                className="text-lg h-14 px-8"
+                onClick={() => {
+                  const productsSection = document.getElementById('products');
+                  if (productsSection) {
+                    productsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                <ShoppingCart className="w-5 h-5 mr-2" />
+                Start Earning Risk-Free
+              </Button>
             </div>
           </div>
         </div>
