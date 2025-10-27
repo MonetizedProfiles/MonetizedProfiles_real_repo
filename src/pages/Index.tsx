@@ -213,7 +213,7 @@ const Index = () => {
       </section>
 
       {/* Featured Products Section - 3 Products Display with Scroll */}
-      <section className="py-16 container mx-auto px-4">
+      <section className="py-20 container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-bold mb-4 text-foreground">Featured Accounts</h2>
           <p className="text-lg text-muted-foreground">Start earning today with our most popular monetized accounts</p>
@@ -744,7 +744,7 @@ const Index = () => {
       </section>
 
       {/* Urgency Section - Limited Stock */}
-      <section className="py-12 bg-secondary/50 border-y border-border">
+      <section className="py-20 bg-secondary/50 border-y border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -814,7 +814,7 @@ const Index = () => {
       </section>
 
       {/* Best Selling Products Section */}
-      <section className="py-16 container mx-auto px-4 bg-background">
+      <section className="py-20 container mx-auto px-4 bg-background">
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-bold mb-4 text-foreground">Best Selling Accounts</h2>
           <p className="text-lg text-muted-foreground">Our customers' favorite monetized accounts this month</p>
@@ -947,7 +947,7 @@ const Index = () => {
       </section>
 
       {/* Restock Email Capture - Moved to bottom */}
-      <section className="py-8 container mx-auto px-4">
+      <section className="py-20 container mx-auto px-4">
         <Card className="max-w-2xl mx-auto text-center bg-gradient-to-br from-secondary to-background border-border">
           <CardHeader>
             <Mail className="w-12 h-12 mx-auto mb-4" style={{ color: '#FF2929' }} />
