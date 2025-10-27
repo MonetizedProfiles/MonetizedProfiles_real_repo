@@ -773,7 +773,7 @@ const Index = () => {
       </section>
 
       {/* Success Stories - New Conversion Section */}
-      <section className="py-20 bg-gradient-to-br from-secondary/50 via-background to-secondary/30">
+      <section className="py-20 pb-10 bg-gradient-to-br from-secondary/50 via-background to-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -814,7 +814,7 @@ const Index = () => {
       </section>
 
       {/* Best Selling Products Section */}
-      <section className="py-20 container mx-auto px-4 bg-background">
+      <section className="py-20 pt-10 container mx-auto px-4 bg-background">
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-bold mb-4 text-foreground">Best Selling Accounts</h2>
           <p className="text-lg text-muted-foreground">Our customers' favorite monetized accounts this month</p>
