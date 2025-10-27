@@ -8,16 +8,12 @@ export const AnnouncementBar = () => {
   return (
     <div className="bg-primary text-primary-foreground py-2 overflow-hidden relative">
       <div className="animate-scroll-left whitespace-nowrap inline-block">
-        {announcements.map((announcement, index) => (
-          <span key={index} className="mx-8 text-sm font-medium">
-            {announcement}
-          </span>
-        ))}
-        {/* Duplicate for seamless loop */}
-        {announcements.map((announcement, index) => (
-          <span key={`duplicate-${index}`} className="mx-8 text-sm font-medium">
-            {announcement}
-          </span>
+        {Array.from({ length: 10 }).map((_, setIndex) => (
+          announcements.map((announcement, index) => (
+            <span key={`${setIndex}-${index}`} className="mx-8 text-sm font-medium">
+              {announcement}
+            </span>
+          ))
         ))}
       </div>
     </div>
