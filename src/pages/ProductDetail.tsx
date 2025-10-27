@@ -673,6 +673,63 @@ const ProductDetail = () => {
         </div>
       </section>
 
+      {/* You May Also Like - 3 Products with Scroll */}
+      {relatedProducts.length > 0 && (
+        <section className="py-12 bg-secondary/20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">You May Also Like</h2>
+              
+              <div className="max-w-6xl mx-auto relative px-12">
+                {/* Left scroll button */}
+                {canScrollLeft && (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-primary hover:bg-primary/90 text-white border-primary shadow-lg"
+                    onClick={() => scroll('left')}
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </Button>
+                )}
+                
+                {/* Right scroll button */}
+                {canScrollRight && (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-primary hover:bg-primary/90 text-white border-primary shadow-lg"
+                    onClick={() => scroll('right')}
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </Button>
+                )}
+
+                {/* Scrollable container */}
+                <div 
+                  ref={scrollContainerRef}
+                  className="overflow-x-auto scrollbar-hide scroll-smooth"
+                  onScroll={checkScrollButtons}
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                  <div 
+                    className="grid gap-6"
+                    style={{ 
+                      gridAutoFlow: 'column',
+                      gridAutoColumns: 'calc((100% - 3rem) / 3)'
+                    }}
+                  >
+                    {relatedProducts.map((product) => (
+                      <ProductCard key={product.node.id} product={product} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Affiliate Program Section - Simple & Unique */}
       <section id="affiliate" className="py-20 relative overflow-hidden border-t border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
@@ -763,63 +820,6 @@ const ProductDetail = () => {
           </CardContent>
         </Card>
       </section>
-
-      {/* You May Also Like - 3 Products with Scroll */}
-      {relatedProducts.length > 0 && (
-        <section className="py-12 bg-secondary/20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">You May Also Like</h2>
-              
-              <div className="max-w-6xl mx-auto relative px-12">
-                {/* Left scroll button */}
-                {canScrollLeft && (
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-primary hover:bg-primary/90 text-white border-primary shadow-lg"
-                    onClick={() => scroll('left')}
-                  >
-                    <ChevronLeft className="h-5 w-5" />
-                  </Button>
-                )}
-                
-                {/* Right scroll button */}
-                {canScrollRight && (
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-primary hover:bg-primary/90 text-white border-primary shadow-lg"
-                    onClick={() => scroll('right')}
-                  >
-                    <ChevronRight className="h-5 w-5" />
-                  </Button>
-                )}
-
-                {/* Scrollable container */}
-                <div 
-                  ref={scrollContainerRef}
-                  className="overflow-x-auto scrollbar-hide scroll-smooth"
-                  onScroll={checkScrollButtons}
-                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                >
-                  <div 
-                    className="grid gap-6"
-                    style={{ 
-                      gridAutoFlow: 'column',
-                      gridAutoColumns: 'calc((100% - 3rem) / 3)'
-                    }}
-                  >
-                    {relatedProducts.map((product) => (
-                      <ProductCard key={product.node.id} product={product} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
     </div>
   );
 };
