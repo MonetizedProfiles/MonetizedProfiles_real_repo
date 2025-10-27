@@ -60,7 +60,10 @@ export const Header = () => {
               </MenubarTrigger>
               <MenubarContent align="start" className="min-w-[200px]">
                 <MenubarItem asChild className="py-3 px-4 text-base">
-                  <a href="#contact" className="w-full">Contact Us</a>
+                  <Link to="/contact" className="w-full">Contact Us</Link>
+                </MenubarItem>
+                <MenubarItem asChild className="py-3 px-4 text-base">
+                  <a href="#contact" className="w-full">Live Chat (24/7)</a>
                 </MenubarItem>
                 <MenubarItem asChild className="py-3 px-4 text-base">
                   <Link to="/privacy-policy" className="w-full">Privacy Policy</Link>
