@@ -891,7 +891,7 @@ const Index = () => {
           <div className="max-w-3xl mx-auto">
             {/* Main Pitch */}
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-3 leading-tight">
+              <h2 className="text-4xl font-bold mb-3 leading-tight">
                 Promote Our Accounts.<br />
                 <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
               </h2>
