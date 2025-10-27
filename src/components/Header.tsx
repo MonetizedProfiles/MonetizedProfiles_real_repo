@@ -6,6 +6,7 @@ import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/sh
 import { ChevronDown, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import logo from "@/assets/logo.png";
 import { useState } from "react";
 
@@ -98,16 +99,35 @@ export const Header = () => {
         </nav>
         
         <div className="flex items-center gap-2">
-          <form onSubmit={handleSearch} className="relative hidden md:block">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search products..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 w-[200px] lg:w-[250px]"
-            />
-          </form>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                title="Search"
+              >
+                <Search className="h-5 w-5" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Search Products</DialogTitle>
+              </DialogHeader>
+              <form onSubmit={handleSearch} className="mt-4">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    type="search"
+                    placeholder="Search products..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-9"
+                    autoFocus
+                  />
+                </div>
+              </form>
+            </DialogContent>
+          </Dialog>
           
           <Button
             variant="ghost"
