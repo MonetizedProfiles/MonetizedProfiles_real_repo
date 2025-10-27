@@ -373,7 +373,7 @@ const ProductDetail = () => {
       <section className="py-16 bg-gradient-to-b from-secondary/20 via-background to-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">What You'll Get</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">What You'll Get</h2>
             <p className="text-center text-muted-foreground text-lg mb-12">Everything you need to start earning immediately</p>
             
             <div className="relative">
