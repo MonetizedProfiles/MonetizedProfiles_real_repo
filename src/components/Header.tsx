@@ -10,9 +10,21 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import logo from "@/assets/logo.png";
 import { useState } from "react";
 
+
+const availablePages = [
+  { title: 'Home', path: '/', keywords: ['home', 'index', 'main'] },
+  { title: 'Blog', path: '/blog', keywords: ['blog', 'articles', 'posts'] },
+  { title: 'Affiliate Program', path: '/affiliate', keywords: ['affiliate', 'partner', 'referral'] },
+  { title: 'Contact Us', path: '/contact', keywords: ['contact', 'support', 'help'] },
+  { title: 'Privacy Policy', path: '/privacy-policy', keywords: ['privacy', 'policy', 'data'] },
+  { title: 'Terms of Service', path: '/terms-of-service', keywords: ['terms', 'service', 'conditions'] },
+  { title: 'Refund Policy', path: '/refund-policy', keywords: ['refund', 'return', 'policy'] },
+];
+
 export const Header = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   
   const { data } = useQuery({
     queryKey: ['products'],
@@ -22,11 +34,33 @@ export const Header = () => {
     },
   });
 
+  const filteredProducts = data?.filter(product => 
+    searchQuery.trim() && (
+      product.node.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.node.description.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  ) || [];
+
+  const filteredPages = availablePages.filter(page =>
+    searchQuery.trim() && (
+      page.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      page.keywords.some(keyword => keyword.toLowerCase().includes(searchQuery.toLowerCase()))
+    )
+  );
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/?search=${encodeURIComponent(searchQuery)}`);
+      setIsSearchOpen(false);
+      setSearchQuery("");
     }
+  };
+
+  const handleResultClick = (path: string) => {
+    navigate(path);
+    setIsSearchOpen(false);
+    setSearchQuery("");
   };
 
   const handleLogin = () => {
@@ -99,7 +133,7 @@ export const Header = () => {
         </nav>
         
         <div className="flex items-center gap-2">
-          <Dialog>
+          <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
             <DialogTrigger asChild>
               <Button
                 variant="ghost"
@@ -109,16 +143,16 @@ export const Header = () => {
                 <Search className="h-5 w-5" />
               </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="max-w-2xl max-h-[80vh] flex flex-col">
               <DialogHeader>
-                <DialogTitle>Search Products</DialogTitle>
+                <DialogTitle>Search</DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSearch} className="mt-4">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="search"
-                    placeholder="Search products..."
+                    placeholder="Search products and pages..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-9"
@@ -126,6 +160,63 @@ export const Header = () => {
                   />
                 </div>
               </form>
+              
+              {searchQuery.trim() && (
+                <div className="mt-4 overflow-y-auto flex-1">
+                  {filteredPages.length > 0 && (
+                    <div className="mb-6">
+                      <h3 className="text-sm font-semibold text-muted-foreground mb-2">Pages</h3>
+                      <div className="space-y-1">
+                        {filteredPages.map((page) => (
+                          <button
+                            key={page.path}
+                            onClick={() => handleResultClick(page.path)}
+                            className="w-full text-left px-3 py-2 rounded-md hover:bg-accent transition-colors"
+                          >
+                            <div className="font-medium">{page.title}</div>
+                            <div className="text-sm text-muted-foreground">{page.path}</div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {filteredProducts.length > 0 && (
+                    <div>
+                      <h3 className="text-sm font-semibold text-muted-foreground mb-2">Products</h3>
+                      <div className="space-y-1">
+                        {filteredProducts.map((product) => (
+                          <button
+                            key={product.node.id}
+                            onClick={() => handleResultClick(`/product/${product.node.handle}`)}
+                            className="w-full text-left px-3 py-2 rounded-md hover:bg-accent transition-colors flex gap-3"
+                          >
+                            {product.node.images.edges[0] && (
+                              <img
+                                src={product.node.images.edges[0].node.url}
+                                alt={product.node.title}
+                                className="w-12 h-12 object-cover rounded"
+                              />
+                            )}
+                            <div className="flex-1">
+                              <div className="font-medium">{product.node.title}</div>
+                              <div className="text-sm text-muted-foreground">
+                                {product.node.priceRange.minVariantPrice.currencyCode} {parseFloat(product.node.priceRange.minVariantPrice.amount).toFixed(2)}
+                              </div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {filteredPages.length === 0 && filteredProducts.length === 0 && (
+                    <div className="text-center py-8 text-muted-foreground">
+                      No results found for "{searchQuery}"
+                    </div>
+                  )}
+                </div>
+              )}
             </DialogContent>
           </Dialog>
           
