@@ -1,12 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
 import { CartDrawer } from "@/components/CartDrawer";
 import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Search, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import logo from "@/assets/logo.png";
+import { useState } from "react";
 
 export const Header = () => {
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+  
   const { data } = useQuery({
     queryKey: ['products'],
     queryFn: async () => {
@@ -14,6 +20,17 @@ export const Header = () => {
       return response.data.products.edges as ShopifyProduct[];
     },
   });
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/?search=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
+  const handleLogin = () => {
+    window.open('https://tiktoktube-emporium-5hkqs.myshopify.com/account/login', '_blank');
+  };
 
   return (
     <header className="border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
@@ -80,7 +97,29 @@ export const Header = () => {
           </Link>
         </nav>
         
-        <CartDrawer />
+        <div className="flex items-center gap-2">
+          <form onSubmit={handleSearch} className="relative hidden md:block">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder="Search products..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9 w-[200px] lg:w-[250px]"
+            />
+          </form>
+          
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={handleLogin}
+            title="Login"
+          >
+            <User className="h-5 w-5" />
+          </Button>
+          
+          <CartDrawer />
+        </div>
       </div>
     </header>
   );
