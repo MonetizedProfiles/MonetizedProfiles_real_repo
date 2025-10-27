@@ -189,7 +189,7 @@ const ProductDetail = () => {
       </div>
 
       {/* Product Hero Section */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-8 md:py-12">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
           {/* Image Gallery */}
           <div className="space-y-4">
@@ -348,7 +348,7 @@ const ProductDetail = () => {
       </section>
 
       {/* Stock Level & Urgency */}
-      <section className="py-16 bg-secondary/20 border-y border-border/50">
+      <section className="py-6 bg-secondary/20 border-y border-border/50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-wrap gap-4 justify-center items-center text-sm">
@@ -461,7 +461,7 @@ const ProductDetail = () => {
       </section>
 
       {/* Guarantee Section - Risk-Free Purchase */}
-      <section className="py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-t border-border/50">
+      <section className="py-12 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-t border-border/50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-8">
@@ -536,7 +536,7 @@ const ProductDetail = () => {
       </section>
 
       {/* Customer Reviews - Infinite Scrolling Carousel */}
-      <section className="py-16 bg-background">
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Customer Reviews</h2>
@@ -675,7 +675,7 @@ const ProductDetail = () => {
 
       {/* You May Also Like - 3 Products with Scroll */}
       {relatedProducts.length > 0 && (
-        <section className="py-16 bg-secondary/20">
+        <section className="py-12 bg-secondary/20">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">You May Also Like</h2>
@@ -731,7 +731,7 @@ const ProductDetail = () => {
       )}
 
       {/* Affiliate Program Section */}
-      <section className="py-16 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             {/* Main Pitch */}
