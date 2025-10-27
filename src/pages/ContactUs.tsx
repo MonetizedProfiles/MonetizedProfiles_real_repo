@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Clock, MessageSquare, HeadphonesIcon } from "lucide-react";
+import { Mail, Clock, MessageSquare, HeadphonesIcon, AlertCircle, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
 import { z } from "zod";
@@ -243,12 +243,46 @@ const ContactUs = () => {
 
 
         {/* Before You Dispute */}
-        <div className="max-w-2xl mx-auto">
-          <Card className="bg-muted/30 border-muted">
-            <CardContent className="pt-6">
-              <p className="text-sm text-muted-foreground text-center mb-4">
-                Having an issue? Please contact us at <a href="mailto:support@monetizedprofiles.com" className="text-primary hover:underline font-medium">support@monetizedprofiles.com</a> before filing a dispute. We respond within 1 hour during weekdays and offer a 7-day money-back guarantee plus 30-day replacement warranty.
+        <div className="max-w-3xl mx-auto">
+          <Card className="border border-orange-200 bg-orange-50/50 dark:bg-orange-950/10 dark:border-orange-900/30">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2 text-orange-700 dark:text-orange-400">
+                <AlertCircle className="w-5 h-5" />
+                Before You File a Dispute or Chargeback
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Please contact us first! We're committed to resolving any issues quickly and fairly. Filing a dispute or chargeback can delay resolution and may prevent us from helping you.
               </p>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-orange-600 dark:text-orange-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-muted-foreground">
+                    <strong>We respond within 1 hour during weekdays</strong> - Most issues are resolved immediately
+                  </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-orange-600 dark:text-orange-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-muted-foreground">
+                    <strong>7-day money-back guarantee</strong> - Get a full refund if you're not satisfied
+                  </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-orange-600 dark:text-orange-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-muted-foreground">
+                    <strong>30-day replacement warranty</strong> - We'll replace any problematic accounts
+                  </p>
+                </div>
+              </div>
+              <div className="bg-background/60 rounded-lg p-3 mt-4">
+                <p className="text-sm font-medium mb-2">Contact us:</p>
+                <ul className="space-y-1 text-sm text-muted-foreground">
+                  <li>• Email: <a href="mailto:support@monetizedprofiles.com" className="text-primary hover:underline">support@monetizedprofiles.com</a></li>
+                  <li>• Live Chat: Bottom-right corner (24/7)</li>
+                  <li>• Include your order number for fastest resolution</li>
+                </ul>
+              </div>
             </CardContent>
           </Card>
         </div>
