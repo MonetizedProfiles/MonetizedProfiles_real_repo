@@ -128,7 +128,7 @@ export const Header = () => {
           </Menubar>
 
           <Link to="/affiliate" className="relative inline-flex h-9 w-max items-center justify-center gap-1.5 rounded-md px-4 py-2 text-sm font-medium transition-all hover:bg-gradient-to-r hover:from-[#FF2929]/10 hover:via-[#FF5C8D]/10 hover:to-[#C74DFF]/10 bg-gradient-to-r from-[#FF2929]/5 via-[#FF5C8D]/5 to-[#C74DFF]/5 focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-            <Sparkles className="w-3 h-3 text-[#FF5C8D] absolute top-0.5 right-1 z-10 animate-pulse" />
+            <Sparkles className="w-3 h-3 text-[#FF5C8D] absolute top-1 right-1 z-10 animate-pulse" />
             <span className="bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent animate-gradient-flow" style={{ backgroundSize: "200% auto" }}>
               Affiliate Program
             </span>
