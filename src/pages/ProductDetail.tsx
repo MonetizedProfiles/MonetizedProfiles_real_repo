@@ -730,25 +730,22 @@ const ProductDetail = () => {
         </section>
       )}
 
-      {/* Affiliate Program Section - Simple & Unique */}
-      <section id="affiliate" className="py-20 relative overflow-hidden border-t border-border">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Affiliate Program Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             {/* Main Pitch */}
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-3 leading-tight">
-                Promote Our Accounts.<br />
-                <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                Promote Our Accounts, Get Paid Generously
               </h2>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-lg text-muted-foreground">
                 20% commission on every sale. No strings attached.
               </p>
             </div>
 
             {/* Simple Benefits List */}
-            <div className="bg-card/50 backdrop-blur-sm border-2 rounded-3xl p-12 mb-12 space-y-6">
+            <div className="bg-card border-2 rounded-3xl p-12 mb-12 space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
                   <Check className="w-6 h-6 text-primary" />
