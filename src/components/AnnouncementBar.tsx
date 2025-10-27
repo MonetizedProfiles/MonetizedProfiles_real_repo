@@ -1,9 +1,8 @@
 export const AnnouncementBar = () => {
   const announcements = [
-    "🎉 Free Shipping on Orders Over $100",
-    "⚡ Limited Time Offer - 20% Off All YouTube Channels",
-    "🚀 New TikTok Accounts Available Now",
-    "💎 Premium Support Included with Every Purchase",
+    "🔥 New Accounts Restocked",
+    "⭐ Trusted by Thousands of Creators",
+    "🎯 Over 27,000+ Accounts Sold",
   ];
 
   return (
