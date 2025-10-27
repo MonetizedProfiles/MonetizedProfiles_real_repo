@@ -772,105 +772,49 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Success Stories - Enhanced Connected Timeline Design */}
-      <section className="py-20 bg-gradient-to-br from-secondary/50 via-background to-secondary/30 relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-        
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Success Stories - New Conversion Section */}
+      <section className="py-20 pb-10 bg-gradient-to-br from-secondary/50 via-background to-secondary/30">
+        <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4 text-foreground">Real Results From Real Creators</h2>
               <p className="text-xl text-muted-foreground">See how our accounts have transformed content careers</p>
             </div>
 
-            {/* Connected Timeline Design */}
-            <div className="relative">
-              {/* Connecting line - hidden on mobile */}
-              <div className="hidden md:block absolute top-[80px] left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" style={{ top: '80px' }} />
-              
-              <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-12 relative">
-                {/* Stat 1 - Enhanced with badge */}
-                <div className="relative group">
-                  {/* Connection node */}
-                  <div className="hidden md:flex absolute top-[80px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-primary border-4 border-background shadow-lg z-10 group-hover:scale-125 transition-transform" />
-                  
-                  <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary transition-all hover:shadow-2xl hover:scale-105 hover:-translate-y-2 relative overflow-hidden">
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    
-                    <div className="relative z-10">
-                      <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-1 rounded-full text-xs font-semibold text-primary mb-4">
-                        <TrendingUp className="w-3 h-3" />
-                        Revenue Impact
-                      </div>
-                      <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#FF2929] to-[#FF5C8D] bg-clip-text text-transparent mb-2">$847K+</div>
-                      <p className="text-lg font-semibold text-foreground mb-1">Total Revenue Generated</p>
-                      <p className="text-sm text-muted-foreground">By our customers in the last 12 months</p>
-                    </div>
-                  </div>
-                </div>
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {/* Stat 1 */}
+              <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
+                <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>$847K+</div>
+                <p className="text-lg text-muted-foreground">Total Revenue Generated</p>
+                <p className="text-sm text-muted-foreground/70 mt-2">By our customers in the last 12 months</p>
+              </div>
 
-                {/* Stat 2 - Enhanced with badge */}
-                <div className="relative group">
-                  {/* Connection node */}
-                  <div className="hidden md:flex absolute top-[80px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-primary border-4 border-background shadow-lg z-10 group-hover:scale-125 transition-transform" />
-                  
-                  <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary transition-all hover:shadow-2xl hover:scale-105 hover:-translate-y-2 relative overflow-hidden">
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    
-                    <div className="relative z-10">
-                      <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-1 rounded-full text-xs font-semibold text-primary mb-4">
-                        <Zap className="w-3 h-3" />
-                        Speed to Profit
-                      </div>
-                      <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#FF2929] to-[#FF5C8D] bg-clip-text text-transparent mb-2">24 hrs</div>
-                      <p className="text-lg font-semibold text-foreground mb-1">Average Time to First Dollar</p>
-                      <p className="text-sm text-muted-foreground">Most customers earn within the first day</p>
-                    </div>
-                  </div>
-                </div>
+              {/* Stat 2 */}
+              <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
+                <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>24 hrs</div>
+                <p className="text-lg text-muted-foreground">Average Time to First Dollar</p>
+                <p className="text-sm text-muted-foreground/70 mt-2">Most customers earn within the first day</p>
+              </div>
 
-                {/* Stat 3 - Enhanced with badge */}
-                <div className="relative group">
-                  {/* Connection node */}
-                  <div className="hidden md:flex absolute top-[80px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-primary border-4 border-background shadow-lg z-10 group-hover:scale-125 transition-transform" />
-                  
-                  <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary transition-all hover:shadow-2xl hover:scale-105 hover:-translate-y-2 relative overflow-hidden">
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    
-                    <div className="relative z-10">
-                      <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-1 rounded-full text-xs font-semibold text-primary mb-4">
-                        <Star className="w-3 h-3" />
-                        Satisfaction Rate
-                      </div>
-                      <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#FF2929] to-[#FF5C8D] bg-clip-text text-transparent mb-2">98.7%</div>
-                      <p className="text-lg font-semibold text-foreground mb-1">Customer Satisfaction</p>
-                      <p className="text-sm text-muted-foreground">Would recommend to other creators</p>
-                    </div>
-                  </div>
-                </div>
+              {/* Stat 3 */}
+              <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg">
+                <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>98.7%</div>
+                <p className="text-lg text-muted-foreground">Customer Satisfaction</p>
+                <p className="text-sm text-muted-foreground/70 mt-2">Would recommend to other creators</p>
               </div>
             </div>
 
-            {/* CTA with animated gradient background */}
-            <div className="text-center relative">
-              <div className="inline-block relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] rounded-lg blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
-                <Button size="lg" className="relative text-lg px-10 py-6 bg-[#FF2929] hover:bg-[#FF2929]/90">
-                  Start Your Success Story Today
-                </Button>
-              </div>
+            <div className="text-center">
+              <Button size="lg" className="text-lg px-10 py-6" style={{ backgroundColor: '#FF2929' }}>
+                Start Your Success Story Today
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Best Selling Products Section */}
-      <section className="py-20 container mx-auto px-4 bg-background">
+      <section className="py-20 pt-10 container mx-auto px-4 bg-background">
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-bold mb-4 text-foreground">Best Selling Accounts</h2>
           <p className="text-lg text-muted-foreground">Our customers' favorite monetized accounts this month</p>
