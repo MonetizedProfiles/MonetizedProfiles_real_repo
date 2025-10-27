@@ -4,11 +4,17 @@ import { PRODUCT_BY_HANDLE_QUERY, storefrontApiRequest, STOREFRONT_QUERY, Shopif
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
-import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, ChevronRight, Users, Zap, Mail } from "lucide-react";
+import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, ChevronRight, Users, Zap, Mail, HelpCircle, ChevronDown } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useState, useRef, useEffect } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { ProductCard } from "@/components/ProductCard";
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
@@ -741,6 +747,77 @@ const ProductDetail = () => {
           </div>
         </section>
       )}
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-secondary/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                <HelpCircle className="w-8 h-8 text-primary" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">Frequently Asked Questions</h2>
+              <p className="text-lg text-muted-foreground">Everything you need to know about purchasing monetized accounts</p>
+            </div>
+
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="item-1" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold">How quickly will I receive my account?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Most accounts are delivered within 6-12 hours of purchase. Our team works around the clock to ensure fast, secure delivery. You'll receive an email with login credentials and step-by-step transfer instructions.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold">Are the followers real people?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Yes, 100%. All accounts come with organic followers who actively engage with content. We never use bots or fake accounts. You'll see genuine likes, comments, and views on your posts from day one.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold">What if I have issues with my account?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  We offer a 30-day replacement guarantee. If you experience any issues with your account, our support team will work with you to resolve them or provide a replacement at no additional cost. We also have 24/7 chat support available.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold">Is monetization already enabled?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Absolutely. All accounts are fully monetized and ready to earn. You can start making money from your very first post without waiting for approval or meeting minimum requirements.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold">Can I change the account's username and profile?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Yes, once the account is transferred to you, you have full control. You can customize the username (subject to platform availability), update the profile picture, bio, and all other account details to match your brand.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="bg-card border rounded-lg px-6">
+                <AccordionTrigger className="text-left hover:no-underline">
+                  <span className="font-semibold">What payment methods do you accept?</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  We accept all major credit cards, debit cards, and secure payment methods through our encrypted checkout system. All transactions are processed securely and your payment information is never stored on our servers.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
 
       {/* Affiliate Program Section */}
       <section className="py-20 bg-background">
