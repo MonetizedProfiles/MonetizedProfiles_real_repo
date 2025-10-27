@@ -51,9 +51,9 @@ const ContactUs = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-4 py-16 max-w-5xl">
+      <div className="container mx-auto px-4 py-16 max-w-5xl space-y-20">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-muted-foreground mb-6">
             We're here to help with any questions or concerns
@@ -67,7 +67,7 @@ const ContactUs = () => {
         </div>
 
         {/* Contact Form */}
-        <Card className="mb-12">
+        <Card>
           <CardHeader>
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
@@ -145,7 +145,7 @@ const ContactUs = () => {
         </Card>
 
         {/* Email Addresses */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2">
@@ -182,8 +182,8 @@ const ContactUs = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+        <div>
+          <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem value="item-1" className="bg-card border rounded-lg px-6">
               <AccordionTrigger className="text-left hover:no-underline">
