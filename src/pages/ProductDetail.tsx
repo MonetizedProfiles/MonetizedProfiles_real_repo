@@ -523,23 +523,25 @@ const ProductDetail = () => {
                 </div>
               </div>
 
-              {/* Bottom CTA */}
-              <div className="mt-8 text-center space-y-4">
+              {/* Bottom Badge */}
+              <div className="mt-8 text-center">
                 <div className="inline-flex items-center gap-2 bg-primary/10 px-5 py-2.5 rounded-full border border-primary/30">
                   <ShieldCheck className="w-4 h-4 text-primary" />
                   <span className="font-semibold text-sm">Your purchase is 100% protected</span>
                 </div>
-                <div>
-                  <Button 
-                    size="lg" 
-                    className="text-lg h-14 px-8"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  >
-                    <ShoppingCart className="w-5 h-5 mr-2" />
-                    Get Started Risk-Free
-                  </Button>
-                </div>
               </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="text-center mt-8">
+              <Button 
+                size="lg" 
+                className="text-lg h-14 px-8"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                <ShoppingCart className="w-5 h-5 mr-2" />
+                Get Started Risk-Free
+              </Button>
             </div>
           </div>
         </div>
