@@ -25,8 +25,8 @@ export const Header = () => {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link to="/product/monetized-youtube-account" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-                  Monetized YouTube Accounts
+                <Link to="/product/monetized-youtube-channel" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  Monetized YouTube Channels
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
@@ -43,7 +43,11 @@ export const Header = () => {
               <NavigationMenuTrigger>Other Products</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                  {data?.map((product) => (
+                  {data?.filter((product) => 
+                    product.node.handle !== 'monetized-youtube-channel' && 
+                    product.node.handle !== 'monetized-youtube-account' &&
+                    product.node.handle !== 'monetized-tiktok-account'
+                  ).map((product) => (
                     <li key={product.node.id}>
                       <NavigationMenuLink asChild>
                         <Link
