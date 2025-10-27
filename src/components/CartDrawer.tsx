@@ -34,11 +34,11 @@ export const CartDrawer = () => {
     },
   });
 
-  // Get recommended products (exclude items already in cart)
-  const cartProductIds = items.map(item => item.product.node.id);
+  // Get specific recommended products
+  const recommendedHandles = ['aged-youtube-channel', 'monetized-youtube-channel', 'monetized-tiktok-account'];
   const recommendedProducts = allProducts?.filter(
-    product => !cartProductIds.includes(product.node.id)
-  ).slice(0, 3) || [];
+    product => recommendedHandles.includes(product.node.handle)
+  ) || [];
   
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
@@ -146,9 +146,9 @@ export const CartDrawer = () => {
                 </div>
 
                 {/* Recommended Products Upsell */}
-                {recommendedProducts.length > 0 && (
+                {items.length > 0 && recommendedProducts.length > 0 && (
                   <div className="pt-4 border-t">
-                    <h3 className="font-semibold mb-3 text-sm">People usually purchase these</h3>
+                    <h3 className="font-semibold mb-3 text-sm">Frequently bought together</h3>
                     <div className="space-y-3">
                       {recommendedProducts.map((product) => {
                         const variant = product.node.variants.edges[0]?.node;
