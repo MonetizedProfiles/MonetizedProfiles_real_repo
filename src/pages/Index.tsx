@@ -137,6 +137,9 @@ const Index = () => {
     setIsDragging(true);
     setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
     setScrollLeftStart(scrollContainerRef.current.scrollLeft);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.scrollBehavior = 'auto';
+    }
   }, []);
 
   const handleTouchStart = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
@@ -144,29 +147,38 @@ const Index = () => {
     setIsDragging(true);
     setStartX(e.touches[0].pageX - scrollContainerRef.current.offsetLeft);
     setScrollLeftStart(scrollContainerRef.current.scrollLeft);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.scrollBehavior = 'auto';
+    }
   }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging || !scrollContainerRef.current || window.innerWidth >= 640) return;
     e.preventDefault();
     const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
+    const walk = (x - startX);
     scrollContainerRef.current.scrollLeft = scrollLeftStart - walk;
   }, [isDragging, startX, scrollLeftStart]);
 
   const handleTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
     if (!isDragging || !scrollContainerRef.current || window.innerWidth >= 640) return;
     const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
+    const walk = (x - startX);
     scrollContainerRef.current.scrollLeft = scrollLeftStart - walk;
   }, [isDragging, startX, scrollLeftStart]);
 
   const handleMouseUpOrLeave = useCallback(() => {
     setIsDragging(false);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.scrollBehavior = 'smooth';
+    }
   }, []);
 
   const handleTouchEnd = useCallback(() => {
     setIsDragging(false);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.scrollBehavior = 'smooth';
+    }
   }, []);
 
   const handleEmailSubmit = (e: React.FormEvent) => {
@@ -303,8 +315,8 @@ const Index = () => {
             {/* Scrollable container */}
             <div 
               ref={scrollContainerRef}
-              className="overflow-hidden scroll-smooth px-0 w-full sm:w-[calc(3*360px+3rem)] mx-auto"
-              style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+              className="overflow-hidden scroll-smooth px-0 w-full sm:w-[calc(3*360px+3rem)] mx-auto select-none"
+              style={{ cursor: window.innerWidth < 640 && isDragging ? 'grabbing' : window.innerWidth < 640 ? 'grab' : 'default' }}
               onScroll={checkScrollButtons}
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
