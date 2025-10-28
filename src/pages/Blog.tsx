@@ -44,7 +44,7 @@ const Blog = () => {
     <div className="bg-background">
 
       {/* Blog Header */}
-      <section className="py-8 sm:py-12 bg-gradient-to-br from-background via-secondary/20 to-background">
+      <section className="pt-16 sm:pt-20 pb-8 sm:pb-12 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Our Blog</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
