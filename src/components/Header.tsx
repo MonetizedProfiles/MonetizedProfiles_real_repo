@@ -249,7 +249,7 @@ export const Header = () => {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto flex flex-col">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto flex flex-col" onOpenAutoFocus={(e) => e.preventDefault()}>
               <SheetHeader className="flex-shrink-0">
                 <SheetTitle>
                   <img src={logo} alt="MonetizedProfiles" className="h-8" />
