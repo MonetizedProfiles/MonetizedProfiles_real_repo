@@ -70,8 +70,8 @@ export const Header = () => {
   return (
     <header className="border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
       <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
-        <Link to="/" className="flex-shrink-0">
-          <img src={logo} alt="MonetizedProfiles" className="h-6 sm:h-8" />
+        <Link to="/" className="flex-shrink-0 flex items-center">
+          <img src={logo} alt="MonetizedProfiles" className="h-6 sm:h-8 object-contain" />
         </Link>
         
         <nav className="hidden lg:flex items-center gap-2">
