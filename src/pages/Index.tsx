@@ -1035,9 +1035,15 @@ const Index = () => {
                   gridTemplateColumns: 'none'
                 }}
               >
-                {data.map((product) => (
-                  <ProductCard key={product.node.id} product={product} />
-                ))}
+                {data
+                  .filter((product) => 
+                    product.node.handle === 'monetized-youtube-channel' ||
+                    product.node.handle === 'monetized-tiktok-account' ||
+                    product.node.handle === 'aged-youtube-channels'
+                  )
+                  .map((product) => (
+                    <ProductCard key={product.node.id} product={product} />
+                  ))}
               </div>
             </div>
           </div>
