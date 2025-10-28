@@ -22,7 +22,7 @@ export const StockIndicator = ({
 
   if (!availableForSale) {
     return (
-      <div className={`${variant === "compact" ? "py-2" : "p-4"} rounded-lg bg-destructive/10 border border-destructive/20`}>
+      <div className={`${variant === "compact" ? "py-2" : "p-4"} rounded-lg bg-destructive/10 border border-destructive/20 animate-pulse`}>
         <div className="flex items-center gap-2">
           <PackageCheck className="w-4 h-4 text-destructive" />
           <span className={`font-medium text-destructive ${variant === "compact" ? "text-xs" : "text-sm"}`}>
@@ -45,22 +45,33 @@ export const StockIndicator = ({
     return "Almost Gone";
   };
 
+  const getContainerAnimation = () => {
+    if (current <= 10) return "animate-pulse"; // Critical stock - constant pulse
+    if (current <= 20) return ""; // Low stock - no animation
+    return ""; // Normal stock - no animation
+  };
+
+  const getIconAnimation = () => {
+    if (current <= 20) return "animate-pulse"; // Low and critical stock
+    return ""; // Normal stock
+  };
+
   return (
-    <div className={`${variant === "compact" ? "py-2" : "p-4"} rounded-lg bg-secondary/30 border border-border/50`}>
+    <div className={`${variant === "compact" ? "py-2" : "p-4"} rounded-lg bg-secondary/30 border border-border/50 transition-all ${getContainerAnimation()}`}>
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <PackageCheck className={`w-4 h-4 ${getStockColor()}`} />
+          <PackageCheck className={`w-4 h-4 ${getStockColor()} ${getIconAnimation()}`} />
           <span className={`font-medium ${getStockColor()} ${variant === "compact" ? "text-xs" : "text-sm"}`}>
             {getStockMessage()}
           </span>
         </div>
-        <span className={`${variant === "compact" ? "text-xs" : "text-sm"} text-muted-foreground`}>
+        <span className={`${variant === "compact" ? "text-xs" : "text-sm"} font-semibold ${current <= 20 ? getStockColor() : 'text-muted-foreground'} ${current <= 10 ? 'animate-pulse' : ''}`}>
           {current} left
         </span>
       </div>
       <Progress 
         value={percentage} 
-        className={`h-2 ${variant === "compact" ? "h-1.5" : "h-2"}`}
+        className={`h-2 ${variant === "compact" ? "h-1.5" : "h-2"} transition-all`}
       />
     </div>
   );
