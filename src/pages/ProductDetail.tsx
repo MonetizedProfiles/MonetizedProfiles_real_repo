@@ -296,9 +296,6 @@ const ProductDetail = () => {
                   <ShoppingCart className="w-16 h-16 text-muted-foreground" />
                 </div>
               )}
-              {currentVariant.availableForSale && (
-                <Badge className="absolute top-4 left-4 bg-accent">In Stock</Badge>
-              )}
             </div>
 
             {images.length > 1 && (
