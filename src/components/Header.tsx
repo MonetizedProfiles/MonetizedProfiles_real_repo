@@ -137,117 +137,15 @@ export const Header = () => {
           </Link>
         </nav>
         
-        {/* Mobile Menu */}
-        <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="lg:hidden h-9 w-9 sm:h-10 sm:w-10"
-            >
-              <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-            <SheetHeader>
-              <SheetTitle>
-                <img src={logo} alt="MonetizedProfiles" className="h-8" />
-              </SheetTitle>
-            </SheetHeader>
-            <nav className="flex flex-col gap-4 mt-8">
-              <Link 
-                to="/product/monetized-youtube-channel" 
-                className="text-base font-medium hover:text-primary transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Monetized YouTube Channels
-              </Link>
-
-              <Link 
-                to="/product/monetized-tiktok-account" 
-                className="text-base font-medium hover:text-primary transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Monetized TikTok Accounts
-              </Link>
-
-              <div className="border-t pt-4">
-                <p className="text-sm font-semibold text-muted-foreground mb-2">Other Products</p>
-                <div className="flex flex-col gap-2">
-                  {data?.filter(
-                    (product) =>
-                      product.node.handle !== "monetized-youtube-channel" &&
-                      product.node.handle !== "monetized-youtube-account" &&
-                      product.node.handle !== "monetized-tiktok-account",
-                  ).map((product) => (
-                    <Link
-                      key={product.node.id}
-                      to={`/product/${product.node.handle}`}
-                      className="text-sm hover:text-primary transition-colors py-1.5"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {product.node.title}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div className="border-t pt-4">
-                <p className="text-sm font-semibold text-muted-foreground mb-2">Support</p>
-                <div className="flex flex-col gap-2">
-                  <Link 
-                    to="/contact" 
-                    className="text-sm hover:text-primary transition-colors py-1.5"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Contact Us
-                  </Link>
-                  <Link 
-                    to="/privacy-policy" 
-                    className="text-sm hover:text-primary transition-colors py-1.5"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Privacy Policy
-                  </Link>
-                  <Link 
-                    to="/terms-of-service" 
-                    className="text-sm hover:text-primary transition-colors py-1.5"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Terms of Service
-                  </Link>
-                  <Link 
-                    to="/refund-policy" 
-                    className="text-sm hover:text-primary transition-colors py-1.5"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Refund Policy
-                  </Link>
-                </div>
-              </div>
-
-              <Link 
-                to="/affiliate" 
-                className="relative inline-flex items-center justify-center gap-2 rounded-md px-4 py-3 text-base font-medium bg-gradient-to-r from-[#FF2929]/10 via-[#FF5C8D]/10 to-[#C74DFF]/10 border border-[#FF5C8D]/20 mt-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <Sparkles className="w-4 h-4 text-[#FF5C8D]" />
-                <span className="bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent">
-                  Affiliate Program
-                </span>
-              </Link>
-            </nav>
-          </SheetContent>
-        </Sheet>
-        
         <div className="flex items-center gap-1 sm:gap-2">
+          {/* Desktop Search */}
           <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
             <DialogTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
                 title="Search"
-                className="h-9 w-9 sm:h-10 sm:w-10"
+                className="hidden lg:flex h-9 w-9 sm:h-10 sm:w-10"
               >
                 <Search className="h-4 sm:h-5 w-4 sm:w-5" />
               </Button>
@@ -329,15 +227,158 @@ export const Header = () => {
             </DialogContent>
           </Dialog>
           
+          {/* Desktop Login */}
           <Button
             variant="ghost"
             size="icon"
             onClick={handleLogin}
             title="Login"
-            className="h-9 w-9 sm:h-10 sm:w-10"
+            className="hidden lg:flex h-9 w-9 sm:h-10 sm:w-10"
           >
             <User className="h-4 sm:h-5 w-4 sm:w-5" />
           </Button>
+          
+          {/* Mobile Menu */}
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden h-9 w-9"
+              >
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+              <SheetHeader>
+                <SheetTitle>
+                  <img src={logo} alt="MonetizedProfiles" className="h-8" />
+                </SheetTitle>
+              </SheetHeader>
+              
+              {/* Mobile Search */}
+              <div className="mt-6">
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  if (searchQuery.trim()) {
+                    navigate(`/?search=${encodeURIComponent(searchQuery)}`);
+                    setIsMobileMenuOpen(false);
+                    setSearchQuery("");
+                  }
+                }}>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      type="search"
+                      placeholder="Search products..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-9"
+                    />
+                  </div>
+                </form>
+              </div>
+              
+              <nav className="flex flex-col gap-4 mt-6">
+                {/* Login Button */}
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                  onClick={() => {
+                    handleLogin();
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  <User className="h-4 w-4" />
+                  Login / Account
+                </Button>
+                
+                <div className="border-t pt-4">
+                  <Link 
+                    to="/product/monetized-youtube-channel" 
+                    className="block text-base font-medium hover:text-primary transition-colors py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Monetized YouTube Channels
+                  </Link>
+
+                  <Link 
+                    to="/product/monetized-tiktok-account" 
+                    className="block text-base font-medium hover:text-primary transition-colors py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Monetized TikTok Accounts
+                  </Link>
+                </div>
+
+                <div className="border-t pt-4">
+                  <p className="text-sm font-semibold text-muted-foreground mb-2">Other Products</p>
+                  <div className="flex flex-col gap-2">
+                    {data?.filter(
+                      (product) =>
+                        product.node.handle !== "monetized-youtube-channel" &&
+                        product.node.handle !== "monetized-youtube-account" &&
+                        product.node.handle !== "monetized-tiktok-account",
+                    ).map((product) => (
+                      <Link
+                        key={product.node.id}
+                        to={`/product/${product.node.handle}`}
+                        className="text-sm hover:text-primary transition-colors py-1.5"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {product.node.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="border-t pt-4">
+                  <p className="text-sm font-semibold text-muted-foreground mb-2">Support</p>
+                  <div className="flex flex-col gap-2">
+                    <Link 
+                      to="/contact" 
+                      className="text-sm hover:text-primary transition-colors py-1.5"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Contact Us
+                    </Link>
+                    <Link 
+                      to="/privacy-policy" 
+                      className="text-sm hover:text-primary transition-colors py-1.5"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Privacy Policy
+                    </Link>
+                    <Link 
+                      to="/terms-of-service" 
+                      className="text-sm hover:text-primary transition-colors py-1.5"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Terms of Service
+                    </Link>
+                    <Link 
+                      to="/refund-policy" 
+                      className="text-sm hover:text-primary transition-colors py-1.5"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Refund Policy
+                    </Link>
+                  </div>
+                </div>
+
+                <Link 
+                  to="/affiliate" 
+                  className="relative inline-flex items-center justify-center gap-2 rounded-md px-4 py-3 text-base font-medium bg-gradient-to-r from-[#FF2929]/10 via-[#FF5C8D]/10 to-[#C74DFF]/10 border border-[#FF5C8D]/20 mt-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <Sparkles className="w-4 h-4 text-[#FF5C8D]" />
+                  <span className="bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent">
+                    Affiliate Program
+                  </span>
+                </Link>
+              </nav>
+            </SheetContent>
+          </Sheet>
           
           <CartDrawer />
         </div>
