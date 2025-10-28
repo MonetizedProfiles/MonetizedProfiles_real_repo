@@ -628,12 +628,12 @@ const Affiliate = () => {
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Questions About Our Program?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground mb-4">
               Our affiliate team is here to help you succeed
             </p>
             <a 
               href="mailto:affiliates@monetizedprofiles.com" 
-              className="text-base sm:text-lg font-semibold hover:underline inline-flex items-center gap-2 text-primary transition-colors hover:opacity-80"
+              className="text-lg sm:text-xl font-semibold hover:underline inline-flex items-center gap-2 text-primary transition-colors hover:opacity-80"
             >
               <Mail className="w-5 h-5" />
               affiliates@monetizedprofiles.com
