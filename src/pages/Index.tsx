@@ -908,10 +908,11 @@ const Index = () => {
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               <div 
-                className="grid gap-6"
+                className="grid gap-4 sm:gap-6"
                 style={{ 
                   gridAutoFlow: 'column',
-                  gridAutoColumns: 'calc((100% - 3rem) / 3)'
+                  gridAutoColumns: 'min(350px, 85vw)',
+                  gridTemplateColumns: 'none'
                 }}
               >
                 {data.slice(0, 3).map((product) => (
