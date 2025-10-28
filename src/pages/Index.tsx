@@ -318,11 +318,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Products Section - Hottest Products in Order */}
+      {/* Featured Products Section - 3 Products Display with Scroll */}
       <section className="py-12 sm:py-20 container mx-auto px-4">
         <div className="mb-8 sm:mb-12 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">🔥 Hottest Products</h2>
-          <p className="text-base sm:text-lg text-muted-foreground px-4">Our most in-demand monetized accounts</p>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Featured Accounts</h2>
+          <p className="text-base sm:text-lg text-muted-foreground px-4">Start earning today with our most popular monetized accounts</p>
         </div>
 
         {isLoading ? (
@@ -387,33 +387,9 @@ const Index = () => {
                   gridTemplateColumns: 'none'
                 }}
               >
-                {(() => {
-                  // Define priority order based on product handle
-                  const priorityOrder = [
-                    'monetized-youtube-account',
-                    'monetized-tiktok-account', 
-                    'aged-youtube-account'
-                  ];
-                  
-                  // Sort products by priority
-                  const sortedProducts = [...data].sort((a, b) => {
-                    const aIndex = priorityOrder.indexOf(a.node.handle);
-                    const bIndex = priorityOrder.indexOf(b.node.handle);
-                    
-                    // If both are in priority list, sort by priority
-                    if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
-                    // If only a is in priority, it comes first
-                    if (aIndex !== -1) return -1;
-                    // If only b is in priority, it comes first
-                    if (bIndex !== -1) return 1;
-                    // Otherwise maintain original order
-                    return 0;
-                  });
-                  
-                  return sortedProducts.map((product) => (
-                    <ProductCard key={product.node.id} product={product} />
-                  ));
-                })()}
+                {data.map((product) => (
+                  <ProductCard key={product.node.id} product={product} />
+                ))}
               </div>
             </div>
           </div>
