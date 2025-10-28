@@ -875,36 +875,10 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto relative">
-            {/* Left scroll button */}
-            {canScrollLeftBest && (
-              <Button
-                variant="outline"
-                size="icon"
-                className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
-                onClick={() => scrollBest('left')}
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </Button>
-            )}
-            
-            {/* Right scroll button */}
-            {canScrollRightBest && (
-              <Button
-                variant="outline"
-                size="icon"
-                className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
-                onClick={() => scrollBest('right')}
-              >
-                <ChevronRight className="h-5 w-5" />
-              </Button>
-            )}
-
+          <div className="max-w-6xl mx-auto">
             {/* Scrollable container */}
             <div 
-              ref={scrollContainerRefBest}
-              className="overflow-x-auto scrollbar-hide scroll-smooth px-4 sm:px-12"
-              onScroll={checkScrollButtonsBest}
+              className="overflow-x-auto scrollbar-hide scroll-smooth px-4"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               <div 
