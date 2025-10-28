@@ -40,7 +40,7 @@ export const StockIndicator = ({
   };
 
   const getStockMessage = () => {
-    if (current >= 5) return "Stock Amount: Medium";
+    if (current >= 6) return "Stock Amount: Medium";
     if (current >= 3) return "Stock Amount: Low";
     return "Stock Amount: Extremely Low";
   };
