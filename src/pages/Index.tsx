@@ -234,13 +234,13 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto relative px-4 sm:px-8 md:px-12">
+          <div className="max-w-6xl mx-auto relative">
             {/* Left scroll button - Hidden on mobile */}
             {canScrollLeft && (
               <Button
                 variant="outline"
                 size="icon"
-                className="hidden sm:flex absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg touch-manipulation"
+                className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg touch-manipulation"
                 onClick={() => scroll('left')}
               >
                 <ChevronLeft className="h-5 w-5" />
@@ -252,7 +252,7 @@ const Index = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="hidden sm:flex absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg touch-manipulation"
+                className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg touch-manipulation"
                 onClick={() => scroll('right')}
               >
                 <ChevronRight className="h-5 w-5" />
@@ -262,7 +262,7 @@ const Index = () => {
             {/* Scrollable container */}
             <div 
               ref={scrollContainerRef}
-              className="overflow-x-auto scrollbar-hide scroll-smooth -mx-4 px-4 sm:mx-0 sm:px-0"
+              className="overflow-x-auto scrollbar-hide scroll-smooth px-4 sm:px-12"
               onScroll={checkScrollButtons}
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
@@ -875,13 +875,13 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto relative px-12">
+          <div className="max-w-6xl mx-auto relative">
             {/* Left scroll button */}
             {canScrollLeftBest && (
               <Button
                 variant="outline"
                 size="icon"
-                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
+                className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
                 onClick={() => scrollBest('left')}
               >
                 <ChevronLeft className="h-5 w-5" />
@@ -893,7 +893,7 @@ const Index = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
+                className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
                 onClick={() => scrollBest('right')}
               >
                 <ChevronRight className="h-5 w-5" />
@@ -903,7 +903,7 @@ const Index = () => {
             {/* Scrollable container */}
             <div 
               ref={scrollContainerRefBest}
-              className="overflow-x-auto scrollbar-hide scroll-smooth"
+              className="overflow-x-auto scrollbar-hide scroll-smooth px-4 sm:px-12"
               onScroll={checkScrollButtonsBest}
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
