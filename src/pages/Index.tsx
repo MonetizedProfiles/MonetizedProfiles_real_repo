@@ -270,7 +270,7 @@ const Index = () => {
                 className="grid gap-4 sm:gap-6"
                 style={{ 
                   gridAutoFlow: 'column',
-                  gridAutoColumns: 'min(85vw, 350px) min(calc((100% - 1.5rem) / 2), 350px) min(calc((100% - 3rem) / 3), 350px)',
+                  gridAutoColumns: 'minmax(280px, 85vw)',
                   gridTemplateColumns: 'none'
                 }}
               >
