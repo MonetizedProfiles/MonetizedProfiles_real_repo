@@ -387,7 +387,7 @@ const ProductDetail = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="py-12 sm:py-20 bg-gradient-to-b from-secondary/20 via-background to-background">
+      <section className="py-12 pb-16 sm:py-20 bg-gradient-to-b from-secondary/20 via-background to-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">What You'll Get</h2>
