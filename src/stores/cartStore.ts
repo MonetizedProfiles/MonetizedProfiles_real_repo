@@ -47,6 +47,7 @@ const VARIANT_TO_CHECKOUTCHAMP_ID: Record<string, string> = {
   '50916615618900': '3.6',
   '49694337073492': '5.8',
   '49694337106260': '5.9',
+  '49804063310164': '6',
 };
 
 // Helper function to extract numeric variant ID from GraphQL ID
