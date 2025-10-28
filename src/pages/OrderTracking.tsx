@@ -133,7 +133,7 @@ const OrderTracking = () => {
                 </p>
                 <p>
                   <span className="font-medium text-foreground">Haven't received your order confirmation?</span><br />
-                  <a href="/contact-us" className="text-primary hover:underline">
+                  <a href="/contact" className="text-primary hover:underline">
                     Contact our support team
                   </a>
                 </p>
