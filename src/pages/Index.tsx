@@ -316,7 +316,7 @@ const Index = () => {
                 onClick={() => {
                   const featuredSection = document.getElementById('featured-accounts');
                   if (featuredSection) {
-                    featuredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    featuredSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
               >
@@ -329,7 +329,7 @@ const Index = () => {
                 onClick={() => {
                   const whyChooseSection = document.getElementById('why-choose');
                   if (whyChooseSection) {
-                    whyChooseSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    whyChooseSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
               >
