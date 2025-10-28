@@ -234,7 +234,7 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto relative">
+          <div className="max-w-7xl mx-auto relative">
             {/* Left scroll button - Hidden on mobile */}
             {canScrollLeft && (
               <Button
@@ -262,7 +262,7 @@ const Index = () => {
             {/* Scrollable container */}
             <div 
               ref={scrollContainerRef}
-              className="overflow-hidden scroll-smooth px-4 sm:px-12"
+              className="overflow-hidden scroll-smooth px-0"
               onScroll={checkScrollButtons}
             >
               <div 
