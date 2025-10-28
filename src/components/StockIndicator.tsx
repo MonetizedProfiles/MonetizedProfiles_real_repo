@@ -39,6 +39,12 @@ export const StockIndicator = ({
     return "text-destructive";
   };
 
+  const getProgressBarColor = () => {
+    if (current >= 7) return "[&>div]:bg-yellow-500";
+    if (current >= 4) return "[&>div]:bg-orange-500";
+    return "[&>div]:bg-destructive";
+  };
+
   const getStockMessage = () => {
     if (current >= 7) return "Stock Amount: Medium";
     if (current >= 4) return "Stock Amount: Low";
@@ -60,7 +66,7 @@ export const StockIndicator = ({
       </div>
       <Progress 
         value={percentage} 
-        className={`h-2 ${variant === "compact" ? "h-1.5" : "h-2"}`}
+        className={`h-2 ${variant === "compact" ? "h-1.5" : "h-2"} ${getProgressBarColor()}`}
       />
     </div>
   );
