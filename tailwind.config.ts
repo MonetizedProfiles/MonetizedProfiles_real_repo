@@ -106,6 +106,7 @@ export default {
         "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "float": "float 3s ease-in-out infinite",
         "scroll-left": "scroll-left 120s linear infinite",
+        "scroll-left-fast": "scroll-left 60s linear infinite",
       },
       backgroundImage: {
         "gradient-hero": "var(--gradient-hero)",
