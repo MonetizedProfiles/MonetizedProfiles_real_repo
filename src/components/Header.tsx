@@ -249,8 +249,8 @@ export const Header = () => {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[300px] sm:w-[400px]">
-              <SheetHeader>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
+              <SheetHeader className="sticky top-0 bg-background pb-4 z-10">
                 <SheetTitle>
                   <img src={logo} alt="MonetizedProfiles" className="h-8" />
                 </SheetTitle>
@@ -279,7 +279,7 @@ export const Header = () => {
                 </form>
               </div>
               
-              <nav className="flex flex-col gap-4 mt-6">
+              <nav className="flex flex-col gap-4 pb-6">
                 {/* Login Button */}
                 <Button
                   variant="outline"
