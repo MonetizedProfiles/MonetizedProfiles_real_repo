@@ -633,9 +633,9 @@ const Affiliate = () => {
             </p>
             <a 
               href="mailto:affiliates@monetizedprofiles.com" 
-              className="text-2xl font-bold hover:underline inline-flex items-center gap-2 text-primary transition-colors hover:opacity-80"
+              className="text-base sm:text-lg font-semibold hover:underline inline-flex items-center gap-2 text-primary transition-colors hover:opacity-80"
             >
-              <Mail className="w-6 h-6" />
+              <Mail className="w-5 h-5" />
               affiliates@monetizedprofiles.com
             </a>
           </div>
