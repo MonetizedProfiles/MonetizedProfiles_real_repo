@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -42,6 +42,14 @@ export const CartDrawer = () => {
   
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
+
+  // Hide Gorgias chat widget when cart drawer is open
+  useEffect(() => {
+    const gorgiasWidget = document.getElementById('gorgias-chat-container');
+    if (gorgiasWidget) {
+      gorgiasWidget.style.display = isOpen ? 'none' : 'block';
+    }
+  }, [isOpen]);
 
   const handleCheckout = async () => {
     try {
