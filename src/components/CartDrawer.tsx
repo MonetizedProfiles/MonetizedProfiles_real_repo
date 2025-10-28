@@ -34,8 +34,8 @@ export const CartDrawer = () => {
     },
   });
 
-  // Define the 3 upsell product handles to cycle through
-  const upsellHandles = ['monetized-youtube-channel', 'monetized-tiktok-account', 'aged-youtube-channel'];
+  // Define the 3 upsell product handles to cycle through (using actual Shopify handles)
+  const upsellHandles = ['youtube', 'monetized-tiktok-account', 'aged-youtube'];
   
   // Get products in cart by handle
   const cartProductHandles = items.map(item => item.product.node.handle);
@@ -101,10 +101,10 @@ export const CartDrawer = () => {
             </div>
           ) : (
             <>
-              {/* Scrollable area for cart items + upsells */}
+              {/* Scrollable area for cart items only */}
               <div className="flex-1 overflow-y-auto pr-2 min-h-0">
                 {/* Cart Items */}
-                <div className="space-y-4 mb-4">
+                <div className="space-y-4">
                   {items.map((item) => (
                     <div key={item.variantId} className="flex gap-4 p-2">
                       <div className="w-16 h-16 bg-secondary/20 rounded-md overflow-hidden flex-shrink-0">
@@ -160,70 +160,69 @@ export const CartDrawer = () => {
                     </div>
                   ))}
                 </div>
-
-                {/* Upsell Products - Show available upsells */}
-                {upsellProducts.length > 0 && (
-                  <div className="pt-4 border-t mb-4">
-                    <h3 className="font-semibold mb-3 text-sm">You may also like</h3>
-                    <div className="space-y-3">
-                      {upsellProducts.slice(0, 2).map((product) => {
-                        const variant = product.node.variants.edges[0]?.node;
-                        const price = parseFloat(variant?.price.amount || '0');
-                        
-                        return (
-                          <div key={product.node.id} className="flex gap-3 p-2 rounded-lg hover:bg-secondary/20 transition-colors">
-                            <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)} className="flex-shrink-0">
-                              <div className="w-14 h-14 bg-secondary/20 rounded-md overflow-hidden">
-                                {product.node.images?.edges?.[0]?.node && (
-                                  <img
-                                    src={product.node.images.edges[0].node.url}
-                                    alt={product.node.title}
-                                    className="w-full h-full object-cover"
-                                  />
-                                )}
-                              </div>
-                            </Link>
-                            
-                            <div className="flex-1 min-w-0">
-                              <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)}>
-                                <h4 className="font-medium text-sm truncate hover:text-primary transition-colors">
-                                  {product.node.title}
-                                </h4>
-                              </Link>
-                              <p className="text-sm font-semibold">
-                                ${price.toFixed(2)}
-                              </p>
-                            </div>
-                            
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              className="flex-shrink-0 h-8"
-                              onClick={() => {
-                                if (variant) {
-                                  addItem({
-                                    product,
-                                    variantId: variant.id,
-                                    variantTitle: variant.title,
-                                    price: variant.price,
-                                    quantity: 1,
-                                    selectedOptions: variant.selectedOptions || []
-                                  });
-                                }
-                              }}
-                            >
-                              Add
-                            </Button>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
               </div>
-              
+
+              {/* Upsell Products - Fixed at bottom above checkout */}
+              {upsellProducts.length > 0 && (
+                <div className="flex-shrink-0 pt-4 border-t">
+                  <h3 className="font-semibold mb-3 text-sm">You may also like</h3>
+                  <div className="space-y-3 mb-4">
+                    {upsellProducts.slice(0, 2).map((product) => {
+                      const variant = product.node.variants.edges[0]?.node;
+                      const price = parseFloat(variant?.price.amount || '0');
+                      
+                      return (
+                        <div key={product.node.id} className="flex gap-3 p-2 rounded-lg hover:bg-secondary/20 transition-colors">
+                          <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)} className="flex-shrink-0">
+                            <div className="w-14 h-14 bg-secondary/20 rounded-md overflow-hidden">
+                              {product.node.images?.edges?.[0]?.node && (
+                                <img
+                                  src={product.node.images.edges[0].node.url}
+                                  alt={product.node.title}
+                                  className="w-full h-full object-cover"
+                                />
+                              )}
+                            </div>
+                          </Link>
+                          
+                          <div className="flex-1 min-w-0">
+                            <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)}>
+                              <h4 className="font-medium text-sm truncate hover:text-primary transition-colors">
+                                {product.node.title}
+                              </h4>
+                            </Link>
+                            <p className="text-sm font-semibold">
+                              ${price.toFixed(2)}
+                            </p>
+                          </div>
+                          
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="flex-shrink-0 h-8"
+                            onClick={() => {
+                              if (variant) {
+                                addItem({
+                                  product,
+                                  variantId: variant.id,
+                                  variantTitle: variant.title,
+                                  price: variant.price,
+                                  quantity: 1,
+                                  selectedOptions: variant.selectedOptions || []
+                                });
+                              }
+                            }}
+                          >
+                            Add
+                          </Button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
               {/* Fixed checkout section at bottom */}
-              <div className="flex-shrink-0 space-y-4 pt-4 border-t bg-background mt-4">
+              <div className="flex-shrink-0 space-y-4 pt-4 border-t bg-background">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-semibold">Total</span>
                   <span className="text-xl font-bold">
