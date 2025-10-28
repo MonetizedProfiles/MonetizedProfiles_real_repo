@@ -50,11 +50,19 @@ function createCheckoutChampUrl(items: CartItem[]): string {
   const productsParam = items
     .map(item => {
       const variantId = extractNumericVariantId(item.variantId);
+      console.log('Cart item:', {
+        productTitle: item.product.node.title,
+        fullVariantId: item.variantId,
+        extractedVariantId: variantId,
+        quantity: item.quantity
+      });
       return `${variantId}:${item.quantity}`;
     })
     .join(',');
   
-  return `${CHECKOUTCHAMP_CHECKOUT_URL}/${CHECKOUTCHAMP_CAMPAIGN_SLUG}?products=${productsParam}`;
+  const url = `${CHECKOUTCHAMP_CHECKOUT_URL}/${CHECKOUTCHAMP_CAMPAIGN_SLUG}?products=${productsParam}`;
+  console.log('Generated CheckoutChamp URL:', url);
+  return url;
 }
 
 
