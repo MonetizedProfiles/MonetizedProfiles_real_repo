@@ -10,6 +10,7 @@ import { Footer } from "@/components/Footer";
 import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Affiliate from "./pages/Affiliate";
 import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/product/:handle" element={<ProductDetail />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:handle" element={<BlogPost />} />
               <Route path="/affiliate" element={<Affiliate />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/order-tracking" element={<OrderTracking />} />
