@@ -317,7 +317,13 @@ const Index = () => {
                   const featuredSection = document.getElementById('featured-accounts');
                   if (featuredSection) {
                     const isMobile = window.innerWidth < 768;
-                    featuredSection.scrollIntoView({ behavior: 'smooth', block: isMobile ? 'start' : 'center' });
+                    if (isMobile) {
+                      const yOffset = -80; // Offset for header
+                      const y = featuredSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    } else {
+                      featuredSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
                   }
                 }}
               >
@@ -331,7 +337,13 @@ const Index = () => {
                   const whyChooseSection = document.getElementById('why-choose');
                   if (whyChooseSection) {
                     const isMobile = window.innerWidth < 768;
-                    whyChooseSection.scrollIntoView({ behavior: 'smooth', block: isMobile ? 'start' : 'center' });
+                    if (isMobile) {
+                      const yOffset = -80; // Offset for header
+                      const y = whyChooseSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    } else {
+                      whyChooseSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
                   }
                 }}
               >
