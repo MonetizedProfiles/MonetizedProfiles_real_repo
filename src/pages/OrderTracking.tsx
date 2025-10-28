@@ -133,14 +133,13 @@ const OrderTracking = () => {
                 </p>
                 <p>
                   <span className="font-medium text-foreground">Haven't received your order confirmation?</span><br />
-                  Contact us at{" "}
-                  <a href="mailto:support@monetizedprofiles.com" className="text-primary hover:underline">
-                    support@monetizedprofiles.com
+                  <a href="/contact-us" className="text-primary hover:underline">
+                    Contact our support team
                   </a>
                 </p>
                 <p>
                   <span className="font-medium text-foreground">Delivery time:</span><br />
-                  Most accounts are delivered within 6-12 hours of purchase
+                  Most accounts are delivered within 48-72 hours of purchase
                 </p>
               </div>
             </div>
