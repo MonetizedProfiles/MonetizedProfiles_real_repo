@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
 import { Calendar, ArrowRight } from "lucide-react";
 import { storefrontApiRequest } from "@/lib/shopify";
 
@@ -29,6 +31,7 @@ const BLOG_QUERY = `
 `;
 
 const Blog = () => {
+  const [displayCount, setDisplayCount] = useState(6);
   const { data, isLoading } = useQuery({
     queryKey: ['blog-posts'],
     queryFn: async () => {
@@ -70,8 +73,9 @@ const Blog = () => {
             <p className="text-muted-foreground">Check back soon for valuable insights and tips!</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {data.map((article: any) => (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {data.slice(0, displayCount).map((article: any) => (
               <Card key={article.node.id} className="group hover:shadow-lg transition-all hover:border-primary/50 overflow-hidden">
                 {article.node.image && (
                   <div className="aspect-video overflow-hidden">
@@ -108,8 +112,21 @@ const Blog = () => {
                   </a>
                 </CardContent>
               </Card>
-            ))}
-          </div>
+              ))}
+            </div>
+            
+            {displayCount < data.length && (
+              <div className="flex justify-center mt-12">
+                <Button 
+                  onClick={() => setDisplayCount(prev => prev + 6)}
+                  size="lg"
+                  variant="outline"
+                >
+                  Show More
+                </Button>
+              </div>
+            )}
+          </>
         )}
       </section>
 
