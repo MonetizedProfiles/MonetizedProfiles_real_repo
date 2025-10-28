@@ -77,7 +77,7 @@ export const Header = () => {
         </Link>
         
         <nav className="hidden lg:flex items-center gap-2">
-          <Link to="/product/monetized-youtube-account" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+          <Link to="/product/youtube" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
             Monetized YouTube Accounts
           </Link>
 
@@ -94,8 +94,7 @@ export const Header = () => {
               <MenubarContent align="start" className="min-w-[220px]">
                 {data?.filter(
                   (product) =>
-                    product.node.handle !== "monetized-youtube-channel" &&
-                    product.node.handle !== "monetized-youtube-account" &&
+                    product.node.handle !== "youtube" &&
                     product.node.handle !== "monetized-tiktok-account",
                 ).map((product) => (
                   <MenubarItem key={product.node.id} asChild className="py-3 px-4 text-base cursor-pointer">
@@ -296,7 +295,7 @@ export const Header = () => {
                 
                 <div className="border-t pt-4">
                   <Link 
-                    to="/product/monetized-youtube-account" 
+                    to="/product/youtube" 
                     className="block text-base font-medium hover:text-primary transition-colors py-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -317,8 +316,7 @@ export const Header = () => {
                   <div className="flex flex-col gap-2">
                     {data?.filter(
                       (product) =>
-                        product.node.handle !== "monetized-youtube-channel" &&
-                        product.node.handle !== "monetized-youtube-account" &&
+                        product.node.handle !== "youtube" &&
                         product.node.handle !== "monetized-tiktok-account",
                     ).map((product) => (
                       <Link

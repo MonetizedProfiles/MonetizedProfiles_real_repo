@@ -387,9 +387,20 @@ const Index = () => {
                   gridTemplateColumns: 'none'
                 }}
               >
-                {data.map((product) => (
-                  <ProductCard key={product.node.id} product={product} />
-                ))}
+                {[...data]
+                  .sort((a, b) => {
+                    const priorityOrder = ['youtube', 'monetized-tiktok-account', 'aged-youtube'];
+                    const ia = priorityOrder.indexOf(a.node.handle);
+                    const ib = priorityOrder.indexOf(b.node.handle);
+                    if (ia === -1 && ib === -1) return 0;
+                    if (ia === -1) return 1;
+                    if (ib === -1) return -1;
+                    return ia - ib;
+                  })
+                  .map((product) => (
+                    <ProductCard key={product.node.id} product={product} />
+                  ))}
+
               </div>
             </div>
           </div>
@@ -1035,15 +1046,13 @@ const Index = () => {
                   gridTemplateColumns: 'none'
                 }}
               >
-                {data
-                  .filter((product) => 
-                    product.node.handle === 'monetized-youtube-channel' ||
-                    product.node.handle === 'monetized-tiktok-account' ||
-                    product.node.handle === 'aged-youtube-channel'
-                  )
+                {['youtube', 'monetized-tiktok-account', 'aged-youtube']
+                  .map((handle) => data.find((product) => product.node.handle === handle))
+                  .filter((product): product is ShopifyProduct => Boolean(product))
                   .map((product) => (
                     <ProductCard key={product.node.id} product={product} />
                   ))}
+
               </div>
             </div>
           </div>
