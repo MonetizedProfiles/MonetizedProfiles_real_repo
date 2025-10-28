@@ -52,14 +52,15 @@ export const Footer = () => {
               <li><Link to="/affiliate" className="hover:text-primary transition-colors">Affiliate Program</Link></li>
               <li>
                 <a 
-                  href="https://tiktoktube-emporium-5hkqs.myshopify.com/account/login" 
+                  href="https://1e3fcb-4e.myshopify.com/account/login" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="hover:text-primary transition-colors"
                 >
-                  Affiliate Login
+                  Customer Login
                 </a>
               </li>
+              <li><Link to="/order-tracking" className="hover:text-primary transition-colors">Track Order</Link></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>

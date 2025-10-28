@@ -66,7 +66,7 @@ export const Header = () => {
   };
 
   const handleLogin = () => {
-    window.open('https://tiktoktube-emporium-5hkqs.myshopify.com/account/login', '_blank');
+    window.open('https://1e3fcb-4e.myshopify.com/account/login', '_blank');
   };
 
   return (
@@ -114,6 +114,9 @@ export const Header = () => {
               <MenubarContent align="start" className="min-w-[200px]">
                 <MenubarItem asChild className="py-3 px-4 text-base">
                   <Link to="/contact" className="w-full">Contact Us</Link>
+                </MenubarItem>
+                <MenubarItem asChild className="py-3 px-4 text-base">
+                  <Link to="/order-tracking" className="w-full">Track Order</Link>
                 </MenubarItem>
                 <MenubarItem asChild className="py-3 px-4 text-base">
                   <Link to="/privacy-policy" className="w-full">Privacy Policy</Link>
