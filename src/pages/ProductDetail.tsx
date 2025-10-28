@@ -189,14 +189,22 @@ const ProductDetail = () => {
     }
   }, []);
 
-  const handleRestockEmailSubmit = (e: React.FormEvent) => {
+  const handleRestockEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
       const validated = emailSchema.parse({ email: restockEmail });
       
-      // Here you would typically send this to your backend/database
-      console.log('Restock notification requested for:', validated.email);
+      // Subscribe to Klaviyo with restock interest
+      const { subscribeToKlaviyo } = await import("@/lib/klaviyo");
+      await subscribeToKlaviyo(validated.email, {
+        source: "product_restock_notification",
+        restock_interest: true,
+        product_handle: product?.handle || handle,
+        product_name: product?.title || "",
+      });
+      
+      localStorage.setItem('klaviyo_email', validated.email);
       
       setEmailSubmitted(true);
       toast.success("You're on the list!", {
@@ -208,6 +216,10 @@ const ProductDetail = () => {
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast.error(error.errors[0].message, {
+          position: "top-center",
+        });
+      } else {
+        toast.error("Failed to subscribe. Please try again.", {
           position: "top-center",
         });
       }
