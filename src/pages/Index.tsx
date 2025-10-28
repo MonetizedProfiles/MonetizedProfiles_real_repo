@@ -313,6 +313,12 @@ const Index = () => {
               <Button 
                 size="lg"
                 className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-semibold bg-[#FF2929] hover:bg-[#FF2929]/90 text-white touch-manipulation"
+                onClick={() => {
+                  const featuredSection = document.getElementById('featured-accounts');
+                  if (featuredSection) {
+                    featuredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
               >
                 Browse Accounts
               </Button>
@@ -320,6 +326,12 @@ const Index = () => {
                 size="lg"
                 variant="outline"
                 className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-semibold border-2 touch-manipulation"
+                onClick={() => {
+                  const whyChooseSection = document.getElementById('why-choose');
+                  if (whyChooseSection) {
+                    whyChooseSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
               >
                 Learn More
               </Button>
@@ -329,7 +341,7 @@ const Index = () => {
       </section>
 
       {/* Featured Products Section - 3 Products Display with Scroll */}
-      <section className="py-12 sm:py-20 container mx-auto px-4">
+      <section id="featured-accounts" className="py-12 sm:py-20 container mx-auto px-4">
         <div className="mb-8 sm:mb-12 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Featured Accounts</h2>
           <p className="text-base sm:text-lg text-muted-foreground px-4">Start earning today with our most popular monetized accounts</p>
@@ -418,7 +430,7 @@ const Index = () => {
       </section>
 
       {/* Features Section - Standardized Symmetrical */}
-      <section className="py-12 sm:py-20 bg-background">
+      <section id="why-choose" className="py-12 sm:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="mb-10 sm:mb-12 md:mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Why Choose MonetizedProfiles?</h2>
