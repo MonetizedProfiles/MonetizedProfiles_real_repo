@@ -222,12 +222,12 @@ export const CartDrawer = () => {
                   {isLoading ? (
                     <>
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Creating Checkout...
+                      Preparing Checkout...
                     </>
                   ) : (
                     <>
                       <ExternalLink className="w-4 h-4 mr-2" />
-                      Checkout with Shopify
+                      Proceed to Checkout
                     </>
                   )}
                 </Button>

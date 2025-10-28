@@ -33,81 +33,30 @@ interface CartStore {
   createCheckout: () => Promise<string | null>;
 }
 
-const CART_CREATE_MUTATION = `
-  mutation cartCreate($input: CartInput!) {
-    cartCreate(input: $input) {
-      cart {
-        id
-        checkoutUrl
-        totalQuantity
-        cost {
-          totalAmount {
-            amount
-            currencyCode
-          }
-        }
-        lines(first: 100) {
-          edges {
-            node {
-              id
-              quantity
-              merchandise {
-                ... on ProductVariant {
-                  id
-                  title
-                  price {
-                    amount
-                    currencyCode
-                  }
-                  product {
-                    title
-                    handle
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      userErrors {
-        field
-        message
-      }
-    }
-  }
-`;
+// CheckoutChamp Configuration
+const CHECKOUTCHAMP_CHECKOUT_URL = 'https://checkout.monetizedprofiles.com';
+const CHECKOUTCHAMP_CAMPAIGN_SLUG = 'checkout6';
 
-async function createStorefrontCheckout(items: CartItem[]): Promise<string> {
-  try {
-    const lines = items.map(item => ({
-      quantity: item.quantity,
-      merchandiseId: item.variantId,
-    }));
-
-    const cartData = await storefrontApiRequest(CART_CREATE_MUTATION, {
-      input: {
-        lines,
-      },
-    });
-
-    if (cartData.data.cartCreate.userErrors.length > 0) {
-      throw new Error(`Cart creation failed: ${cartData.data.cartCreate.userErrors.map((e: any) => e.message).join(', ')}`);
-    }
-
-    const cart = cartData.data.cartCreate.cart;
-    
-    if (!cart.checkoutUrl) {
-      throw new Error('No checkout URL returned from Shopify');
-    }
-
-    const url = new URL(cart.checkoutUrl);
-    url.searchParams.set('channel', 'online_store');
-    return url.toString();
-  } catch (error) {
-    console.error('Error creating storefront checkout:', error);
-    throw error;
-  }
+// Helper function to extract numeric variant ID from GraphQL ID
+function extractNumericVariantId(graphqlId: string): string {
+  // Input: "gid://shopify/ProductVariant/49694013129044"
+  // Output: "49694013129044"
+  const parts = graphqlId.split('/');
+  return parts[parts.length - 1];
 }
+
+// Create CheckoutChamp checkout URL
+function createCheckoutChampUrl(items: CartItem[]): string {
+  const productsParam = items
+    .map(item => {
+      const variantId = extractNumericVariantId(item.variantId);
+      return `${variantId}:${item.quantity}`;
+    })
+    .join(',');
+  
+  return `${CHECKOUTCHAMP_CHECKOUT_URL}/${CHECKOUTCHAMP_CAMPAIGN_SLUG}?products=${productsParam}`;
+}
+
 
 export const useCartStore = create<CartStore>()(
   persist(
@@ -184,8 +133,9 @@ export const useCartStore = create<CartStore>()(
 
         setLoading(true);
         try {
-          const checkoutUrl = await createStorefrontCheckout(items);
+          const checkoutUrl = createCheckoutChampUrl(items);
           setCheckoutUrl(checkoutUrl);
+          console.log('CheckoutChamp URL:', checkoutUrl);
           return checkoutUrl;
         } catch (error) {
           console.error('Failed to create checkout:', error);
