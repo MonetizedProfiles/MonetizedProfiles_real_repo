@@ -279,7 +279,7 @@ export const Header = () => {
                 </form>
               </div>
               
-              <nav className="flex flex-col gap-4 mt-4 pb-6 flex-1 overflow-y-auto">
+              <nav className="flex flex-col gap-4 mt-2 pb-6 flex-1 overflow-y-auto">
                 {/* Login Button */}
                 <Button
                   variant="outline"
