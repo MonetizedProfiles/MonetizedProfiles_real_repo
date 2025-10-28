@@ -79,7 +79,7 @@ function createCheckoutChampUrl(items: CartItem[]): string {
       return `${checkoutChampId}:${item.quantity}`;
     })
     .filter(Boolean)
-    .join(',');
+    .join(';'); // Use semicolon separator for multiple products
 
   if (!productsParamRaw) {
     throw new Error('No valid items to send to CheckoutChamp (missing mappings)');
