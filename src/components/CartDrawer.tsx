@@ -34,11 +34,18 @@ export const CartDrawer = () => {
     },
   });
 
-  // Get specific recommended products
-  const recommendedHandles = ['aged-youtube-channel', 'monetized-youtube-channel', 'monetized-tiktok-account'];
-  const recommendedProducts = allProducts?.filter(
-    product => recommendedHandles.includes(product.node.handle)
+  // Define the 3 upsell product handles to cycle through
+  const upsellHandles = ['monetized-youtube-channel', 'monetized-tiktok-account', 'aged-youtube-channel'];
+  
+  // Get products in cart by handle
+  const cartProductHandles = items.map(item => item.product.node.handle);
+  
+  // Filter out products already in cart and get exactly 2 upsell products
+  const availableUpsells = allProducts?.filter(
+    product => upsellHandles.includes(product.node.handle) && !cartProductHandles.includes(product.node.handle)
   ) || [];
+  
+  const upsellProducts = availableUpsells.slice(0, 2);
   
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
@@ -153,12 +160,12 @@ export const CartDrawer = () => {
                 </div>
               </div>
 
-              {/* Recommended Products Upsell */}
-              {recommendedProducts.length > 0 && (
+              {/* Upsell Products - Always show 2 products */}
+              {upsellProducts.length > 0 && (
                 <div className="flex-shrink-0 pt-4 border-t">
-                  <h3 className="font-semibold mb-3 text-sm">Frequently bought together</h3>
+                  <h3 className="font-semibold mb-3 text-sm">You may also like</h3>
                   <div className="space-y-3">
-                    {recommendedProducts.map((product) => {
+                    {upsellProducts.map((product) => {
                       const variant = product.node.variants.edges[0]?.node;
                       const price = parseFloat(variant?.price.amount || '0');
                       
