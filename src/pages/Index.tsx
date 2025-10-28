@@ -1039,7 +1039,7 @@ const Index = () => {
                   .filter((product) => 
                     product.node.handle === 'monetized-youtube-channel' ||
                     product.node.handle === 'monetized-tiktok-account' ||
-                    product.node.handle === 'aged-youtube-channels'
+                    product.node.handle === 'aged-youtube-channel'
                   )
                   .map((product) => (
                     <ProductCard key={product.node.id} product={product} />
