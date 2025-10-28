@@ -8,7 +8,7 @@ import { ShoppingCart, Check, ShieldCheck, Truck, RefreshCw, ChevronLeft, Star, 
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -36,6 +36,9 @@ const ProductDetail = () => {
   const [accountsSoldThisMonth, setAccountsSoldThisMonth] = useState(639 + Math.floor(Math.random() * 10));
   const [restockEmail, setRestockEmail] = useState("");
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftStart, setScrollLeftStart] = useState(0);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -115,6 +118,56 @@ const ProductDetail = () => {
     const timeoutId = setTimeout(incrementMonthlyCounter, initialDelay);
     
     return () => clearTimeout(timeoutId);
+  }, []);
+
+  // Drag to scroll handlers (mobile only)
+  const handleMouseDown = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!scrollContainerRef.current || window.innerWidth >= 640) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeftStart(scrollContainerRef.current.scrollLeft);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.scrollBehavior = 'auto';
+    }
+  }, []);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!scrollContainerRef.current || window.innerWidth >= 640) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeftStart(scrollContainerRef.current.scrollLeft);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.scrollBehavior = 'auto';
+    }
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging || !scrollContainerRef.current || window.innerWidth >= 640) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2.0;
+    scrollContainerRef.current.scrollLeft = scrollLeftStart - walk;
+  }, [isDragging, startX, scrollLeftStart]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isDragging || !scrollContainerRef.current || window.innerWidth >= 640) return;
+    const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2.0;
+    scrollContainerRef.current.scrollLeft = scrollLeftStart - walk;
+  }, [isDragging, startX, scrollLeftStart]);
+
+  const handleMouseUpOrLeave = useCallback(() => {
+    setIsDragging(false);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.scrollBehavior = 'smooth';
+    }
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    setIsDragging(false);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.scrollBehavior = 'smooth';
+    }
   }, []);
 
   const handleRestockEmailSubmit = (e: React.FormEvent) => {
@@ -890,25 +943,25 @@ const ProductDetail = () => {
             <div className="max-w-7xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">You May Also Like</h2>
               
-              <div className="max-w-6xl mx-auto relative px-12">
-                {/* Left scroll button */}
+              <div className="max-w-7xl mx-auto relative">
+                {/* Left scroll button - Hidden on mobile */}
                 {canScrollLeft && (
                   <Button
                     variant="outline"
                     size="icon"
-                    className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-primary hover:bg-primary/90 text-white border-primary shadow-lg"
+                    className="hidden sm:flex absolute left-0 lg:-left-1 top-1/2 -translate-y-1/2 z-10 bg-primary hover:bg-primary/90 text-white border-primary shadow-lg touch-manipulation"
                     onClick={() => scroll('left')}
                   >
                     <ChevronLeft className="h-5 w-5" />
                   </Button>
                 )}
                 
-                {/* Right scroll button */}
+                {/* Right scroll button - Hidden on mobile */}
                 {canScrollRight && (
                   <Button
                     variant="outline"
                     size="icon"
-                    className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-primary hover:bg-primary/90 text-white border-primary shadow-lg"
+                    className="hidden sm:flex absolute right-0 lg:-right-1 top-1/2 -translate-y-1/2 z-10 bg-primary hover:bg-primary/90 text-white border-primary shadow-lg touch-manipulation"
                     onClick={() => scroll('right')}
                   >
                     <ChevronRight className="h-5 w-5" />
@@ -918,15 +971,23 @@ const ProductDetail = () => {
                 {/* Scrollable container */}
                 <div 
                   ref={scrollContainerRef}
-                  className="overflow-x-auto scrollbar-hide scroll-smooth"
+                  className="overflow-hidden scroll-smooth px-0 w-full sm:w-[calc(3*360px+3rem)] mx-auto select-none"
+                  style={{ cursor: window.innerWidth < 640 && isDragging ? 'grabbing' : window.innerWidth < 640 ? 'grab' : 'default' }}
                   onScroll={checkScrollButtons}
-                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUpOrLeave}
+                  onMouseLeave={handleMouseUpOrLeave}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
                 >
                   <div 
-                    className="grid gap-6"
+                    className="grid gap-4 sm:gap-6"
                     style={{ 
                       gridAutoFlow: 'column',
-                      gridAutoColumns: 'calc((100% - 3rem) / 3)'
+                      gridAutoColumns: 'min(360px, 85vw)',
+                      gridTemplateColumns: 'none'
                     }}
                   >
                     {relatedProducts.map((product) => (
