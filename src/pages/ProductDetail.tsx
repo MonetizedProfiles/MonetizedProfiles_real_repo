@@ -621,7 +621,7 @@ const ProductDetail = () => {
       <section className="py-12 sm:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="text-4xl font-bold mb-4">What Our Customers Say</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">What Our Customers Say</h2>
             <p className="text-lg text-muted-foreground">Join hundreds of satisfied content creators</p>
           </div>
 

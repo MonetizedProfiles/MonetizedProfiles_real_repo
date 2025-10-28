@@ -75,7 +75,7 @@ const Blog = () => {
       {/* Blog Header */}
       <section className="py-12 sm:py-16 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Tips, guides, and insights for growing your social media business
           </p>

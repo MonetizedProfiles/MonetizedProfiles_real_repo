@@ -481,7 +481,7 @@ const Index = () => {
       <section className="py-12 sm:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="text-4xl font-bold mb-4">What Our Customers Say</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">What Our Customers Say</h2>
             <p className="text-lg text-muted-foreground">Join hundreds of satisfied content creators</p>
           </div>
 
@@ -801,7 +801,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Risk-Free Purchase Guarantee</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Risk-Free Purchase Guarantee</h2>
               <p className="text-xl text-muted-foreground">Your success is our priority. We stand behind every account we sell.</p>
             </div>
 
@@ -925,7 +925,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 text-foreground">Real Results From Real Creators</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">Real Results From Real Creators</h2>
               <p className="text-xl text-muted-foreground">See how our accounts have transformed content careers</p>
             </div>
 
@@ -1058,7 +1058,7 @@ const Index = () => {
           <div className="max-w-3xl mx-auto">
             {/* Main Pitch */}
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-3 leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-3 leading-tight">
                 Promote Our Accounts.<br />
                 <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
               </h2>

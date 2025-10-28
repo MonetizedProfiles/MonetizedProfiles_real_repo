@@ -54,7 +54,7 @@ const ContactUs = () => {
       <div className="container mx-auto px-4 py-12 sm:py-16 max-w-5xl space-y-12 sm:space-y-20">
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-muted-foreground mb-6">
             We're here to help with any questions or concerns
           </p>

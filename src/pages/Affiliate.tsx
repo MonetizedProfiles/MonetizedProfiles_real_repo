@@ -48,7 +48,7 @@ const Affiliate = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Promote Our Accounts.<br />
               <span className="text-primary">Get Paid Generously.</span>
             </h1>
@@ -66,7 +66,7 @@ const Affiliate = () => {
       <section className="py-12 sm:py-20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Why Partner With Us?
             </h2>
             <p className="text-lg text-muted-foreground">We've perfected the affiliate experience with generous commissions and full support</p>
@@ -122,7 +122,7 @@ const Affiliate = () => {
       <section className="py-12 sm:py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Getting Started Is Easy
             </h2>
             <p className="text-lg text-muted-foreground">Three simple steps to start earning generous commissions</p>
@@ -196,7 +196,7 @@ const Affiliate = () => {
       <section className="py-12 sm:py-20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Your Earnings Potential
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -274,7 +274,7 @@ const Affiliate = () => {
       <section className="py-12 sm:py-20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               What Our Affiliates Are Saying
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -344,7 +344,7 @@ const Affiliate = () => {
       <section className="py-12 sm:py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -415,7 +415,7 @@ const Affiliate = () => {
       <section className="py-12 sm:py-20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               See Our Affiliates In Action
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -625,7 +625,7 @@ const Affiliate = () => {
             <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
               <Mail className="w-10 h-10 text-primary" />
             </div>
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Questions About Our Program?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
@@ -648,7 +648,7 @@ const Affiliate = () => {
           <div className="max-w-4xl mx-auto">
             <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 border-2 hover:shadow-lg transition-shadow">
               <CardContent className="p-12 text-center">
-                <h2 className="text-4xl font-bold mb-4">
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                   Ready To Start Earning?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
