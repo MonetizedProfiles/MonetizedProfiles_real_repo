@@ -18,6 +18,7 @@ import {
 import { ProductCard } from "@/components/ProductCard";
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
+import { StockIndicator } from "@/components/StockIndicator";
 
 const emailSchema = z.object({
   email: z.string().trim().email({ message: "Please enter a valid email address" }).max(255, { message: "Email must be less than 255 characters" })
@@ -360,6 +361,12 @@ const ProductDetail = () => {
                   <p className="text-lg font-medium">Complete ownership transfer with full support</p>
                 </div>
               </div>
+
+              {/* Stock Indicator */}
+              <StockIndicator 
+                productId={product.id} 
+                availableForSale={currentVariant.availableForSale}
+              />
             </div>
 
             {product.options.length > 0 && product.options[0].values.length > 1 && (
