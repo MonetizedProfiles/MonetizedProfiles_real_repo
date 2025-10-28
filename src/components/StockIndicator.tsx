@@ -40,9 +40,9 @@ export const StockIndicator = ({
   };
 
   const getStockMessage = () => {
-    if (current > 50) return "In Stock";
-    if (current > 20) return "Low Stock";
-    return "Almost Gone";
+    if (current >= 5) return "Stock Amount: Medium";
+    if (current >= 3) return "Stock Amount: Low";
+    return "Stock Amount: Extremely Low";
   };
 
   return (
