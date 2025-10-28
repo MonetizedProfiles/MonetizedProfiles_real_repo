@@ -875,24 +875,11 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto">
-            {/* Scrollable container */}
-            <div 
-              className="overflow-x-auto scrollbar-hide scroll-smooth px-4"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-              <div 
-                className="grid gap-4 sm:gap-6"
-                style={{ 
-                  gridAutoFlow: 'column',
-                  gridAutoColumns: 'min(400px, 85vw)',
-                  gridTemplateColumns: 'none'
-                }}
-              >
-                {data.slice(0, 3).map((product) => (
-                  <ProductCard key={product.node.id} product={product} />
-                ))}
-              </div>
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              {data.slice(0, 3).map((product) => (
+                <ProductCard key={product.node.id} product={product} />
+              ))}
             </div>
           </div>
         )}
