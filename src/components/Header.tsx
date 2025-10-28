@@ -333,6 +333,17 @@ export const Header = () => {
                   </div>
                 </div>
 
+                <Link 
+                  to="/affiliate" 
+                  className="relative inline-flex items-center justify-center gap-2 rounded-md px-4 py-3 text-base font-medium bg-gradient-to-r from-[#FF2929]/10 via-[#FF5C8D]/10 to-[#C74DFF]/10 border border-[#FF5C8D]/20"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <Sparkles className="w-4 h-4 text-[#FF5C8D]" />
+                  <span className="bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent">
+                    Affiliate Program
+                  </span>
+                </Link>
+
                 <div className="border-t pt-4">
                   <p className="text-sm font-semibold text-muted-foreground mb-2">Support</p>
                   <div className="flex flex-col gap-2">
@@ -366,17 +377,6 @@ export const Header = () => {
                     </Link>
                   </div>
                 </div>
-
-                <Link 
-                  to="/affiliate" 
-                  className="relative inline-flex items-center justify-center gap-2 rounded-md px-4 py-3 text-base font-medium bg-gradient-to-r from-[#FF2929]/10 via-[#FF5C8D]/10 to-[#C74DFF]/10 border border-[#FF5C8D]/20 mt-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <Sparkles className="w-4 h-4 text-[#FF5C8D]" />
-                  <span className="bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent">
-                    Affiliate Program
-                  </span>
-                </Link>
               </nav>
             </SheetContent>
           </Sheet>
