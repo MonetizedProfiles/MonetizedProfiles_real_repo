@@ -59,7 +59,7 @@ function extractNumericVariantId(graphqlId: string): string {
 
 // Create CheckoutChamp checkout URL
 function createCheckoutChampUrl(items: CartItem[]): string {
-  const productsParam = items
+  const productsParamRaw = items
     .map(item => {
       const shopifyVariantId = extractNumericVariantId(item.variantId);
       const checkoutChampId = VARIANT_TO_CHECKOUTCHAMP_ID[shopifyVariantId];
@@ -80,7 +80,12 @@ function createCheckoutChampUrl(items: CartItem[]): string {
     })
     .filter(Boolean)
     .join(',');
+
+  if (!productsParamRaw) {
+    throw new Error('No valid items to send to CheckoutChamp (missing mappings)');
+  }
   
+  const productsParam = encodeURIComponent(productsParamRaw);
   const url = `${CHECKOUTCHAMP_CHECKOUT_URL}/${CHECKOUTCHAMP_CAMPAIGN_SLUG}?products=${productsParam}`;
   console.log('Generated CheckoutChamp URL:', url);
   return url;
