@@ -5,8 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import logo from "@/assets/logo.png";
+import { subscribeToKlaviyo } from "@/lib/klaviyo";
+import { useState } from "react";
 
 export const Footer = () => {
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  
   const { data } = useQuery({
     queryKey: ['products'],
     queryFn: async () => {
@@ -74,12 +78,24 @@ export const Footer = () => {
         <div className="pt-6 sm:pt-8 border-t max-w-md mx-auto text-center">
           <p className="text-xs sm:text-sm text-muted-foreground mb-3 px-4">Get notified about restocking and exclusive offers</p>
           <form 
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
               const formData = new FormData(e.currentTarget);
-              const email = formData.get('email');
-              toast.success("Thanks for subscribing!");
-              e.currentTarget.reset();
+              const email = formData.get('email') as string;
+              
+              setIsSubscribing(true);
+              try {
+                await subscribeToKlaviyo(email, {
+                  source: "footer_newsletter"
+                });
+                localStorage.setItem('klaviyo_email', email);
+                toast.success("Thanks for subscribing! Check your email.");
+                e.currentTarget.reset();
+              } catch (error) {
+                toast.error("Failed to subscribe. Please try again.");
+              } finally {
+                setIsSubscribing(false);
+              }
             }}
             className="flex flex-col sm:flex-row gap-2 px-4"
           >
@@ -88,9 +104,12 @@ export const Footer = () => {
               name="email"
               placeholder="Enter your email" 
               required 
+              disabled={isSubscribing}
               className="flex-1 h-10 sm:h-9 text-sm"
             />
-            <Button type="submit" size="sm" className="h-10 sm:h-9 touch-manipulation">Subscribe</Button>
+            <Button type="submit" size="sm" className="h-10 sm:h-9 touch-manipulation" disabled={isSubscribing}>
+              {isSubscribing ? "Subscribing..." : "Subscribe"}
+            </Button>
           </form>
         </div>
         

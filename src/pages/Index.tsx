@@ -234,11 +234,21 @@ const Index = () => {
     }
   }, []);
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      toast.success("Thanks! We'll notify you when products are restocked.");
-      setEmail("");
+      try {
+        const { subscribeToKlaviyo } = await import("@/lib/klaviyo");
+        await subscribeToKlaviyo(email, {
+          source: "restock_notification",
+          restock_interest: true
+        });
+        localStorage.setItem('klaviyo_email', email);
+        toast.success("Thanks! We'll notify you when products are restocked.");
+        setEmail("");
+      } catch (error) {
+        toast.error("Failed to subscribe. Please try again.");
+      }
     }
   };
 

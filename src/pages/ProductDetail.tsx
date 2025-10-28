@@ -44,7 +44,26 @@ const ProductDetail = () => {
     queryKey: ['product', handle],
     queryFn: async () => {
       const response = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
-      return response.data.productByHandle;
+      const productData = response.data.productByHandle;
+      
+      // Track product view (anonymous - no email needed for browsing)
+      // Only track if we have a stored email from previous interaction
+      const storedEmail = localStorage.getItem('klaviyo_email');
+      if (storedEmail && productData) {
+        try {
+          const { trackKlaviyoEvent } = await import("@/lib/klaviyo");
+          await trackKlaviyoEvent(storedEmail, "Viewed Product", {
+            product_name: productData.title,
+            product_handle: productData.handle,
+            product_price: productData.variants?.edges?.[0]?.node?.price?.amount || "0",
+            currency: productData.variants?.edges?.[0]?.node?.price?.currencyCode || "USD",
+          });
+        } catch (error) {
+          console.error("Failed to track product view:", error);
+        }
+      }
+      
+      return productData;
     },
     enabled: !!handle,
   });

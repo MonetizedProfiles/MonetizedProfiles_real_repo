@@ -132,6 +132,23 @@ export const useCartStore = create<CartStore>()(
         } else {
           set({ items: [...items, item] });
         }
+
+        // Track add to cart event (if email available)
+        const storedEmail = localStorage.getItem('klaviyo_email');
+        if (storedEmail) {
+          import("@/lib/klaviyo").then(({ trackKlaviyoEvent }) => {
+            trackKlaviyoEvent(storedEmail, "Added to Cart", {
+              product_name: item.product.node.title,
+              product_handle: item.product.node.handle,
+              variant_title: item.variantTitle,
+              price: item.price.amount,
+              currency: item.price.currencyCode,
+              quantity: item.quantity,
+            }).catch(error => {
+              console.error("Failed to track add to cart:", error);
+            });
+          });
+        }
       },
 
       updateQuantity: (variantId, quantity) => {
