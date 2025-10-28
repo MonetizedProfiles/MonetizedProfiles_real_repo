@@ -249,15 +249,15 @@ export const Header = () => {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
-              <SheetHeader className="sticky top-0 bg-background pb-4 z-10">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto flex flex-col">
+              <SheetHeader className="flex-shrink-0">
                 <SheetTitle>
                   <img src={logo} alt="MonetizedProfiles" className="h-8" />
                 </SheetTitle>
               </SheetHeader>
               
               {/* Mobile Search */}
-              <div className="mt-6">
+              <div className="mt-6 flex-shrink-0">
                 <form onSubmit={(e) => {
                   e.preventDefault();
                   if (searchQuery.trim()) {
@@ -279,11 +279,11 @@ export const Header = () => {
                 </form>
               </div>
               
-              <nav className="flex flex-col gap-4 pb-6">
+              <nav className="flex flex-col gap-4 mt-4 pb-6 flex-1 overflow-y-auto">
                 {/* Login Button */}
                 <Button
                   variant="outline"
-                  className="w-full justify-start gap-2"
+                  className="w-full justify-start gap-2 mt-2"
                   onClick={() => {
                     handleLogin();
                     setIsMobileMenuOpen(false);
