@@ -34,8 +34,8 @@ export const StockIndicator = ({
   }
 
   const getStockColor = () => {
-    if (percentage > 40) return "text-primary";
-    if (percentage > 20) return "text-orange-500";
+    if (current >= 7) return "text-yellow-500";
+    if (current >= 4) return "text-orange-500";
     return "text-destructive";
   };
 
