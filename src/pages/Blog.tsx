@@ -1,14 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Calendar, ArrowRight } from "lucide-react";
-
-// Shopify Blog API setup
-const SHOPIFY_API_VERSION = '2025-07';
-const SHOPIFY_STORE_PERMANENT_DOMAIN = import.meta.env.VITE_SHOPIFY_STORE_PERMANENT_DOMAIN || 'your-store.myshopify.com';
-const SHOPIFY_STOREFRONT_TOKEN = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || '';
-const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
+import { storefrontApiRequest } from "@/lib/shopify";
 
 const BLOG_QUERY = `
   query GetBlogPosts($first: Int!) {
@@ -34,37 +28,11 @@ const BLOG_QUERY = `
   }
 `;
 
-async function fetchBlogPosts(query: string, variables: any = {}) {
-  const response = await fetch(SHOPIFY_STOREFRONT_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-
-  const data = await response.json();
-  
-  if (data.errors) {
-    throw new Error(`Error fetching blog posts: ${data.errors.map((e: any) => e.message).join(', ')}`);
-  }
-
-  return data;
-}
-
 const Blog = () => {
   const { data, isLoading } = useQuery({
     queryKey: ['blog-posts'],
     queryFn: async () => {
-      const response = await fetchBlogPosts(BLOG_QUERY, { first: 20 });
+      const response = await storefrontApiRequest(BLOG_QUERY, { first: 20 });
       return response.data.articles.edges;
     },
   });
@@ -129,12 +97,10 @@ const Blog = () => {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="line-clamp-3 mb-4">
-                    {article.node.excerpt || article.node.content.substring(0, 150) + '...'}
+                    {article.node.excerpt || (article.node.content ? article.node.content.substring(0, 150) + '...' : '')}
                   </CardDescription>
                   <a 
-                    href={`https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/blogs/${article.node.blog.handle}/${article.node.handle}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`/blog/${article.node.handle}`}
                     className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium"
                   >
                     Read More
