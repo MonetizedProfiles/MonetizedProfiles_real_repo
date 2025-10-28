@@ -41,8 +41,13 @@ export const StockIndicator = ({
 
   const getProgressBarColor = () => {
     if (current >= 7) return "[&>div]:bg-yellow-500";
-    if (current >= 4) return "[&>div]:bg-orange-500";
-    return "[&>div]:bg-destructive";
+    if (current >= 4) return "[&>div]:bg-orange-500 [&>div]:animate-pulse";
+    return "[&>div]:bg-destructive [&>div]:animate-pulse";
+  };
+
+  const getTextAnimation = () => {
+    if (current >= 7) return "";
+    return "animate-pulse";
   };
 
   const getStockMessage = () => {
@@ -55,12 +60,12 @@ export const StockIndicator = ({
     <div className={`${variant === "compact" ? "py-2" : "p-4"} rounded-lg bg-secondary/30 border border-border/50`}>
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <PackageCheck className={`w-4 h-4 ${getStockColor()}`} />
-          <span className={`font-medium ${getStockColor()} ${variant === "compact" ? "text-xs" : "text-sm"}`}>
+          <PackageCheck className={`w-4 h-4 ${getStockColor()} ${getTextAnimation()}`} />
+          <span className={`font-medium ${getStockColor()} ${variant === "compact" ? "text-xs" : "text-sm"} ${getTextAnimation()}`}>
             {getStockMessage()}
           </span>
         </div>
-        <span className={`${variant === "compact" ? "text-xs" : "text-sm"} text-muted-foreground`}>
+        <span className={`${variant === "compact" ? "text-xs" : "text-sm"} text-muted-foreground ${getTextAnimation()}`}>
           {current} left
         </span>
       </div>
