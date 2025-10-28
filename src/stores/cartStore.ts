@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import { ShopifyProduct, storefrontApiRequest } from '@/lib/shopify';
+import { appendTrackingParams } from '@/lib/tracking';
 
 export interface CartItem {
   product: ShopifyProduct;
@@ -88,8 +89,11 @@ function createCheckoutChampUrl(items: CartItem[]): string {
   }
   
   const productsParam = encodeURIComponent(productsParamRaw);
-  const url = `${CHECKOUTCHAMP_CHECKOUT_URL}/${CHECKOUTCHAMP_CAMPAIGN_SLUG}?products=${productsParam}`;
-  console.log('Generated CheckoutChamp URL:', url);
+  const baseUrl = `${CHECKOUTCHAMP_CHECKOUT_URL}/${CHECKOUTCHAMP_CAMPAIGN_SLUG}?products=${productsParam}`;
+  
+  // Append Everflow tracking parameters
+  const url = appendTrackingParams(baseUrl);
+  console.log('Generated CheckoutChamp URL with tracking:', url);
   return url;
 }
 
