@@ -140,13 +140,13 @@ const Index = () => {
     <div className="bg-background">`
 
       {/* Hero Section - Modern SaaS Minimal */}
-      <section className="relative pt-24 pb-32 md:pt-32 md:pb-40 overflow-hidden bg-background">
+      <section className="relative pt-16 pb-20 md:pt-24 md:pb-32 lg:pt-32 lg:pb-40 overflow-hidden bg-background">
         {/* Subtle background */}
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-background to-background" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto text-center relative">
-            {/* Floating Icons with Glow */}
+            {/* Floating Icons with Glow - Hidden on mobile */}
             <div className="absolute -left-20 top-16 hidden lg:block animate-float" style={{ animationDelay: '0s' }}>
               <TrendingUp className="w-12 h-12 text-[#FF2929]" style={{ filter: 'drop-shadow(0 0 20px rgba(255, 41, 41, 0.6))' }} />
             </div>
@@ -167,19 +167,19 @@ const Index = () => {
             </div>
             
             {/* Badges */}
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary rounded-full text-sm font-medium">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 bg-secondary rounded-full text-xs sm:text-sm font-medium">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#FF2929] animate-pulse" />
-                <span>{accountsSold.toLocaleString()}+ accounts sold</span>
+                <span>{accountsSold.toLocaleString()}+ sold</span>
               </div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary rounded-full text-sm font-medium">
-                <Star className="w-4 h-4 fill-[#FFD700] text-[#FFD700]" />
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 bg-secondary rounded-full text-xs sm:text-sm font-medium">
+                <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-[#FFD700] text-[#FFD700]" />
                 <span>4.8 rating</span>
               </div>
             </div>
 
             {/* Big Animated Gradient Headline */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 sm:mb-8 leading-tight px-2">
               <span className="block mb-2">Monetized Accounts,</span>
               <span className="block bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent animate-gradient-flow" style={{ backgroundSize: "200% auto" }}>
                 Instant Revenue
@@ -187,23 +187,23 @@ const Index = () => {
             </h1>
 
             {/* Simple subtitle */}
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-3xl mx-auto px-4">
               Buy verified social media accounts and start earning immediately. 
               No waiting, no building from scratch.
             </p>
 
             {/* Clean CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <Button 
                 size="lg"
-                className="px-10 py-6 text-lg font-semibold bg-[#FF2929] hover:bg-[#FF2929]/90 text-white"
+                className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-semibold bg-[#FF2929] hover:bg-[#FF2929]/90 text-white touch-manipulation"
               >
                 Browse Accounts
               </Button>
               <Button 
                 size="lg"
                 variant="outline"
-                className="px-10 py-6 text-lg font-semibold border-2"
+                className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg font-semibold border-2 touch-manipulation"
               >
                 Learn More
               </Button>
@@ -213,10 +213,10 @@ const Index = () => {
       </section>
 
       {/* Featured Products Section - 3 Products Display with Scroll */}
-      <section className="py-20 container mx-auto px-4">
-        <div className="mb-12 text-center">
-          <h2 className="text-4xl font-bold mb-4 text-foreground">Featured Accounts</h2>
-          <p className="text-lg text-muted-foreground">Start earning today with our most popular monetized accounts</p>
+      <section className="py-12 sm:py-16 md:py-20 container mx-auto px-4">
+        <div className="mb-8 sm:mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Featured Accounts</h2>
+          <p className="text-base sm:text-lg text-muted-foreground px-4">Start earning today with our most popular monetized accounts</p>
         </div>
 
         {isLoading ? (
@@ -234,25 +234,25 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto relative px-12">
-            {/* Left scroll button */}
+          <div className="max-w-6xl mx-auto relative px-4 sm:px-8 md:px-12">
+            {/* Left scroll button - Hidden on mobile */}
             {canScrollLeft && (
               <Button
                 variant="outline"
                 size="icon"
-                className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
+                className="hidden sm:flex absolute -left-2 md:-left-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg touch-manipulation"
                 onClick={() => scroll('left')}
               >
                 <ChevronLeft className="h-5 w-5" />
               </Button>
             )}
             
-            {/* Right scroll button */}
+            {/* Right scroll button - Hidden on mobile */}
             {canScrollRight && (
               <Button
                 variant="outline"
                 size="icon"
-                className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg"
+                className="hidden sm:flex absolute -right-2 md:-right-4 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg touch-manipulation"
                 onClick={() => scroll('right')}
               >
                 <ChevronRight className="h-5 w-5" />
@@ -262,15 +262,16 @@ const Index = () => {
             {/* Scrollable container */}
             <div 
               ref={scrollContainerRef}
-              className="overflow-x-auto scrollbar-hide scroll-smooth"
+              className="overflow-x-auto scrollbar-hide scroll-smooth -mx-4 px-4 sm:mx-0 sm:px-0"
               onScroll={checkScrollButtons}
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               <div 
-                className="grid gap-6"
+                className="grid gap-4 sm:gap-6"
                 style={{ 
                   gridAutoFlow: 'column',
-                  gridAutoColumns: 'calc((100% - 3rem) / 3)'
+                  gridAutoColumns: 'min(85vw, 350px) min(calc((100% - 1.5rem) / 2), 350px) min(calc((100% - 3rem) / 3), 350px)',
+                  gridTemplateColumns: 'none'
                 }}
               >
                 {data.map((product) => (
@@ -283,14 +284,14 @@ const Index = () => {
       </section>
 
       {/* Features Section - Standardized Symmetrical */}
-      <section className="py-20 bg-background">
+      <section className="py-12 sm:py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Why Choose MonetizedProfiles?</h2>
-            <p className="text-lg text-muted-foreground">We've perfected the process of transferring monetized accounts safely and securely</p>
+          <div className="mb-10 sm:mb-12 md:mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Why Choose MonetizedProfiles?</h2>
+            <p className="text-base sm:text-lg text-muted-foreground px-4">We've perfected the process of transferring monetized accounts safely and securely</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {/* Card 1 */}
             <Card className="bg-card border-2 hover:border-primary/50 transition-all hover:shadow-lg">
               <CardHeader className="text-center space-y-4 pb-3">
@@ -345,10 +346,10 @@ const Index = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12 px-4">
             <Button 
               size="lg" 
-              className="text-lg h-14 px-8"
+              className="w-full sm:w-auto text-base sm:text-lg h-12 sm:h-14 px-6 sm:px-8 touch-manipulation"
               onClick={() => {
                 const productsSection = document.getElementById('products');
                 if (productsSection) {
@@ -356,7 +357,7 @@ const Index = () => {
                 }
               }}
             >
-              <ShoppingCart className="w-5 h-5 mr-2" />
+              <ShoppingCart className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
               Browse Available Accounts
             </Button>
           </div>

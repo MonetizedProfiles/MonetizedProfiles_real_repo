@@ -59,17 +59,17 @@ export const CartDrawer = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="outline" size="icon" className="relative">
-          <ShoppingCart className="h-5 w-5" />
+        <Button variant="outline" size="icon" className="relative h-9 w-9 sm:h-10 sm:w-10">
+          <ShoppingCart className="h-4 sm:h-5 w-4 sm:w-5" />
           {totalItems > 0 && (
-            <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-primary">
+            <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] sm:text-xs bg-primary">
               {totalItems}
             </Badge>
           )}
         </Button>
       </SheetTrigger>
       
-      <SheetContent className="w-full sm:max-w-lg flex flex-col h-full">
+      <SheetContent className="w-full sm:max-w-lg flex flex-col h-full p-4 sm:p-6">
         <SheetHeader className="flex-shrink-0">
           <SheetTitle>Shopping Cart</SheetTitle>
           <SheetDescription>

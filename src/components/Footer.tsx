@@ -16,9 +16,9 @@ export const Footer = () => {
   });
 
   return (
-    <footer className="bg-secondary/50 border-t mt-20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+    <footer className="bg-secondary/50 border-t mt-12 sm:mt-16 md:mt-20">
+      <div className="container mx-auto px-4 py-8 sm:py-10 md:py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
             <Link to="/" className="inline-block mb-4">
               <img src={logo} alt="MonetizedProfiles" className="h-8" />
@@ -71,8 +71,8 @@ export const Footer = () => {
         </div>
 
         {/* Email Capture */}
-        <div className="pt-8 border-t max-w-md mx-auto text-center">
-          <p className="text-sm text-muted-foreground mb-3">Get notified about restocking and exclusive offers</p>
+        <div className="pt-6 sm:pt-8 border-t max-w-md mx-auto text-center">
+          <p className="text-xs sm:text-sm text-muted-foreground mb-3 px-4">Get notified about restocking and exclusive offers</p>
           <form 
             onSubmit={(e) => {
               e.preventDefault();
@@ -81,16 +81,16 @@ export const Footer = () => {
               toast.success("Thanks for subscribing!");
               e.currentTarget.reset();
             }}
-            className="flex gap-2"
+            className="flex flex-col sm:flex-row gap-2 px-4"
           >
             <Input 
               type="email" 
               name="email"
               placeholder="Enter your email" 
               required 
-              className="flex-1"
+              className="flex-1 h-10 sm:h-9 text-sm"
             />
-            <Button type="submit" size="sm">Subscribe</Button>
+            <Button type="submit" size="sm" className="h-10 sm:h-9 touch-manipulation">Subscribe</Button>
           </form>
         </div>
         

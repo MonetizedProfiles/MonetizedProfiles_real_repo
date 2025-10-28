@@ -69,12 +69,12 @@ export const Header = () => {
 
   return (
     <header className="border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
         <Link to="/" className="flex-shrink-0">
-          <img src={logo} alt="MonetizedProfiles" className="h-8" />
+          <img src={logo} alt="MonetizedProfiles" className="h-6 sm:h-8" />
         </Link>
         
-        <nav className="hidden md:flex items-center gap-2">
+        <nav className="hidden lg:flex items-center gap-2">
           <Link to="/product/monetized-youtube-channel" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
             Monetized YouTube Channels
           </Link>
@@ -135,15 +135,16 @@ export const Header = () => {
           </Link>
         </nav>
         
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
             <DialogTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
                 title="Search"
+                className="h-9 w-9 sm:h-10 sm:w-10"
               >
-                <Search className="h-5 w-5" />
+                <Search className="h-4 sm:h-5 w-4 sm:w-5" />
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl max-h-[80vh] flex flex-col">
@@ -228,8 +229,9 @@ export const Header = () => {
             size="icon"
             onClick={handleLogin}
             title="Login"
+            className="h-9 w-9 sm:h-10 sm:w-10"
           >
-            <User className="h-5 w-5" />
+            <User className="h-4 sm:h-5 w-4 sm:w-5" />
           </Button>
           
           <CartDrawer />

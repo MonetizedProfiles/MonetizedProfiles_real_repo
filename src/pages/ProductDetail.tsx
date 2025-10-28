@@ -195,10 +195,10 @@ const ProductDetail = () => {
       </div>
 
       {/* Product Hero Section */}
-      <section className="container mx-auto px-4 py-8 md:py-12">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
+      <section className="container mx-auto px-4 py-6 sm:py-8 md:py-12">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 max-w-7xl mx-auto">
           {/* Image Gallery */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <div className="aspect-square rounded-lg overflow-hidden bg-secondary/20 border border-border/50 relative">
               {images.length > 0 ? (
                 <img 
@@ -238,25 +238,25 @@ const ProductDetail = () => {
           </div>
 
           {/* Product Info */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div>
-              <h1 className="text-3xl md:text-5xl font-bold mb-4">{product.title}</h1>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">{product.title}</h1>
               
-              <div className="flex items-center gap-2 mb-6">
+              <div className="flex items-center gap-2 mb-4 sm:mb-6">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                    <Star key={i} className="w-4 sm:w-5 h-4 sm:h-5 fill-primary text-primary" />
                   ))}
                 </div>
-                <span className="text-muted-foreground">4.8 (500+ reviews)</span>
+                <span className="text-sm sm:text-base text-muted-foreground">4.8 (500+ reviews)</span>
               </div>
 
-              <div className="flex items-baseline gap-3 mb-6">
-                <p className="text-5xl font-bold text-primary">
+              <div className="flex items-baseline gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary">
                   ${price.toFixed(2)}
                 </p>
                 {currentVariant.compareAtPrice && parseFloat(currentVariant.compareAtPrice.amount) > price && (
-                  <p className="text-2xl text-muted-foreground line-through">
+                  <p className="text-xl sm:text-2xl text-muted-foreground line-through">
                     ${parseFloat(currentVariant.compareAtPrice.amount).toFixed(2)}
                   </p>
                 )}
@@ -298,20 +298,20 @@ const ProductDetail = () => {
 
             <Button 
               size="lg" 
-              className="w-full text-lg h-16"
+              className="w-full text-base sm:text-lg h-14 sm:h-16 touch-manipulation"
               onClick={handleAddToCart}
               disabled={added || !currentVariant.availableForSale}
             >
               {added ? (
                 <>
-                  <Check className="w-5 h-5 mr-2" />
+                  <Check className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                   Added to Cart
                 </>
               ) : !currentVariant.availableForSale ? (
                 "Out of Stock"
               ) : (
                 <>
-                  <ShoppingCart className="w-5 h-5 mr-2" />
+                  <ShoppingCart className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                   Add to Cart - ${price.toFixed(2)}
                 </>
               )}
@@ -346,18 +346,18 @@ const ProductDetail = () => {
               </form>
             </div>
 
-            <div className="grid grid-cols-3 gap-3 pt-4">
-              <div className="text-center p-3 rounded-lg bg-secondary/30">
-                <ShieldCheck className="w-6 h-6 text-primary mx-auto mb-2" />
-                <span className="text-xs font-medium">Secure Checkout</span>
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-4">
+              <div className="text-center p-2 sm:p-3 rounded-lg bg-secondary/30">
+                <ShieldCheck className="w-5 sm:w-6 h-5 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
+                <span className="text-[10px] sm:text-xs font-medium">Secure Checkout</span>
               </div>
-              <div className="text-center p-3 rounded-lg bg-secondary/30">
-                <Truck className="w-6 h-6 text-primary mx-auto mb-2" />
-                <span className="text-xs font-medium">Instant Delivery</span>
+              <div className="text-center p-2 sm:p-3 rounded-lg bg-secondary/30">
+                <Truck className="w-5 sm:w-6 h-5 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
+                <span className="text-[10px] sm:text-xs font-medium">Instant Delivery</span>
               </div>
-              <div className="text-center p-3 rounded-lg bg-secondary/30">
-                <RefreshCw className="w-6 h-6 text-primary mx-auto mb-2" />
-                <span className="text-xs font-medium">24/7 Support</span>
+              <div className="text-center p-2 sm:p-3 rounded-lg bg-secondary/30">
+                <RefreshCw className="w-5 sm:w-6 h-5 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
+                <span className="text-[10px] sm:text-xs font-medium">24/7 Support</span>
               </div>
             </div>
           </div>
