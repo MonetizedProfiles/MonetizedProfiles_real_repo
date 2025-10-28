@@ -140,7 +140,7 @@ const Index = () => {
     <div className="bg-background">`
 
       {/* Hero Section - Modern SaaS Minimal */}
-      <section className="relative pt-16 pb-20 md:pt-24 md:pb-32 lg:pt-32 lg:pb-40 overflow-hidden bg-background">
+      <section className="relative pt-12 pb-20 md:pt-24 md:pb-32 lg:pt-32 lg:pb-40 overflow-hidden bg-background">
         {/* Subtle background */}
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-background to-background" />
         
@@ -180,7 +180,7 @@ const Index = () => {
 
             {/* Big Animated Gradient Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 sm:mb-8 leading-tight px-2">
-              <span className="block mb-2">Monetized Accounts,</span>
+              <span className="block mb-1 sm:mb-2">Monetized Accounts,</span>
               <span className="block bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent animate-gradient-flow" style={{ backgroundSize: "200% auto" }}>
                 Instant Revenue
               </span>
