@@ -101,8 +101,10 @@ export const CartDrawer = () => {
             </div>
           ) : (
             <>
-              <div className="flex-1 overflow-y-auto pr-2 min-h-0 max-h-[40vh]">
-                <div className="space-y-4">
+              {/* Scrollable area for cart items + upsells */}
+              <div className="flex-1 overflow-y-auto pr-2 min-h-0">
+                {/* Cart Items */}
+                <div className="space-y-4 mb-4">
                   {items.map((item) => (
                     <div key={item.variantId} className="flex gap-4 p-2">
                       <div className="w-16 h-16 bg-secondary/20 rounded-md overflow-hidden flex-shrink-0">
@@ -158,69 +160,70 @@ export const CartDrawer = () => {
                     </div>
                   ))}
                 </div>
-              </div>
 
-              {/* Upsell Products - Always show 2 products */}
-              {upsellProducts.length > 0 && (
-                <div className="flex-shrink-0 pt-4 border-t">
-                  <h3 className="font-semibold mb-3 text-sm">You may also like</h3>
-                  <div className="space-y-3">
-                    {upsellProducts.map((product) => {
-                      const variant = product.node.variants.edges[0]?.node;
-                      const price = parseFloat(variant?.price.amount || '0');
-                      
-                      return (
-                        <div key={product.node.id} className="flex gap-3 p-2 rounded-lg hover:bg-secondary/20 transition-colors">
-                          <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)} className="flex-shrink-0">
-                            <div className="w-14 h-14 bg-secondary/20 rounded-md overflow-hidden">
-                              {product.node.images?.edges?.[0]?.node && (
-                                <img
-                                  src={product.node.images.edges[0].node.url}
-                                  alt={product.node.title}
-                                  className="w-full h-full object-cover"
-                                />
-                              )}
-                            </div>
-                          </Link>
-                          
-                          <div className="flex-1 min-w-0">
-                            <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)}>
-                              <h4 className="font-medium text-sm truncate hover:text-primary transition-colors">
-                                {product.node.title}
-                              </h4>
+                {/* Upsell Products - Always show exactly 2 products */}
+                {upsellProducts.length >= 2 && (
+                  <div className="pt-4 border-t">
+                    <h3 className="font-semibold mb-3 text-sm">You may also like</h3>
+                    <div className="space-y-3">
+                      {upsellProducts.slice(0, 2).map((product) => {
+                        const variant = product.node.variants.edges[0]?.node;
+                        const price = parseFloat(variant?.price.amount || '0');
+                        
+                        return (
+                          <div key={product.node.id} className="flex gap-3 p-2 rounded-lg hover:bg-secondary/20 transition-colors">
+                            <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)} className="flex-shrink-0">
+                              <div className="w-14 h-14 bg-secondary/20 rounded-md overflow-hidden">
+                                {product.node.images?.edges?.[0]?.node && (
+                                  <img
+                                    src={product.node.images.edges[0].node.url}
+                                    alt={product.node.title}
+                                    className="w-full h-full object-cover"
+                                  />
+                                )}
+                              </div>
                             </Link>
-                            <p className="text-sm font-semibold">
-                              ${price.toFixed(2)}
-                            </p>
+                            
+                            <div className="flex-1 min-w-0">
+                              <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)}>
+                                <h4 className="font-medium text-sm truncate hover:text-primary transition-colors">
+                                  {product.node.title}
+                                </h4>
+                              </Link>
+                              <p className="text-sm font-semibold">
+                                ${price.toFixed(2)}
+                              </p>
+                            </div>
+                            
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="flex-shrink-0 h-8"
+                              onClick={() => {
+                                if (variant) {
+                                  addItem({
+                                    product,
+                                    variantId: variant.id,
+                                    variantTitle: variant.title,
+                                    price: variant.price,
+                                    quantity: 1,
+                                    selectedOptions: variant.selectedOptions || []
+                                  });
+                                }
+                              }}
+                            >
+                              Add
+                            </Button>
                           </div>
-                          
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="flex-shrink-0 h-8"
-                            onClick={() => {
-                              if (variant) {
-                                addItem({
-                                  product,
-                                  variantId: variant.id,
-                                  variantTitle: variant.title,
-                                  price: variant.price,
-                                  quantity: 1,
-                                  selectedOptions: variant.selectedOptions || []
-                                });
-                              }
-                            }}
-                          >
-                            Add
-                          </Button>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
               
-              <div className="flex-shrink-0 space-y-4 pt-4 border-t bg-background">
+              {/* Fixed checkout section at bottom */}
+              <div className="flex-shrink-0 space-y-4 pt-4 border-t bg-background mt-4">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-semibold">Total</span>
                   <span className="text-xl font-bold">
