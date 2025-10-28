@@ -364,7 +364,7 @@ const ProductDetail = () => {
 
               {/* Stock Indicator */}
               <StockIndicator 
-                productId={product.id} 
+                quantityAvailable={currentVariant.quantityAvailable} 
                 availableForSale={currentVariant.availableForSale}
               />
             </div>

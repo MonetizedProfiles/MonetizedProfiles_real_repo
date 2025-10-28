@@ -1,31 +1,24 @@
-import { useState, useEffect } from "react";
 import { Progress } from "@/components/ui/progress";
 import { PackageCheck } from "lucide-react";
 
 interface StockIndicatorProps {
-  productId: string;
+  quantityAvailable: number | null;
   availableForSale: boolean;
   variant?: "default" | "compact";
 }
 
 export const StockIndicator = ({ 
-  productId, 
+  quantityAvailable, 
   availableForSale,
   variant = "default" 
 }: StockIndicatorProps) => {
-  const [stockData, setStockData] = useState({ current: 0, max: 0, percentage: 0 });
-
-  useEffect(() => {
-    // Generate consistent stock levels based on product ID
-    const hash = productId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-    const max = 50 + (hash % 100); // Stock between 50-150
-    const current = availableForSale 
-      ? Math.max(5, Math.floor(max * (0.15 + (hash % 40) / 100))) // 15-55% remaining
-      : 0;
-    const percentage = availableForSale ? (current / max) * 100 : 0;
-    
-    setStockData({ current, max, percentage });
-  }, [productId, availableForSale]);
+  // Use real Shopify inventory data
+  const current = quantityAvailable ?? 0;
+  
+  // Calculate percentage based on a realistic max stock assumption
+  // For display purposes, assume max stock is 150 or 3x current stock (whichever is higher)
+  const estimatedMax = Math.max(150, current * 3);
+  const percentage = availableForSale && current > 0 ? (current / estimatedMax) * 100 : 0;
 
   if (!availableForSale) {
     return (
@@ -41,14 +34,14 @@ export const StockIndicator = ({
   }
 
   const getStockColor = () => {
-    if (stockData.percentage > 40) return "bg-primary";
-    if (stockData.percentage > 20) return "text-orange-500";
+    if (percentage > 40) return "text-primary";
+    if (percentage > 20) return "text-orange-500";
     return "text-destructive";
   };
 
   const getStockMessage = () => {
-    if (stockData.percentage > 40) return "In Stock";
-    if (stockData.percentage > 20) return "Low Stock";
+    if (current > 50) return "In Stock";
+    if (current > 20) return "Low Stock";
     return "Almost Gone";
   };
 
@@ -62,11 +55,11 @@ export const StockIndicator = ({
           </span>
         </div>
         <span className={`${variant === "compact" ? "text-xs" : "text-sm"} text-muted-foreground`}>
-          {stockData.current} left
+          {current} left
         </span>
       </div>
       <Progress 
-        value={stockData.percentage} 
+        value={percentage} 
         className={`h-2 ${variant === "compact" ? "h-1.5" : "h-2"}`}
       />
     </div>
