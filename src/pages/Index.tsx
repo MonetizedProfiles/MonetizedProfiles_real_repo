@@ -26,6 +26,9 @@ const Index = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeftStart, setScrollLeftStart] = useState(0);
+  const [isDraggingBest, setIsDraggingBest] = useState(false);
+  const [startXBest, setStartXBest] = useState(0);
+  const [scrollLeftStartBest, setScrollLeftStartBest] = useState(0);
   
   const { data, isLoading } = useQuery({
     queryKey: ['products'],
@@ -178,6 +181,56 @@ const Index = () => {
     setIsDragging(false);
     if (scrollContainerRef.current) {
       scrollContainerRef.current.style.scrollBehavior = 'smooth';
+    }
+  }, []);
+
+  // Drag to scroll handlers for Best Selling (mobile only)
+  const handleMouseDownBest = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!scrollContainerRefBest.current || window.innerWidth >= 640) return;
+    setIsDraggingBest(true);
+    setStartXBest(e.pageX - scrollContainerRefBest.current.offsetLeft);
+    setScrollLeftStartBest(scrollContainerRefBest.current.scrollLeft);
+    if (scrollContainerRefBest.current) {
+      scrollContainerRefBest.current.style.scrollBehavior = 'auto';
+    }
+  }, []);
+
+  const handleTouchStartBest = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!scrollContainerRefBest.current || window.innerWidth >= 640) return;
+    setIsDraggingBest(true);
+    setStartXBest(e.touches[0].pageX - scrollContainerRefBest.current.offsetLeft);
+    setScrollLeftStartBest(scrollContainerRefBest.current.scrollLeft);
+    if (scrollContainerRefBest.current) {
+      scrollContainerRefBest.current.style.scrollBehavior = 'auto';
+    }
+  }, []);
+
+  const handleMouseMoveBest = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDraggingBest || !scrollContainerRefBest.current || window.innerWidth >= 640) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRefBest.current.offsetLeft;
+    const walk = (x - startXBest) * 2.0;
+    scrollContainerRefBest.current.scrollLeft = scrollLeftStartBest - walk;
+  }, [isDraggingBest, startXBest, scrollLeftStartBest]);
+
+  const handleTouchMoveBest = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isDraggingBest || !scrollContainerRefBest.current || window.innerWidth >= 640) return;
+    const x = e.touches[0].pageX - scrollContainerRefBest.current.offsetLeft;
+    const walk = (x - startXBest) * 2.0;
+    scrollContainerRefBest.current.scrollLeft = scrollLeftStartBest - walk;
+  }, [isDraggingBest, startXBest, scrollLeftStartBest]);
+
+  const handleMouseUpOrLeaveBest = useCallback(() => {
+    setIsDraggingBest(false);
+    if (scrollContainerRefBest.current) {
+      scrollContainerRefBest.current.style.scrollBehavior = 'smooth';
+    }
+  }, []);
+
+  const handleTouchEndBest = useCallback(() => {
+    setIsDraggingBest(false);
+    if (scrollContainerRefBest.current) {
+      scrollContainerRefBest.current.style.scrollBehavior = 'smooth';
     }
   }, []);
 
@@ -914,10 +967,10 @@ const Index = () => {
       </section>
 
       {/* Best Selling Products Section */}
-      <section className="py-20 container mx-auto px-4 bg-background">
-        <div className="mb-12 text-center">
-          <h2 className="text-4xl font-bold mb-4 text-foreground">Best Selling Accounts</h2>
-          <p className="text-lg text-muted-foreground">Our customers' favorite monetized accounts this month</p>
+      <section className="py-12 sm:py-16 md:py-20 container mx-auto px-4 bg-background">
+        <div className="mb-8 sm:mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Best Selling Accounts</h2>
+          <p className="text-base sm:text-lg text-muted-foreground px-4">Our customers' favorite monetized accounts this month</p>
         </div>
 
         {isLoading ? (
@@ -935,11 +988,57 @@ const Index = () => {
             </p>
           </div>
         ) : (
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-              {data.slice(0, 3).map((product) => (
-                <ProductCard key={product.node.id} product={product} />
-              ))}
+          <div className="max-w-7xl mx-auto relative">
+            {/* Left scroll button - Hidden on mobile */}
+            {canScrollLeftBest && (
+              <Button
+                variant="outline"
+                size="icon"
+                className="hidden sm:flex absolute left-0 lg:-left-1 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg touch-manipulation"
+                onClick={() => scrollBest('left')}
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </Button>
+            )}
+            
+            {/* Right scroll button - Hidden on mobile */}
+            {canScrollRightBest && (
+              <Button
+                variant="outline"
+                size="icon"
+                className="hidden sm:flex absolute right-0 lg:-right-1 top-1/2 -translate-y-1/2 z-10 bg-[#FF2929] hover:bg-[#FF2929]/90 text-white border-[#FF2929] shadow-lg touch-manipulation"
+                onClick={() => scrollBest('right')}
+              >
+                <ChevronRight className="h-5 w-5" />
+              </Button>
+            )}
+
+            {/* Scrollable container */}
+            <div 
+              ref={scrollContainerRefBest}
+              className="overflow-hidden scroll-smooth px-0 w-full sm:w-[calc(3*360px+3rem)] mx-auto select-none"
+              style={{ cursor: window.innerWidth < 640 && isDraggingBest ? 'grabbing' : window.innerWidth < 640 ? 'grab' : 'default' }}
+              onScroll={checkScrollButtonsBest}
+              onMouseDown={handleMouseDownBest}
+              onMouseMove={handleMouseMoveBest}
+              onMouseUp={handleMouseUpOrLeaveBest}
+              onMouseLeave={handleMouseUpOrLeaveBest}
+              onTouchStart={handleTouchStartBest}
+              onTouchMove={handleTouchMoveBest}
+              onTouchEnd={handleTouchEndBest}
+            >
+              <div 
+                className="grid gap-4 sm:gap-6"
+                style={{ 
+                  gridAutoFlow: 'column',
+                  gridAutoColumns: 'min(360px, 85vw)',
+                  gridTemplateColumns: 'none'
+                }}
+              >
+                {data.map((product) => (
+                  <ProductCard key={product.node.id} product={product} />
+                ))}
+              </div>
             </div>
           </div>
         )}
