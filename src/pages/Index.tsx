@@ -262,9 +262,8 @@ const Index = () => {
             {/* Scrollable container */}
             <div 
               ref={scrollContainerRef}
-              className="overflow-x-auto scrollbar-hide scroll-smooth px-4 sm:px-12"
+              className="overflow-hidden scroll-smooth px-4 sm:px-12"
               onScroll={checkScrollButtons}
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               <div 
                 className="grid gap-4 sm:gap-6"
