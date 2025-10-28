@@ -283,7 +283,7 @@ export const Header = () => {
                 {/* Login Button */}
                 <Button
                   variant="outline"
-                  className="w-full justify-start gap-2 mt-2"
+                  className="w-full justify-start gap-2"
                   onClick={() => {
                     handleLogin();
                     setIsMobileMenuOpen(false);
