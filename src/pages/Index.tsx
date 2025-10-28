@@ -319,7 +319,7 @@ const Index = () => {
       </section>
 
       {/* Featured Products Section - 3 Products Display with Scroll */}
-      <section className="py-12 sm:py-16 md:py-20 container mx-auto px-4">
+      <section className="py-12 sm:py-20 container mx-auto px-4">
         <div className="mb-8 sm:mb-12 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Featured Accounts</h2>
           <p className="text-base sm:text-lg text-muted-foreground px-4">Start earning today with our most popular monetized accounts</p>
@@ -397,7 +397,7 @@ const Index = () => {
       </section>
 
       {/* Features Section - Standardized Symmetrical */}
-      <section className="py-12 sm:py-16 md:py-20 bg-background">
+      <section className="py-12 sm:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="mb-10 sm:mb-12 md:mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Why Choose MonetizedProfiles?</h2>
@@ -478,7 +478,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section - Scrolling Carousel with 25 Reviews */}
-      <section className="py-20 bg-background">
+      <section className="py-12 sm:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold mb-4">What Our Customers Say</h2>
@@ -797,7 +797,7 @@ const Index = () => {
       </section>
 
       {/* Creative Guarantee Section */}
-      <section className="py-20">
+      <section className="py-12 sm:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -892,7 +892,7 @@ const Index = () => {
       </section>
 
       {/* Urgency Section - Limited Stock */}
-      <section className="py-20 bg-secondary/50 border-y border-border">
+      <section className="py-12 sm:py-20 bg-secondary/50 border-y border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -921,7 +921,7 @@ const Index = () => {
       </section>
 
       {/* Success Stories - New Conversion Section */}
-      <section className="py-20 bg-gradient-to-br from-secondary/50 via-background to-secondary/30">
+      <section className="py-12 sm:py-20 bg-gradient-to-br from-secondary/50 via-background to-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -967,7 +967,7 @@ const Index = () => {
       </section>
 
       {/* Best Selling Products Section */}
-      <section className="py-12 sm:py-16 md:py-20 container mx-auto px-4 bg-background">
+      <section className="py-12 sm:py-20 container mx-auto px-4 bg-background">
         <div className="mb-8 sm:mb-12 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Best Selling Accounts</h2>
           <p className="text-base sm:text-lg text-muted-foreground px-4">Our customers' favorite monetized accounts this month</p>
@@ -1051,7 +1051,7 @@ const Index = () => {
       </section>
 
       {/* Affiliate Program Section - Simple & Unique */}
-      <section id="affiliate" className="py-20 mt-12 sm:mt-0 relative overflow-hidden border-t border-border">
+      <section id="affiliate" className="py-12 sm:py-20 relative overflow-hidden border-t border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -1114,7 +1114,7 @@ const Index = () => {
       </section>
 
       {/* Restock Email Capture - Moved to bottom */}
-      <section className="py-20 container mx-auto px-4">
+      <section className="py-12 sm:py-20 container mx-auto px-4">
         <Card className="max-w-2xl mx-auto text-center bg-gradient-to-br from-secondary to-background border-border">
           <CardHeader>
             <Mail className="w-12 h-12 mx-auto mb-4" style={{ color: '#FF2929' }} />

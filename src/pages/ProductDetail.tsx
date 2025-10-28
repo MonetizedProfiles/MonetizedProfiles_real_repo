@@ -387,7 +387,7 @@ const ProductDetail = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="pt-20 pb-20 bg-gradient-to-b from-secondary/20 via-background to-background">
+      <section className="py-12 sm:py-20 bg-gradient-to-b from-secondary/20 via-background to-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">What You'll Get</h2>
@@ -478,7 +478,7 @@ const ProductDetail = () => {
       </section>
 
       {/* Guarantee Section - Risk-Free Purchase */}
-      <section className="py-12 pt-16 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-t border-border/50">
+      <section className="py-12 sm:py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 border-t border-border/50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-8">
@@ -704,7 +704,7 @@ const ProductDetail = () => {
 
       {/* You May Also Like - 3 Products with Scroll */}
       {relatedProducts.length > 0 && (
-        <section className="py-12 bg-secondary/20">
+        <section className="py-12 sm:py-20 bg-secondary/20">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">You May Also Like</h2>

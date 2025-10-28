@@ -43,7 +43,7 @@ const Affiliate = () => {
   return (
     <div className="bg-background">
       {/* Hero Section */}
-      <section className="py-20 relative overflow-hidden border-b border-border">
+      <section className="py-12 sm:py-20 relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -63,7 +63,7 @@ const Affiliate = () => {
       </section>
 
       {/* Why Join Section */}
-      <section className="py-20 border-b border-border">
+      <section className="py-12 sm:py-20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
@@ -119,7 +119,7 @@ const Affiliate = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-secondary/20 border-b border-border">
+      <section className="py-12 sm:py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
@@ -193,7 +193,7 @@ const Affiliate = () => {
       </section>
 
       {/* Revenue Predictor Section */}
-      <section className="py-20 border-b border-border">
+      <section className="py-12 sm:py-20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
@@ -271,7 +271,7 @@ const Affiliate = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 border-b border-border">
+      <section className="py-12 sm:py-20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
@@ -341,7 +341,7 @@ const Affiliate = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-secondary/20 border-b border-border">
+      <section className="py-12 sm:py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
@@ -412,7 +412,7 @@ const Affiliate = () => {
 
 
       {/* Affiliate Examples Section */}
-      <section className="py-20 border-b border-border">
+      <section className="py-12 sm:py-20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-4">
@@ -619,7 +619,7 @@ const Affiliate = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-secondary/20 border-b border-border">
+      <section className="py-12 sm:py-20 bg-secondary/20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
@@ -643,7 +643,7 @@ const Affiliate = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20">
+      <section className="py-12 sm:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 border-2 hover:shadow-lg transition-shadow">

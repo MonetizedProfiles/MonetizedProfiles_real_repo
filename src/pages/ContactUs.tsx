@@ -51,7 +51,7 @@ const ContactUs = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-4 py-16 max-w-5xl space-y-20">
+      <div className="container mx-auto px-4 py-12 sm:py-16 max-w-5xl space-y-12 sm:space-y-20">
         {/* Header */}
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
