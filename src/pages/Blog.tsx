@@ -44,17 +44,17 @@ const Blog = () => {
     <div className="bg-background">
 
       {/* Blog Header */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-background via-secondary/20 to-background">
+      <section className="py-8 sm:py-12 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Our Blog</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Tips, guides, and insights for growing your social media business
           </p>
         </div>
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-12 sm:py-16 container mx-auto px-4">
+      <section className="py-8 sm:py-12 container mx-auto px-4">
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {[...Array(6)].map((_, i) => (
