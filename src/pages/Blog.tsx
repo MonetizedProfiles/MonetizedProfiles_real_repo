@@ -6,21 +6,20 @@ import { storefrontApiRequest } from "@/lib/shopify";
 
 const BLOG_QUERY = `
   query GetBlogPosts($first: Int!) {
-    articles(first: $first) {
-      edges {
-        node {
-          id
-          title
-          handle
-          excerpt
-          content
-          publishedAt
-          image {
-            url
-            altText
-          }
-          blog {
+    blog(handle: "news") {
+      articles(first: $first, sortKey: PUBLISHED_AT, reverse: true) {
+        edges {
+          node {
+            id
+            title
             handle
+            excerpt
+            content
+            publishedAt
+            image {
+              url
+              altText
+            }
           }
         }
       }
@@ -32,8 +31,8 @@ const Blog = () => {
   const { data, isLoading } = useQuery({
     queryKey: ['blog-posts'],
     queryFn: async () => {
-      const response = await storefrontApiRequest(BLOG_QUERY, { first: 20 });
-      return response.data.articles.edges;
+      const response = await storefrontApiRequest(BLOG_QUERY, { first: 100 });
+      return response.data.blog?.articles?.edges || [];
     },
   });
 
