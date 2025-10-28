@@ -77,8 +77,8 @@ export const Header = () => {
         </Link>
         
         <nav className="hidden lg:flex items-center gap-2">
-          <Link to="/product/monetized-youtube-channel" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-            Monetized YouTube Channels
+          <Link to="/product/monetized-youtube-account" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+            Monetized YouTube Accounts
           </Link>
 
           <Link to="/product/monetized-tiktok-account" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
@@ -296,11 +296,11 @@ export const Header = () => {
                 
                 <div className="border-t pt-4">
                   <Link 
-                    to="/product/monetized-youtube-channel" 
+                    to="/product/monetized-youtube-account" 
                     className="block text-base font-medium hover:text-primary transition-colors py-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Monetized YouTube Channels
+                    Monetized YouTube Accounts
                   </Link>
 
                   <Link 

@@ -499,7 +499,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Sarah M.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Bought a monetized YouTube channel and started earning from day one. The account was exactly as described!"</p>
+                    <p className="text-muted-foreground">"Bought a monetized YouTube account and started earning from day one. The account was exactly as described!"</p>
                   </div>
                   {/* Review 2 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
