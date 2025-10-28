@@ -1051,7 +1051,7 @@ const Index = () => {
       </section>
 
       {/* Affiliate Program Section - Simple & Unique */}
-      <section id="affiliate" className="py-20 relative overflow-hidden border-t border-border">
+      <section id="affiliate" className="py-20 mt-12 sm:mt-0 relative overflow-hidden border-t border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
