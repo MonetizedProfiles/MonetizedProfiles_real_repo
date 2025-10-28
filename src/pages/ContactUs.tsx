@@ -8,6 +8,7 @@ import { Mail, Clock, MessageSquare, HeadphonesIcon, AlertCircle, CheckCircle2 }
 import { toast } from "sonner";
 import { useState } from "react";
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -32,9 +33,25 @@ const ContactUs = () => {
       const validated = contactSchema.parse(formData);
       setIsSubmitting(true);
 
-      // Here you would send the contact form data to your backend
-      console.log("Contact form submitted:", validated);
+      // Create ticket in Gorgias
+      const { data, error } = await supabase.functions.invoke('gorgias-ticket', {
+        body: {
+          name: validated.name,
+          email: validated.email,
+          orderNumber: validated.orderNumber || undefined,
+          message: validated.message
+        }
+      });
 
+      if (error) {
+        console.error("Error creating Gorgias ticket:", error);
+        toast.error("Failed to send message", {
+          description: "Please try again or contact us directly at support@monetizedprofiles.com"
+        });
+        return;
+      }
+
+      console.log("Gorgias ticket created:", data.ticketId);
       toast.success("Message sent successfully!", {
         description: "We'll get back to you within 1 hour during weekdays.",
       });
@@ -43,6 +60,11 @@ const ContactUs = () => {
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast.error(error.errors[0].message);
+      } else {
+        console.error("Error submitting form:", error);
+        toast.error("Failed to send message", {
+          description: "Please try again or use our live chat for immediate assistance."
+        });
       }
     } finally {
       setIsSubmitting(false);
