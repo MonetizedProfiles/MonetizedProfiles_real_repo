@@ -161,9 +161,9 @@ export const CartDrawer = () => {
                   ))}
                 </div>
 
-                {/* Upsell Products - Always show exactly 2 products */}
-                {upsellProducts.length >= 2 && (
-                  <div className="pt-4 border-t">
+                {/* Upsell Products - Show available upsells */}
+                {upsellProducts.length > 0 && (
+                  <div className="pt-4 border-t mb-4">
                     <h3 className="font-semibold mb-3 text-sm">You may also like</h3>
                     <div className="space-y-3">
                       {upsellProducts.slice(0, 2).map((product) => {
