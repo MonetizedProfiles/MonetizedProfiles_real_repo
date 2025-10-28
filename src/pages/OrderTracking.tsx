@@ -1,26 +1,28 @@
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Package, Search, Mail, ShoppingBag } from "lucide-react";
 import { toast } from "sonner";
 
 const OrderTracking = () => {
-  const [email, setEmail] = useState("");
   const [orderNumber, setOrderNumber] = useState("");
+  const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleFindOrder = (e: React.FormEvent) => {
+  const handleTrackOrder = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!email || !orderNumber) {
-      toast.error("Please enter both email and order number");
+    if (!orderNumber || !email) {
+      toast.error("Please enter both order number and email");
       return;
     }
 
     setIsLoading(true);
 
     // Redirect to Shopify's order status page
+    // Format: https://store.myshopify.com/tools/order-lookup?email={email}&number={order_number}
     const shopifyDomain = "1e3fcb-4e.myshopify.com";
     const trackingUrl = `https://${shopifyDomain}/tools/order-lookup?email=${encodeURIComponent(email)}&number=${encodeURIComponent(orderNumber)}`;
     
@@ -34,54 +36,114 @@ const OrderTracking = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center py-12 px-4">
-      <div className="w-full max-w-md">
-        <Card className="border-border shadow-lg">
-          <CardContent className="pt-8 pb-8 px-8">
-            <h1 className="text-2xl font-bold text-center mb-8">ORDER LOOKUP</h1>
-            
-            <form onSubmit={handleFindOrder} className="space-y-5">
-              {/* Email Field */}
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium">
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="email@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="h-11 bg-background"
-                />
-              </div>
+    <div className="min-h-screen bg-background py-12 px-4">
+      <div className="container mx-auto max-w-2xl">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+            <Package className="w-8 h-8 text-primary" />
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-3">Track Your Order</h1>
+          <p className="text-muted-foreground text-lg">
+            Enter your order details to view the status of your purchase
+          </p>
+        </div>
 
-              {/* Order Number Field */}
+        {/* Tracking Form */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Search className="w-5 h-5" />
+              Order Information
+            </CardTitle>
+            <CardDescription>
+              Enter your order number and email address used at checkout
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleTrackOrder} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="orderNumber" className="text-sm font-medium">
-                  Order number
+                <Label htmlFor="orderNumber" className="flex items-center gap-2">
+                  <ShoppingBag className="w-4 h-4" />
+                  Order Number
                 </Label>
                 <Input
                   id="orderNumber"
                   type="text"
-                  placeholder="1006"
+                  placeholder="#1234"
                   value={orderNumber}
                   onChange={(e) => setOrderNumber(e.target.value)}
                   required
-                  className="h-11 bg-background"
+                  className="h-11"
                 />
+                <p className="text-xs text-muted-foreground">
+                  Found in your order confirmation email
+                </p>
               </div>
 
-              {/* Find Order Button */}
+              <div className="space-y-2">
+                <Label htmlFor="email" className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  Email Address
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="h-11"
+                />
+                <p className="text-xs text-muted-foreground">
+                  The email used when placing your order
+                </p>
+              </div>
+
               <Button 
                 type="submit" 
-                className="w-full h-12 text-base font-semibold bg-[#FF0000] hover:bg-[#E60000] text-white mt-6"
+                className="w-full h-12 text-base"
                 disabled={isLoading}
               >
-                {isLoading ? "Finding Order..." : "Find Order"}
+                {isLoading ? (
+                  "Opening Order Tracker..."
+                ) : (
+                  <>
+                    <Search className="w-4 h-4 mr-2" />
+                    Track Order
+                  </>
+                )}
               </Button>
             </form>
+          </CardContent>
+        </Card>
+
+        {/* Help Section */}
+        <Card className="mt-6 border-muted">
+          <CardContent className="pt-6">
+            <div className="space-y-4">
+              <h3 className="font-semibold flex items-center gap-2">
+                <Package className="w-4 h-4" />
+                Need Help?
+              </h3>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <p>
+                  <span className="font-medium text-foreground">Can't find your order number?</span><br />
+                  Check your email inbox for "Order Confirmation" from MonetizedProfiles
+                </p>
+                <p>
+                  <span className="font-medium text-foreground">Haven't received your order confirmation?</span><br />
+                  Contact us at{" "}
+                  <a href="mailto:support@monetizedprofiles.com" className="text-primary hover:underline">
+                    support@monetizedprofiles.com
+                  </a>
+                </p>
+                <p>
+                  <span className="font-medium text-foreground">Delivery time:</span><br />
+                  Most accounts are delivered within 6-12 hours of purchase
+                </p>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
