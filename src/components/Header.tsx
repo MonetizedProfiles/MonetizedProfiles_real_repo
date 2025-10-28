@@ -3,10 +3,11 @@ import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger } fro
 import { CartDrawer } from "@/components/CartDrawer";
 import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
-import { ChevronDown, Search, User, Sparkles } from "lucide-react";
+import { ChevronDown, Search, User, Sparkles, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import logo from "@/assets/logo.png";
 import { useState } from "react";
 
@@ -25,6 +26,7 @@ export const Header = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const { data } = useQuery({
     queryKey: ['products'],
@@ -134,6 +136,109 @@ export const Header = () => {
             </span>
           </Link>
         </nav>
+        
+        {/* Mobile Menu */}
+        <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+          <SheetTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="lg:hidden h-9 w-9 sm:h-10 sm:w-10"
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+            <SheetHeader>
+              <SheetTitle>
+                <img src={logo} alt="MonetizedProfiles" className="h-8" />
+              </SheetTitle>
+            </SheetHeader>
+            <nav className="flex flex-col gap-4 mt-8">
+              <Link 
+                to="/product/monetized-youtube-channel" 
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Monetized YouTube Channels
+              </Link>
+
+              <Link 
+                to="/product/monetized-tiktok-account" 
+                className="text-base font-medium hover:text-primary transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Monetized TikTok Accounts
+              </Link>
+
+              <div className="border-t pt-4">
+                <p className="text-sm font-semibold text-muted-foreground mb-2">Other Products</p>
+                <div className="flex flex-col gap-2">
+                  {data?.filter(
+                    (product) =>
+                      product.node.handle !== "monetized-youtube-channel" &&
+                      product.node.handle !== "monetized-youtube-account" &&
+                      product.node.handle !== "monetized-tiktok-account",
+                  ).map((product) => (
+                    <Link
+                      key={product.node.id}
+                      to={`/product/${product.node.handle}`}
+                      className="text-sm hover:text-primary transition-colors py-1.5"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {product.node.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="border-t pt-4">
+                <p className="text-sm font-semibold text-muted-foreground mb-2">Support</p>
+                <div className="flex flex-col gap-2">
+                  <Link 
+                    to="/contact" 
+                    className="text-sm hover:text-primary transition-colors py-1.5"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Contact Us
+                  </Link>
+                  <Link 
+                    to="/privacy-policy" 
+                    className="text-sm hover:text-primary transition-colors py-1.5"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Privacy Policy
+                  </Link>
+                  <Link 
+                    to="/terms-of-service" 
+                    className="text-sm hover:text-primary transition-colors py-1.5"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Terms of Service
+                  </Link>
+                  <Link 
+                    to="/refund-policy" 
+                    className="text-sm hover:text-primary transition-colors py-1.5"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Refund Policy
+                  </Link>
+                </div>
+              </div>
+
+              <Link 
+                to="/affiliate" 
+                className="relative inline-flex items-center justify-center gap-2 rounded-md px-4 py-3 text-base font-medium bg-gradient-to-r from-[#FF2929]/10 via-[#FF5C8D]/10 to-[#C74DFF]/10 border border-[#FF5C8D]/20 mt-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Sparkles className="w-4 h-4 text-[#FF5C8D]" />
+                <span className="bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent">
+                  Affiliate Program
+                </span>
+              </Link>
+            </nav>
+          </SheetContent>
+        </Sheet>
         
         <div className="flex items-center gap-1 sm:gap-2">
           <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
