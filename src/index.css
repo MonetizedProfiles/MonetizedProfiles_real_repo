@@ -138,8 +138,21 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes scroll-left-mobile {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-280px * 25 - 16px * 25));
+    }
+  }
+
   .animate-scroll-left {
     animation: scroll-left 180s linear infinite;
+  }
+
+  .animate-scroll-left-mobile {
+    animation: scroll-left-mobile 120s linear infinite;
   }
 
   .pause-animation:hover {

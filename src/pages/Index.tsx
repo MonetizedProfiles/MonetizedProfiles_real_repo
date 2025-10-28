@@ -372,11 +372,11 @@ const Index = () => {
           </div>
 
           <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
-            <div className="flex gap-6 py-3 animate-scroll-left pause-animation">
+            <div className="flex gap-4 sm:gap-6 py-3 animate-scroll-left-mobile sm:animate-scroll-left pause-animation">
               {[...Array(2)].map((_, groupIdx) => (
                 <div key={groupIdx} className="flex gap-6">
                   {/* Review 1 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Sarah M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -388,7 +388,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Bought a monetized YouTube channel and started earning from day one. The account was exactly as described!"</p>
                   </div>
                   {/* Review 2 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="James K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -400,7 +400,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Transfer was smooth and support was incredibly helpful. My TikTok account has active followers!"</p>
                   </div>
                   {/* Review 3 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Emma L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -412,7 +412,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Skip months of growing an audience. Perfect shortcut to start my content creator journey!"</p>
                   </div>
                   {/* Review 4 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Michael R." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -424,7 +424,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"The monetization was active immediately. Making money within hours of purchase!"</p>
                   </div>
                   {/* Review 5 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Lisa T." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -436,7 +436,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Everything was handled professionally. Account transfer took less than 12 hours!"</p>
                   </div>
                   {/* Review 6 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="David P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -448,7 +448,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Great for anyone wanting to skip the grind of building from scratch. Real engagement!"</p>
                   </div>
                   {/* Review 7 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Amanda G." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -460,7 +460,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"The followers are real people, not bots. Engagement rate is exactly as promised!"</p>
                   </div>
                   {/* Review 8 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Chris B." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -472,7 +472,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Support team answered all my questions before purchase. Very transparent process!"</p>
                   </div>
                   {/* Review 9 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Rachel W." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -484,7 +484,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Launched my content career with a running start. Analytics show genuine audience interest!"</p>
                   </div>
                   {/* Review 10 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Tom H." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -496,7 +496,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Was skeptical at first but they delivered exactly what they promised. Very happy!"</p>
                   </div>
                   {/* Review 11 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Nina S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -508,7 +508,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"This gave me the platform I needed to quit my 9-5 job. Forever grateful!"</p>
                   </div>
                   {/* Review 12 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Kevin D." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -520,7 +520,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Considering how long it would take to build this myself, the price is absolutely fair!"</p>
                   </div>
                   {/* Review 13 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Olivia M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -532,7 +532,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"The account history is clean and the audience demographics match my niche perfectly!"</p>
                   </div>
                   {/* Review 14 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Brandon F." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -544,7 +544,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Had a few questions post-purchase and support responded within 30 minutes. Impressive!"</p>
                   </div>
                   {/* Review 15 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Jessica A." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -556,7 +556,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Everything from browsing to transfer was smooth. Would definitely buy again!"</p>
                   </div>
                   {/* Review 16 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Marcus J." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -568,7 +568,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Monetization kicked in immediately. Already seeing ad revenue come through!"</p>
                   </div>
                   {/* Review 17 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Sophie L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -580,7 +580,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"No hidden surprises. The account stats matched the listing perfectly. Very honest!"</p>
                   </div>
                   {/* Review 18 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Daniel C." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -592,7 +592,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Best way to jumpstart a content business. Saves months or even years of effort!"</p>
                   </div>
                   {/* Review 19 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Megan K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -604,7 +604,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Professional service from start to finish. Will recommend to all my creator friends!"</p>
                   </div>
                   {/* Review 20 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Alex V." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -616,7 +616,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"The guarantee gave me confidence to purchase. Glad I did - account is perfect!"</p>
                   </div>
                   {/* Review 21 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Lauren P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -628,7 +628,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Account came with great engagement metrics. My first video got thousands of views!"</p>
                   </div>
                   {/* Review 22 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Ryan N." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -640,7 +640,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"Better than I hoped for. The audience quality is exceptional!"</p>
                   </div>
                   {/* Review 23 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Victoria S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -652,7 +652,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"From purchase to full control in under 8 hours. Extremely efficient!"</p>
                   </div>
                   {/* Review 24 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Jason W." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
@@ -664,7 +664,7 @@ const Index = () => {
                     <p className="text-muted-foreground">"You get what you pay for - and this is premium quality all the way!"</p>
                   </div>
                   {/* Review 25 */}
-                  <div className="min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
+                  <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
                       <img src="/placeholder.svg" alt="Natalie H." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
