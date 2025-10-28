@@ -37,6 +37,18 @@ interface CartStore {
 const CHECKOUTCHAMP_CHECKOUT_URL = 'https://checkout.monetizedprofiles.com';
 const CHECKOUTCHAMP_CAMPAIGN_SLUG = 'checkout6';
 
+// Shopify Variant ID to CheckoutChamp Product ID mapping
+const VARIANT_TO_CHECKOUTCHAMP_ID: Record<string, string> = {
+  '51221480472916': '1.1',
+  '51221480505684': '1.2',
+  '49694013129044': '2.3',
+  '49694013096276': '2.4',
+  '50916615586132': '3.5',
+  '50916615618900': '3.6',
+  '49694337073492': '5.8',
+  '49694337106260': '5.9',
+};
+
 // Helper function to extract numeric variant ID from GraphQL ID
 function extractNumericVariantId(graphqlId: string): string {
   // Input: "gid://shopify/ProductVariant/49694013129044"
@@ -49,15 +61,24 @@ function extractNumericVariantId(graphqlId: string): string {
 function createCheckoutChampUrl(items: CartItem[]): string {
   const productsParam = items
     .map(item => {
-      const variantId = extractNumericVariantId(item.variantId);
-      console.log('Cart item:', {
+      const shopifyVariantId = extractNumericVariantId(item.variantId);
+      const checkoutChampId = VARIANT_TO_CHECKOUTCHAMP_ID[shopifyVariantId];
+      
+      console.log('Cart item mapping:', {
         productTitle: item.product.node.title,
-        fullVariantId: item.variantId,
-        extractedVariantId: variantId,
+        shopifyVariantId,
+        checkoutChampId,
         quantity: item.quantity
       });
-      return `${variantId}:${item.quantity}`;
+      
+      if (!checkoutChampId) {
+        console.warn(`No CheckoutChamp ID mapping found for Shopify variant ${shopifyVariantId}`);
+        return null;
+      }
+      
+      return `${checkoutChampId}:${item.quantity}`;
     })
+    .filter(Boolean)
     .join(',');
   
   const url = `${CHECKOUTCHAMP_CHECKOUT_URL}/${CHECKOUTCHAMP_CAMPAIGN_SLUG}?products=${productsParam}`;
