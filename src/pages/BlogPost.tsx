@@ -5,24 +5,22 @@ import { Calendar, ArrowLeft } from "lucide-react";
 import { storefrontApiRequest } from "@/lib/shopify";
 
 const BLOG_POST_QUERY = `
-  query GetBlogPost($handle: String!) {
-    articles(first: 1, query: $handle) {
-      edges {
-        node {
-          id
-          title
-          handle
-          content
-          contentHtml
-          excerpt
-          publishedAt
-          image {
-            url
-            altText
-          }
-          author {
-            name
-          }
+  query GetBlogPost($blogHandle: String!, $articleHandle: String!) {
+    blog(handle: $blogHandle) {
+      articleByHandle(handle: $articleHandle) {
+        id
+        title
+        handle
+        content
+        contentHtml
+        excerpt
+        publishedAt
+        image {
+          url
+          altText
+        }
+        author {
+          name
         }
       }
     }
@@ -31,14 +29,19 @@ const BLOG_POST_QUERY = `
 
 const BlogPost = () => {
   const { handle } = useParams<{ handle: string }>();
+  const searchParams = new URLSearchParams(window.location.search);
+  const blogHandle = searchParams.get('blog') || 'news';
   
   const { data, isLoading, error } = useQuery({
-    queryKey: ['blog-post', handle],
+    queryKey: ['blog-post', blogHandle, handle],
     queryFn: async () => {
-      const response = await storefrontApiRequest(BLOG_POST_QUERY, { handle: `handle:${handle}` });
-      return response.data.articles?.edges?.[0]?.node;
+      const response = await storefrontApiRequest(BLOG_POST_QUERY, { 
+        blogHandle, 
+        articleHandle: handle 
+      });
+      return response.data.blog?.articleByHandle;
     },
-    enabled: !!handle,
+    enabled: !!handle && !!blogHandle,
   });
 
   if (isLoading) {

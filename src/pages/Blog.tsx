@@ -19,6 +19,9 @@ const BLOG_QUERY = `
             url
             altText
           }
+          blog {
+            handle
+          }
         }
       }
     }
@@ -97,7 +100,7 @@ const Blog = () => {
                     {article.node.excerpt || (article.node.content ? article.node.content.substring(0, 150) + '...' : '')}
                   </CardDescription>
                   <a 
-                    href={`/blog/${article.node.handle}`}
+                    href={`/blog/${article.node.handle}?blog=${article.node.blog.handle}`}
                     className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all font-medium"
                   >
                     Read More
