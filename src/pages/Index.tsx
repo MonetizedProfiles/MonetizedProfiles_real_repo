@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 
@@ -23,6 +23,9 @@ const Index = () => {
   const [canScrollLeftBest, setCanScrollLeftBest] = useState(false);
   const [canScrollRightBest, setCanScrollRightBest] = useState(false);
   const scrollContainerRefBest = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftStart, setScrollLeftStart] = useState(0);
   
   const { data, isLoading } = useQuery({
     queryKey: ['products'],
@@ -127,6 +130,44 @@ const Index = () => {
       setTimeout(checkScrollButtonsBest, 300);
     }
   };
+
+  // Drag to scroll handlers (mobile only)
+  const handleMouseDown = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!scrollContainerRef.current || window.innerWidth >= 640) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeftStart(scrollContainerRef.current.scrollLeft);
+  }, []);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!scrollContainerRef.current || window.innerWidth >= 640) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeftStart(scrollContainerRef.current.scrollLeft);
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging || !scrollContainerRef.current || window.innerWidth >= 640) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollContainerRef.current.scrollLeft = scrollLeftStart - walk;
+  }, [isDragging, startX, scrollLeftStart]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isDragging || !scrollContainerRef.current || window.innerWidth >= 640) return;
+    const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollContainerRef.current.scrollLeft = scrollLeftStart - walk;
+  }, [isDragging, startX, scrollLeftStart]);
+
+  const handleMouseUpOrLeave = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    setIsDragging(false);
+  }, []);
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -263,7 +304,15 @@ const Index = () => {
             <div 
               ref={scrollContainerRef}
               className="overflow-hidden scroll-smooth px-0 w-full sm:w-[calc(3*360px+3rem)] mx-auto"
+              style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
               onScroll={checkScrollButtons}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUpOrLeave}
+              onMouseLeave={handleMouseUpOrLeave}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <div 
                 className="grid gap-4 sm:gap-6"
