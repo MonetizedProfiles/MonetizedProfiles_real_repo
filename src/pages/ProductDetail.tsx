@@ -441,7 +441,7 @@ const ProductDetail = () => {
               </div>
               <div className="text-center p-2 sm:p-3 rounded-lg bg-secondary/30">
                 <Truck className="w-5 sm:w-6 h-5 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />
-                <span className="text-[10px] sm:text-xs font-medium">48-72hr Delivery</span>
+                <span className="text-[10px] sm:text-xs font-medium">24-72hr Delivery</span>
               </div>
               <div className="text-center p-2 sm:p-3 rounded-lg bg-secondary/30">
                 <RefreshCw className="w-5 sm:w-6 h-5 sm:h-6 text-primary mx-auto mb-1 sm:mb-2" />

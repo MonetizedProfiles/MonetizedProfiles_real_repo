@@ -49,7 +49,7 @@ const RefundPolicy = () => {
             </ul>
 
             <h3>Delivery Time</h3>
-            <p>All accounts are delivered within 48-72 hours of purchase confirmation. If you do not receive your account within this timeframe, please contact support immediately.</p>
+            <p>All accounts are delivered within 24-72 hours of purchase confirmation. If you do not receive your account within this timeframe, please contact support immediately.</p>
 
             <h3>Contact Us</h3>
             <p>For any questions about our refund policy or to initiate a return, please contact our customer support team.</p>
