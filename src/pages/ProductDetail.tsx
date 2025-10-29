@@ -696,9 +696,9 @@ const ProductDetail = () => {
                             <Users className="w-8 h-8 text-accent-blue-foreground" />
                           </div>
                           <div>
-                            <h3 className="font-bold text-xl mb-2">Healthy Account</h3>
+                            <h3 className="font-bold text-xl mb-2">ID & Tax Verified</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              No previous violations or strikes on account history
+                              Identity & tax forms verified - ready to monetize
                             </p>
                           </div>
                         </div>
