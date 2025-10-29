@@ -209,32 +209,104 @@ const ContactUs = () => {
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem value="item-1" className="bg-card border rounded-lg px-6">
               <AccordionTrigger className="text-left hover:no-underline">
-                <span className="font-semibold">When will I receive my account?</span>
+                <span className="font-semibold">How quickly will I receive my account after purchase?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Most accounts are delivered within 6-12 hours of purchase. You'll receive an email with login credentials and step-by-step transfer instructions. If you haven't received it within 24 hours, please contact us immediately at support@monetizedprofiles.com with your order number.
+                Most accounts are delivered within 12-48 hours via email. You'll receive login credentials and step-by-step transfer instructions. You can track your order anytime through our order tracking page. If you haven't received it within 48 hours, please contact us at support@monetizedprofiles.com with your order number.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-2" className="bg-card border rounded-lg px-6">
               <AccordionTrigger className="text-left hover:no-underline">
-                <span className="font-semibold">What if I have issues with my account?</span>
+                <span className="font-semibold">Is this legal? Will I get in trouble?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                We offer a 30-day replacement guarantee. If you experience any issues with your account, contact our support team immediately at support@monetizedprofiles.com. We'll work with you to resolve the issue or provide a replacement account at no additional cost.
+                Yes, it's completely legal. We provide access to legitimately grown accounts that comply with platform requirements. All accounts are in good standing with no violations. You're simply getting access to an account that has already met monetization requirements through organic growth.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-3" className="bg-card border rounded-lg px-6">
               <AccordionTrigger className="text-left hover:no-underline">
-                <span className="font-semibold">How do refunds work?</span>
+                <span className="font-semibold">What happens if the account gets disabled or shadowbanned?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                We offer a 7-day money-back guarantee. If you're not satisfied with your purchase for any reason, contact us within 7 days at support@monetizedprofiles.com with your order number. Refunds are processed within 3-5 business days back to your original payment method.
+                We offer a free replacement, no questions asked. All our accounts are healthy and in good standing with no violations, but if anything happens, you're fully covered by our replacement warranty. Just contact support@monetizedprofiles.com and we'll take care of you.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-4" className="bg-card border rounded-lg px-6">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <span className="font-semibold">Are the followers/subscribers real people or bots?</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                100% organic, real engagement. We never use bots or fake accounts. All of our accounts are grown naturally with real people who actively engage with content. Bots would hurt your long-term success, which is why we only provide authentic, quality accounts with genuine audiences.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="bg-card border rounded-lg px-6">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <span className="font-semibold">Do you guarantee I'll make money?</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                While we can't guarantee specific earnings, we provide you with the tools for success: a monetized account with real followers. Your success depends on content quality and consistency. However, our customers have seen incredible results – $2,000 from their first post and $5,000/month within 60 days. Plus, you'll get our free YouTube/TikTok growth course to help you maximize your earnings.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-6" className="bg-card border rounded-lg px-6">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <span className="font-semibold">When can I withdraw my first payment?</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Withdrawal timelines vary by platform. TikTok requires a minimum of $50 in earnings before you can withdraw. YouTube's requirements vary based on your location and payment method. You'll need to connect your PayPal or bank account to receive payments. Detailed instructions are included with your account transfer.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-7" className="bg-card border rounded-lg px-6">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <span className="font-semibold">What payment methods do you accept?</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                We accept all major credit cards, debit cards, and secure payment methods (not crypto). This builds trust compared to competitors who only accept cryptocurrency. All transactions are processed through our encrypted, safe payment system.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-8" className="bg-card border rounded-lg px-6">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <span className="font-semibold">How are you different from other account sellers?</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                We stand out with: 100% organic growth (no bots), safe payment methods (not crypto), comprehensive warranty protection, and dedicated human support. Unlike competitors, we respond within 1 hour during business hours, offer a 30-day replacement warranty, and provide a free growth course with every purchase.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-9" className="bg-card border rounded-lg px-6">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <span className="font-semibold">What's the difference between aged and monetized YouTube accounts?</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Aged accounts are older accounts that meet age requirements but may not be monetized yet. Monetized accounts are already approved for the YouTube Partner Program and can earn ad revenue immediately. We recommend monetized accounts as they offer better value – you can start earning from your first video.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-10" className="bg-card border rounded-lg px-6">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <span className="font-semibold">How do I contact support?</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                We make it easy! Use our 24/7 live chat (bottom-right corner) for instant help, or email support@monetizedprofiles.com for a response within 1 hour during business hours. All support is handled by real humans, not automated bots.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-11" className="bg-card border rounded-lg px-6">
+              <AccordionTrigger className="text-left hover:no-underline">
+                <span className="font-semibold">How often are accounts restocked?</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Our products are in very high demand. Restock times are unpredictable as accounts must be organically grown to monetization – this can take days or weeks. We recommend signing up for restock notifications (available on each product page) to be alerted immediately when your desired product becomes available.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-12" className="bg-card border rounded-lg px-6">
               <AccordionTrigger className="text-left hover:no-underline">
                 <span className="font-semibold">I didn't receive my order confirmation email</span>
               </AccordionTrigger>
@@ -243,21 +315,12 @@ const ContactUs = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5" className="bg-card border rounded-lg px-6">
+            <AccordionItem value="item-13" className="bg-card border rounded-lg px-6">
               <AccordionTrigger className="text-left hover:no-underline">
                 <span className="font-semibold">Can I change or cancel my order?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                If your order hasn't been processed yet (usually within the first few hours), you can request a change or cancellation by contacting support@monetizedprofiles.com immediately. Include your order number and desired changes. Once the account is delivered, you can use our 7-day money-back guarantee instead.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-6" className="bg-card border rounded-lg px-6">
-              <AccordionTrigger className="text-left hover:no-underline">
-                <span className="font-semibold">How do I contact you for urgent issues?</span>
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                For urgent issues, use our 24/7 live chat available in the bottom-right corner of the website. You'll get an immediate response from our support team. For less urgent matters, email us at support@monetizedprofiles.com and we'll respond within 1 hour during weekdays.
+                If your order hasn't been processed yet (usually within the first few hours), you can request changes or cancellation by contacting support@monetizedprofiles.com immediately with your order number. Once the account is delivered, you can use our 7-day money-back guarantee instead.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

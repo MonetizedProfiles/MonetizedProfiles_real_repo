@@ -1071,55 +1071,55 @@ const ProductDetail = () => {
             <Accordion type="single" collapsible className="space-y-4">
               <AccordionItem value="item-1" className="bg-card border rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline">
-                  <span className="font-semibold">How quickly will I receive my account?</span>
+                  <span className="font-semibold">How quickly will I receive my account after purchase?</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Most accounts are delivered within 6-12 hours of purchase. Our team works around the clock to ensure fast, secure delivery. You'll receive an email with login credentials and step-by-step transfer instructions.
+                  Most accounts are delivered within 12-48 hours. You'll receive an email with login credentials and step-by-step transfer instructions. You can also track your order anytime through our order tracking page.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2" className="bg-card border rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline">
-                  <span className="font-semibold">Are the followers real people?</span>
+                  <span className="font-semibold">Are the followers/subscribers real people or bots?</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Yes, 100%. All accounts come with organic followers who actively engage with content. We never use bots or fake accounts. You'll see genuine likes, comments, and views on your posts from day one.
+                  100% organic, real engagement. We never use bots or fake accounts. All of our accounts are grown naturally with real people who actively engage with content. Using bots would hurt your long-term success, which is why we only provide authentic, quality accounts.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-3" className="bg-card border rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline">
-                  <span className="font-semibold">What if I have issues with my account?</span>
+                  <span className="font-semibold">What happens if the account gets disabled or shadowbanned?</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  We offer a 30-day replacement guarantee. If you experience any issues with your account, our support team will work with you to resolve them or provide a replacement at no additional cost. We also have 24/7 chat support available.
+                  We offer a free replacement, no questions asked. All accounts are healthy and in good standing with no violations, but if anything happens, you're fully covered by our replacement warranty.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-4" className="bg-card border rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline">
-                  <span className="font-semibold">Is monetization already enabled?</span>
+                  <span className="font-semibold">How much can I realistically earn in my first month?</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Absolutely. All accounts are fully monetized and ready to earn. You can start making money from your very first post without waiting for approval or meeting minimum requirements.
+                  Results vary based on your content quality and consistency, but our customers have seen incredible results: $2,000 from their first post and $5,000/month within 60 days. The accounts give you the platform – your effort determines the results. Plus, you'll receive our free YouTube/TikTok growth course to help you maximize your earnings.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-5" className="bg-card border rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline">
-                  <span className="font-semibold">Can I change the account's username and profile?</span>
+                  <span className="font-semibold">What payment methods do you accept?</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Yes, once the account is transferred to you, you have full control. You can customize the username (subject to platform availability), update the profile picture, bio, and all other account details to match your brand.
+                  We accept all major credit cards, debit cards, and secure payment methods (not crypto). All transactions are processed through our encrypted, safe payment system – the same level of security used by major e-commerce sites. Your payment information is never stored on our servers.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-6" className="bg-card border rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline">
-                  <span className="font-semibold">What payment methods do you accept?</span>
+                  <span className="font-semibold">How are you different from other account sellers?</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  We accept all major credit cards, debit cards, and secure payment methods through our encrypted checkout system. All transactions are processed securely and your payment information is never stored on our servers.
+                  We stand out with 100% organic growth (no bots), safe and secure payment methods (not crypto), comprehensive warranty protection, and dedicated customer support. Unlike competitors, we respond within 1 hour during business hours and offer human support – not automated responses.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
