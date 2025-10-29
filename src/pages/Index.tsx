@@ -1149,7 +1149,7 @@ const Index = () => {
                   <CheckCircle className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Earn $100-$400 per sale</h3>
+                  <h3 className="text-xl font-bold mb-2">Earn $25-$125 per sale</h3>
                   <p className="text-muted-foreground">Simple 20% commission structure. The more you sell, the more you earn.</p>
                 </div>
               </div>
@@ -1170,7 +1170,7 @@ const Index = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">We handle everything else</h3>
-                  <p className="text-muted-foreground">You promote, we deliver. Support, fulfillment, and customer service all taken care of.</p>
+                  <p className="text-muted-foreground">You promote, we deliver. Support and fulfillment all taken care of.</p>
                 </div>
               </div>
             </div>
@@ -1182,14 +1182,10 @@ const Index = () => {
                 size="lg" 
                 className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" 
                 style={{ backgroundColor: '#FF2929' }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open('https://monetizedprofiles.everflowclient.io/affiliate/signup', '_blank');
-                }}
               >
-                <a href="https://monetizedprofiles.everflowclient.io/affiliate/signup" target="_blank" rel="noopener noreferrer">
+                <Link to="/affiliate">
                   Learn More About Our Program
-                </a>
+                </Link>
               </Button>
               <p className="text-muted-foreground mt-6">
                 Join 500+ creators earning with us
