@@ -185,7 +185,11 @@ const Affiliate = () => {
             </div>
 
             <div className="text-center mt-12">
-              <Button size="lg" className="text-lg px-10 py-6">
+              <Button 
+                size="lg" 
+                className="text-lg px-10 py-6"
+                onClick={() => window.open('https://monetizedprofiles.everflowclient.io/affiliate/signup', '_blank')}
+              >
                 Start Earning Today
               </Button>
           </div>
@@ -254,7 +258,11 @@ const Affiliate = () => {
 
                   {/* CTA */}
                   <div className="text-center">
-                    <Button size="lg" className="text-base px-8 py-5">
+                    <Button 
+                      size="lg" 
+                      className="text-base px-8 py-5"
+                      onClick={() => window.open('https://monetizedprofiles.everflowclient.io/affiliate/signup', '_blank')}
+                    >
                       Start Earning Today
                     </Button>
                   </div>
