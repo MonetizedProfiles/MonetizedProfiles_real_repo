@@ -1078,18 +1078,7 @@ const ProductDetail = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              {handle === 'monetized-youtube-account' && (
-                <AccordionItem value="item-youtube-diff" className="bg-card border rounded-lg px-6">
-                  <AccordionTrigger className="text-left hover:no-underline">
-                    <span className="font-semibold">What's the difference between aged and monetized YouTube accounts?</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    Aged accounts are older accounts that meet age requirements but may not be monetized yet. Monetized accounts are already approved for the YouTube Partner Program and can earn ad revenue immediately. We recommend monetized accounts as they offer better value – you can start earning from your first video.
-                  </AccordionContent>
-                </AccordionItem>
-              )}
-
-              {handle === 'aged-youtube-account' && (
+              {(handle === 'monetized-youtube-channel' || handle === 'aged-youtube-channel') && (
                 <AccordionItem value="item-youtube-diff" className="bg-card border rounded-lg px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     <span className="font-semibold">What's the difference between aged and monetized YouTube accounts?</span>
