@@ -930,9 +930,16 @@ const Index = () => {
                 size="lg" 
                 className="text-lg h-14 px-8"
                 onClick={() => {
-                  const productsSection = document.getElementById('products');
-                  if (productsSection) {
-                    productsSection.scrollIntoView({ behavior: 'smooth' });
+                  const featuredSection = document.getElementById('featured-accounts');
+                  if (featuredSection) {
+                    const isMobile = window.innerWidth < 768;
+                    if (isMobile) {
+                      const yOffset = -80;
+                      const y = featuredSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    } else {
+                      featuredSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
                   }
                 }}
               >
@@ -1011,7 +1018,24 @@ const Index = () => {
             </div>
 
             <div className="text-center">
-              <Button size="lg" className="text-lg px-10 py-6" style={{ backgroundColor: '#FF2929' }}>
+              <Button 
+                size="lg" 
+                className="text-lg px-10 py-6" 
+                style={{ backgroundColor: '#FF2929' }}
+                onClick={() => {
+                  const featuredSection = document.getElementById('featured-accounts');
+                  if (featuredSection) {
+                    const isMobile = window.innerWidth < 768;
+                    if (isMobile) {
+                      const yOffset = -80;
+                      const y = featuredSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    } else {
+                      featuredSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                  }
+                }}
+              >
                 Start Your Success Story Today
               </Button>
             </div>
