@@ -670,7 +670,11 @@ const Affiliate = () => {
                   </div>
                 </div>
 
-                <Button size="lg" className="text-lg px-10 py-6">
+                <Button 
+size="lg" 
+                  className="text-lg px-10 py-6"
+                  onClick={() => window.open('https://monetizedprofiles.everflowclient.io/affiliate/signup', '_blank')}
+                >
                   Apply for Affiliate Program
                 </Button>
               </CardContent>

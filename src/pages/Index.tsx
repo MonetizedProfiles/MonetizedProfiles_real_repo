@@ -510,9 +510,16 @@ const Index = () => {
               size="lg" 
               className="w-full sm:w-auto text-base sm:text-lg h-12 sm:h-14 px-6 sm:px-8 touch-manipulation"
               onClick={() => {
-                const productsSection = document.getElementById('products');
-                if (productsSection) {
-                  productsSection.scrollIntoView({ behavior: 'smooth' });
+                const featuredSection = document.getElementById('featured-accounts');
+                if (featuredSection) {
+                  const isMobile = window.innerWidth < 768;
+                  if (isMobile) {
+                    const yOffset = -80;
+                    const y = featuredSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                  } else {
+                    featuredSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
                 }
               }}
             >
@@ -1146,8 +1153,19 @@ const Index = () => {
 
             {/* CTA */}
             <div className="text-center">
-              <Button asChild size="lg" className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
-                <Link to="/affiliate">Learn More About Our Program</Link>
+              <Button 
+                asChild 
+                size="lg" 
+                className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" 
+                style={{ backgroundColor: '#FF2929' }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open('https://monetizedprofiles.everflowclient.io/affiliate/signup', '_blank');
+                }}
+              >
+                <a href="https://monetizedprofiles.everflowclient.io/affiliate/signup" target="_blank" rel="noopener noreferrer">
+                  Learn More About Our Program
+                </a>
               </Button>
               <p className="text-muted-foreground mt-6">
                 Join 500+ creators earning with us
