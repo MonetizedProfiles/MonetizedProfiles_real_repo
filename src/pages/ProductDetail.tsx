@@ -367,11 +367,11 @@ const ProductDetail = () => {
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-lg font-medium">Monetization enabled - earn ad revenue on your first post</p>
+                  <p className="text-lg font-medium">Instant access to monetization features</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-lg font-medium">100% organic followers - no bots, only real engagement</p>
+                  <p className="text-lg font-medium">Secure account transfer within 24 hours</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" />
@@ -494,12 +494,20 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* What You Get Section */}
+      {/* Product-Specific Benefits Section */}
       <section className="py-12 pb-16 sm:py-20 bg-gradient-to-b from-secondary/20 via-background to-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">What You'll Get</h2>
-            <p className="text-center text-muted-foreground text-lg mb-12">Everything you need to start earning immediately</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">Product-Specific Benefits</h2>
+            <p className="text-center text-muted-foreground text-lg mb-12">
+              {product.title.toLowerCase().includes('youtube') && !product.title.toLowerCase().includes('aged') 
+                ? "Everything included with your monetized YouTube account"
+                : product.title.toLowerCase().includes('tiktok')
+                ? "Everything included with your monetized TikTok account"
+                : product.title.toLowerCase().includes('aged')
+                ? "Everything included with your aged YouTube channel"
+                : "Everything you need to start earning immediately"}
+            </p>
             
             <div className="relative">
               {/* Connecting Lines Decoration */}
@@ -507,78 +515,349 @@ const ProductDetail = () => {
                 <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-                {/* Benefit 1 - Secure Transfer */}
-                <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
-                  <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
-                    <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
-                        <ShieldCheck className="w-8 h-8 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-xl mb-2">Secure Transfer</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          Protected account handoff with verified credentials and secure delivery
-                        </p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 relative">
+                {/* YouTube Monetized Accounts */}
+                {product.title.toLowerCase().includes('youtube') && !product.title.toLowerCase().includes('aged') && (
+                  <>
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <Check className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Partner Program Ready</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              1,000+ subscribers & 4,000 watch hours already achieved
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Benefit 2 - Earn Money First Post */}
-                <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
-                  <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
-                    <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
-                        <Zap className="w-8 h-8 text-accent-blue-foreground" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-xl mb-2">Earn Immediately</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          Start making money from your very first post with instant monetization
-                        </p>
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Zap className="w-7 h-7 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Instant Ad Revenue</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Earn ad revenue on your very first post
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Benefit 3 - Organic Audience */}
-                <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
-                  <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
-                    <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
-                        <Users className="w-8 h-8 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-xl mb-2">Real Followers</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          100% organic audience with zero bots - authentic engagement guaranteed
-                        </p>
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <ShieldCheck className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Lowest Shadowban Risk</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Healthy accounts with no previous violations
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Benefit 4 - Monetization Enabled */}
-                <div className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
-                  <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
-                    <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
-                        <Check className="w-8 h-8 text-accent-blue-foreground" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-xl mb-2">Fully Monetized</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          Monetization enabled and active - start earning from day one
-                        </p>
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Users className="w-7 h-7 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Real Organic Audience</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              100% authentic followers with genuine engagement
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+
+                    <div className="group relative sm:col-span-2 lg:col-span-1">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <Check className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Works for Shorts Too</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Perfect for both long-form and YouTube Shorts content
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* TikTok Monetized Accounts */}
+                {product.title.toLowerCase().includes('tiktok') && (
+                  <>
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <Check className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">10,000+ Followers</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Already qualified with an engaged audience base
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Zap className="w-7 h-7 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Creator Rewards Program</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Approved and ready to earn from your content
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <ShieldCheck className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Works from Any Country</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Even works in ineligible countries for TikTok monetization
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Users className="w-7 h-7 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Pre-Verified Account</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              ID & tax information already submitted and verified
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative sm:col-span-2 lg:col-span-1">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <Check className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Clean Account History</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Healthy accounts with no previous violations
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* Aged YouTube Channels */}
+                {product.title.toLowerCase().includes('aged') && (
+                  <>
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <Check className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Created 2005-2013</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Vintage accounts with over a decade of history
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <ShieldCheck className="w-7 h-7 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Lowest Shadowban Risk</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Established accounts trusted by YouTube's algorithm
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <Zap className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Algorithm Boost</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Higher trust score means better content visibility
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Users className="w-7 h-7 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Clean Account History</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Healthy accounts with no previous violations
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative sm:col-span-2 lg:col-span-1">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <Check className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Works for Shorts Too</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Perfect for both long-form and YouTube Shorts content
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* Fallback for other products */}
+                {!product.title.toLowerCase().includes('youtube') && !product.title.toLowerCase().includes('tiktok') && (
+                  <>
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <ShieldCheck className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Secure Transfer</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Protected account handoff with verified credentials
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Zap className="w-7 h-7 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Earn Immediately</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Start making money from your very first post
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <Users className="w-7 h-7 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Real Followers</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              100% organic audience with authentic engagement
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-5 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Check className="w-7 h-7 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg mb-1.5">Fully Monetized</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Monetization enabled and active from day one
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
