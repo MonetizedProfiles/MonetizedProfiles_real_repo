@@ -55,7 +55,11 @@ const Affiliate = () => {
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
               Join 500+ creators earning 20% commission on every sale
             </p>
-            <Button size="lg" className="text-xl px-12 py-6">
+            <Button 
+              size="lg" 
+              className="text-xl px-12 py-6"
+              onClick={() => window.open('https://monetizedprofiles.everflowclient.io/affiliate/signup', '_blank')}
+            >
               Apply Now
             </Button>
           </div>
