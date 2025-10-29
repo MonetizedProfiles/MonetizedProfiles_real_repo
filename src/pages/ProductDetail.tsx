@@ -622,9 +622,9 @@ const ProductDetail = () => {
                             <ShieldCheck className="w-8 h-8 text-accent-blue-foreground" />
                           </div>
                           <div>
-                            <h3 className="font-bold text-xl mb-2">Lowest Risk</h3>
+                            <h3 className="font-bold text-xl mb-2">Shorts Compatible</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Lowest shadowban risk with healthy account status
+                              Works perfectly for YouTube Shorts & regular videos
                             </p>
                           </div>
                         </div>
@@ -678,9 +678,9 @@ const ProductDetail = () => {
                             <ShieldCheck className="w-8 h-8 text-primary-foreground" />
                           </div>
                           <div>
-                            <h3 className="font-bold text-xl mb-2">Pre-Verified</h3>
+                            <h3 className="font-bold text-xl mb-2">Fully Verified</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              ID & tax information already verified for you
+                              ID & tax information verified - no setup required
                             </p>
                           </div>
                         </div>
@@ -752,9 +752,9 @@ const ProductDetail = () => {
                             <ShieldCheck className="w-8 h-8 text-primary-foreground" />
                           </div>
                           <div>
-                            <h3 className="font-bold text-xl mb-2">Lowest Risk</h3>
+                            <h3 className="font-bold text-xl mb-2">Shorts Compatible</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Minimal shadowban risk with proven track record
+                              Works perfectly for YouTube Shorts & regular videos
                             </p>
                           </div>
                         </div>
