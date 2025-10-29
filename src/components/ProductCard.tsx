@@ -12,6 +12,14 @@ interface ProductCardProps {
   product: ShopifyProduct;
 }
 
+// Helper function to get rating based on product type
+const getProductRating = (productTitle: string): number => {
+  const title = productTitle.toLowerCase();
+  if (title.includes('youtube')) return 4.9;
+  if (title.includes('tiktok')) return 4.8;
+  return 4.7; // Default rating for other products
+};
+
 export const ProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
   const addItem = useCartStore(state => state.addItem);
@@ -42,6 +50,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const price = parseFloat(product.node.priceRange.minVariantPrice.amount);
   const currency = product.node.priceRange.minVariantPrice.currencyCode;
   const image = product.node.images.edges[0]?.node.url;
+  const rating = getProductRating(product.node.title);
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
 
   return (
     <Card 
@@ -64,7 +75,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         {/* Review Badge */}
         <Badge className="absolute top-3 right-3 bg-background/95 text-foreground border shadow-sm">
           <Star className="w-3 h-3 fill-primary text-primary mr-1" />
-          <span className="font-semibold">4.9</span>
+          <span className="font-semibold">{rating.toFixed(1)}</span>
         </Badge>
       </div>
       

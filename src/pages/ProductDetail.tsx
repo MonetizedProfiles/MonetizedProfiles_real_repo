@@ -24,6 +24,14 @@ const emailSchema = z.object({
   email: z.string().trim().email({ message: "Please enter a valid email address" }).max(255, { message: "Email must be less than 255 characters" })
 });
 
+// Helper function to get rating based on product type
+const getProductRating = (productTitle: string): number => {
+  const title = productTitle.toLowerCase();
+  if (title.includes('youtube')) return 4.9;
+  if (title.includes('tiktok')) return 4.8;
+  return 4.7; // Default rating for other products
+};
+
 const ProductDetail = () => {
   const { handle } = useParams();
   const navigate = useNavigate();
@@ -259,6 +267,9 @@ const ProductDetail = () => {
   const price = parseFloat(currentVariant.price.amount);
   const currency = currentVariant.price.currencyCode;
   const images = product.images.edges;
+  const rating = getProductRating(product.title);
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
 
   // Get related products (exclude current product, limit to 3)
   const relatedProducts = allProducts?.filter(p => p.node.id !== product.id).slice(0, 3) || [];
@@ -327,10 +338,19 @@ const ProductDetail = () => {
               <div className="flex items-center gap-2 mb-4 sm:mb-6">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 sm:w-5 h-4 sm:h-5 fill-primary text-primary" />
+                    <Star 
+                      key={i} 
+                      className={`w-4 sm:w-5 h-4 sm:h-5 ${
+                        i < fullStars 
+                          ? 'fill-primary text-primary' 
+                          : i === fullStars && hasHalfStar 
+                          ? 'fill-primary/50 text-primary' 
+                          : 'fill-none text-muted-foreground'
+                      }`} 
+                    />
                   ))}
                 </div>
-                <span className="text-sm sm:text-base text-muted-foreground">4.8 (500+ reviews)</span>
+                <span className="text-sm sm:text-base text-muted-foreground">{rating.toFixed(1)} (500+ reviews)</span>
               </div>
 
               <div className="flex items-baseline gap-2 sm:gap-3 mb-4 sm:mb-6">

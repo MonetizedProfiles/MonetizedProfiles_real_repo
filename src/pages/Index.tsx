@@ -296,15 +296,15 @@ const Index = () => {
 
             {/* Big Animated Gradient Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 sm:mb-8 leading-tight px-2">
-              <span className="block mb-0 sm:mb-1">Fully Monetized Accounts,</span>
+              <span className="block mb-0 sm:mb-1">Monetized Accounts,</span>
               <span className="block bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent animate-gradient-flow" style={{ backgroundSize: "200% auto" }}>
-                Earn On Your First Post
+                Earn Instantly
               </span>
             </h1>
 
             {/* Simple subtitle */}
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-3xl mx-auto px-4">
-              Skip months of grinding to monetization. Buy pre-approved YouTube & TikTok accounts with real followers and start generating ad revenue immediately.
+              Pre-approved accounts with real followers. Start earning ad revenue on your first post.
             </p>
 
             {/* Clean CTA */}
@@ -494,12 +494,12 @@ const Index = () => {
             <Card className="bg-card border-2 hover:border-primary/50 transition-all hover:shadow-lg">
               <CardHeader className="text-center space-y-4 pb-3">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
-                  <HeadphonesIcon className="w-8 h-8 text-primary" />
+                  <Shield className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Work From Any Country</CardTitle>
+                <CardTitle className="text-lg">Replacement Guarantee</CardTitle>
               </CardHeader>
               <CardContent className="text-center text-sm text-muted-foreground">
-                <p>Operate and cash out from anywhere. Access TikTok monetization even in countries where the creator program isn't available yet.</p>
+                <p>30-day replacement warranty on every account. If anything goes wrong, we'll replace it immediately—no questions asked.</p>
               </CardContent>
             </Card>
           </div>
@@ -989,9 +989,9 @@ const Index = () => {
 
                 {/* Stat 2 */}
                 <div className="bg-card rounded-2xl p-8 border-2 border-primary/20 text-center hover:border-primary/50 transition-all hover:shadow-lg hover:scale-105">
-                  <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>24 hrs</div>
+                  <div className="text-5xl font-bold" style={{ color: '#FF2929' }}>48 hrs</div>
                   <p className="text-lg text-muted-foreground">Average Time to First Dollar</p>
-                  <p className="text-sm text-muted-foreground/70 mt-2">Most customers earn within the first day</p>
+                  <p className="text-sm text-muted-foreground/70 mt-2">Most customers earn within 48 hours</p>
                 </div>
 
                 {/* Stat 3 */}
