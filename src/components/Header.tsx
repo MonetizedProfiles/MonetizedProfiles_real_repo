@@ -111,21 +111,12 @@ export const Header = () => {
                 Support
                 <ChevronDown className="h-4 w-4" />
               </MenubarTrigger>
-              <MenubarContent align="start" className="min-w-[200px]">
+              <MenubarContent align="start" className="min-w-[200px] bg-background z-50">
                 <MenubarItem asChild className="py-3 px-4 text-base">
                   <Link to="/contact" className="w-full">Contact Us</Link>
                 </MenubarItem>
                 <MenubarItem asChild className="py-3 px-4 text-base">
                   <Link to="/order-tracking" className="w-full">Track Order</Link>
-                </MenubarItem>
-                <MenubarItem asChild className="py-3 px-4 text-base">
-                  <Link to="/privacy-policy" className="w-full">Privacy Policy</Link>
-                </MenubarItem>
-                <MenubarItem asChild className="py-3 px-4 text-base">
-                  <Link to="/terms-of-service" className="w-full">Terms of Service</Link>
-                </MenubarItem>
-                <MenubarItem asChild className="py-3 px-4 text-base">
-                  <Link to="/refund-policy" className="w-full">Refund Policy</Link>
                 </MenubarItem>
               </MenubarContent>
             </MenubarMenu>
@@ -345,25 +336,11 @@ export const Header = () => {
                       Contact Us
                     </Link>
                     <Link 
-                      to="/privacy-policy" 
+                      to="/order-tracking" 
                       className="text-sm hover:text-primary transition-colors py-1.5"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      Privacy Policy
-                    </Link>
-                    <Link 
-                      to="/terms-of-service" 
-                      className="text-sm hover:text-primary transition-colors py-1.5"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Terms of Service
-                    </Link>
-                    <Link 
-                      to="/refund-policy" 
-                      className="text-sm hover:text-primary transition-colors py-1.5"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Refund Policy
+                      Track Order
                     </Link>
                   </div>
                 </div>
