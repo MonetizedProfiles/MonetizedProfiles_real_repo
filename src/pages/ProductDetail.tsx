@@ -1097,7 +1097,9 @@ const ProductDetail = () => {
                     <span className="font-semibold">Do I need to provide ID or tax information?</span>
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Yes, TikTok requires you to provide tax information (W-9 for US residents or W-8BEN for international users) before you can withdraw earnings. You'll also need to verify your identity with a government-issued ID. This is standard for all TikTok creators and ensures compliance with tax regulations. Don't worry – we'll provide step-by-step instructions on how to complete this process after your account transfer.
+                    Normally, TikTok requires a real ID from the country where the account was created, plus tax information (W-9 for US residents or W-8BEN for international users) before you can withdraw earnings. This creates major limitations.<br/><br/>
+                    <strong>Good news:</strong> Our monetized TikTok accounts are pre-verified, meaning all ID and tax verification is already complete. You don't need to provide any documents or verify anything. This gives you the flexibility to use these accounts from anywhere in the world without restrictions.<br/><br/>
+                    You can start earning and withdrawing payments immediately – no verification hassles, no location restrictions. We've handled the hard part for you.
                   </AccordionContent>
                 </AccordionItem>
               )}
