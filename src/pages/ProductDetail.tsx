@@ -271,6 +271,12 @@ const ProductDetail = () => {
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
 
+  const handleLower = (handle || product.handle || '').toLowerCase();
+  const titleLower = product.title.toLowerCase();
+  const isTikTokMonetized = handleLower.includes('tiktok') || titleLower.includes('tiktok');
+  const isYouTubeMonetized = (handleLower.includes('youtube') && (handleLower.includes('monetiz') || titleLower.includes('monetiz'))) || titleLower.includes('monetized youtube');
+  const isYouTubeAged = (handleLower.includes('aged') && handleLower.includes('youtube')) || titleLower.includes('aged youtube');
+
   // Get related products (exclude current product, limit to 3)
   const relatedProducts = allProducts?.filter(p => p.node.id !== product.id).slice(0, 3) || [];
 
@@ -365,7 +371,7 @@ const ProductDetail = () => {
               </div>
 
               <div className="space-y-3 mb-6">
-                {product.title.toLowerCase().includes('monetized youtube') ? (
+                {isYouTubeMonetized ? (
                   <>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
@@ -380,7 +386,7 @@ const ProductDetail = () => {
                       <p className="text-lg font-medium">100% organic followers - real engagement</p>
                     </div>
                   </>
-                ) : product.title.toLowerCase().includes('monetized tiktok') ? (
+                ) : isTikTokMonetized ? (
                   <>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
@@ -388,14 +394,14 @@ const ProductDetail = () => {
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">Works from any country (even ineligible ones)</p>
+                      <p className="text-lg font-medium">Lowest shadowban risk - healthy account</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">Pre-verified with ID & tax info - instant setup</p>
+                      <p className="text-lg font-medium">100% organic followers - real engagement</p>
                     </div>
                   </>
-                ) : product.title.toLowerCase().includes('aged youtube') ? (
+                ) : isYouTubeAged ? (
                   <>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
@@ -557,7 +563,7 @@ const ProductDetail = () => {
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-                {product.title.toLowerCase().includes('monetized youtube') ? (
+                {isYouTubeMonetized ? (
                   <>
                     {/* YouTube Monetized - Benefit 1 */}
                     <div className="group relative">
@@ -631,7 +637,7 @@ const ProductDetail = () => {
                       </div>
                     </div>
                   </>
-                ) : product.title.toLowerCase().includes('monetized tiktok') ? (
+                ) : isTikTokMonetized ? (
                   <>
                     {/* TikTok Monetized - Benefit 1 */}
                     <div className="group relative">
@@ -705,7 +711,7 @@ const ProductDetail = () => {
                       </div>
                     </div>
                   </>
-                ) : product.title.toLowerCase().includes('aged youtube') ? (
+                ) : isYouTubeAged ? (
                   <>
                     {/* Aged YouTube - Benefit 1 */}
                     <div className="group relative">
