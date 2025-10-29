@@ -373,11 +373,11 @@ const ProductDetail = () => {
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">1,000+ subscribers & 4,000 watch hours included</p>
+                      <p className="text-lg font-medium">Lowest shadowban risk - healthy account</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">Lowest shadowban risk - healthy account</p>
+                      <p className="text-lg font-medium">100% organic followers - real engagement</p>
                     </div>
                   </>
                 ) : product.title.toLowerCase().includes('monetized tiktok') ? (
@@ -388,41 +388,41 @@ const ProductDetail = () => {
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">10,000+ followers - pre-verified with ID & tax info</p>
+                      <p className="text-lg font-medium">Works from any country (even ineligible ones)</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">Works from any country (even ineligible ones)</p>
+                      <p className="text-lg font-medium">Pre-verified with ID & tax info - instant setup</p>
                     </div>
                   </>
                 ) : product.title.toLowerCase().includes('aged youtube') ? (
                   <>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">Account created in 2005-2013</p>
+                      <p className="text-lg font-medium">Lowest shadowban risk - vintage account</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">Lowest shadowban risk & algorithm boost</p>
+                      <p className="text-lg font-medium">Algorithm boost from account age & trust score</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">Healthy account with no violations</p>
+                      <p className="text-lg font-medium">Created 2005-2013 - maximum authority</p>
                     </div>
                   </>
                 ) : (
                   <>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">Secure account transfer within 24-72 hours</p>
+                      <p className="text-lg font-medium">Monetization enabled - earn immediately</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">Full account ownership - change details anytime</p>
+                      <p className="text-lg font-medium">100% organic followers - real engagement</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">7-day money-back guarantee - risk-free</p>
+                      <p className="text-lg font-medium">Secure transfer within 24-72 hours</p>
                     </div>
                   </>
                 )}
