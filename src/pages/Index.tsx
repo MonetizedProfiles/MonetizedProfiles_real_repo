@@ -499,7 +499,7 @@ const Index = () => {
                 <CardTitle className="text-lg">Work From Any Country</CardTitle>
               </CardHeader>
               <CardContent className="text-center text-sm text-muted-foreground">
-                <p>Operate and cash out from anywhere in the world. No location restrictions whatsoever</p>
+                <p>Operate and cash out from anywhere. Access TikTok monetization even in countries where the creator program isn't available yet.</p>
               </CardContent>
             </Card>
           </div>
@@ -881,9 +881,9 @@ const Index = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold mb-2">7-Day Money Back</h3>
+                      <h3 className="text-2xl font-bold mb-2">30-Day Money Back</h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        Not satisfied for any reason? Full refund within 7 days of purchase.
+                        Not satisfied? Full refund or replacement within 30 days. Account must be returned.
                         <span className="block mt-2 font-semibold text-foreground">100% guaranteed.</span>
                       </p>
                     </div>
