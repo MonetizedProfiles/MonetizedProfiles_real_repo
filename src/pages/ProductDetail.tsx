@@ -365,18 +365,67 @@ const ProductDetail = () => {
               </div>
 
               <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-lg font-medium">Secure account transfer within 24-72 hours</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-lg font-medium">Full account ownership - change details whenever you wish</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-lg font-medium">7-day money-back guarantee - risk-free purchase</p>
-                </div>
+                {product.title.toLowerCase().includes('monetized youtube') ? (
+                  <>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Approved in YouTube Partner Program</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">1,000+ subscribers & 4,000 watch hours included</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Lowest shadowban risk - healthy account</p>
+                    </div>
+                  </>
+                ) : product.title.toLowerCase().includes('monetized tiktok') ? (
+                  <>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Approved in TikTok Creator Rewards Program</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">10,000+ followers - pre-verified with ID & tax info</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Works from any country (even ineligible ones)</p>
+                    </div>
+                  </>
+                ) : product.title.toLowerCase().includes('aged youtube') ? (
+                  <>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Account created in 2005-2013</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Lowest shadowban risk & algorithm boost</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Healthy account with no violations</p>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Secure account transfer within 24-72 hours</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Full account ownership - change details anytime</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">7-day money-back guarantee - risk-free</p>
+                    </div>
+                  </>
+                )}
               </div>
 
               {/* Stock Indicator */}
@@ -521,7 +570,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Partner Approved</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              1,000+ subscribers and 4,000 watch hours - approved in YouTube's Partner Program
+                              1,000+ subscribers & 4,000 watch hours
                             </p>
                           </div>
                         </div>
@@ -539,7 +588,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Instant Revenue</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Earn ad revenue on your first post - also works for YouTube Shorts
+                              Earn ad revenue from your first post
                             </p>
                           </div>
                         </div>
@@ -557,7 +606,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Organic Audience</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Real followers with organic engagement - healthy account with no violations
+                              Real followers with organic engagement
                             </p>
                           </div>
                         </div>
@@ -575,7 +624,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Lowest Risk</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Lowest shadowban risk - healthy account with proven track record
+                              Lowest shadowban risk guaranteed
                             </p>
                           </div>
                         </div>
@@ -595,7 +644,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Creator Approved</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              10,000+ followers - approved in TikTok Creator Rewards Program
+                              10,000+ followers in Creator Rewards
                             </p>
                           </div>
                         </div>
@@ -613,7 +662,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Global Access</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Works from any country - even ineligible countries can earn
+                              Works from any country worldwide
                             </p>
                           </div>
                         </div>
@@ -631,7 +680,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Pre-Verified</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Pre-verified with ID & tax information - ready to monetize immediately
+                              ID & tax info already verified
                             </p>
                           </div>
                         </div>
@@ -649,7 +698,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Healthy Account</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              No previous violations - clean account history with full access
+                              No previous violations or strikes
                             </p>
                           </div>
                         </div>
@@ -669,7 +718,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Vintage Account</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Account created in 2005-2013 - maximum trust score and authority
+                              Created 2005-2013 for max trust
                             </p>
                           </div>
                         </div>
@@ -687,7 +736,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Algorithm Boost</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Boosted by the algorithm due to account age and trust score
+                              Enhanced by age & trust score
                             </p>
                           </div>
                         </div>
@@ -705,7 +754,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Lowest Risk</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Lowest shadowban risk - works for regular videos and Shorts
+                              Minimal shadowban risk guaranteed
                             </p>
                           </div>
                         </div>
@@ -723,7 +772,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Clean History</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Healthy account with no previous violations or strikes
+                              No violations or account strikes
                             </p>
                           </div>
                         </div>
@@ -743,7 +792,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Secure Transfer</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Protected account handoff with verified credentials and secure delivery
+                              Protected handoff with verified credentials
                             </p>
                           </div>
                         </div>
@@ -761,7 +810,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Instant Access</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Get started immediately with full account access and monetization
+                              Full account access & monetization
                             </p>
                           </div>
                         </div>
@@ -779,7 +828,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Real Followers</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              100% organic audience with zero bots - authentic engagement guaranteed
+                              100% organic with authentic engagement
                             </p>
                           </div>
                         </div>
@@ -797,7 +846,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Fully Monetized</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Monetization enabled and active - start earning from day one
+                              Start earning from day one
                             </p>
                           </div>
                         </div>
