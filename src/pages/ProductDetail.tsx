@@ -570,7 +570,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Partner Approved</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              1,000+ subscribers & 4,000 watch hours
+                              1,000+ subscribers & 4,000 watch hours already achieved
                             </p>
                           </div>
                         </div>
@@ -588,7 +588,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Instant Revenue</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Earn ad revenue from your first post
+                              Earn ad revenue from your very first post or video
                             </p>
                           </div>
                         </div>
@@ -606,7 +606,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Organic Audience</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Real followers with organic engagement
+                              Real followers with authentic organic engagement
                             </p>
                           </div>
                         </div>
@@ -624,7 +624,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Lowest Risk</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Lowest shadowban risk guaranteed
+                              Lowest shadowban risk with healthy account status
                             </p>
                           </div>
                         </div>
@@ -644,7 +644,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Creator Approved</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              10,000+ followers in Creator Rewards
+                              10,000+ followers approved in Creator Rewards Program
                             </p>
                           </div>
                         </div>
@@ -662,7 +662,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Global Access</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Works from any country worldwide
+                              Works from any country worldwide, even ineligible ones
                             </p>
                           </div>
                         </div>
@@ -680,7 +680,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Pre-Verified</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              ID & tax info already verified
+                              ID & tax information already verified for you
                             </p>
                           </div>
                         </div>
@@ -698,7 +698,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Healthy Account</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              No previous violations or strikes
+                              No previous violations or strikes on account history
                             </p>
                           </div>
                         </div>
@@ -718,7 +718,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Vintage Account</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Created 2005-2013 for max trust
+                              Created 2005-2013 for maximum trust & authority
                             </p>
                           </div>
                         </div>
@@ -736,7 +736,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Algorithm Boost</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Enhanced by age & trust score
+                              Enhanced ranking from account age & trust score
                             </p>
                           </div>
                         </div>
@@ -754,7 +754,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Lowest Risk</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Minimal shadowban risk guaranteed
+                              Minimal shadowban risk with proven track record
                             </p>
                           </div>
                         </div>
@@ -772,7 +772,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Clean History</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              No violations or account strikes
+                              No violations or account strikes on record
                             </p>
                           </div>
                         </div>
@@ -792,7 +792,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Secure Transfer</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Protected handoff with verified credentials
+                              Protected handoff with verified secure credentials
                             </p>
                           </div>
                         </div>
@@ -810,7 +810,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Instant Access</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Full account access & monetization
+                              Full account access with monetization enabled
                             </p>
                           </div>
                         </div>
@@ -828,7 +828,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Real Followers</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              100% organic with authentic engagement
+                              100% organic audience with authentic engagement
                             </p>
                           </div>
                         </div>
@@ -846,7 +846,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Fully Monetized</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Start earning from day one
+                              Start earning money from your very first day
                             </p>
                           </div>
                         </div>
