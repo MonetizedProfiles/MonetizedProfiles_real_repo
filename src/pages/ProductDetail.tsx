@@ -347,15 +347,15 @@ const ProductDetail = () => {
               <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-lg font-medium">Fully monetized and ready to earn immediately</p>
+                  <p className="text-lg font-medium">Monetization enabled - earn ad revenue on your first post</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-lg font-medium">100% authentic growth with engaged audience</p>
+                  <p className="text-lg font-medium">100% organic followers - no bots, only real engagement</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                  <p className="text-lg font-medium">Complete ownership transfer with full support</p>
+                  <p className="text-lg font-medium">Full account ownership - change details whenever you wish</p>
                 </div>
               </div>
 

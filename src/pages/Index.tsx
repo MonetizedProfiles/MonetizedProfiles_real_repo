@@ -296,16 +296,15 @@ const Index = () => {
 
             {/* Big Animated Gradient Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-6 sm:mb-8 leading-tight px-2">
-              <span className="block mb-0 sm:mb-1">Monetized Accounts,</span>
+              <span className="block mb-0 sm:mb-1">Fully Monetized Accounts,</span>
               <span className="block bg-gradient-to-r from-[#FF2929] via-[#FF5C8D] to-[#C74DFF] bg-clip-text text-transparent animate-gradient-flow" style={{ backgroundSize: "200% auto" }}>
-                Instant Revenue
+                Earn On Your First Post
               </span>
             </h1>
 
             {/* Simple subtitle */}
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 sm:mb-12 max-w-3xl mx-auto px-4">
-              Buy verified social media accounts and start earning immediately. 
-              No waiting, no building from scratch.
+              Skip months of grinding to monetization. Buy pre-approved YouTube & TikTok accounts with real followers and start generating ad revenue immediately.
             </p>
 
             {/* Clean CTA */}
@@ -357,8 +356,8 @@ const Index = () => {
       {/* Featured Products Section - 3 Products Display with Scroll */}
       <section id="featured-accounts" className="py-12 sm:py-20 container mx-auto px-4">
         <div className="mb-8 sm:mb-12 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Featured Accounts</h2>
-          <p className="text-base sm:text-lg text-muted-foreground px-4">Start earning today with our most popular monetized accounts</p>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Featured Monetized Accounts</h2>
+          <p className="text-base sm:text-lg text-muted-foreground px-4">Our most popular accounts - 100% organic followers, fully monetized & ready to earn</p>
         </div>
 
         {isLoading ? (
@@ -447,8 +446,8 @@ const Index = () => {
       <section id="why-choose" className="py-12 sm:py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="mb-10 sm:mb-12 md:mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Why Choose MonetizedProfiles?</h2>
-            <p className="text-base sm:text-lg text-muted-foreground px-4">We've perfected the process of transferring monetized accounts safely and securely</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground px-4">Why Our Accounts Are Better</h2>
+            <p className="text-base sm:text-lg text-muted-foreground px-4">100% organic growth, full account ownership, and zero tax verification hassles</p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
@@ -458,10 +457,10 @@ const Index = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
                   <Shield className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Verified & Secure</CardTitle>
+                <CardTitle className="text-lg">100% Organic Growth</CardTitle>
               </CardHeader>
               <CardContent className="text-center text-sm text-muted-foreground">
-                <p>Every account is fully verified with platform monetization enabled and ready to earn</p>
+                <p>All accounts grown organically with real followers. Zero bots, zero fake engagement - guaranteed</p>
               </CardContent>
             </Card>
 
@@ -471,10 +470,10 @@ const Index = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
                   <Users className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Real Audiences</CardTitle>
+                <CardTitle className="text-lg">No Tax Verification Needed</CardTitle>
               </CardHeader>
               <CardContent className="text-center text-sm text-muted-foreground">
-                <p>Genuine, engaged followers with proven interaction history</p>
+                <p>All accounts come tax-approved. Simply connect your PayPal and start cashing out immediately</p>
               </CardContent>
             </Card>
 
@@ -484,10 +483,10 @@ const Index = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
                   <Zap className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Instant Transfer</CardTitle>
+                <CardTitle className="text-lg">Full Account Ownership</CardTitle>
               </CardHeader>
               <CardContent className="text-center text-sm text-muted-foreground">
-                <p>Complete ownership transferred within 24 hours, often much faster</p>
+                <p>Complete control from day one. Change login details, email, and all account information as you wish</p>
               </CardContent>
             </Card>
 
@@ -497,10 +496,10 @@ const Index = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto">
                   <HeadphonesIcon className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Expert Support</CardTitle>
+                <CardTitle className="text-lg">Work From Any Country</CardTitle>
               </CardHeader>
               <CardContent className="text-center text-sm text-muted-foreground">
-                <p>Dedicated support with 1-hour response time</p>
+                <p>Operate and cash out from anywhere in the world. No location restrictions whatsoever</p>
               </CardContent>
             </Card>
           </div>

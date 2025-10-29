@@ -70,7 +70,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       
       <CardHeader>
         <CardTitle className="line-clamp-1">{product.node.title}</CardTitle>
-        <CardDescription className="line-clamp-2">{product.node.description}</CardDescription>
+        <CardDescription className="line-clamp-2">
+          {product.node.description || "Fully monetized account with organic followers - start earning immediately"}
+        </CardDescription>
       </CardHeader>
       
       <CardContent>
