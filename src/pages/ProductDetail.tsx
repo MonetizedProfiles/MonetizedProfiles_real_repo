@@ -1084,7 +1084,9 @@ const ProductDetail = () => {
                     <span className="font-semibold">What's the difference between aged and monetized YouTube accounts?</span>
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Aged YouTube channels are older channels (typically created between 2007–2015) and have a much lower chance of being shadowbanned than newer accounts. Monetized YouTube accounts already meet 1,000 subscribers and 4,000 watch hours and are approved for the YouTube Partner Program, so they can earn revenue from the very first post.
+                    <strong>Aged YouTube channels</strong> are older channels (typically created between 2007–2015) and have a much lower chance of being shadowbanned than newer accounts. They're ideal if you're on a budget and willing to grow to monetization yourself.<br/><br/>
+                    <strong>Monetized YouTube accounts</strong> already meet 1,000 subscribers and 4,000 watch hours and are approved for the YouTube Partner Program, so they can earn revenue from the very first post. This is why they cost more – you skip months of growing to monetization and start earning immediately.<br/><br/>
+                    We recommend monetized accounts for most creators as they offer better ROI – you can start generating income right away while aged accounts require significant time and effort to reach monetization.
                   </AccordionContent>
                 </AccordionItem>
               )}
