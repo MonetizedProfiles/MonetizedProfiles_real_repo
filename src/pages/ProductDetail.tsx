@@ -678,9 +678,9 @@ const ProductDetail = () => {
                             <ShieldCheck className="w-8 h-8 text-primary-foreground" />
                           </div>
                           <div>
-                            <h3 className="font-bold text-xl mb-2">Fully Verified</h3>
+                            <h3 className="font-bold text-xl mb-2">ID & Tax Verified</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              ID & tax information verified - no setup required
+                              Identity & tax forms verified - no setup required
                             </p>
                           </div>
                         </div>
@@ -696,9 +696,9 @@ const ProductDetail = () => {
                             <Users className="w-8 h-8 text-accent-blue-foreground" />
                           </div>
                           <div>
-                            <h3 className="font-bold text-xl mb-2">ID & Tax Verified</h3>
+                            <h3 className="font-bold text-xl mb-2">Healthy Account</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Identity & tax forms verified - ready to monetize
+                              No previous violations or strikes on account history
                             </p>
                           </div>
                         </div>
