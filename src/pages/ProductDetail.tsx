@@ -1078,7 +1078,7 @@ const ProductDetail = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              {(handle === 'monetized-youtube-channel' || handle === 'aged-youtube-channel') && (
+              {(handle === 'youtube' || handle === 'aged-youtube' || handle === 'monetized-youtube-channel' || handle === 'aged-youtube-channel') && (
                 <AccordionItem value="item-youtube-diff" className="bg-card border rounded-lg px-6">
                   <AccordionTrigger className="text-left hover:no-underline">
                     <span className="font-semibold">What's the difference between aged and monetized YouTube accounts?</span>
