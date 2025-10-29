@@ -1074,9 +1074,42 @@ const ProductDetail = () => {
                   <span className="font-semibold">How quickly will I receive my account after purchase?</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Most accounts are delivered within 12-48 hours. You'll receive an email with login credentials and step-by-step transfer instructions. You can also track your order anytime through our order tracking page.
+                  Delivery is usually between 12-24 hours. However, during periods of high demand, it can take up to 72 hours. You'll receive an email with login credentials and step-by-step transfer instructions. You can also track your order anytime through our order tracking page.
                 </AccordionContent>
               </AccordionItem>
+
+              {handle === 'monetized-youtube-account' && (
+                <AccordionItem value="item-youtube-diff" className="bg-card border rounded-lg px-6">
+                  <AccordionTrigger className="text-left hover:no-underline">
+                    <span className="font-semibold">What's the difference between aged and monetized YouTube accounts?</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    Aged accounts are older accounts that meet age requirements but may not be monetized yet. Monetized accounts are already approved for the YouTube Partner Program and can earn ad revenue immediately. We recommend monetized accounts as they offer better value – you can start earning from your first video.
+                  </AccordionContent>
+                </AccordionItem>
+              )}
+
+              {handle === 'aged-youtube-account' && (
+                <AccordionItem value="item-youtube-diff" className="bg-card border rounded-lg px-6">
+                  <AccordionTrigger className="text-left hover:no-underline">
+                    <span className="font-semibold">What's the difference between aged and monetized YouTube accounts?</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    Aged accounts are older accounts that meet age requirements but may not be monetized yet. Monetized accounts are already approved for the YouTube Partner Program and can earn ad revenue immediately. We recommend monetized accounts as they offer better value – you can start earning from your first video.
+                  </AccordionContent>
+                </AccordionItem>
+              )}
+
+              {handle === 'monetized-tiktok-account' && (
+                <AccordionItem value="item-tiktok-id" className="bg-card border rounded-lg px-6">
+                  <AccordionTrigger className="text-left hover:no-underline">
+                    <span className="font-semibold">Do I need to provide ID or tax information?</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    Yes, TikTok requires you to provide tax information (W-9 for US residents or W-8BEN for international users) before you can withdraw earnings. You'll also need to verify your identity with a government-issued ID. This is standard for all TikTok creators and ensures compliance with tax regulations. Don't worry – we'll provide step-by-step instructions on how to complete this process after your account transfer.
+                  </AccordionContent>
+                </AccordionItem>
+              )}
 
               <AccordionItem value="item-2" className="bg-card border rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline">

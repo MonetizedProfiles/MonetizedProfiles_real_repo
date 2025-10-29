@@ -212,7 +212,7 @@ const ContactUs = () => {
                 <span className="font-semibold">How quickly will I receive my account after purchase?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Most accounts are delivered within 12-48 hours via email. You'll receive login credentials and step-by-step transfer instructions. You can track your order anytime through our order tracking page. If you haven't received it within 48 hours, please contact us at support@monetizedprofiles.com with your order number.
+                Delivery is usually between 12-24 hours via email. However, during periods of high demand, it can take up to 72 hours. You'll receive login credentials and step-by-step transfer instructions. You can track your order anytime through our order tracking page. If you haven't received it within 72 hours, please contact us at support@monetizedprofiles.com with your order number.
               </AccordionContent>
             </AccordionItem>
 
