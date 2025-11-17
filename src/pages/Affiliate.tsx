@@ -422,8 +422,7 @@ const Affiliate = () => {
         </div>
       </section>
 
-
-      {/* Affiliate Examples Section */}
+      {/* Affiliate Examples Section - Hidden for now, might reuse later
       <section className="py-12 sm:py-20 border-b border-border">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center max-w-3xl mx-auto">
@@ -436,7 +435,6 @@ const Affiliate = () => {
           </div>
         </div>
             
-        {/* Edge-to-edge scrolling container */}
         <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
           <div className="relative">
               <div 
@@ -444,7 +442,6 @@ const Affiliate = () => {
                 className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide items-center"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
-                {/* First set of videos */}
                 <div className="flex-none w-[200px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
@@ -523,36 +520,7 @@ const Affiliate = () => {
                       <iframe
                         className="absolute inset-0 w-full h-full"
                         src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                        title="Journey Story"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Duplicate set for seamless loop */}
-                <div className="flex-none w-[200px]">
-                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                    <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                      <iframe
-                        className="absolute inset-0 w-full h-full"
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                        title="Short-form Content"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex-none w-[356px]">
-                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                    <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
-                      <iframe
-                        className="absolute inset-0 w-full h-full"
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                        title="Affiliate Success Story"
+                        title="Tutorial Video"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                       />
@@ -573,30 +541,10 @@ const Affiliate = () => {
                 <div className="flex-none w-[200px]">
                   <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
                     <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-                        <Play className="w-10 h-10 text-primary" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex-none w-[356px]">
-                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                    <div className="aspect-video bg-secondary/20 flex items-center justify-center relative">
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-secondary/10">
-                        <Play className="w-12 h-12 text-primary" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex-none w-[200px]">
-                  <div className="overflow-hidden rounded-lg hover:shadow-lg transition-all">
-                    <div className="aspect-[9/16] bg-secondary/20 flex items-center justify-center relative">
                       <iframe
                         className="absolute inset-0 w-full h-full"
                         src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                        title="Affiliate Tips"
+                        title="Success Tips"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                       />
@@ -629,6 +577,7 @@ const Affiliate = () => {
             </div>
           </div>
       </section>
+      */}
 
       {/* Contact Section */}
       <section className="py-12 sm:py-20 bg-secondary/20 border-b border-border">
