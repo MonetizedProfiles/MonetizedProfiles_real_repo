@@ -53,7 +53,7 @@ const Affiliate = () => {
               <span className="text-primary">Get Paid Generously.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              Join 500+ creators earning 20% commission on every sale
+              Join 500+ creators earning up to 25% commission on every sale
             </p>
             <Button 
               size="lg" 
@@ -86,7 +86,7 @@ const Affiliate = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground text-lg">
-                    Earn $100-$400 per sale with our generous 20% commission structure. The more you sell, the more you earn.
+                    Earn $100-$400 per sale with our generous commission structure - up to 25% on every order. The more you sell, the more you earn.
                   </p>
                 </CardContent>
               </Card>
@@ -182,7 +182,7 @@ const Affiliate = () => {
                   </div>
                   <h3 className="text-xl font-bold mb-3">Get Paid</h3>
                   <p className="text-muted-foreground text-sm">
-                    Earn 20% commission on every sale and get paid regularly.
+                    Earn up to 25% commission on every sale and get paid regularly.
                   </p>
                 </CardContent>
               </Card>
@@ -379,7 +379,7 @@ const Affiliate = () => {
                   What is the commission rate?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  All affiliates earn a flat 20% commission on every sale. There are no tiers or complex structures - just straightforward 20% on all products, whether they're $500 or $2,000+.
+                  Our standard commission rate is 15%, with top-performing affiliates earning up to 25% on every sale. We reward our most successful partners with higher commission tiers.
                 </AccordionContent>
               </AccordionItem>
 
@@ -627,7 +627,7 @@ const Affiliate = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>20% commission</span>
+                    <span>Up to 25% commission</span>
                   </div>
                 </div>
 
