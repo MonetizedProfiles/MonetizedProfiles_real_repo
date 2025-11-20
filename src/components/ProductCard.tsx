@@ -20,6 +20,32 @@ const getProductRating = (productTitle: string): number => {
   return 4.7; // Default rating for other products
 };
 
+// Helper function to get product description based on product type
+const getProductDescription = (productTitle: string): string => {
+  const title = productTitle.toLowerCase();
+  
+  if (title.includes('monetized youtube') || (title.includes('youtube') && title.includes('monetized'))) {
+    return "Partner Program approved channel with 1,000 subscribers and 4,000 watch hours";
+  }
+  if (title.includes('aged youtube') || (title.includes('youtube') && title.includes('aged'))) {
+    return "Algorithm boosted channel created in 2010 or older";
+  }
+  if (title.includes('us shop') || (title.includes('shop') && title.includes('us'))) {
+    return "TikTok Shop Affiliate Program approved account with 5,000 US followers";
+  }
+  if (title.includes('uk shop') || (title.includes('shop') && title.includes('uk'))) {
+    return "TikTok Shop Affiliate Program approved account with 5,000 UK followers";
+  }
+  if (title.includes('niche list') || title.includes('viral') && title.includes('list')) {
+    return "50+ TikTok and YouTube niches chosen by professionals";
+  }
+  if (title.includes('tiktok') || title.includes('monetized')) {
+    return "Monetization enabled account with 10,000 organic followers";
+  }
+  
+  return "Fully monetized account with organic followers - start earning immediately";
+};
+
 export const ProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
   const addItem = useCartStore(state => state.addItem);
@@ -82,7 +108,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       <CardHeader>
         <CardTitle className="line-clamp-1">{product.node.title}</CardTitle>
         <CardDescription className="line-clamp-2">
-          {product.node.description || "Fully monetized account with organic followers - start earning immediately"}
+          {getProductDescription(product.node.title)}
         </CardDescription>
       </CardHeader>
       
