@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
-import { InfiniteScroll } from "@/components/InfiniteScroll";
 import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail, DollarSign, Percent, Video, Play, ChevronLeft, ChevronRight, ChevronDown, Sparkles, Wallet, ShoppingCart } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
@@ -549,13 +548,13 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">Join hundreds of satisfied content creators</p>
           </div>
 
-          <div className="relative overflow-x-hidden overflow-y-visible max-w-6xl mx-auto pb-6">
-            <InfiniteScroll speed={100} className="gap-4 sm:gap-6 py-3">
+          <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
+            <div className="flex gap-4 sm:gap-6 py-3 animate-testimonials-mobile animate-testimonials-desktop pause-animation">
               {[...Array(2)].map((_, groupIdx) => (
-                <div key={groupIdx} className="flex gap-4 sm:gap-6">
+                <div key={groupIdx} className="flex gap-6">
                   {/* Review 1 */}
                   <div 
-                    className="min-w-[280px] max-w-[280px] sm:min-w-[350px] sm:max-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
                     onClick={() => {
                       const loox = (window as any).loox;
                       if (loox && loox.open_reviews) {
@@ -575,7 +574,467 @@ const Index = () => {
                   </div>
                   {/* Review 2 */}
                   <div 
-                    className="min-w-[280px] max-w-[280px] sm:min-w-[350px] sm:max-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src={justjamestvImg} alt="JustJamesTV" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Excellent Service</h4>
+                        <p className="text-sm text-muted-foreground">JustJamesTV</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"transfer was so smooth and support really came through for me. got actual engaged followers on my tiktok"</p>
+                  </div>
+                  {/* Review 3 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src={emmaImg} alt="Emma Thompson" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Worth Every Penny</h4>
+                        <p className="text-sm text-muted-foreground">Emma Thompson</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"saved me literally months of grinding. perfect way to jumpstart my creator journey tbh"</p>
+                  </div>
+                  {/* Review 4 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src={mikeImg} alt="MikeReacts" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Best Investment</h4>
+                        <p className="text-sm text-muted-foreground">MikeReacts</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"monetization was already active. started seeing money come in within hours no cap"</p>
+                  </div>
+                  {/* Review 5 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src={lisaImg} alt="Lisa Wong" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Seamless Process</h4>
+                        <p className="text-sm text-muted-foreground">Lisa Wong</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"everything went super smooth, they handled it all. got the account transferred in less than 12 hours"</p>
+                  </div>
+                  {/* Review 6 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src={davidImg} alt="David Anderson" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Highly Recommend</h4>
+                        <p className="text-sm text-muted-foreground">David Anderson</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"perfect if you don't wanna grind from zero. the engagement is real, not fake stuff"</p>
+                  </div>
+                  {/* Review 7 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src={michaelImg} alt="Michael Chen" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Amazing Quality</h4>
+                        <p className="text-sm text-muted-foreground">Michael Chen</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"these are actual real people, not bots. engagement rate is exactly what they said"</p>
+                  </div>
+                  {/* Review 8 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src={blockbusterzImg} alt="BlockBusterZ" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Fast & Reliable</h4>
+                        <p className="text-sm text-muted-foreground">BlockBusterZ</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"support answered everything before I bought. whole thing was super transparent which I appreciate"</p>
+                  </div>
+                  {/* Review 9 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://ui-avatars.com/api/?name=Rachel+W&background=ec4899&color=fff&size=128" alt="Rachel W." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Perfect Start</h4>
+                        <p className="text-sm text-muted-foreground">Rachel W.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"got my content career going with a head start. the analytics show people are actually interested"</p>
+                  </div>
+                  {/* Review 10 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src={tomImg} alt="Tom Rodriguez" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Trustworthy Service</h4>
+                        <p className="text-sm text-muted-foreground">Tom Rodriguez</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"ngl I was skeptical at first but they came through with exactly what they promised"</p>
+                  </div>
+                  {/* Review 11 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://ui-avatars.com/api/?name=Nina+S&background=06b6d4&color=fff&size=128" alt="Nina S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Life Changing</h4>
+                        <p className="text-sm text-muted-foreground">Nina S.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"this literally gave me the chance to quit my 9-5. changed my whole life fr"</p>
+                  </div>
+                  {/* Review 12 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=KevinDaily" alt="KevinDaily" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Great Value</h4>
+                        <p className="text-sm text-muted-foreground">KevinDaily</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"when you think about how long this would take to build yourself, the price makes sense"</p>
+                  </div>
+                  {/* Review 13 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://ui-avatars.com/api/?name=Olivia+M&background=a855f7&color=fff&size=128" alt="Olivia M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Superb Quality</h4>
+                        <p className="text-sm text-muted-foreground">Olivia M.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"account history is clean and the audience actually matches my niche. couldn't ask for more"</p>
+                  </div>
+                  {/* Review 14 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src={howtoaiImg} alt="HowToAI" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Outstanding Support</h4>
+                        <p className="text-sm text-muted-foreground">HowToAI</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"had some questions after buying and support got back to me in like 30 mins. super helpful"</p>
+                  </div>
+                  {/* Review 15 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://ui-avatars.com/api/?name=Jessica+A&background=14b8a6&color=fff&size=128" alt="Jessica A." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Incredible Service</h4>
+                        <p className="text-sm text-muted-foreground">Jessica A.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"whole experience from browsing to getting the account was smooth. would def buy again"</p>
+                  </div>
+                  {/* Review 16 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=MarcusMoneyTV" alt="MarcusMoneyTV" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Top Notch</h4>
+                        <p className="text-sm text-muted-foreground">MarcusMoneyTV</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"monetization started working right away. already getting ad money coming in"</p>
+                  </div>
+                  {/* Review 17 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://ui-avatars.com/api/?name=Sophie+L&background=f43f5e&color=fff&size=128" alt="Sophie L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Exactly As Described</h4>
+                        <p className="text-sm text-muted-foreground">Sophie L.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"no surprises or anything. account stats matched exactly what was on the listing"</p>
+                  </div>
+                  {/* Review 18 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DanTheContentMan" alt="DanTheContentMan" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Smart Investment</h4>
+                        <p className="text-sm text-muted-foreground">DanTheContentMan</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"honestly the best way to get your content business going. saves you months or years"</p>
+                  </div>
+                  {/* Review 19 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://ui-avatars.com/api/?name=Megan+K&background=3b82f6&color=fff&size=128" alt="Megan K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Five Stars</h4>
+                        <p className="text-sm text-muted-foreground">Megan K.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"super legit service. gonna tell all my creator friends about this"</p>
+                  </div>
+                  {/* Review 20 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AlexViralContent" alt="AlexViralContent" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Brilliant Service</h4>
+                        <p className="text-sm text-muted-foreground">AlexViralContent</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"the guarantee thing made me feel way better about buying. glad I went for it, account is perfect"</p>
+                  </div>
+                  {/* Review 21 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://ui-avatars.com/api/?name=Lauren+P&background=eab308&color=fff&size=128" alt="Lauren P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Highly Satisfied</h4>
+                        <p className="text-sm text-muted-foreground">Lauren P.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"the engagement was solid from the start. my first video literally got thousands of views"</p>
+                  </div>
+                  {/* Review 22 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=RyanNova" alt="RyanNova" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Exceeded Expectations</h4>
+                        <p className="text-sm text-muted-foreground">RyanNova</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"way better than what I expected. the audience quality is actually really good"</p>
+                  </div>
+                  {/* Review 23 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://ui-avatars.com/api/?name=Victoria+S&background=d946ef&color=fff&size=128" alt="Victoria S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Wonderful Experience</h4>
+                        <p className="text-sm text-muted-foreground">Victoria S.</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"bought it and had full control in like 8 hours. super fast process"</p>
+                  </div>
+                  {/* Review 24 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
+                    onClick={() => {
+                      const loox = (window as any).loox;
+                      if (loox && loox.open_reviews) {
+                        loox.open_reviews();
+                      }
+                    }}
+                  >
+                    <div className="flex items-start gap-4 mb-4">
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=JasonWins" alt="JasonWins" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <div className="flex-1">
+                        <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
+                        <h4 className="font-bold text-lg">Premium Quality</h4>
+                        <p className="text-sm text-muted-foreground">JasonWins</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground">"you really do get what you pay for. this is quality stuff all around"</p>
+                  </div>
+                  {/* Review 25 */}
+                  <div 
+                    className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
                     onClick={() => {
                       const loox = (window as any).loox;
                       if (loox && loox.open_reviews) {
@@ -595,7 +1054,7 @@ const Index = () => {
                   </div>
                 </div>
               ))}
-            </InfiniteScroll>
+            </div>
           </div>
         </div>
       </section>
