@@ -158,11 +158,11 @@ All colors MUST be HSL.
   /* Desktop-only faster scroll for reviews */
   @media (min-width: 640px) {
     .animate-scroll-left-desktop {
-      animation: testimonial-scroll-desktop 10s linear infinite;
+      animation: testimonial-scroll-desktop 5s linear infinite;
     }
 
     .animate-testimonials-desktop {
-      animation: testimonial-scroll-desktop 10s linear infinite;
+      animation: testimonial-scroll-desktop 5s linear infinite;
     }
   }
 
@@ -176,7 +176,7 @@ All colors MUST be HSL.
   }
 
   .animate-testimonials-mobile {
-    animation: testimonial-scroll-mobile 60s linear infinite;
+    animation: testimonial-scroll-mobile 30s linear infinite;
   }
 
   @keyframes testimonial-scroll-mobile {
