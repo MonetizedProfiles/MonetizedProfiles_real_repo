@@ -552,7 +552,7 @@ const Index = () => {
           <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
             <InfiniteScroll speed={100} className="gap-4 sm:gap-6 py-3">
               {[...Array(2)].map((_, groupIdx) => (
-                <div key={groupIdx} className="flex gap-6"  style={{ flexShrink: 0 }}>
+                <div key={groupIdx} className="flex gap-4 sm:gap-6" style={{ flexShrink: 0 }}>
                   {/* Review 1 */}
                   <div 
                     className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
