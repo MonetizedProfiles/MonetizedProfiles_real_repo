@@ -19,6 +19,16 @@ import { ProductCard } from "@/components/ProductCard";
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { StockIndicator } from "@/components/StockIndicator";
+import sarahImg from "@/assets/testimonials/sarah.webp";
+import justjamestvImg from "@/assets/testimonials/justjamestv.webp";
+import mikeImg from "@/assets/testimonials/mike.webp";
+import emmaImg from "@/assets/testimonials/emma.webp";
+import lisaImg from "@/assets/testimonials/lisa.webp";
+import davidImg from "@/assets/testimonials/david.webp";
+import michaelImg from "@/assets/testimonials/michael.webp";
+import blockbusterzImg from "@/assets/testimonials/blockbusterz.webp";
+import tomImg from "@/assets/testimonials/tom.webp";
+import howtoaiImg from "@/assets/testimonials/howtoai.webp";
 
 const emailSchema = z.object({
   email: z.string().trim().email({ message: "Please enter a valid email address" }).max(255, { message: "Email must be less than 255 characters" })
@@ -984,98 +994,98 @@ const ProductDetail = () => {
                   {/* Review 1 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Sarah M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={sarahImg} alt="Sarah M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Game Changer!</h4>
                         <p className="text-sm text-muted-foreground">Sarah M.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Bought a monetized YouTube account and started earning from day one. The account was exactly as described!"</p>
+                    <p className="text-muted-foreground">"literally started making money day one. account was exactly what they said it'd be 🔥"</p>
                   </div>
                   {/* Review 2 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="James K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={justjamestvImg} alt="JustJamesTV" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Excellent Service</h4>
-                        <p className="text-sm text-muted-foreground">James K.</p>
+                        <p className="text-sm text-muted-foreground">JustJamesTV</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Transfer was smooth and support was incredibly helpful. My TikTok account has active followers!"</p>
+                    <p className="text-muted-foreground">"transfer was so smooth and support really came through for me. got actual engaged followers on my tiktok"</p>
                   </div>
                   {/* Review 3 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Emma L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={emmaImg} alt="Emma Thompson" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Worth Every Penny</h4>
-                        <p className="text-sm text-muted-foreground">Emma L.</p>
+                        <p className="text-sm text-muted-foreground">Emma Thompson</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Skip months of growing an audience. Perfect shortcut to start my content creator journey!"</p>
+                    <p className="text-muted-foreground">"saved me literally months of grinding. perfect way to jumpstart my creator journey tbh"</p>
                   </div>
                   {/* Review 4 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Michael R." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={mikeImg} alt="MikeReacts" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Best Investment</h4>
-                        <p className="text-sm text-muted-foreground">Michael R.</p>
+                        <p className="text-sm text-muted-foreground">MikeReacts</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"The monetization was active immediately. Making money within hours of purchase!"</p>
+                    <p className="text-muted-foreground">"monetization was already active. started seeing money come in within hours no cap"</p>
                   </div>
                   {/* Review 5 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Lisa T." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={lisaImg} alt="Lisa Wong" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Seamless Process</h4>
-                        <p className="text-sm text-muted-foreground">Lisa T.</p>
+                        <p className="text-sm text-muted-foreground">Lisa Wong</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Everything was handled professionally. Account transfer took less than 12 hours!"</p>
+                    <p className="text-muted-foreground">"everything went super smooth, they handled it all. got the account transferred in less than 12 hours"</p>
                   </div>
                   {/* Review 6 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="David P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={davidImg} alt="David Anderson" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Highly Recommend</h4>
-                        <p className="text-sm text-muted-foreground">David P.</p>
+                        <p className="text-sm text-muted-foreground">David Anderson</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Great for anyone wanting to skip the grind of building from scratch. Real engagement!"</p>
+                    <p className="text-muted-foreground">"perfect if you don't wanna grind from zero. the engagement is real, not fake stuff"</p>
                   </div>
                   {/* Review 7 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Amanda G." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={michaelImg} alt="Michael Chen" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Amazing Quality</h4>
-                        <p className="text-sm text-muted-foreground">Amanda G.</p>
+                        <p className="text-sm text-muted-foreground">Michael Chen</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"The followers are real people, not bots. Engagement rate is exactly as promised!"</p>
+                    <p className="text-muted-foreground">"these are actual real people, not bots. engagement rate is exactly what they said"</p>
                   </div>
                   {/* Review 8 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Chris B." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={blockbusterzImg} alt="BlockBusterZ" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Fast & Reliable</h4>
-                        <p className="text-sm text-muted-foreground">Chris B.</p>
+                        <p className="text-sm text-muted-foreground">BlockBusterZ</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Support team answered all my questions before purchase. Very transparent process!"</p>
+                    <p className="text-muted-foreground">"support answered everything before I bought. whole thing was super transparent which I appreciate"</p>
                   </div>
                   {/* Review 9 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1087,19 +1097,19 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Rachel W.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Launching my content career with a running start. Analytics show genuine audience interest!"</p>
+                    <p className="text-muted-foreground">"got my content career going with a head start. the analytics show people are actually interested"</p>
                   </div>
                   {/* Review 10 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Tom H." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={tomImg} alt="Tom Rodriguez" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Trustworthy Service</h4>
-                        <p className="text-sm text-muted-foreground">Tom H.</p>
+                        <p className="text-sm text-muted-foreground">Tom Rodriguez</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Was skeptical at first but they delivered exactly what they promised. Very happy!"</p>
+                    <p className="text-muted-foreground">"ngl I was skeptical at first but they came through with exactly what they promised"</p>
                   </div>
                   {/* Review 11 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1111,7 +1121,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Nina S.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"This gave me the platform I needed to quit my 9-5 job. Forever grateful!"</p>
+                    <p className="text-muted-foreground">"this literally gave me the chance to quit my 9-5. changed my whole life fr"</p>
                   </div>
                   {/* Review 12 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1123,7 +1133,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Kevin D.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Considering how long it would take to build this myself, the price is absolutely fair!"</p>
+                    <p className="text-muted-foreground">"when you think about how long this would take to build yourself, the price makes sense"</p>
                   </div>
                   {/* Review 13 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1135,19 +1145,19 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Olivia M.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"The account history is clean and the audience demographics match my niche perfectly!"</p>
+                    <p className="text-muted-foreground">"account history is clean and the audience actually matches my niche. couldn't ask for more"</p>
                   </div>
                   {/* Review 14 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Brandon F." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={howtoaiImg} alt="HowToAI" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Outstanding Support</h4>
-                        <p className="text-sm text-muted-foreground">Brandon F.</p>
+                        <p className="text-sm text-muted-foreground">HowToAI</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Had a few questions post-purchase and support responded within 30 minutes. Impressive!"</p>
+                    <p className="text-muted-foreground">"had some questions after buying and support got back to me in like 30 mins. super helpful"</p>
                   </div>
                   {/* Review 15 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1159,7 +1169,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Jessica A.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Everything from browsing to transfer was smooth. Would definitely buy again!"</p>
+                    <p className="text-muted-foreground">"whole experience from browsing to getting the account was smooth. would def buy again"</p>
                   </div>
                   {/* Review 16 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1171,7 +1181,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Marcus J.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Monetization kicked in immediately. Already seeing ad revenue come through!"</p>
+                    <p className="text-muted-foreground">"monetization started working right away. already getting ad money coming in"</p>
                   </div>
                   {/* Review 17 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1183,7 +1193,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Sophie L.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"No hidden surprises. The account stats matched the listing perfectly. Very honest!"</p>
+                    <p className="text-muted-foreground">"no surprises or anything. account stats matched exactly what was on the listing"</p>
                   </div>
                   {/* Review 18 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1195,7 +1205,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Daniel C.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"ROI has been incredible. Made back my investment in the first month!"</p>
+                    <p className="text-muted-foreground">"made my money back in literally the first month. ROI been crazy good"</p>
                   </div>
                   {/* Review 19 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1207,7 +1217,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Megan P.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"The whole team is professional and responsive. Best experience buying an account!"</p>
+                    <p className="text-muted-foreground">"team is super professional and always responds quick. best experience buying an account for real"</p>
                   </div>
                   {/* Review 20 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1219,7 +1229,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Ryan T.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Account quality was even better than advertised. Couldn't be happier with my purchase!"</p>
+                    <p className="text-muted-foreground">"way better quality than what I expected. couldn't be happier with what I got"</p>
                   </div>
                   {/* Review 21 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1231,7 +1241,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Zoe K.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"From start to finish, everything was perfect. Will be buying more accounts soon!"</p>
+                    <p className="text-muted-foreground">"everything was perfect from start to finish. def gonna buy more accounts soon"</p>
                   </div>
                   {/* Review 22 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1243,7 +1253,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Eric M.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Totally legitimate service with real accounts. No scams here - just quality!"</p>
+                    <p className="text-muted-foreground">"100% legit service with real accounts. no sketchy stuff, just quality"</p>
                   </div>
                   {/* Review 23 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1255,7 +1265,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Hannah R.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"After months of struggling to grow, this was the solution I needed. Thank you!"</p>
+                    <p className="text-muted-foreground">"after struggling to grow for months, this was literally the solution I needed"</p>
                   </div>
                   {/* Review 24 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1267,7 +1277,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Carlos V.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Made the perfect choice going with MonetizedProfiles. Everything worked flawlessly!"</p>
+                    <p className="text-muted-foreground">"made the perfect choice going with them. everything worked flawlessly, zero issues"</p>
                   </div>
                   {/* Review 25 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -1279,7 +1289,7 @@ const ProductDetail = () => {
                         <p className="text-sm text-muted-foreground">Victoria N.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"The entire experience was amazing from browsing to post-purchase support. Highly recommend!"</p>
+                    <p className="text-muted-foreground">"the whole experience was amazing from browsing to after I got it. would definitely recommend"</p>
                   </div>
                 </div>
               ))}
