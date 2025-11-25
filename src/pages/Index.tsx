@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
 import { ProductCard } from "@/components/ProductCard";
+import { InfiniteScroll } from "@/components/InfiniteScroll";
 import { ShoppingBag, TrendingUp, Shield, Zap, Clock, RefreshCw, HeadphonesIcon, Star, CheckCircle, Users, Lock, Mail, DollarSign, Percent, Video, Play, ChevronLeft, ChevronRight, ChevronDown, Sparkles, Wallet, ShoppingCart } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
@@ -549,9 +550,9 @@ const Index = () => {
           </div>
 
           <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
-            <div className="flex gap-4 sm:gap-6 py-3 animate-testimonials-mobile animate-testimonials-desktop pause-animation">
+            <InfiniteScroll speed={100} className="gap-4 sm:gap-6 py-3">
               {[...Array(2)].map((_, groupIdx) => (
-                <div key={groupIdx} className="flex gap-6">
+                <div key={groupIdx} className="flex gap-6"  style={{ flexShrink: 0 }}>
                   {/* Review 1 */}
                   <div 
                     className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50 cursor-pointer"
@@ -1054,7 +1055,7 @@ const Index = () => {
                   </div>
                 </div>
               ))}
-            </div>
+            </InfiniteScroll>
           </div>
         </div>
       </section>
