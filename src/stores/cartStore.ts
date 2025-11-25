@@ -3,6 +3,10 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 import { ShopifyProduct, storefrontApiRequest } from '@/lib/shopify';
 import { appendTrackingParams } from '@/lib/tracking';
 
+// Checkout Provider Configuration
+type CheckoutProvider = 'shopify' | 'checkoutchamp';
+const CHECKOUT_PROVIDER: CheckoutProvider = 'shopify'; // Toggle between providers
+
 export interface CartItem {
   product: ShopifyProduct;
   variantId: string;
@@ -60,6 +64,56 @@ function extractNumericVariantId(graphqlId: string): string {
   return parts[parts.length - 1];
 }
 
+// GraphQL mutation for creating Shopify cart
+const CART_CREATE_MUTATION = `
+  mutation cartCreate($input: CartInput!) {
+    cartCreate(input: $input) {
+      cart {
+        id
+        checkoutUrl
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`;
+
+// Create Shopify native checkout URL
+async function createShopifyCheckout(items: CartItem[]): Promise<string> {
+  try {
+    const lines = items.map(item => ({
+      quantity: item.quantity,
+      merchandiseId: item.variantId,
+    }));
+
+    const cartData = await storefrontApiRequest(CART_CREATE_MUTATION, {
+      input: { lines },
+    });
+
+    if (cartData.data.cartCreate.userErrors.length > 0) {
+      throw new Error(`Cart creation failed: ${cartData.data.cartCreate.userErrors.map(e => e.message).join(', ')}`);
+    }
+
+    const cart = cartData.data.cartCreate.cart;
+    
+    if (!cart.checkoutUrl) {
+      throw new Error('No checkout URL returned from Shopify');
+    }
+
+    const url = new URL(cart.checkoutUrl);
+    url.searchParams.set('channel', 'online_store');
+    const checkoutUrl = url.toString();
+    
+    console.log('Generated Shopify checkout URL:', checkoutUrl);
+    return checkoutUrl;
+  } catch (error) {
+    console.error('Error creating Shopify checkout:', error);
+    throw error;
+  }
+}
+
 // Create CheckoutChamp checkout URL
 function createCheckoutChampUrl(items: CartItem[]): string {
   const productsParamRaw = items
@@ -82,7 +136,7 @@ function createCheckoutChampUrl(items: CartItem[]): string {
       return `${checkoutChampId}:${item.quantity}`;
     })
     .filter(Boolean)
-    .join(';'); // Use semicolon separator for multiple products
+    .join(';');
 
   if (!productsParamRaw) {
     throw new Error('No valid items to send to CheckoutChamp (missing mappings)');
@@ -91,7 +145,6 @@ function createCheckoutChampUrl(items: CartItem[]): string {
   const productsParam = encodeURIComponent(productsParamRaw);
   const baseUrl = `${CHECKOUTCHAMP_CHECKOUT_URL}/${CHECKOUTCHAMP_CAMPAIGN_SLUG}?products=${productsParam}`;
   
-  // Append Everflow tracking parameters
   const url = appendTrackingParams(baseUrl);
   console.log('Generated CheckoutChamp URL with tracking:', url);
   return url;
@@ -173,9 +226,16 @@ export const useCartStore = create<CartStore>()(
 
         setLoading(true);
         try {
-          const checkoutUrl = createCheckoutChampUrl(items);
+          let checkoutUrl: string;
+          
+          if (CHECKOUT_PROVIDER === 'shopify') {
+            checkoutUrl = await createShopifyCheckout(items);
+          } else {
+            checkoutUrl = createCheckoutChampUrl(items);
+          }
+          
           setCheckoutUrl(checkoutUrl);
-          console.log('CheckoutChamp URL:', checkoutUrl);
+          console.log(`${CHECKOUT_PROVIDER} checkout URL:`, checkoutUrl);
           return checkoutUrl;
         } catch (error) {
           console.error('Failed to create checkout:', error);
