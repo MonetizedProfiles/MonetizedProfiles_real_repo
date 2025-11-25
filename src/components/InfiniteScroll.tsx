@@ -47,7 +47,7 @@ export const InfiniteScroll = ({ children, speed = 50, className = "" }: Infinit
   }, [speed]);
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-visible">
       <div ref={scrollRef} className={`flex ${className}`} style={{ willChange: 'transform' }}>
         {children}
       </div>
