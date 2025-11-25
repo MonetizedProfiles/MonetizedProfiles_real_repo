@@ -545,7 +545,7 @@ const Index = () => {
                   {/* Review 1 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Sarah M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Sarah+M&background=ef4444&color=fff&size=128" alt="Sarah M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Game Changer!</h4>
@@ -557,11 +557,11 @@ const Index = () => {
                   {/* Review 2 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="James K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=JamesK" alt="JustJamesTV" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Excellent Service</h4>
-                        <p className="text-sm text-muted-foreground">James K.</p>
+                        <p className="text-sm text-muted-foreground">JustJamesTV</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Transfer was smooth and support was incredibly helpful. My TikTok account has active followers!"</p>
@@ -569,7 +569,7 @@ const Index = () => {
                   {/* Review 3 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Emma L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Emma+L&background=8b5cf6&color=fff&size=128" alt="Emma L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Worth Every Penny</h4>
@@ -581,11 +581,11 @@ const Index = () => {
                   {/* Review 4 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Michael R." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=MikeReacts" alt="MikeReacts" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Best Investment</h4>
-                        <p className="text-sm text-muted-foreground">Michael R.</p>
+                        <p className="text-sm text-muted-foreground">MikeReacts</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"The monetization was active immediately. Making money within hours of purchase!"</p>
@@ -593,7 +593,7 @@ const Index = () => {
                   {/* Review 5 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Lisa T." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Lisa+T&background=10b981&color=fff&size=128" alt="Lisa T." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Seamless Process</h4>
@@ -605,11 +605,11 @@ const Index = () => {
                   {/* Review 6 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="David P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DavidCreates" alt="DavidCreates" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Highly Recommend</h4>
-                        <p className="text-sm text-muted-foreground">David P.</p>
+                        <p className="text-sm text-muted-foreground">DavidCreates</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Great for anyone wanting to skip the grind of building from scratch. Real engagement!"</p>
@@ -617,7 +617,7 @@ const Index = () => {
                   {/* Review 7 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Amanda G." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Amanda+G&background=f59e0b&color=fff&size=128" alt="Amanda G." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Amazing Quality</h4>
@@ -629,11 +629,11 @@ const Index = () => {
                   {/* Review 8 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Chris B." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=ChrisB" alt="ChrisB_Official" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Fast & Reliable</h4>
-                        <p className="text-sm text-muted-foreground">Chris B.</p>
+                        <p className="text-sm text-muted-foreground">ChrisB_Official</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Support team answered all my questions before purchase. Very transparent process!"</p>
@@ -641,7 +641,7 @@ const Index = () => {
                   {/* Review 9 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Rachel W." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Rachel+W&background=ec4899&color=fff&size=128" alt="Rachel W." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Perfect Start</h4>
@@ -653,11 +653,11 @@ const Index = () => {
                   {/* Review 10 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Tom H." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=TommyVibes" alt="TommyVibes" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Trustworthy Service</h4>
-                        <p className="text-sm text-muted-foreground">Tom H.</p>
+                        <p className="text-sm text-muted-foreground">TommyVibes</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Was skeptical at first but they delivered exactly what they promised. Very happy!"</p>
@@ -665,7 +665,7 @@ const Index = () => {
                   {/* Review 11 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Nina S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Nina+S&background=06b6d4&color=fff&size=128" alt="Nina S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Life Changing</h4>
@@ -677,11 +677,11 @@ const Index = () => {
                   {/* Review 12 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Kevin D." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=KevinDaily" alt="KevinDaily" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Great Value</h4>
-                        <p className="text-sm text-muted-foreground">Kevin D.</p>
+                        <p className="text-sm text-muted-foreground">KevinDaily</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Considering how long it would take to build this myself, the price is absolutely fair!"</p>
@@ -689,7 +689,7 @@ const Index = () => {
                   {/* Review 13 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Olivia M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Olivia+M&background=a855f7&color=fff&size=128" alt="Olivia M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Superb Quality</h4>
@@ -701,11 +701,11 @@ const Index = () => {
                   {/* Review 14 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Brandon F." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=BrandonFilms" alt="BrandonFilms" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Outstanding Support</h4>
-                        <p className="text-sm text-muted-foreground">Brandon F.</p>
+                        <p className="text-sm text-muted-foreground">BrandonFilms</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Had a few questions post-purchase and support responded within 30 minutes. Impressive!"</p>
@@ -713,7 +713,7 @@ const Index = () => {
                   {/* Review 15 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Jessica A." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Jessica+A&background=14b8a6&color=fff&size=128" alt="Jessica A." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Incredible Service</h4>
@@ -725,11 +725,11 @@ const Index = () => {
                   {/* Review 16 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Marcus J." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=MarcusMoneyTV" alt="MarcusMoneyTV" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Top Notch</h4>
-                        <p className="text-sm text-muted-foreground">Marcus J.</p>
+                        <p className="text-sm text-muted-foreground">MarcusMoneyTV</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Monetization kicked in immediately. Already seeing ad revenue come through!"</p>
@@ -737,7 +737,7 @@ const Index = () => {
                   {/* Review 17 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Sophie L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Sophie+L&background=f43f5e&color=fff&size=128" alt="Sophie L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Exactly As Described</h4>
@@ -749,11 +749,11 @@ const Index = () => {
                   {/* Review 18 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Daniel C." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DanTheContentMan" alt="DanTheContentMan" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Smart Investment</h4>
-                        <p className="text-sm text-muted-foreground">Daniel C.</p>
+                        <p className="text-sm text-muted-foreground">DanTheContentMan</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Best way to jumpstart a content business. Saves months or even years of effort!"</p>
@@ -761,7 +761,7 @@ const Index = () => {
                   {/* Review 19 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Megan K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Megan+K&background=3b82f6&color=fff&size=128" alt="Megan K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Five Stars</h4>
@@ -773,11 +773,11 @@ const Index = () => {
                   {/* Review 20 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Alex V." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AlexViralContent" alt="AlexViralContent" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Brilliant Service</h4>
-                        <p className="text-sm text-muted-foreground">Alex V.</p>
+                        <p className="text-sm text-muted-foreground">AlexViralContent</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"The guarantee gave me confidence to purchase. Glad I did - account is perfect!"</p>
@@ -785,7 +785,7 @@ const Index = () => {
                   {/* Review 21 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Lauren P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Lauren+P&background=eab308&color=fff&size=128" alt="Lauren P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Highly Satisfied</h4>
@@ -797,11 +797,11 @@ const Index = () => {
                   {/* Review 22 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Ryan N." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=RyanNova" alt="RyanNova" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Exceeded Expectations</h4>
-                        <p className="text-sm text-muted-foreground">Ryan N.</p>
+                        <p className="text-sm text-muted-foreground">RyanNova</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"Better than I hoped for. The audience quality is exceptional!"</p>
@@ -809,7 +809,7 @@ const Index = () => {
                   {/* Review 23 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Victoria S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Victoria+S&background=d946ef&color=fff&size=128" alt="Victoria S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Wonderful Experience</h4>
@@ -821,11 +821,11 @@ const Index = () => {
                   {/* Review 24 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Jason W." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=JasonWins" alt="JasonWins" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Premium Quality</h4>
-                        <p className="text-sm text-muted-foreground">Jason W.</p>
+                        <p className="text-sm text-muted-foreground">JasonWins</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"You get what you pay for - and this is premium quality all the way!"</p>
@@ -833,7 +833,7 @@ const Index = () => {
                   {/* Review 25 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="/placeholder.svg" alt="Natalie H." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Natalie+H&background=059669&color=fff&size=128" alt="Natalie H." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Best Decision</h4>
