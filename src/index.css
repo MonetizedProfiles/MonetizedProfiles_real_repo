@@ -134,7 +134,7 @@ All colors MUST be HSL.
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-350px * 25 - 24px * 25));
+      transform: translateX(calc(-350px * 75 - 24px * 75));
     }
   }
 
@@ -143,22 +143,22 @@ All colors MUST be HSL.
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-280px * 25 - 16px * 25));
+      transform: translateX(calc(-280px * 75 - 16px * 75));
     }
   }
 
   .animate-scroll-left {
-    animation: scroll-left 60s linear infinite;
+    animation: scroll-left 180s linear infinite;
   }
 
   .animate-scroll-left-mobile {
-    animation: scroll-left-mobile 120s linear infinite;
+    animation: scroll-left-mobile 240s linear infinite;
   }
 
   /* Desktop-only faster scroll for reviews */
   @media (min-width: 640px) {
     .animate-scroll-left-desktop {
-      animation: scroll-left 20s linear infinite;
+      animation: scroll-left 60s linear infinite;
     }
   }
 
