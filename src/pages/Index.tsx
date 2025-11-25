@@ -266,7 +266,7 @@ const Index = () => {
     <div className="bg-background">`
 
       {/* Hero Section - Modern SaaS Minimal */}
-      <section className="relative pt-6 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 overflow-hidden bg-background">
+      <section className="relative pt-6 pb-14 md:pt-12 md:pb-24 lg:pt-16 lg:pb-28 bg-background">
         {/* Subtle background */}
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-background to-background" />
         
