@@ -341,22 +341,16 @@ const ProductDetail = () => {
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">{product.title}</h1>
               
-              <div className="flex items-center gap-2 mb-4 sm:mb-6">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className={`w-4 sm:w-5 h-4 sm:h-5 ${
-                        i < fullStars 
-                          ? 'fill-primary text-primary' 
-                          : i === fullStars && hasHalfStar 
-                          ? 'fill-primary/50 text-primary' 
-                          : 'fill-none text-muted-foreground'
-                      }`} 
-                    />
-                  ))}
-                </div>
-                <span className="text-sm sm:text-base text-muted-foreground">{rating.toFixed(1)} (500+ reviews)</span>
+              {/* Loox Star Rating - Clickable */}
+              <div 
+                className="flex items-center gap-2 mb-4 sm:mb-6 cursor-pointer hover:opacity-80 transition-opacity"
+                onClick={() => document.getElementById('looxReviews')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              >
+                <div 
+                  className="loox-rating" 
+                  data-fetch 
+                  data-id={product.id.replace('gid://shopify/Product/', '')}
+                ></div>
               </div>
 
               <div className="flex items-baseline gap-2 sm:gap-3 mb-4 sm:mb-6">
@@ -536,15 +530,31 @@ const ProductDetail = () => {
                 <Users className="w-4 h-4 text-primary" />
                 <span><strong>{accountsSoldThisMonth.toLocaleString()}</strong> accounts sold this month</span>
               </div>
-              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
+              <div 
+                className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm cursor-pointer hover:border-primary transition-colors"
+                onClick={() => document.getElementById('looxReviews')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              >
                 <Star className="w-4 h-4 text-primary fill-primary" />
-                <span><strong>4.8/5</strong> rating</span>
+                <div 
+                  className="loox-rating inline-flex items-center" 
+                  data-fetch 
+                  data-id={product.id.replace('gid://shopify/Product/', '')}
+                ></div>
               </div>
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
                 <Zap className="w-4 h-4 text-primary" />
                 <span><strong>Time until restock:</strong> Unknown</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Loox Product Reviews Section */}
+      <section className="py-12 sm:py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div id="looxReviews" data-product-id={product.id.replace('gid://shopify/Product/', '')}></div>
           </div>
         </div>
       </section>
