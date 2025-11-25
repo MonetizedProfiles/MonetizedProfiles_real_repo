@@ -341,7 +341,15 @@ const ProductDetail = () => {
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">{product.title}</h1>
               
-              <div className="flex items-center gap-2 mb-4 sm:mb-6">
+              <div 
+                className="flex items-center gap-2 mb-4 sm:mb-6 cursor-pointer hover:opacity-80 transition-opacity"
+                onClick={() => {
+                  const loox = (window as any).loox;
+                  if (loox && loox.open_reviews) {
+                    loox.open_reviews();
+                  }
+                }}
+              >
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <Star 
@@ -536,7 +544,15 @@ const ProductDetail = () => {
                 <Users className="w-4 h-4 text-primary" />
                 <span><strong>{accountsSoldThisMonth.toLocaleString()}</strong> accounts sold this month</span>
               </div>
-              <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm">
+              <div 
+                className="flex items-center gap-2 bg-card px-4 py-2 rounded-lg border shadow-sm cursor-pointer hover:bg-secondary/50 transition-colors"
+                onClick={() => {
+                  const loox = (window as any).loox;
+                  if (loox && loox.open_reviews) {
+                    loox.open_reviews();
+                  }
+                }}
+              >
                 <Star className="w-4 h-4 text-primary fill-primary" />
                 <span><strong>4.8/5</strong> rating</span>
               </div>
