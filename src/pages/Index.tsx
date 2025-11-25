@@ -549,7 +549,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground">Join hundreds of satisfied content creators</p>
           </div>
 
-          <div className="relative overflow-x-hidden overflow-y-visible w-screen max-w-none mx-[calc(50%-50vw)] pb-6">
+          <div className="relative overflow-x-hidden overflow-y-visible max-w-6xl mx-auto pb-6">
             <InfiniteScroll speed={100} className="gap-4 sm:gap-6 py-3">
               {[...Array(2)].map((_, groupIdx) => (
                 <div key={groupIdx} className="flex gap-4 sm:gap-6">
