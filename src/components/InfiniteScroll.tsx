@@ -48,7 +48,7 @@ export const InfiniteScroll = ({ children, speed = 50, className = "" }: Infinit
 
   return (
     <div className="relative overflow-visible">
-      <div ref={scrollRef} className={`flex ${className}`} style={{ willChange: 'transform' }}>
+      <div ref={scrollRef} className={`flex w-max ${className}`} style={{ willChange: 'transform' }}>
         {children}
       </div>
     </div>
