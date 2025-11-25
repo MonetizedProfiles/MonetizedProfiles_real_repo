@@ -562,7 +562,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Sarah M.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Bought a monetized YouTube account and started earning from day one. The account was exactly as described!"</p>
+                    <p className="text-muted-foreground">"literally started making money day one. account was exactly what they said it'd be 🔥"</p>
                   </div>
                   {/* Review 2 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -574,7 +574,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">JustJamesTV</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Transfer was smooth and support was incredibly helpful. My TikTok account has active followers!"</p>
+                    <p className="text-muted-foreground">"transfer was so smooth and support really came through for me. got actual engaged followers on my tiktok"</p>
                   </div>
                   {/* Review 3 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -586,7 +586,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Emma Thompson</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Skip months of growing an audience. Perfect shortcut to start my content creator journey!"</p>
+                    <p className="text-muted-foreground">"saved me literally months of grinding. perfect way to jumpstart my creator journey tbh"</p>
                   </div>
                   {/* Review 4 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -598,7 +598,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">MikeReacts</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"The monetization was active immediately. Making money within hours of purchase!"</p>
+                    <p className="text-muted-foreground">"monetization was already active. started seeing money come in within hours no cap"</p>
                   </div>
                   {/* Review 5 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -610,7 +610,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Lisa Wong</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Everything was handled professionally. Account transfer took less than 12 hours!"</p>
+                    <p className="text-muted-foreground">"everything went super smooth, they handled it all. got the account transferred in less than 12 hours"</p>
                   </div>
                   {/* Review 6 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -622,7 +622,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">David Anderson</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Great for anyone wanting to skip the grind of building from scratch. Real engagement!"</p>
+                    <p className="text-muted-foreground">"perfect if you don't wanna grind from zero. the engagement is real, not fake stuff"</p>
                   </div>
                   {/* Review 7 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -634,7 +634,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Michael Chen</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"The followers are real people, not bots. Engagement rate is exactly as promised!"</p>
+                    <p className="text-muted-foreground">"these are actual real people, not bots. engagement rate is exactly what they said"</p>
                   </div>
                   {/* Review 8 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -646,7 +646,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">BlockBusterZ</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Support team answered all my questions before purchase. Very transparent process!"</p>
+                    <p className="text-muted-foreground">"support answered everything before I bought. whole thing was super transparent which I appreciate"</p>
                   </div>
                   {/* Review 9 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -658,7 +658,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Rachel W.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Launched my content career with a running start. Analytics show genuine audience interest!"</p>
+                    <p className="text-muted-foreground">"got my content career going with a head start. the analytics show people are actually interested"</p>
                   </div>
                   {/* Review 10 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -670,7 +670,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Tom Rodriguez</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Was skeptical at first but they delivered exactly what they promised. Very happy!"</p>
+                    <p className="text-muted-foreground">"ngl I was skeptical at first but they came through with exactly what they promised"</p>
                   </div>
                   {/* Review 11 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -682,7 +682,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Nina S.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"This gave me the platform I needed to quit my 9-5 job. Forever grateful!"</p>
+                    <p className="text-muted-foreground">"this literally gave me the chance to quit my 9-5. changed my whole life fr"</p>
                   </div>
                   {/* Review 12 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -694,7 +694,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">KevinDaily</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Considering how long it would take to build this myself, the price is absolutely fair!"</p>
+                    <p className="text-muted-foreground">"when you think about how long this would take to build yourself, the price makes sense"</p>
                   </div>
                   {/* Review 13 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -706,7 +706,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Olivia M.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"The account history is clean and the audience demographics match my niche perfectly!"</p>
+                    <p className="text-muted-foreground">"account history is clean and the audience actually matches my niche. couldn't ask for more"</p>
                   </div>
                   {/* Review 14 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -718,7 +718,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">HowToAI</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Had a few questions post-purchase and support responded within 30 minutes. Impressive!"</p>
+                    <p className="text-muted-foreground">"had some questions after buying and support got back to me in like 30 mins. super helpful"</p>
                   </div>
                   {/* Review 15 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -730,7 +730,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Jessica A.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Everything from browsing to transfer was smooth. Would definitely buy again!"</p>
+                    <p className="text-muted-foreground">"whole experience from browsing to getting the account was smooth. would def buy again"</p>
                   </div>
                   {/* Review 16 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -742,7 +742,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">MarcusMoneyTV</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Monetization kicked in immediately. Already seeing ad revenue come through!"</p>
+                    <p className="text-muted-foreground">"monetization started working right away. already getting ad money coming in"</p>
                   </div>
                   {/* Review 17 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -754,7 +754,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Sophie L.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"No hidden surprises. The account stats matched the listing perfectly. Very honest!"</p>
+                    <p className="text-muted-foreground">"no surprises or anything. account stats matched exactly what was on the listing"</p>
                   </div>
                   {/* Review 18 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -766,7 +766,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">DanTheContentMan</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Best way to jumpstart a content business. Saves months or even years of effort!"</p>
+                    <p className="text-muted-foreground">"honestly the best way to get your content business going. saves you months or years"</p>
                   </div>
                   {/* Review 19 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -778,7 +778,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Megan K.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Professional service from start to finish. Will recommend to all my creator friends!"</p>
+                    <p className="text-muted-foreground">"super legit service. gonna tell all my creator friends about this"</p>
                   </div>
                   {/* Review 20 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -790,7 +790,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">AlexViralContent</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"The guarantee gave me confidence to purchase. Glad I did - account is perfect!"</p>
+                    <p className="text-muted-foreground">"the guarantee thing made me feel way better about buying. glad I went for it, account is perfect"</p>
                   </div>
                   {/* Review 21 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -802,7 +802,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Lauren P.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Account came with great engagement metrics. My first video got thousands of views!"</p>
+                    <p className="text-muted-foreground">"the engagement was solid from the start. my first video literally got thousands of views"</p>
                   </div>
                   {/* Review 22 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -814,7 +814,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">RyanNova</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"Better than I hoped for. The audience quality is exceptional!"</p>
+                    <p className="text-muted-foreground">"way better than what I expected. the audience quality is actually really good"</p>
                   </div>
                   {/* Review 23 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -826,7 +826,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Victoria S.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"From purchase to full control in under 8 hours. Extremely efficient!"</p>
+                    <p className="text-muted-foreground">"bought it and had full control in like 8 hours. super fast process"</p>
                   </div>
                   {/* Review 24 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -838,7 +838,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">JasonWins</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"You get what you pay for - and this is premium quality all the way!"</p>
+                    <p className="text-muted-foreground">"you really do get what you pay for. this is quality stuff all around"</p>
                   </div>
                   {/* Review 25 */}
                   <div className="min-w-[280px] sm:min-w-[350px] bg-card border-2 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all hover:border-primary/50">
@@ -850,7 +850,7 @@ const Index = () => {
                         <p className="text-sm text-muted-foreground">Natalie H.</p>
                       </div>
                     </div>
-                    <p className="text-muted-foreground">"This was the best business decision I made this year. Already profitable!"</p>
+                    <p className="text-muted-foreground">"best decision I made this year honestly. already making profit from it"</p>
                   </div>
                 </div>
               ))}
