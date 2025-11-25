@@ -33,60 +33,6 @@
     
     <!--Klaviyo Email Popup Start-->
     <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=R289rF"></script>
-    <div class="klaviyo-form-T3QgXr" style="display: none;"></div>
-    <script>
-      // Klaviyo popup control
-      (function() {
-        const FORM_DISMISSED_KEY = 'klaviyo_popup_dismissed';
-        const FORM_SUBMITTED_KEY = 'klaviyo_popup_submitted';
-        const ONE_DAY = 24 * 60 * 60 * 1000;
-        
-        function shouldShowPopup() {
-          // Never show if successfully submitted
-          if (localStorage.getItem(FORM_SUBMITTED_KEY) === 'true') {
-            return false;
-          }
-          
-          // Check if dismissed and within 1 day
-          const dismissedTime = localStorage.getItem(FORM_DISMISSED_KEY);
-          if (dismissedTime) {
-            const timeSinceDismissed = Date.now() - parseInt(dismissedTime);
-            if (timeSinceDismissed < ONE_DAY) {
-              return false;
-            }
-          }
-          
-          return true;
-        }
-        
-        function showPopup() {
-          const formDiv = document.querySelector('.klaviyo-form-T3QgXr');
-          if (formDiv && shouldShowPopup()) {
-            formDiv.style.display = 'block';
-          }
-        }
-        
-        // Show popup 3 seconds after page load
-        window.addEventListener('load', function() {
-          setTimeout(showPopup, 3000);
-        });
-        
-        // Listen for Klaviyo events
-        window.addEventListener('klaviyoForms', function(e) {
-          if (e.detail.type === 'close' || e.detail.type === 'dismiss') {
-            // Form was closed/dismissed
-            localStorage.setItem(FORM_DISMISSED_KEY, Date.now().toString());
-            const formDiv = document.querySelector('.klaviyo-form-T3QgXr');
-            if (formDiv) formDiv.style.display = 'none';
-          } else if (e.detail.type === 'submit') {
-            // Form was successfully submitted
-            localStorage.setItem(FORM_SUBMITTED_KEY, 'true');
-            const formDiv = document.querySelector('.klaviyo-form-T3QgXr');
-            if (formDiv) formDiv.style.display = 'none';
-          }
-        });
-      })();
-    </script>
     <!--Klaviyo Email Popup End-->
   </body>
 </html>
