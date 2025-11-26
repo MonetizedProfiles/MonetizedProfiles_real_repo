@@ -1671,7 +1671,7 @@ const ProductDetail = () => {
                 <span style={{ color: '#FF2929' }}>Get Paid Generously</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                20% commission on every sale. No strings attached.
+                15% commission on every sale. No strings attached.
               </p>
             </div>
 
@@ -1683,7 +1683,7 @@ const ProductDetail = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Earn $100-$400 per sale</h3>
-                  <p className="text-muted-foreground">Simple 20% commission structure. The more you sell, the more you earn.</p>
+                  <p className="text-muted-foreground">Simple 15% commission structure. The more you sell, the more you earn.</p>
                 </div>
               </div>
 

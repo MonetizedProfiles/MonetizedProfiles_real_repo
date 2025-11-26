@@ -1355,7 +1355,7 @@ const Index = () => {
                 <span style={{ color: '#FF2929' }}>Get Paid Generously.</span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                20% commission on every sale. No strings attached.
+                15% commission on every sale. No strings attached.
               </p>
             </div>
 
@@ -1367,7 +1367,7 @@ const Index = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Earn $25-$125 per sale</h3>
-                  <p className="text-muted-foreground">Simple 20% commission structure. The more you sell, the more you earn.</p>
+                  <p className="text-muted-foreground">Simple 15% commission structure. The more you sell, the more you earn.</p>
                 </div>
               </div>
 
