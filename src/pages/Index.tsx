@@ -1406,7 +1406,7 @@ const Index = () => {
       </section>
 
       {/* Restock Email Capture - Moved to bottom */}
-      <section className="py-12 sm:py-20 container mx-auto px-4">
+      <section className="py-12 sm:py-20 container mx-auto px-6 sm:px-4">
         <Card className="max-w-2xl mx-auto text-center bg-gradient-to-br from-secondary to-background border-border">
           <CardHeader>
             <Mail className="w-12 h-12 mx-auto mb-4" style={{ color: '#FF2929' }} />
