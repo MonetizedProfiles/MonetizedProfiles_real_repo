@@ -20,6 +20,13 @@ import michaelImg from "@/assets/testimonials/michael.webp";
 import blockbusterzImg from "@/assets/testimonials/blockbusterz.webp";
 import tomImg from "@/assets/testimonials/tom.webp";
 import howtoaiImg from "@/assets/testimonials/howtoai.webp";
+import animerecappedImg from "@/assets/testimonials/animerecapped.webp";
+import marcusImg from "@/assets/testimonials/marcus.webp";
+import alexImg from "@/assets/testimonials/alex.webp";
+import foodiereviewsImg from "@/assets/testimonials/foodiereviews.webp";
+import ryanImg from "@/assets/testimonials/ryan.webp";
+import jessicaImg from "@/assets/testimonials/jessica.webp";
+import orbitalscienceImg from "@/assets/testimonials/orbitalscience.webp";
 
 const Index = () => {
   const [email, setEmail] = useState("");
@@ -723,11 +730,11 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://ui-avatars.com/api/?name=Rachel+W&background=ec4899&color=fff&size=128" alt="Rachel W." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={jessicaImg} alt="Jessica" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Perfect Start</h4>
-                        <p className="text-sm text-muted-foreground">Rachel W.</p>
+                        <p className="text-sm text-muted-foreground">Jessica</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"got my content career going with a head start. the analytics show people are actually interested"</p>
@@ -763,11 +770,11 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://ui-avatars.com/api/?name=Nina+S&background=06b6d4&color=fff&size=128" alt="Nina S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={marcusImg} alt="Marcus" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Life Changing</h4>
-                        <p className="text-sm text-muted-foreground">Nina S.</p>
+                        <p className="text-sm text-muted-foreground">Marcus</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"this literally gave me the chance to quit my 9-5. changed my whole life fr"</p>
@@ -783,11 +790,11 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=KevinDaily" alt="KevinDaily" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={animerecappedImg} alt="AnimeRecapped" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Great Value</h4>
-                        <p className="text-sm text-muted-foreground">KevinDaily</p>
+                        <p className="text-sm text-muted-foreground">AnimeRecapped</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"when you think about how long this would take to build yourself, the price makes sense"</p>
@@ -803,11 +810,11 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://ui-avatars.com/api/?name=Olivia+M&background=a855f7&color=fff&size=128" alt="Olivia M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={alexImg} alt="Alex" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Superb Quality</h4>
-                        <p className="text-sm text-muted-foreground">Olivia M.</p>
+                        <p className="text-sm text-muted-foreground">Alex</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"account history is clean and the audience actually matches my niche. couldn't ask for more"</p>
@@ -843,11 +850,11 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://ui-avatars.com/api/?name=Jessica+A&background=14b8a6&color=fff&size=128" alt="Jessica A." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={ryanImg} alt="Ryan" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Incredible Service</h4>
-                        <p className="text-sm text-muted-foreground">Jessica A.</p>
+                        <p className="text-sm text-muted-foreground">Ryan</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"whole experience from browsing to getting the account was smooth. would def buy again"</p>
@@ -863,11 +870,11 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=MarcusMoneyTV" alt="MarcusMoneyTV" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={foodiereviewsImg} alt="FoodieReviews" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Top Notch</h4>
-                        <p className="text-sm text-muted-foreground">MarcusMoneyTV</p>
+                        <p className="text-sm text-muted-foreground">FoodieReviews</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"monetization started working right away. already getting ad money coming in"</p>
@@ -883,11 +890,11 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://ui-avatars.com/api/?name=Sophie+L&background=f43f5e&color=fff&size=128" alt="Sophie L." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={orbitalscienceImg} alt="OrbitalScience" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Exactly As Described</h4>
-                        <p className="text-sm text-muted-foreground">Sophie L.</p>
+                        <p className="text-sm text-muted-foreground">OrbitalScience</p>
                       </div>
                     </div>
                     <p className="text-muted-foreground">"no surprises or anything. account stats matched exactly what was on the listing"</p>
