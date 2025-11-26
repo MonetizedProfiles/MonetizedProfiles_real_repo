@@ -131,19 +131,19 @@ export const Header = () => {
         </nav>
         
         <div className="flex items-center gap-1 sm:gap-2">
-          {/* Desktop Search */}
+          {/* Search - Available on all devices */}
           <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
             <DialogTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
                 title="Search"
-                className="hidden lg:flex h-9 w-9 sm:h-10 sm:w-10"
+                className="h-9 w-9 sm:h-10 sm:w-10"
               >
                 <Search className="h-4 sm:h-5 w-4 sm:w-5" />
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-2xl max-h-[80vh] flex flex-col">
+            <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[85vh] sm:max-h-[80vh] flex flex-col p-4 sm:p-6">
               <DialogHeader>
                 <DialogTitle>Search</DialogTitle>
               </DialogHeader>
@@ -248,30 +248,6 @@ export const Header = () => {
                   <img src={logo} alt="MonetizedProfiles" className="h-8" />
                 </SheetTitle>
               </SheetHeader>
-              
-              {/* Mobile Search */}
-              <div className="mt-6 flex-shrink-0">
-                <form onSubmit={(e) => {
-                  e.preventDefault();
-                  if (searchQuery.trim()) {
-                    navigate(`/?search=${encodeURIComponent(searchQuery)}`);
-                    setIsMobileMenuOpen(false);
-                    setSearchQuery("");
-                  }
-                }}>
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      type="search"
-                      placeholder="Search products..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-9"
-                      autoFocus={false}
-                    />
-                  </div>
-                </form>
-              </div>
               
               <nav className="flex flex-col gap-4 pb-6 flex-1 overflow-y-auto">
                 {/* Login Button */}
