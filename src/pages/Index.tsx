@@ -495,11 +495,19 @@ const Index = () => {
                     if (ib === -1) return -1;
                     return ia - ib;
                   })
-                  .map((product) => (
-                    <ProductCard key={product.node.id} product={product} />
-                  ))}
+                   .map((product) => (
+                     <ProductCard key={product.node.id} product={product} />
+                   ))}
 
               </div>
+            </div>
+
+            {/* Always-visible scroll indicator bar */}
+            <div className="mt-4 h-1.5 w-full max-w-md mx-auto rounded-full bg-muted overflow-hidden sm:hidden">
+              <div
+                className="h-full bg-primary transition-[width] duration-300 ease-out"
+                style={{ width: `${scrollProgressFeatured || 0}%` }}
+              />
             </div>
           </div>
         )}
@@ -1379,10 +1387,18 @@ const Index = () => {
                   .map((handle) => data.find((product) => product.node.handle === handle))
                   .filter((product): product is ShopifyProduct => Boolean(product))
                   .map((product) => (
-                    <ProductCard key={product.node.id} product={product} />
-                  ))}
+                     <ProductCard key={product.node.id} product={product} />
+                   ))}
 
               </div>
+            </div>
+
+            {/* Always-visible scroll indicator bar */}
+            <div className="mt-4 h-1.5 w-full max-w-md mx-auto rounded-full bg-muted overflow-hidden sm:hidden">
+              <div
+                className="h-full bg-primary transition-[width] duration-300 ease-out"
+                style={{ width: `${scrollProgressBest || 0}%` }}
+              />
             </div>
           </div>
         )}
