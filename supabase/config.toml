@@ -18,3 +18,6 @@ verify_jwt = false
 
 [functions.gorgias-ticket]
 verify_jwt = false
+
+[functions.sitemap]
+verify_jwt = false
