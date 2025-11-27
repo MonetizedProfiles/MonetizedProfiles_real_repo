@@ -1,7 +1,7 @@
 export const AnnouncementBar = () => {
   const announcements = [
     "✅ New Monetized Accounts Restocked",
-    "⭐ Loved By 28,000+ Users",
+    "⭐ Loved By 27,000+ Users",
     "💎 100% Organic Followers - No Bots",
     "🔥 Start Earning On Your First Post",
   ];
