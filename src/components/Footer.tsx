@@ -115,7 +115,7 @@ export const Footer = () => {
         </div>
         
         <div className="pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 MonetizedProfiles. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} MonetizedProfiles. All rights reserved.</p>
         </div>
       </div>
     </footer>

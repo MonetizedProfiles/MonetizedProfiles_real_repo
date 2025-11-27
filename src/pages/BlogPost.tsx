@@ -99,7 +99,7 @@ const BlogPost = () => {
             "name": "MonetizedProfiles",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://monetizedprofiles.com/logo.png"
+              "url": "https://monetizedprofiles.com/monetizedprofiles-logo.webp"
             }
           },
           "description": data.excerpt || data.content.substring(0, 155)
