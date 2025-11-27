@@ -345,4 +345,33 @@ All colors MUST be HSL.
   .animate-gradient-flow {
     animation: gradient-flow 4s ease infinite;
   }
+
+  /* Mobile scrollbar indicator */
+  @media (max-width: 640px) {
+    .scrollbar-mobile::-webkit-scrollbar {
+      height: 8px;
+    }
+    
+    .scrollbar-mobile::-webkit-scrollbar-track {
+      background: hsl(var(--secondary));
+      border-radius: 4px;
+      margin: 0 16px;
+    }
+    
+    .scrollbar-mobile::-webkit-scrollbar-thumb {
+      background: hsl(var(--primary));
+      border-radius: 4px;
+    }
+    
+    .scrollbar-mobile::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--primary) / 0.8);
+    }
+  }
+
+  /* Hide scrollbar on desktop */
+  @media (min-width: 640px) {
+    .scrollbar-mobile::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
