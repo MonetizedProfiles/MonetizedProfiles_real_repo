@@ -187,14 +187,14 @@ const Index = () => {
     if (!isDragging || !scrollContainerRef.current || window.innerWidth >= 640) return;
     e.preventDefault();
     const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 2.0;
+    const walk = (x - startX) * 1.2;
     scrollContainerRef.current.scrollLeft = scrollLeftStart - walk;
   }, [isDragging, startX, scrollLeftStart]);
 
   const handleTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
     if (!isDragging || !scrollContainerRef.current || window.innerWidth >= 640) return;
     const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 2.0;
+    const walk = (x - startX) * 1.2;
     scrollContainerRef.current.scrollLeft = scrollLeftStart - walk;
   }, [isDragging, startX, scrollLeftStart]);
 
@@ -237,14 +237,14 @@ const Index = () => {
     if (!isDraggingBest || !scrollContainerRefBest.current || window.innerWidth >= 640) return;
     e.preventDefault();
     const x = e.pageX - scrollContainerRefBest.current.offsetLeft;
-    const walk = (x - startXBest) * 2.0;
+    const walk = (x - startXBest) * 1.2;
     scrollContainerRefBest.current.scrollLeft = scrollLeftStartBest - walk;
   }, [isDraggingBest, startXBest, scrollLeftStartBest]);
 
   const handleTouchMoveBest = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
     if (!isDraggingBest || !scrollContainerRefBest.current || window.innerWidth >= 640) return;
     const x = e.touches[0].pageX - scrollContainerRefBest.current.offsetLeft;
-    const walk = (x - startXBest) * 2.0;
+    const walk = (x - startXBest) * 1.2;
     scrollContainerRefBest.current.scrollLeft = scrollLeftStartBest - walk;
   }, [isDraggingBest, startXBest, scrollLeftStartBest]);
 

@@ -189,14 +189,14 @@ const ProductDetail = () => {
     if (!isDragging || !scrollContainerRef.current || window.innerWidth >= 640) return;
     e.preventDefault();
     const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 2.0;
+    const walk = (x - startX) * 1.2;
     scrollContainerRef.current.scrollLeft = scrollLeftStart - walk;
   }, [isDragging, startX, scrollLeftStart]);
 
   const handleTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
     if (!isDragging || !scrollContainerRef.current || window.innerWidth >= 640) return;
     const x = e.touches[0].pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 2.0;
+    const walk = (x - startX) * 1.2;
     scrollContainerRef.current.scrollLeft = scrollLeftStart - walk;
   }, [isDragging, startX, scrollLeftStart]);
 
