@@ -106,7 +106,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       </div>
       
       <CardHeader>
-        <CardTitle className="line-clamp-1 text-[1.35rem] sm:text-xl">{product.node.title}</CardTitle>
+        <CardTitle className="line-clamp-1 text-[1.35rem] sm:text-2xl">{product.node.title}</CardTitle>
         <CardDescription className="line-clamp-2">
           {getProductDescription(product.node.title)}
         </CardDescription>
