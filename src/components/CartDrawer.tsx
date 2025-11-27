@@ -60,6 +60,7 @@ export const CartDrawer = () => {
   }, [isOpen]);
 
   const handleCheckout = async () => {
+    console.log('🛒 CHECKOUT BUTTON CLICKED');
     try {
       console.log('Starting checkout process...');
       const checkoutUrl = await createCheckout();
@@ -67,6 +68,13 @@ export const CartDrawer = () => {
       
       if (checkoutUrl) {
         console.log('Opening checkout in new window...');
+        
+        // Show the URL to user for debugging
+        toast.info("Opening checkout...", {
+          description: `URL: ${checkoutUrl.substring(0, 60)}...`,
+          duration: 3000,
+        });
+        
         const newWindow = window.open(checkoutUrl, '_blank');
         if (newWindow) {
           console.log('✅ Checkout window opened successfully');
