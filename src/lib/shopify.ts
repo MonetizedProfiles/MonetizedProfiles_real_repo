@@ -68,10 +68,11 @@ export async function storefrontApiRequest(query: string, variables: any = {}) {
   });
 
   if (response.status === 402) {
+    const error = new Error("Shopify payment plan required");
     toast.error("Shopify: Payment required", {
       description: "Shopify API access requires an active Shopify billing plan. Your store needs to be upgraded to a paid plan. Visit https://admin.shopify.com to upgrade.",
     });
-    return;
+    throw error;
   }
 
   if (!response.ok) {
