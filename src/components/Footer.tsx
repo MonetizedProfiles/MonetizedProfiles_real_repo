@@ -52,6 +52,16 @@ export const Footer = () => {
               <li><Link to="/affiliate" className="hover:text-primary transition-colors">Affiliate Program</Link></li>
               <li>
                 <a 
+                  href="https://monetizedprofiles.everflowclient.io/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-primary transition-colors"
+                >
+                  Affiliate Login
+                </a>
+              </li>
+              <li>
+                <a 
                   href="https://1e3fcb-4e.myshopify.com/account/login" 
                   target="_blank" 
                   rel="noopener noreferrer" 
