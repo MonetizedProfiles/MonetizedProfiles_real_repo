@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import { SEO } from "@/components/SEO";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -72,7 +73,14 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <>
+      <SEO 
+        title="Contact Us - Customer Support"
+        description="Get help with your monetized account purchase. 24/7 live chat support, 1-hour response time. Contact us for order inquiries, account issues, and questions."
+        keywords="customer support, contact monetizedprofiles, account help, order support"
+        canonical="https://monetizedprofiles.com/contact"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 py-12 sm:py-16 max-w-5xl space-y-12 sm:space-y-20">
         {/* Header */}
         <div className="text-center">
@@ -373,6 +381,7 @@ const ContactUs = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

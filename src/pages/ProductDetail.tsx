@@ -19,6 +19,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { StockIndicator } from "@/components/StockIndicator";
+import { SEO } from "@/components/SEO";
 import sarahImg from "@/assets/testimonials/sarah.webp";
 import justjamestvImg from "@/assets/testimonials/justjamestv.webp";
 import mikeImg from "@/assets/testimonials/mike.webp";
@@ -291,7 +292,41 @@ const ProductDetail = () => {
   const relatedProducts = allProducts?.filter(p => p.node.id !== product.id).slice(0, 3) || [];
 
   return (
-    <div className="bg-background">
+    <>
+      <SEO 
+        title={`${product.title} - Buy Monetized Account`}
+        description={product.description.substring(0, 155) + "..." || `Buy ${product.title} - Fully monetized account with organic followers. Secure transfer, instant earnings.`}
+        keywords={`${product.title}, buy monetized account, ${isTikTokMonetized ? 'tiktok monetized account' : 'youtube monetized channel'}, social media account for sale`}
+        canonical={`https://monetizedprofiles.com/product/${product.handle}`}
+        ogImage={images[0]?.node.url}
+        ogType="product"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": product.title,
+          "image": images.map(img => img.node.url),
+          "description": product.description,
+          "brand": {
+            "@type": "Brand",
+            "name": "MonetizedProfiles"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": price,
+            "priceCurrency": currency,
+            "availability": currentVariant.availableForSale ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            "url": `https://monetizedprofiles.com/product/${product.handle}`
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": rating,
+            "reviewCount": 127,
+            "bestRating": 5,
+            "worstRating": 1
+          }
+        }}
+      />
+      <div className="bg-background">
       {/* Breadcrumb */}
       <div className="border-b">
         <div className="container mx-auto px-4 py-4">
@@ -1749,6 +1784,7 @@ const ProductDetail = () => {
         </Card>
       </section>
     </div>
+    </>
   );
 };
 

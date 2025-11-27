@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Package, Search, Mail, ShoppingBag } from "lucide-react";
 import { toast } from "sonner";
+import { SEO } from "@/components/SEO";
 
 const OrderTracking = () => {
   const [orderNumber, setOrderNumber] = useState("");
@@ -36,7 +37,14 @@ const OrderTracking = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4">
+    <>
+      <SEO 
+        title="Track Your Order - Order Status"
+        description="Track your monetized account order status. Enter your order number and email to view delivery updates and account transfer information."
+        keywords="order tracking, order status, track package, delivery status"
+        canonical="https://monetizedprofiles.com/order-tracking"
+      />
+      <div className="min-h-screen bg-background py-12 px-4">
       <div className="container mx-auto max-w-2xl">
         {/* Header */}
         <div className="text-center mb-8">
@@ -147,6 +155,7 @@ const OrderTracking = () => {
         </Card>
       </div>
     </div>
+    </>
   );
 };
 

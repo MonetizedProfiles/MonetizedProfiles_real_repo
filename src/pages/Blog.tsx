@@ -5,6 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowRight } from "lucide-react";
 import { storefrontApiRequest } from "@/lib/shopify";
+import { SEO } from "@/components/SEO";
 
 const BLOG_QUERY = `
   query GetBlogPosts($first: Int!) {
@@ -41,7 +42,14 @@ const Blog = () => {
   });
 
   return (
-    <div className="bg-background">
+    <>
+      <SEO 
+        title="Blog - Social Media Growth Tips & Guides"
+        description="Expert tips, guides, and insights for growing your YouTube and TikTok channels. Learn how to monetize your content and build a successful social media business."
+        keywords="youtube growth, tiktok tips, social media monetization, content creator guide, youtube monetization"
+        canonical="https://monetizedprofiles.com/blog"
+      />
+      <div className="bg-background">
 
       {/* Blog Header */}
       <section className="pt-16 sm:pt-20 pb-8 sm:pb-12 bg-gradient-to-br from-background via-secondary/20 to-background">
@@ -131,6 +139,7 @@ const Blog = () => {
       </section>
 
     </div>
+    </>
   );
 };
 

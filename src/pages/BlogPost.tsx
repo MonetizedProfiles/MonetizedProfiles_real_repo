@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Calendar, ArrowLeft } from "lucide-react";
 import { storefrontApiRequest } from "@/lib/shopify";
+import { SEO } from "@/components/SEO";
 
 const BLOG_POST_QUERY = `
   query GetBlogPost($blogHandle: String!, $articleHandle: String!) {
@@ -75,7 +76,36 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="bg-background">
+    <>
+      <SEO 
+        title={data.title}
+        description={data.excerpt || data.content.substring(0, 155) + "..."}
+        keywords={`${data.title}, youtube tips, tiktok growth, social media monetization`}
+        canonical={`https://monetizedprofiles.com/blog/${handle}?blog=${blogHandle}`}
+        ogImage={data.image?.url}
+        ogType="article"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": data.title,
+          "image": data.image?.url,
+          "datePublished": data.publishedAt,
+          "author": {
+            "@type": "Person",
+            "name": data.author?.name || "MonetizedProfiles"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "MonetizedProfiles",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://monetizedprofiles.com/logo.png"
+            }
+          },
+          "description": data.excerpt || data.content.substring(0, 155)
+        }}
+      />
+      <div className="bg-background">
       <article className="container mx-auto px-4 py-12 max-w-4xl">
         {/* Back to Blog */}
         <Link 
@@ -148,6 +178,7 @@ const BlogPost = () => {
         />
       </article>
     </div>
+    </>
   );
 };
 
