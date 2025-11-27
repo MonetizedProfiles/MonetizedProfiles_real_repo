@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://monetizedprofiles.com/sitemap.xml
+Sitemap: https://csbwkcpugthkdvdpbtvd.supabase.co/functions/v1/sitemap
