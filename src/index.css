@@ -350,6 +350,9 @@ All colors MUST be HSL.
   @media (max-width: 640px) {
     .scrollbar-mobile {
       -webkit-overflow-scrolling: touch;
+      touch-action: pan-x;
+      user-select: none;
+      -webkit-user-select: none;
     }
     
     .scrollbar-mobile::-webkit-scrollbar {
