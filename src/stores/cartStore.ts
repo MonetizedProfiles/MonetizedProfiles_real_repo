@@ -83,22 +83,39 @@ const CART_CREATE_MUTATION = `
 // Create Shopify native checkout URL
 async function createShopifyCheckout(items: CartItem[]): Promise<string> {
   try {
+    console.log('Creating Shopify checkout for items:', items.map(i => ({
+      variantId: i.variantId,
+      quantity: i.quantity,
+      title: i.product.node.title
+    })));
+
     const lines = items.map(item => ({
       quantity: item.quantity,
       merchandiseId: item.variantId,
     }));
 
+    console.log('Calling Shopify Storefront API with lines:', lines);
+    
     const cartData = await storefrontApiRequest(CART_CREATE_MUTATION, {
       input: { lines },
     });
 
+    console.log('Shopify API response:', cartData);
+
+    if (!cartData || !cartData.data) {
+      throw new Error('Invalid response from Shopify API');
+    }
+
     if (cartData.data.cartCreate.userErrors.length > 0) {
-      throw new Error(`Cart creation failed: ${cartData.data.cartCreate.userErrors.map(e => e.message).join(', ')}`);
+      const errors = cartData.data.cartCreate.userErrors.map((e: any) => e.message).join(', ');
+      console.error('Shopify cart creation errors:', errors);
+      throw new Error(`Cart creation failed: ${errors}`);
     }
 
     const cart = cartData.data.cartCreate.cart;
     
-    if (!cart.checkoutUrl) {
+    if (!cart || !cart.checkoutUrl) {
+      console.error('No checkout URL in response:', cart);
       throw new Error('No checkout URL returned from Shopify');
     }
 
@@ -106,10 +123,10 @@ async function createShopifyCheckout(items: CartItem[]): Promise<string> {
     url.searchParams.set('channel', 'online_store');
     const checkoutUrl = url.toString();
     
-    console.log('Generated Shopify checkout URL:', checkoutUrl);
+    console.log('✅ Generated Shopify checkout URL:', checkoutUrl);
     return checkoutUrl;
   } catch (error) {
-    console.error('Error creating Shopify checkout:', error);
+    console.error('❌ Error creating Shopify checkout:', error);
     throw error;
   }
 }

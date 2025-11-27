@@ -14,6 +14,7 @@ import { useCartStore } from "@/stores/cartStore";
 import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,13 +61,33 @@ export const CartDrawer = () => {
 
   const handleCheckout = async () => {
     try {
+      console.log('Starting checkout process...');
       const checkoutUrl = await createCheckout();
+      console.log('Checkout URL received:', checkoutUrl);
+      
       if (checkoutUrl) {
-        window.open(checkoutUrl, '_blank');
-        setIsOpen(false);
+        console.log('Opening checkout in new window...');
+        const newWindow = window.open(checkoutUrl, '_blank');
+        if (newWindow) {
+          console.log('✅ Checkout window opened successfully');
+          setIsOpen(false);
+        } else {
+          console.error('❌ Failed to open checkout window - popup blocked?');
+          toast.error("Unable to open checkout", {
+            description: "Please allow popups for this site and try again.",
+          });
+        }
+      } else {
+        console.error('❌ No checkout URL returned');
+        toast.error("Checkout failed", {
+          description: "Unable to create checkout. Please try again.",
+        });
       }
     } catch (error) {
-      console.error('Checkout failed:', error);
+      console.error('❌ Checkout error:', error);
+      toast.error("Checkout failed", {
+        description: error instanceof Error ? error.message : "Please try again or contact support.",
+      });
     }
   };
 
