@@ -37,9 +37,11 @@ const Index = () => {
   const [ugcOpen, setUgcOpen] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const [scrollProgressFeatured, setScrollProgressFeatured] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeftBest, setCanScrollLeftBest] = useState(false);
   const [canScrollRightBest, setCanScrollRightBest] = useState(false);
+  const [scrollProgressBest, setScrollProgressBest] = useState(0);
   const scrollContainerRefBest = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -107,6 +109,10 @@ const Index = () => {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+
+      const maxScroll = Math.max(scrollWidth - clientWidth, 1);
+      const progress = Math.min(Math.max(scrollLeft / maxScroll, 0), 1) * 100;
+      setScrollProgressFeatured(progress);
     }
   };
 
@@ -116,6 +122,10 @@ const Index = () => {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRefBest.current;
       setCanScrollLeftBest(scrollLeft > 0);
       setCanScrollRightBest(scrollLeft < scrollWidth - clientWidth - 10);
+
+      const maxScroll = Math.max(scrollWidth - clientWidth, 1);
+      const progress = Math.min(Math.max(scrollLeft / maxScroll, 0), 1) * 100;
+      setScrollProgressBest(progress);
     }
   };
 
