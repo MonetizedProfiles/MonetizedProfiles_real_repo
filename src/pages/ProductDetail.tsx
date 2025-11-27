@@ -59,6 +59,7 @@ const ProductDetail = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeftStart, setScrollLeftStart] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -125,6 +126,10 @@ const ProductDetail = () => {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
       setCanScrollLeft(scrollLeft > 0);
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+
+      const maxScroll = Math.max(scrollWidth - clientWidth, 1);
+      const progress = Math.min(Math.max(scrollLeft / maxScroll, 0), 1) * 100;
+      setScrollProgress(progress);
     }
   };
 
@@ -1599,24 +1604,32 @@ const ProductDetail = () => {
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
                 >
-                  <div 
-                    className="grid gap-4 sm:gap-6"
-                    style={{ 
-                      gridAutoFlow: 'column',
-                      gridAutoColumns: 'min(360px, 85vw)',
-                      gridTemplateColumns: 'none'
-                    }}
-                  >
-                    {relatedProducts.map((product) => (
-                      <ProductCard key={product.node.id} product={product} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+                   <div 
+                     className="grid gap-4 sm:gap-6"
+                     style={{ 
+                       gridAutoFlow: 'column',
+                       gridAutoColumns: 'min(360px, 85vw)',
+                       gridTemplateColumns: 'none'
+                     }}
+                   >
+                     {relatedProducts.map((product) => (
+                       <ProductCard key={product.node.id} product={product} />
+                     ))}
+                   </div>
+                 </div>
+
+                 {/* Always-visible scroll indicator bar */}
+                 <div className="mt-6 h-2 w-full max-w-md mx-auto rounded-full bg-muted overflow-hidden sm:hidden">
+                   <div
+                     className="h-full bg-primary transition-[width] duration-300 ease-out rounded-full"
+                     style={{ width: `${Math.max(scrollProgress || 0, 25)}%` }}
+                   />
+                 </div>
+               </div>
+             </div>
+           </div>
+         </section>
+       )}
 
       {/* FAQ Section */}
       <section className="py-20 bg-secondary/10">
