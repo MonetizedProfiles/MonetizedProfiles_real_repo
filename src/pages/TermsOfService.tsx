@@ -1,9 +1,17 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const TermsOfService = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <>
+      <SEO 
+        title="Terms of Service - Legal Agreement"
+        description="Read our terms and conditions for using MonetizedProfiles. Understand your rights and obligations when purchasing monetized social media accounts."
+        keywords="terms of service, legal agreement, user agreement, terms and conditions"
+        canonical="https://monetizedprofiles.com/terms-of-service"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 py-12 sm:py-16 max-w-4xl">
         <Card>
           <CardHeader>
@@ -179,6 +187,7 @@ const TermsOfService = () => {
         </Card>
       </div>
     </div>
+    </>
   );
 };
 

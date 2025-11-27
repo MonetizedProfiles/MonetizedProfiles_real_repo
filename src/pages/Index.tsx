@@ -10,6 +10,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { useState, useEffect, useRef, useCallback } from "react";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import sarahImg from "@/assets/testimonials/sarah.webp";
 import justjamestvImg from "@/assets/testimonials/justjamestv.webp";
 import mikeImg from "@/assets/testimonials/mike.webp";
@@ -270,7 +271,26 @@ const Index = () => {
   };
 
   return (
-    <div className="bg-background">`
+    <>
+      <SEO 
+        title="Buy Monetized YouTube & TikTok Accounts | Earn On Your First Post"
+        description="Buy fully monetized YouTube and TikTok accounts with organic followers. 100% tax-approved, no bots, full account ownership. Start earning ad revenue immediately."
+        keywords="buy monetized youtube channel, buy tiktok monetized account, monetized social media accounts, youtube channel for sale, tiktok account for sale"
+        canonical="https://monetizedprofiles.com/"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "MonetizedProfiles",
+          "url": "https://monetizedprofiles.com",
+          "description": "Premium monetized YouTube and TikTok accounts for sale",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://monetizedprofiles.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }}
+      />
+      <div className="bg-background">
 
       {/* Hero Section - Modern SaaS Minimal */}
       <section className="relative pt-6 pb-12 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24 overflow-hidden bg-background">
@@ -1441,6 +1461,7 @@ const Index = () => {
       </section>
 
     </div>
+    </>
   );
 };
 

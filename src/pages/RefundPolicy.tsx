@@ -1,9 +1,17 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { RefreshCcw } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const RefundPolicy = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <>
+      <SEO 
+        title="Refund & Warranty Policy - 30-Day Guarantee"
+        description="Our comprehensive refund, replacement, and warranty policy. 30-day money-back guarantee, free replacements, and hassle-free returns."
+        keywords="refund policy, warranty, money-back guarantee, replacement policy"
+        canonical="https://monetizedprofiles.com/refund-policy"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 py-12 sm:py-16 max-w-4xl">
         <Card>
           <CardHeader>
@@ -153,6 +161,7 @@ const RefundPolicy = () => {
         </Card>
       </div>
     </div>
+    </>
   );
 };
 

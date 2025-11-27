@@ -5,6 +5,7 @@ import { Slider } from "@/components/ui/slider";
 import { CheckCircle, Mail, ArrowRight, TrendingUp, Users, DollarSign, Video, Package, Zap, BarChart, Quote, UserPlus, Share2, Wallet, Play } from "lucide-react";
 import { useState } from "react";
 import { useEffect, useRef } from "react";
+import { SEO } from "@/components/SEO";
 
 const Affiliate = () => {
   const [conversions, setConversions] = useState([10]);
@@ -41,7 +42,14 @@ const Affiliate = () => {
   }, []);
 
   return (
-    <div className="bg-background">
+    <>
+      <SEO 
+        title="Affiliate Program - Earn Up To 25% Commission"
+        description="Join our affiliate program and earn up to 25% commission on every monetized account sale. Generous payouts, full support, and high conversion rates."
+        keywords="affiliate program, earn commission, influencer marketing, youtube affiliate, tiktok affiliate"
+        canonical="https://monetizedprofiles.com/affiliate"
+      />
+      <div className="bg-background">
       {/* Hero Section */}
       <section className="py-12 sm:py-20 relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
@@ -645,6 +653,7 @@ size="lg"
       </section>
 
     </div>
+    </>
   );
 };
 

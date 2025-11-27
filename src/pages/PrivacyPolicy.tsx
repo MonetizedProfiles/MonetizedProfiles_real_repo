@@ -1,9 +1,17 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <>
+      <SEO 
+        title="Privacy Policy - Your Data Protection"
+        description="Learn how MonetizedProfiles collects, uses, and protects your personal information. Our commitment to your privacy and data security."
+        keywords="privacy policy, data protection, personal information, security"
+        canonical="https://monetizedprofiles.com/privacy-policy"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 py-12 sm:py-16 max-w-4xl">
         <Card>
           <CardHeader>
@@ -196,6 +204,7 @@ const PrivacyPolicy = () => {
         </Card>
       </div>
     </div>
+    </>
   );
 };
 
