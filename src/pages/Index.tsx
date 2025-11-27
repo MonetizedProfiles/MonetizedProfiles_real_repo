@@ -456,7 +456,7 @@ const Index = () => {
             {/* Scrollable container */}
             <div 
               ref={scrollContainerRef}
-              className="overflow-hidden scroll-smooth px-0 w-full sm:w-[calc(3*360px+3rem)] mx-auto select-none"
+              className="overflow-x-auto sm:overflow-hidden scroll-smooth px-0 w-full sm:w-[calc(3*360px+3rem)] mx-auto select-none scrollbar-mobile"
               style={{ cursor: window.innerWidth < 640 && isDragging ? 'grabbing' : window.innerWidth < 640 ? 'grab' : 'default' }}
               onScroll={checkScrollButtons}
               onMouseDown={handleMouseDown}
@@ -1346,7 +1346,7 @@ const Index = () => {
             {/* Scrollable container */}
             <div 
               ref={scrollContainerRefBest}
-              className="overflow-hidden scroll-smooth px-0 w-full sm:w-[calc(3*360px+3rem)] mx-auto select-none"
+              className="overflow-x-auto sm:overflow-hidden scroll-smooth px-0 w-full sm:w-[calc(3*360px+3rem)] mx-auto select-none scrollbar-mobile"
               style={{ cursor: window.innerWidth < 640 && isDraggingBest ? 'grabbing' : window.innerWidth < 640 ? 'grab' : 'default' }}
               onScroll={checkScrollButtonsBest}
               onMouseDown={handleMouseDownBest}
