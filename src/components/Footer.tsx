@@ -25,7 +25,7 @@ export const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
             <Link to="/" className="inline-block mb-4">
-              <img src={logo} alt="MonetizedProfiles" className="h-8" />
+              <img src={logo} alt="MonetizedProfiles" className="h-10" />
             </Link>
             <p className="text-sm text-muted-foreground">
               Premium monetized social media accounts for content creators.
