@@ -25,8 +25,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     const gorgiasApiKey = Deno.env.get('GORGIAS_API_KEY');
     const gorgiasDomain = Deno.env.get('GORGIAS_DOMAIN');
+    const gorgiasAdminEmail = Deno.env.get('GORGIAS_ADMIN_EMAIL');
 
-    if (!gorgiasApiKey || !gorgiasDomain) {
+    if (!gorgiasApiKey || !gorgiasDomain || !gorgiasAdminEmail) {
       throw new Error('Gorgias credentials not configured');
     }
 
@@ -62,7 +63,7 @@ const handler = async (req: Request): Promise<Response> => {
     const gorgiasResponse = await fetch(`https://${gorgiasDomain}/api/tickets`, {
       method: 'POST',
       headers: {
-        'Authorization': `Basic ${btoa(`${email}:${gorgiasApiKey}`)}`,
+        'Authorization': `Basic ${btoa(`${gorgiasAdminEmail}:${gorgiasApiKey}`)}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(ticketData),
