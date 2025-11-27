@@ -473,9 +473,6 @@ const Index = () => {
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUpOrLeave}
               onMouseLeave={handleMouseUpOrLeave}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
             >
               <div 
                 className="grid gap-4 sm:gap-6"
@@ -1371,9 +1368,6 @@ const Index = () => {
               onMouseMove={handleMouseMoveBest}
               onMouseUp={handleMouseUpOrLeaveBest}
               onMouseLeave={handleMouseUpOrLeaveBest}
-              onTouchStart={handleTouchStartBest}
-              onTouchMove={handleTouchMoveBest}
-              onTouchEnd={handleTouchEndBest}
             >
               <div 
                 className="grid gap-4 sm:gap-6"
