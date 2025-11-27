@@ -1765,7 +1765,7 @@ const ProductDetail = () => {
 
             {/* CTA */}
             <div className="text-center">
-              <Button asChild size="lg" className="text-xl px-12 py-8 shadow-lg hover:shadow-xl transition-all" style={{ backgroundColor: '#FF2929' }}>
+              <Button asChild size="lg" className="text-base md:text-xl px-6 md:px-12 py-6 md:py-8 shadow-lg hover:shadow-xl transition-all w-full sm:w-auto" style={{ backgroundColor: '#FF2929' }}>
                 <Link to="/affiliate">Learn More About Our Program</Link>
               </Button>
               <p className="text-muted-foreground mt-6">
