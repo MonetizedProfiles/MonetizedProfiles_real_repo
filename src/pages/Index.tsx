@@ -277,18 +277,34 @@ const Index = () => {
         description="Buy fully monetized YouTube and TikTok accounts with organic followers. 100% tax-approved, no bots, full account ownership. Start earning ad revenue immediately."
         keywords="buy monetized youtube channel, buy tiktok monetized account, monetized social media accounts, youtube channel for sale, tiktok account for sale"
         canonical="https://monetizedprofiles.com/"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "MonetizedProfiles",
-          "url": "https://monetizedprofiles.com",
-          "description": "Premium monetized YouTube and TikTok accounts for sale",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://monetizedprofiles.com/?q={search_term_string}",
-            "query-input": "required name=search_term_string"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "MonetizedProfiles",
+            "url": "https://monetizedprofiles.com",
+            "description": "Premium monetized YouTube and TikTok accounts for sale",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://monetizedprofiles.com/?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "MonetizedProfiles",
+            "url": "https://monetizedprofiles.com",
+            "logo": "https://monetizedprofiles.com/monetizedprofiles-logo.webp",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "support@monetizedprofiles.com",
+              "contactType": "customer service",
+              "availableLanguage": "en"
+            },
+            "description": "Premium monetized social media accounts for content creators"
           }
-        }}
+        ]}
       />
       <div className="bg-background">
 
