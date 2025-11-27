@@ -4,7 +4,7 @@ import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/sh
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/monetizedprofiles-logo.webp";
 import { subscribeToKlaviyo } from "@/lib/klaviyo";
 import { useState } from "react";
 
