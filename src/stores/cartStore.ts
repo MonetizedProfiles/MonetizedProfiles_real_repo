@@ -126,10 +126,11 @@ async function createShopifyCheckout(items: CartItem[]): Promise<string> {
     url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
     url.protocol = 'https:';
 
-    const checkoutUrl = url.toString();
+    // Append Everflow tracking parameters so the Shopify app can attribute the conversion
+    const checkoutUrlWithTracking = appendTrackingParams(url.toString());
     
-    console.log('✅ Final Shopify checkout URL:', checkoutUrl);
-    return checkoutUrl;
+    console.log('✅ Final Shopify checkout URL:', checkoutUrlWithTracking);
+    return checkoutUrlWithTracking;
   } catch (error) {
     console.error('❌ Error creating Shopify checkout:', error);
     throw error;
