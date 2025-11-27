@@ -44,6 +44,9 @@ const OrderTracking = () => {
         keywords="order tracking, order status, track package, delivery status"
         canonical="https://monetizedprofiles.com/order-tracking"
       />
+      <head>
+        <meta name="robots" content="noindex, follow" />
+      </head>
       <div className="min-h-screen bg-background py-12 px-4">
       <div className="container mx-auto max-w-2xl">
         {/* Header */}

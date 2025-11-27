@@ -300,31 +300,51 @@ const ProductDetail = () => {
         canonical={`https://monetizedprofiles.com/product/${product.handle}`}
         ogImage={images[0]?.node.url}
         ogType="product"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": product.title,
-          "image": images.map(img => img.node.url),
-          "description": product.description,
-          "brand": {
-            "@type": "Brand",
-            "name": "MonetizedProfiles"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": product.title,
+            "image": images.map(img => img.node.url),
+            "description": product.description,
+            "brand": {
+              "@type": "Brand",
+              "name": "MonetizedProfiles"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": price,
+              "priceCurrency": currency,
+              "availability": currentVariant.availableForSale ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+              "url": `https://monetizedprofiles.com/product/${product.handle}`
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": rating,
+              "reviewCount": 127,
+              "bestRating": 5,
+              "worstRating": 1
+            }
           },
-          "offers": {
-            "@type": "Offer",
-            "price": price,
-            "priceCurrency": currency,
-            "availability": currentVariant.availableForSale ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-            "url": `https://monetizedprofiles.com/product/${product.handle}`
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": rating,
-            "reviewCount": 127,
-            "bestRating": 5,
-            "worstRating": 1
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://monetizedprofiles.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": product.title,
+                "item": `https://monetizedprofiles.com/product/${product.handle}`
+              }
+            ]
           }
-        }}
+        ]}
       />
       <div className="bg-background">
       {/* Breadcrumb */}
