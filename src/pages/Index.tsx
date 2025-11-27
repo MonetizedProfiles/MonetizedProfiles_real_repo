@@ -503,10 +503,10 @@ const Index = () => {
             </div>
 
             {/* Always-visible scroll indicator bar */}
-            <div className="mt-4 h-1.5 w-full max-w-md mx-auto rounded-full bg-muted overflow-hidden sm:hidden">
+            <div className="mt-6 h-2 w-full max-w-md mx-auto rounded-full bg-muted overflow-hidden sm:hidden">
               <div
-                className="h-full bg-primary transition-[width] duration-300 ease-out"
-                style={{ width: `${scrollProgressFeatured || 0}%` }}
+                className="h-full bg-primary transition-[width] duration-300 ease-out rounded-full"
+                style={{ width: `${Math.max(scrollProgressFeatured || 0, 25)}%` }}
               />
             </div>
           </div>
@@ -1394,10 +1394,10 @@ const Index = () => {
             </div>
 
             {/* Always-visible scroll indicator bar */}
-            <div className="mt-4 h-1.5 w-full max-w-md mx-auto rounded-full bg-muted overflow-hidden sm:hidden">
+            <div className="mt-6 h-2 w-full max-w-md mx-auto rounded-full bg-muted overflow-hidden sm:hidden">
               <div
-                className="h-full bg-primary transition-[width] duration-300 ease-out"
-                style={{ width: `${scrollProgressBest || 0}%` }}
+                className="h-full bg-primary transition-[width] duration-300 ease-out rounded-full"
+                style={{ width: `${Math.max(scrollProgressBest || 0, 25)}%` }}
               />
             </div>
           </div>

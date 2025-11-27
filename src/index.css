@@ -346,35 +346,16 @@ All colors MUST be HSL.
     animation: gradient-flow 4s ease infinite;
   }
 
-  /* Mobile scrollbar indicator - Enhanced for iOS */
+  /* Hide scrollbar completely on mobile */
   @media (max-width: 640px) {
     .scrollbar-mobile {
-      padding-bottom: 20px;
       -webkit-overflow-scrolling: touch;
     }
     
     .scrollbar-mobile::-webkit-scrollbar {
-      -webkit-appearance: none;
-      height: 14px;
-    }
-    
-    .scrollbar-mobile::-webkit-scrollbar-track {
-      background: hsl(var(--muted));
-      border-radius: 7px;
-      margin: 0 16px;
-      border: 1px solid hsl(var(--border));
-    }
-    
-    .scrollbar-mobile::-webkit-scrollbar-thumb {
-      background: hsl(var(--primary));
-      border-radius: 7px;
-      border: 3px solid hsl(var(--muted));
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      min-width: 60px;
-    }
-    
-    .scrollbar-mobile::-webkit-scrollbar-thumb:active {
-      background: hsl(var(--primary) / 0.8);
+      display: none;
+      width: 0;
+      height: 0;
     }
   }
 
