@@ -348,6 +348,10 @@ All colors MUST be HSL.
 
   /* Mobile scrollbar indicator */
   @media (max-width: 640px) {
+    .scrollbar-mobile {
+      padding-bottom: 16px;
+    }
+    
     .scrollbar-mobile::-webkit-scrollbar {
       height: 8px;
     }
