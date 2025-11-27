@@ -81,29 +81,56 @@ const BlogPost = () => {
         title={data.title}
         description={data.excerpt || data.content.substring(0, 155) + "..."}
         keywords={`${data.title}, youtube tips, tiktok growth, social media monetization`}
-        canonical={`https://monetizedprofiles.com/blog/${handle}?blog=${blogHandle}`}
+        canonical={`https://monetizedprofiles.com/blog/${handle}`}
         ogImage={data.image?.url}
         ogType="article"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          "headline": data.title,
-          "image": data.image?.url,
-          "datePublished": data.publishedAt,
-          "author": {
-            "@type": "Person",
-            "name": data.author?.name || "MonetizedProfiles"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": data.title,
+            "image": data.image?.url,
+            "datePublished": data.publishedAt,
+            "dateModified": data.publishedAt,
+            "author": {
+              "@type": "Person",
+              "name": data.author?.name || "MonetizedProfiles"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "MonetizedProfiles",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://monetizedprofiles.com/monetizedprofiles-logo.webp"
+              }
+            },
+            "description": data.excerpt || data.content.substring(0, 155)
           },
-          "publisher": {
-            "@type": "Organization",
-            "name": "MonetizedProfiles",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://monetizedprofiles.com/monetizedprofiles-logo.webp"
-            }
-          },
-          "description": data.excerpt || data.content.substring(0, 155)
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://monetizedprofiles.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://monetizedprofiles.com/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": data.title,
+                "item": `https://monetizedprofiles.com/blog/${handle}`
+              }
+            ]
+          }
+        ]}
       />
       <div className="bg-background">
       <article className="container mx-auto px-4 py-12 max-w-4xl">
