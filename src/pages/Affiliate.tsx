@@ -275,22 +275,22 @@ const Affiliate = () => {
 
                   {/* Results Display */}
                   <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg p-6 border border-primary/20">
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div>
+                    <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
+                      <div className="flex flex-col items-center">
                         <p className="text-xs text-muted-foreground mb-1">Per Sale</p>
-                        <p className="text-xl font-bold">${conversionValue}</p>
+                        <p className="text-base sm:text-xl font-bold">${conversionValue}</p>
                       </div>
                       
-                      <div>
+                      <div className="flex flex-col items-center">
                         <p className="text-xs text-muted-foreground mb-1">Monthly</p>
-                        <p className="text-3xl font-bold text-primary">
+                        <p className="text-xl sm:text-3xl font-bold text-primary">
                           ${monthlyEarnings.toLocaleString()}
                         </p>
                       </div>
 
-                      <div>
+                      <div className="flex flex-col items-center">
                         <p className="text-xs text-muted-foreground mb-1">Annually</p>
-                        <p className="text-xl font-bold">
+                        <p className="text-base sm:text-xl font-bold">
                           ${(monthlyEarnings * 12).toLocaleString()}
                         </p>
                       </div>
