@@ -37,6 +37,7 @@ export const SEO = ({
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:site_name" content="MonetizedProfiles" />
       
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -47,7 +48,7 @@ export const SEO = ({
       {/* Structured Data */}
       {structuredData && (
         <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
+          {JSON.stringify(Array.isArray(structuredData) ? structuredData : [structuredData])}
         </script>
       )}
     </Helmet>
