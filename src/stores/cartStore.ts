@@ -122,13 +122,9 @@ async function createShopifyCheckout(items: CartItem[]): Promise<string> {
     const url = new URL(cart.checkoutUrl);
     url.searchParams.set('channel', 'online_store');
 
-    // If Shopify returns a checkout URL on the same domain as this app (causing React-router 404),
-    // rewrite it to the Shopify permanent domain so it goes to the real Shopify checkout.
-    if (typeof window !== 'undefined' && url.hostname === window.location.hostname) {
-      console.warn('Checkout URL hostname matches app hostname. Rewriting to Shopify permanent domain to avoid 404.');
-      url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
-      url.protocol = 'https:';
-    }
+    // Always send checkout through the Shopify permanent domain so it never hits the React app domain
+    url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
+    url.protocol = 'https:';
 
     const checkoutUrl = url.toString();
     
