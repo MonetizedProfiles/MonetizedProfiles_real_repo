@@ -73,7 +73,7 @@ export const Header = () => {
     <header className="border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
       <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
         <Link to="/" className="flex-shrink-0 flex items-center">
-          <img src={logo} alt="MonetizedProfiles" className="h-6 sm:h-8 object-contain" />
+          <img src={logo} alt="MonetizedProfiles" className="h-8 sm:h-10 object-contain" />
         </Link>
         
         <nav className="hidden lg:flex items-center gap-2">
@@ -245,7 +245,7 @@ export const Header = () => {
             <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto flex flex-col" onOpenAutoFocus={(e) => e.preventDefault()}>
               <SheetHeader className="flex-shrink-0">
                 <SheetTitle>
-                  <img src={logo} alt="MonetizedProfiles" className="h-8" />
+                  <img src={logo} alt="MonetizedProfiles" className="h-10" />
                 </SheetTitle>
               </SheetHeader>
               
