@@ -2,49 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://monetizedprofiles.com/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://monetizedprofiles.com/blog</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://monetizedprofiles.com/affiliate</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://monetizedprofiles.com/contact</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <!-- Product Pages -->
+  <url>
+    <loc>https://monetizedprofiles.com/product/monetized-youtube-channel</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://monetizedprofiles.com/order-tracking</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://monetizedprofiles.com/product/monetized-tiktok-account</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://monetizedprofiles.com/product/aged-youtube-channel</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Policy Pages -->
   <url>
     <loc>https://monetizedprofiles.com/privacy-policy</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://monetizedprofiles.com/terms-of-service</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://monetizedprofiles.com/refund-policy</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

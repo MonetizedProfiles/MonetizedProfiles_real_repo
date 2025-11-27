@@ -606,7 +606,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={sarahImg} alt="Sarah M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={sarahImg} alt="Sarah M." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Game Changer!</h4>
@@ -626,7 +626,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={justjamestvImg} alt="JustJamesTV" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={justjamestvImg} alt="JustJamesTV" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Excellent Service</h4>
@@ -646,7 +646,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={emmaImg} alt="Emma Thompson" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={emmaImg} alt="Emma Thompson" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Worth Every Penny</h4>
@@ -666,7 +666,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={mikeImg} alt="MikeReacts" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={mikeImg} alt="MikeReacts" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Best Investment</h4>
@@ -686,7 +686,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={lisaImg} alt="Lisa Wong" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={lisaImg} alt="Lisa Wong" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Seamless Process</h4>
@@ -706,7 +706,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={davidImg} alt="David Anderson" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={davidImg} alt="David Anderson" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Highly Recommend</h4>
@@ -726,7 +726,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={michaelImg} alt="Michael Chen" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={michaelImg} alt="Michael Chen" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Amazing Quality</h4>
@@ -746,7 +746,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={blockbusterzImg} alt="BlockBusterZ" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={blockbusterzImg} alt="BlockBusterZ" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Fast & Reliable</h4>
@@ -766,7 +766,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={jessicaImg} alt="Jessica" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={jessicaImg} alt="Jessica" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Perfect Start</h4>
@@ -786,7 +786,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={tomImg} alt="Tom Rodriguez" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={tomImg} alt="Tom Rodriguez" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Trustworthy Service</h4>
@@ -806,7 +806,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={marcusImg} alt="Marcus" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={marcusImg} alt="Marcus" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Life Changing</h4>
@@ -826,7 +826,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={animerecappedImg} alt="AnimeRecapped" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={animerecappedImg} alt="AnimeRecapped" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Great Value</h4>
@@ -846,7 +846,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={alexImg} alt="Alex" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={alexImg} alt="Alex" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Superb Quality</h4>
@@ -866,7 +866,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={howtoaiImg} alt="HowToAI" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={howtoaiImg} alt="HowToAI" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Outstanding Support</h4>
@@ -886,7 +886,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={ryanImg} alt="Ryan" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={ryanImg} alt="Ryan" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Incredible Service</h4>
@@ -906,7 +906,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={foodiereviewsImg} alt="FoodieReviews" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={foodiereviewsImg} alt="FoodieReviews" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Top Notch</h4>
@@ -926,7 +926,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src={orbitalscienceImg} alt="OrbitalScience" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src={orbitalscienceImg} alt="OrbitalScience" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Exactly As Described</h4>
@@ -946,7 +946,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DanTheContentMan" alt="DanTheContentMan" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DanTheContentMan" alt="DanTheContentMan" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Smart Investment</h4>
@@ -966,7 +966,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://ui-avatars.com/api/?name=Megan+K&background=3b82f6&color=fff&size=128" alt="Megan K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Megan+K&background=3b82f6&color=fff&size=128" alt="Megan K." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Five Stars</h4>
@@ -986,7 +986,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AlexViralContent" alt="AlexViralContent" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=AlexViralContent" alt="AlexViralContent" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Brilliant Service</h4>
@@ -1006,7 +1006,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://ui-avatars.com/api/?name=Lauren+P&background=eab308&color=fff&size=128" alt="Lauren P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Lauren+P&background=eab308&color=fff&size=128" alt="Lauren P." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Highly Satisfied</h4>
@@ -1026,7 +1026,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=RyanNova" alt="RyanNova" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=RyanNova" alt="RyanNova" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Exceeded Expectations</h4>
@@ -1046,7 +1046,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://ui-avatars.com/api/?name=Victoria+S&background=d946ef&color=fff&size=128" alt="Victoria S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://ui-avatars.com/api/?name=Victoria+S&background=d946ef&color=fff&size=128" alt="Victoria S." className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Wonderful Experience</h4>
@@ -1066,7 +1066,7 @@ const Index = () => {
                     }}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=JasonWins" alt="JasonWins" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" />
+                      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=JasonWins" alt="JasonWins" className="w-16 h-16 rounded-full object-cover border-2 border-primary/20" loading="lazy" />
                       <div className="flex-1">
                         <div className="flex gap-1 mb-2">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}</div>
                         <h4 className="font-bold text-lg">Premium Quality</h4>
