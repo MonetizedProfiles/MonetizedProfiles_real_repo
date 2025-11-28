@@ -67,24 +67,9 @@ export const CartDrawer = () => {
       console.log('Checkout URL received:', checkoutUrl);
       
       if (checkoutUrl) {
-        console.log('Opening checkout in new window...');
-        
-        // Show the URL to user for debugging
-        toast.info("Opening checkout...", {
-          description: `URL: ${checkoutUrl.substring(0, 60)}...`,
-          duration: 3000,
-        });
-        
-        const newWindow = window.open(checkoutUrl, '_blank');
-        if (newWindow) {
-          console.log('✅ Checkout window opened successfully');
-          setIsOpen(false);
-        } else {
-          console.error('❌ Failed to open checkout window - popup blocked?');
-          toast.error("Unable to open checkout", {
-            description: "Please allow popups for this site and try again.",
-          });
-        }
+        console.log('Redirecting to checkout...');
+        // Use window.location.href instead of window.open to avoid popup blockers
+        window.location.href = checkoutUrl;
       } else {
         console.error('❌ No checkout URL returned');
         toast.error("Checkout failed", {
