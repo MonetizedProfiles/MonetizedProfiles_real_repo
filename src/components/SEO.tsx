@@ -14,7 +14,7 @@ export const SEO = ({
   title,
   description,
   canonical,
-  ogImage = "https://monetizedprofiles.com/og-image.jpg",
+  ogImage = "https://monetizedprofiles.com/og-image.webp",
   ogType = "website",
   structuredData,
   keywords,
