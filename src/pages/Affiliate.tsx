@@ -404,23 +404,14 @@ const Affiliate = () => {
           <Accordion type="single" collapsible className="space-y-4 max-w-3xl mx-auto">
               <AccordionItem value="item-1" className="bg-background border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                  How do I get paid?
+                  What is the commission rate?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  We offer multiple payment methods including PayPal, bank transfer, and Wise. Payments are processed on the 1st and 15th of each month for all commissions earned in the previous period. There's a minimum payout threshold of $50.
+                  Our standard commission rate is 15%, with top-performing affiliates earning up to 25% on every sale. We reward our most successful partners with higher commission tiers based on consistent performance and sales volume.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2" className="bg-background border rounded-lg px-6">
-                <AccordionTrigger className="text-left font-semibold hover:no-underline">
-                  What is the commission rate?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Our standard commission rate is 15%, with top-performing affiliates earning up to 25% on every sale. We reward our most successful partners with higher commission tiers.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3" className="bg-background border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold hover:no-underline">
                   How long is the cookie duration?
                 </AccordionTrigger>
@@ -429,16 +420,34 @@ const Affiliate = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-4" className="bg-background border rounded-lg px-6">
+              <AccordionItem value="item-3" className="bg-background border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold hover:no-underline">
                   Who can become an affiliate?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">
-                  Anyone with an audience interested in social media growth and monetization! Whether you're a YouTuber, TikToker, Instagram influencer, blogger, or run a Discord/Telegram community - if you can promote to people interested in growing their social media, you're a great fit.
+                  Anyone with an audience interested in social media growth and monetization! Whether you're a YouTuber, TikToker, Instagram influencer, blogger, or run a Discord/Telegram community - if you can promote to people interested in growing their social media, you're a great fit. Our products are highly sought after with exceptional conversion rates, making it easier for you to generate consistent sales and commissions.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="bg-background border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                  What's the maximum amount I can earn?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  There is no earning limit. The more you sell, the more you earn. We also provide additional bonuses when you reach certain milestones. Our top affiliates have achieved earnings exceeding $10,000 in a single month, and we're constantly looking for high performers to reward with exclusive incentives.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-5" className="bg-background border rounded-lg px-6">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                  How can I get 25% commission?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Top-performing affiliates receive increased commission rates when they demonstrate their ability to deliver strong sales volume consistently. As you build a track record of reliable performance and steady conversions, you'll be eligible for higher commission tiers, including our premium 25% rate.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="bg-background border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold hover:no-underline">
                   How long does approval take?
                 </AccordionTrigger>
@@ -447,7 +456,7 @@ const Affiliate = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-6" className="bg-background border rounded-lg px-6">
+              <AccordionItem value="item-7" className="bg-background border rounded-lg px-6">
                 <AccordionTrigger className="text-left font-semibold hover:no-underline">
                   Can I promote on multiple platforms?
                 </AccordionTrigger>
