@@ -77,11 +77,11 @@ export const Header = () => {
         </Link>
         
         <nav className="hidden lg:flex items-center gap-2">
-          <Link to="/product/youtube" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+          <Link to="/products/youtube" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
             Monetized YouTube Accounts
           </Link>
 
-          <Link to="/product/monetized-tiktok-account" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+          <Link to="/products/monetized-tiktok-account" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
             Monetized TikTok Accounts
           </Link>
 
@@ -98,7 +98,7 @@ export const Header = () => {
                     product.node.handle !== "monetized-tiktok-account",
                 ).map((product) => (
                   <MenubarItem key={product.node.id} asChild className="py-3 px-4 text-base cursor-pointer">
-                    <Link to={`/product/${product.node.handle}`} className="w-full">
+                    <Link to={`/products/${product.node.handle}`} className="w-full">
                       {product.node.title}
                     </Link>
                   </MenubarItem>
@@ -188,7 +188,7 @@ export const Header = () => {
                         {filteredProducts.map((product) => (
                           <button
                             key={product.node.id}
-                            onClick={() => handleResultClick(`/product/${product.node.handle}`)}
+                            onClick={() => handleResultClick(`/products/${product.node.handle}`)}
                             className="w-full text-left px-3 py-2 rounded-md hover:bg-accent transition-colors flex gap-3"
                           >
                             {product.node.images.edges[0] && (
@@ -265,7 +265,7 @@ export const Header = () => {
                 
                 <div className="border-t pt-4">
                   <Link 
-                    to="/product/youtube" 
+                    to="/products/youtube" 
                     className="block text-base font-medium hover:text-primary transition-colors py-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -273,7 +273,7 @@ export const Header = () => {
                   </Link>
 
                   <Link 
-                    to="/product/monetized-tiktok-account" 
+                    to="/products/monetized-tiktok-account" 
                     className="block text-base font-medium hover:text-primary transition-colors py-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -291,7 +291,7 @@ export const Header = () => {
                     ).map((product) => (
                       <Link
                         key={product.node.id}
-                        to={`/product/${product.node.handle}`}
+                        to={`/products/${product.node.handle}`}
                         className="text-sm hover:text-primary transition-colors py-1.5"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >

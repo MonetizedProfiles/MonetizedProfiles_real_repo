@@ -37,7 +37,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               {data?.map((product) => (
                 <li key={product.node.id}>
-                  <Link to={`/product/${product.node.handle}`} className="hover:text-primary transition-colors">
+                  <Link to={`/products/${product.node.handle}`} className="hover:text-primary transition-colors">
                     {product.node.title}
                   </Link>
                 </li>

@@ -83,7 +83,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Card 
       className="group cursor-pointer overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-glow bg-card"
-      onClick={() => navigate(`/product/${product.node.handle}`)}
+      onClick={() => navigate(`/products/${product.node.handle}`)}
     >
       <div className="aspect-square overflow-hidden bg-secondary relative">
         {image ? (
