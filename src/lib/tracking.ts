@@ -22,6 +22,27 @@ declare global {
 
 const TRACKING_STORAGE_KEY = 'everflow_tracking_params';
 
+/**
+ * Wait for Everflow SDK to load with retry mechanism
+ */
+function waitForEverflowSDK(callback: () => void, maxAttempts = 10, interval = 100): void {
+  let attempts = 0;
+  
+  const checkSDK = () => {
+    attempts++;
+    if (typeof window.EF !== 'undefined') {
+      console.log('✅ Everflow SDK loaded after', attempts, 'attempts');
+      callback();
+    } else if (attempts < maxAttempts) {
+      setTimeout(checkSDK, interval);
+    } else {
+      console.warn('⚠️ Everflow SDK failed to load after', maxAttempts, 'attempts');
+    }
+  };
+  
+  checkSDK();
+}
+
 // List of Everflow tracking parameters to capture
 const EVERFLOW_PARAMS = [
   '_ef_transaction_id',
@@ -71,8 +92,8 @@ export function captureTrackingParams(): void {
       sessionStorage.setItem(TRACKING_STORAGE_KEY, JSON.stringify(trackingParams));
       console.log('✅ Captured Everflow tracking parameters:', trackingParams);
       
-      // Register click with Everflow SDK
-      if (typeof window.EF !== 'undefined') {
+      // Register click with Everflow SDK using retry mechanism
+      waitForEverflowSDK(() => {
         const clickParams = {
           offer_id: trackingParams.oid || trackingParams.offer_id,
           affiliate_id: trackingParams.affid || trackingParams.affiliate_id,
@@ -87,11 +108,9 @@ export function captureTrackingParams(): void {
         };
         
         console.log('📊 Calling EF.click() with params:', clickParams);
-        window.EF.click(clickParams);
+        window.EF!.click(clickParams);
         console.log('✅ Everflow click registered successfully');
-      } else {
-        console.warn('⚠️ Everflow SDK not loaded yet');
-      }
+      });
     } else {
       console.log('ℹ️ No Everflow tracking parameters found in URL');
     }
