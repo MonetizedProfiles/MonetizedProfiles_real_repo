@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -17,14 +17,15 @@ import { Link } from "react-router-dom";
 import { toast } from "sonner";
 
 export const CartDrawer = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const { 
     items, 
     isLoading, 
+    isCartOpen,
     updateQuantity, 
     removeItem, 
     createCheckout,
-    addItem
+    addItem,
+    setCartOpen
   } = useCartStore();
 
   const { data: allProducts } = useQuery({
@@ -55,9 +56,9 @@ export const CartDrawer = () => {
   useEffect(() => {
     const gorgiasWidget = document.getElementById('gorgias-chat-container');
     if (gorgiasWidget) {
-      gorgiasWidget.style.display = isOpen ? 'none' : 'block';
+      gorgiasWidget.style.display = isCartOpen ? 'none' : 'block';
     }
-  }, [isOpen]);
+  }, [isCartOpen]);
 
   const handleCheckout = async () => {
     console.log('🛒 CHECKOUT BUTTON CLICKED');
@@ -68,7 +69,7 @@ export const CartDrawer = () => {
       
       if (checkoutUrl) {
         console.log('Redirecting to checkout...');
-        // Use window.location.href instead of window.open to avoid popup blockers
+        setCartOpen(false);
         window.location.href = checkoutUrl;
       } else {
         console.error('❌ No checkout URL returned');
@@ -85,7 +86,7 @@ export const CartDrawer = () => {
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
       <SheetTrigger asChild>
         <Button variant="outline" size="icon" className="relative h-9 w-9 sm:h-10 sm:w-10">
           <ShoppingCart className="h-4 sm:h-5 w-4 sm:w-5" />
@@ -187,7 +188,7 @@ export const CartDrawer = () => {
                       
                       return (
                         <div key={product.node.id} className="flex gap-3 p-2 rounded-lg hover:bg-secondary/20 transition-colors">
-                          <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)} className="flex-shrink-0">
+                          <Link to={`/product/${product.node.handle}`} onClick={() => setCartOpen(false)} className="flex-shrink-0">
                             <div className="w-14 h-14 bg-secondary/20 rounded-md overflow-hidden">
                               {product.node.images?.edges?.[0]?.node && (
                                 <img
@@ -200,7 +201,7 @@ export const CartDrawer = () => {
                           </Link>
                           
                           <div className="flex-1 min-w-0">
-                            <Link to={`/product/${product.node.handle}`} onClick={() => setIsOpen(false)}>
+                            <Link to={`/product/${product.node.handle}`} onClick={() => setCartOpen(false)}>
                               <h4 className="font-medium text-sm truncate hover:text-primary transition-colors">
                                 {product.node.title}
                               </h4>
