@@ -35,6 +35,18 @@ const emailSchema = z.object({
   email: z.string().trim().email({ message: "Please enter a valid email address" }).max(255, { message: "Email must be less than 255 characters" })
 });
 
+const gmailSchema = z.object({
+  email: z.string()
+    .trim()
+    .min(1, { message: "Gmail address is required" })
+    .max(255, { message: "Email must be less than 255 characters" })
+    .email({ message: "Please enter a valid email address" })
+    .refine(
+      (email) => email.toLowerCase().endsWith('@gmail.com'),
+      { message: "Please enter a valid Gmail address (@gmail.com only)" }
+    )
+});
+
 // Helper function to get rating based on product type
 const getProductRating = (productTitle: string): number => {
   const title = productTitle.toLowerCase();
@@ -60,6 +72,8 @@ const ProductDetail = () => {
   const [startX, setStartX] = useState(0);
   const [scrollLeftStart, setScrollLeftStart] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [ownershipGmail, setOwnershipGmail] = useState("");
+  const [gmailError, setGmailError] = useState("");
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -97,8 +111,34 @@ const ProductDetail = () => {
     },
   });
 
+  // Determine if YouTube monetized early for handleAddToCart
+  const getIsYouTubeMonetized = () => {
+    if (!product) return false;
+    const handleLower = (handle || product.handle || '').toLowerCase();
+    const titleLower = product.title.toLowerCase();
+    return (handleLower.includes('youtube') && (handleLower.includes('monetiz') || titleLower.includes('monetiz'))) || titleLower.includes('monetized youtube');
+  };
+
   const handleAddToCart = () => {
     if (!product) return;
+    
+    const isYouTube = getIsYouTubeMonetized();
+    
+    // Validate Gmail for YouTube products
+    if (isYouTube) {
+      try {
+        gmailSchema.parse({ email: ownershipGmail });
+        setGmailError("");
+      } catch (error) {
+        if (error instanceof z.ZodError) {
+          setGmailError(error.errors[0].message);
+          toast.error(error.errors[0].message, {
+            position: "top-center",
+          });
+        }
+        return;
+      }
+    }
     
     const variant = product.variants.edges[selectedVariant].node;
     
@@ -108,7 +148,10 @@ const ProductDetail = () => {
       variantTitle: variant.title,
       price: variant.price,
       quantity: 1,
-      selectedOptions: variant.selectedOptions || []
+      selectedOptions: variant.selectedOptions || [],
+      attributes: isYouTube ? [
+        { key: "Ownership Gmail", value: ownershipGmail.trim() }
+      ] : undefined
     };
     
     addItem(cartItem);
@@ -534,6 +577,31 @@ const ProductDetail = () => {
                     </Button>
                   ))}
                 </div>
+              </div>
+            )}
+
+            {/* Gmail Capture for YouTube Products */}
+            {isYouTubeMonetized && (
+              <div className="space-y-2 p-4 rounded-lg bg-secondary/30 border border-border/50">
+                <label className="text-sm font-semibold flex items-center gap-1">
+                  Enter Ownership Gmail<span className="text-primary">*</span>
+                </label>
+                <Input
+                  type="email"
+                  placeholder="Example@gmail.com"
+                  value={ownershipGmail}
+                  onChange={(e) => {
+                    setOwnershipGmail(e.target.value);
+                    setGmailError("");
+                  }}
+                  className={`h-12 text-base ${gmailError ? 'border-destructive focus-visible:ring-destructive' : ''}`}
+                />
+                {gmailError && (
+                  <p className="text-sm text-destructive">{gmailError}</p>
+                )}
+                <p className="text-xs text-muted-foreground">
+                  To ensure a successful ownership transfer, enter your Google account.
+                </p>
               </div>
             )}
 

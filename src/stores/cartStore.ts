@@ -20,6 +20,10 @@ export interface CartItem {
     name: string;
     value: string;
   }>;
+  attributes?: Array<{
+    key: string;
+    value: string;
+  }>;
 }
 
 interface CartStore {
@@ -92,6 +96,7 @@ async function createShopifyCheckout(items: CartItem[]): Promise<string> {
     const lines = items.map(item => ({
       quantity: item.quantity,
       merchandiseId: item.variantId,
+      attributes: item.attributes || [],
     }));
 
     console.log('Calling Shopify Storefront API with lines:', lines);
