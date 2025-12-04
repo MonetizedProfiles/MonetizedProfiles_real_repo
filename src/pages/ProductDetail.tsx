@@ -626,34 +626,36 @@ const ProductDetail = () => {
               )}
             </Button>
 
-            {/* Subtle Restock Notification */}
-            <div className="pt-3 border-t border-border/30">
-              <form onSubmit={handleRestockEmailSubmit} className="flex flex-col gap-2">
-                <label className="text-xs text-muted-foreground flex items-center gap-1.5">
-                  <Mail className="w-3.5 h-3.5" />
-                  Get notified when back in stock
-                </label>
-                <div className="flex gap-2">
-                  <Input
-                    type="email"
-                    placeholder="your@email.com"
-                    value={restockEmail}
-                    onChange={(e) => setRestockEmail(e.target.value)}
-                    className="h-9 text-sm"
-                    disabled={emailSubmitted}
-                  />
-                  <Button 
-                    type="submit" 
-                    size="sm"
-                    variant="outline"
-                    className="h-9 px-3"
-                    disabled={emailSubmitted}
-                  >
-                    {emailSubmitted ? <Check className="w-3.5 h-3.5" /> : "Notify"}
-                  </Button>
-                </div>
-              </form>
-            </div>
+            {/* Subtle Restock Notification - Only show when out of stock */}
+            {!currentVariant.availableForSale && (
+              <div className="pt-3 border-t border-border/30">
+                <form onSubmit={handleRestockEmailSubmit} className="flex flex-col gap-2">
+                  <label className="text-xs text-muted-foreground flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5" />
+                    Get notified when back in stock
+                  </label>
+                  <div className="flex gap-2">
+                    <Input
+                      type="email"
+                      placeholder="your@email.com"
+                      value={restockEmail}
+                      onChange={(e) => setRestockEmail(e.target.value)}
+                      className="h-9 text-sm"
+                      disabled={emailSubmitted}
+                    />
+                    <Button 
+                      type="submit" 
+                      size="sm"
+                      variant="outline"
+                      className="h-9 px-3"
+                      disabled={emailSubmitted}
+                    >
+                      {emailSubmitted ? <Check className="w-3.5 h-3.5" /> : "Notify"}
+                    </Button>
+                  </div>
+                </form>
+              </div>
+            )}
 
             <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-4">
               <div className="text-center p-2 sm:p-3 rounded-lg bg-secondary/30">
