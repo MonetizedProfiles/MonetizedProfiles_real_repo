@@ -583,8 +583,8 @@ const ProductDetail = () => {
             {/* Gmail Capture for YouTube Products */}
             {isYouTubeMonetized && (
               <div className="space-y-2">
-              <label className="text-sm font-semibold">
-                  Enter Ownership Gmail
+              <label className="text-sm font-semibold flex items-center gap-1">
+                  Enter Ownership Gmail<span className="text-primary">*</span>
                 </label>
                 <Input
                   type="email"
