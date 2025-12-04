@@ -582,13 +582,13 @@ const ProductDetail = () => {
 
             {/* Gmail Capture for YouTube Products */}
             {isYouTubeMonetized && (
-              <div className="space-y-2 p-4 rounded-lg bg-secondary/30 border border-border/50">
-                <label className="text-sm font-semibold flex items-center gap-1">
-                  Enter Ownership Gmail<span className="text-primary">*</span>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-muted-foreground">
+                  Ownership Gmail
                 </label>
                 <Input
                   type="email"
-                  placeholder="Example@gmail.com"
+                  placeholder="example@gmail.com"
                   value={ownershipGmail}
                   onChange={(e) => {
                     setOwnershipGmail(e.target.value);
@@ -599,9 +599,6 @@ const ProductDetail = () => {
                 {gmailError && (
                   <p className="text-sm text-destructive">{gmailError}</p>
                 )}
-                <p className="text-xs text-muted-foreground">
-                  To ensure a successful ownership transfer, enter your Google account.
-                </p>
               </div>
             )}
 
