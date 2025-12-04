@@ -599,6 +599,9 @@ const ProductDetail = () => {
                 {gmailError && (
                   <p className="text-sm text-destructive">{gmailError}</p>
                 )}
+                <p className="text-xs text-muted-foreground">
+                  To ensure a successful ownership transfer, enter your Google account.
+                </p>
               </div>
             )}
 
