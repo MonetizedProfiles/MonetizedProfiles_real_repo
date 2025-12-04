@@ -111,18 +111,20 @@ const ProductDetail = () => {
     },
   });
 
-  // Determine if YouTube monetized early for handleAddToCart
-  const getIsYouTubeMonetized = () => {
+  // Determine if YouTube product (monetized or aged) for handleAddToCart
+  const getIsYouTubeProduct = () => {
     if (!product) return false;
     const handleLower = (handle || product.handle || '').toLowerCase();
     const titleLower = product.title.toLowerCase();
-    return (handleLower.includes('youtube') && (handleLower.includes('monetiz') || titleLower.includes('monetiz'))) || titleLower.includes('monetized youtube');
+    const isMonetized = (handleLower.includes('youtube') && (handleLower.includes('monetiz') || titleLower.includes('monetiz'))) || titleLower.includes('monetized youtube');
+    const isAged = (handleLower.includes('aged') && handleLower.includes('youtube')) || titleLower.includes('aged youtube');
+    return isMonetized || isAged;
   };
 
   const handleAddToCart = () => {
     if (!product) return;
     
-    const isYouTube = getIsYouTubeMonetized();
+    const isYouTube = getIsYouTubeProduct();
     
     // Validate Gmail for YouTube products
     if (isYouTube) {
@@ -581,7 +583,7 @@ const ProductDetail = () => {
             )}
 
             {/* Gmail Capture for YouTube Products */}
-            {isYouTubeMonetized && (
+            {(isYouTubeMonetized || isYouTubeAged) && (
               <div className="space-y-2">
               <label className="text-sm font-semibold flex items-center gap-1">
                   Enter Ownership Gmail<span className="text-primary">*</span>
