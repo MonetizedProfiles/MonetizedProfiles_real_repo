@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { z } from "zod";
 import { StockIndicator } from "@/components/StockIndicator";
 import { SEO } from "@/components/SEO";
+import { useDynamicStock } from "@/hooks/useDynamicStock";
 import sarahImg from "@/assets/testimonials/sarah.webp";
 import justjamestvImg from "@/assets/testimonials/justjamestv.webp";
 import mikeImg from "@/assets/testimonials/mike.webp";
@@ -59,6 +60,7 @@ const ProductDetail = () => {
   const { handle } = useParams();
   const navigate = useNavigate();
   const addItem = useCartStore(state => state.addItem);
+  const dynamicStock = useDynamicStock();
   const [added, setAdded] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [mainImage, setMainImage] = useState(0);
@@ -337,6 +339,9 @@ const ProductDetail = () => {
   const isTikTokMonetized = handleLower.includes('tiktok') || titleLower.includes('tiktok');
   const isYouTubeMonetized = (handleLower.includes('youtube') && (handleLower.includes('monetiz') || titleLower.includes('monetiz'))) || titleLower.includes('monetized youtube');
   const isYouTubeAged = (handleLower.includes('aged') && handleLower.includes('youtube')) || titleLower.includes('aged youtube');
+  
+  // Check if this is the Monetized TikTok Account product (for dynamic stock)
+  const isMonetizedTikTokAccount = handleLower === 'monetized-tiktok-account';
 
   // Get related products (exclude current product, limit to 3)
   const relatedProducts = allProducts?.filter(p => p.node.id !== product.id).slice(0, 3) || [];
@@ -559,7 +564,7 @@ const ProductDetail = () => {
 
               {/* Stock Indicator */}
               <StockIndicator 
-                quantityAvailable={currentVariant.quantityAvailable} 
+                quantityAvailable={isMonetizedTikTokAccount && currentVariant.availableForSale ? dynamicStock : currentVariant.quantityAvailable} 
                 availableForSale={currentVariant.availableForSale}
               />
             </div>
