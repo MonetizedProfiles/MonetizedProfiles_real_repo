@@ -127,7 +127,7 @@ Deno.serve(async (req) => {
       sitemap += `    <loc>https://monetizedprofiles.com/blog/${handle}</loc>\n`;
       sitemap += `    <lastmod>${publishedAt}</lastmod>\n`;
       sitemap += '    <changefreq>monthly</changefreq>\n';
-      sitemap += '    <priority>0.7</priority>\n';
+      sitemap += '    <priority>0.8</priority>\n';
       sitemap += '  </url>\n';
     });
 
