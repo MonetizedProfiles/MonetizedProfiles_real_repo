@@ -31,17 +31,50 @@ Deno.serve(async (req) => {
       }
     `;
 
-    const shopifyResponse = await fetch(SHOPIFY_STOREFRONT_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': storefrontToken,
-      },
-      body: JSON.stringify({ query: productsQuery }),
-    });
+    // Fetch all blog articles from Shopify
+    const articlesQuery = `
+      query GetAllArticles {
+        articles(first: 250, sortKey: PUBLISHED_AT, reverse: true) {
+          edges {
+            node {
+              handle
+              publishedAt
+              blog {
+                handle
+              }
+            }
+          }
+        }
+      }
+    `;
 
-    const shopifyData = await shopifyResponse.json();
-    const products = shopifyData?.data?.products?.edges || [];
+    // Fetch products and articles in parallel
+    const [productsResponse, articlesResponse] = await Promise.all([
+      fetch(SHOPIFY_STOREFRONT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Shopify-Storefront-Access-Token': storefrontToken,
+        },
+        body: JSON.stringify({ query: productsQuery }),
+      }),
+      fetch(SHOPIFY_STOREFRONT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Shopify-Storefront-Access-Token': storefrontToken,
+        },
+        body: JSON.stringify({ query: articlesQuery }),
+      }),
+    ]);
+
+    const [productsData, articlesData] = await Promise.all([
+      productsResponse.json(),
+      articlesResponse.json(),
+    ]);
+
+    const products = productsData?.data?.products?.edges || [];
+    const articles = articlesData?.data?.articles?.edges || [];
 
     // Static pages configuration
     const staticPages = [
@@ -76,16 +109,31 @@ Deno.serve(async (req) => {
       const updatedAt = product.node.updatedAt ? new Date(product.node.updatedAt).toISOString().split('T')[0] : currentDate;
       
       sitemap += '  <url>\n';
-      sitemap += `    <loc>https://monetizedprofiles.com/product/${handle}</loc>\n`;
+      sitemap += `    <loc>https://monetizedprofiles.com/products/${handle}</loc>\n`;
       sitemap += `    <lastmod>${updatedAt}</lastmod>\n`;
       sitemap += '    <changefreq>weekly</changefreq>\n';
       sitemap += '    <priority>0.9</priority>\n';
       sitemap += '  </url>\n';
     });
 
+    // Add blog post pages
+    articles.forEach((article: any) => {
+      const handle = article.node.handle;
+      const publishedAt = article.node.publishedAt 
+        ? new Date(article.node.publishedAt).toISOString().split('T')[0] 
+        : currentDate;
+      
+      sitemap += '  <url>\n';
+      sitemap += `    <loc>https://monetizedprofiles.com/blog/${handle}</loc>\n`;
+      sitemap += `    <lastmod>${publishedAt}</lastmod>\n`;
+      sitemap += '    <changefreq>monthly</changefreq>\n';
+      sitemap += '    <priority>0.7</priority>\n';
+      sitemap += '  </url>\n';
+    });
+
     sitemap += '</urlset>';
 
-    console.log(`Generated sitemap with ${products.length} products`);
+    console.log(`Generated sitemap with ${products.length} products and ${articles.length} blog posts`);
 
     return new Response(sitemap, {
       headers: {
