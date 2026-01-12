@@ -67,6 +67,27 @@ const BLOG_POST_QUERY = `
   }
 `;
 
+// Query for related posts
+const RELATED_POSTS_QUERY = `
+  query GetRelatedPosts($first: Int!) {
+    articles(first: $first, sortKey: PUBLISHED_AT, reverse: true) {
+      edges {
+        node {
+          id
+          title
+          handle
+          excerpt
+          publishedAt
+          image {
+            url
+            altText
+          }
+        }
+      }
+    }
+  }
+`;
+
 const BlogPost = () => {
   const { handle } = useParams<{ handle: string }>();
   
@@ -79,6 +100,20 @@ const BlogPost = () => {
       return response.data.articles?.edges?.[0]?.node;
     },
     enabled: !!handle,
+  });
+
+  // Fetch related posts for internal linking
+  const { data: relatedPosts } = useQuery({
+    queryKey: ['related-posts', handle],
+    queryFn: async () => {
+      const response = await storefrontApiRequest(RELATED_POSTS_QUERY, { first: 5 });
+      const allPosts = response.data.articles?.edges || [];
+      // Filter out current post and limit to 3
+      return allPosts
+        .filter((post: any) => post.node.handle !== handle)
+        .slice(0, 3);
+    },
+    enabled: !!handle && !!data,
   });
 
   if (isLoading) {
@@ -149,10 +184,16 @@ const BlogPost = () => {
           {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://monetizedprofiles.com/blog/${handle}`
+            },
             "headline": data.title,
             "image": data.image?.url,
             "datePublished": data.publishedAt,
             "dateModified": data.publishedAt,
+            "articleBody": data.content,
+            "wordCount": data.content?.split(/\s+/).length || 0,
             "author": {
               "@type": "Person",
               "name": data.author?.name || "MonetizedProfiles"
@@ -165,7 +206,12 @@ const BlogPost = () => {
                 "url": "https://monetizedprofiles.com/monetizedprofiles-logo.webp"
               }
             },
-            "description": data.excerpt || data.content.substring(0, 155)
+            "description": data.excerpt || data.content.substring(0, 155),
+            "isPartOf": {
+              "@type": "Blog",
+              "@id": "https://monetizedprofiles.com/blog",
+              "name": "MonetizedProfiles Blog"
+            }
           },
           {
             "@context": "https://schema.org",
@@ -265,6 +311,50 @@ const BlogPost = () => {
             prose-td:border prose-td:border-border prose-td:p-2"
           dangerouslySetInnerHTML={{ __html: data.contentHtml }}
         />
+
+        {/* Related Posts Section for Internal Linking */}
+        {relatedPosts && relatedPosts.length > 0 && (
+          <nav className="mt-16 pt-8 border-t border-border" aria-label="Related articles">
+            <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedPosts.map((post: any) => (
+                <Link 
+                  key={post.node.id}
+                  to={`/blog/${post.node.handle}`}
+                  className="group block"
+                >
+                  <article className="border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-colors">
+                    {post.node.image && (
+                      <div className="aspect-video overflow-hidden">
+                        <img 
+                          src={post.node.image.url} 
+                          alt={post.node.image.altText || post.node.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div className="p-4">
+                      <time 
+                        dateTime={post.node.publishedAt}
+                        className="text-sm text-muted-foreground"
+                      >
+                        {new Date(post.node.publishedAt).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric'
+                        })}
+                      </time>
+                      <h3 className="font-semibold mt-1 line-clamp-2 group-hover:text-primary transition-colors">
+                        {post.node.title}
+                      </h3>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </nav>
+        )}
       </article>
     </div>
     </>

@@ -48,6 +48,53 @@ const Blog = () => {
         description="Expert tips, guides, and insights for growing your YouTube and TikTok channels. Learn how to monetize your content and build a successful social media business."
         keywords="youtube growth, tiktok tips, social media monetization, content creator guide, youtube monetization"
         canonical="https://monetizedprofiles.com/blog"
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "@id": "https://monetizedprofiles.com/blog",
+            "name": "MonetizedProfiles Blog",
+            "description": "Expert tips, guides, and insights for growing your YouTube and TikTok channels. Learn how to monetize your content and build a successful social media business.",
+            "url": "https://monetizedprofiles.com/blog",
+            "publisher": {
+              "@type": "Organization",
+              "name": "MonetizedProfiles",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://monetizedprofiles.com/monetizedprofiles-logo.webp"
+              }
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Blog - Social Media Growth Tips & Guides",
+            "description": "Expert tips, guides, and insights for growing your YouTube and TikTok channels.",
+            "url": "https://monetizedprofiles.com/blog",
+            "mainEntity": {
+              "@type": "Blog",
+              "@id": "https://monetizedprofiles.com/blog"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://monetizedprofiles.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://monetizedprofiles.com/blog"
+              }
+            ]
+          }
+        ]}
       />
       <div className="bg-background">
 
