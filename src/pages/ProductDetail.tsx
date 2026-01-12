@@ -352,7 +352,7 @@ const ProductDetail = () => {
         title={`${product.title} - Buy Monetized Account`}
         description={product.description.substring(0, 155) + "..." || `Buy ${product.title} - Fully monetized account with organic followers. Secure transfer, instant earnings.`}
         keywords={`${product.title}, buy monetized account, ${isTikTokMonetized ? 'tiktok monetized account' : 'youtube monetized channel'}, social media account for sale`}
-        canonical={`https://monetizedprofiles.com/product/${product.handle}`}
+        canonical={`https://monetizedprofiles.com/products/${product.handle}`}
         ogImage={images[0]?.node.url}
         ogType="product"
         structuredData={[
@@ -371,7 +371,7 @@ const ProductDetail = () => {
               "price": price,
               "priceCurrency": currency,
               "availability": currentVariant.availableForSale ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-              "url": `https://monetizedprofiles.com/product/${product.handle}`
+              "url": `https://monetizedprofiles.com/products/${product.handle}`
             },
             "aggregateRating": {
               "@type": "AggregateRating",
@@ -395,7 +395,7 @@ const ProductDetail = () => {
                 "@type": "ListItem",
                 "position": 2,
                 "name": product.title,
-                "item": `https://monetizedprofiles.com/product/${product.handle}`
+                "item": `https://monetizedprofiles.com/products/${product.handle}`
               }
             ]
           }

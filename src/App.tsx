@@ -12,6 +12,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { Footer } from "@/components/Footer";
 import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
+import { ProductRedirect } from "./components/ProductRedirect";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Affiliate from "./pages/Affiliate";
@@ -44,7 +45,7 @@ const App = () => {
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/product/:handle" element={<ProductDetail />} />
+              <Route path="/product/:handle" element={<ProductRedirect />} />
               <Route path="/products/:handle" element={<ProductDetail />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:handle" element={<BlogPost />} />
