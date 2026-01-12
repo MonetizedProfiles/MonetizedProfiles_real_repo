@@ -48,35 +48,55 @@ const Affiliate = () => {
         description="Join our affiliate program and earn up to 25% commission on every monetized account sale. Generous payouts, full support, and high conversion rates."
         keywords="affiliate program, earn commission, influencer marketing, youtube affiliate, tiktok affiliate"
         canonical="https://monetizedprofiles.com/affiliate"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "HowTo",
-          "name": "How to Join the MonetizedProfiles Affiliate Program",
-          "description": "Three simple steps to start earning generous commissions by promoting monetized social media accounts",
-          "step": [
-            {
-              "@type": "HowToStep",
-              "position": 1,
-              "name": "Sign Up",
-              "text": "Fill out our simple application form and get approved within 24 hours.",
-              "url": "https://monetizedprofiles.com/affiliate"
-            },
-            {
-              "@type": "HowToStep",
-              "position": 2,
-              "name": "Promote",
-              "text": "Share your affiliate link across your platforms with our marketing materials.",
-              "url": "https://monetizedprofiles.com/affiliate"
-            },
-            {
-              "@type": "HowToStep",
-              "position": 3,
-              "name": "Get Paid",
-              "text": "Earn up to 25% commission on every sale and get paid regularly.",
-              "url": "https://monetizedprofiles.com/affiliate"
-            }
-          ]
-        }}
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://monetizedprofiles.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Affiliate Program",
+                "item": "https://monetizedprofiles.com/affiliate"
+              }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Join the MonetizedProfiles Affiliate Program",
+            "description": "Three simple steps to start earning generous commissions by promoting monetized social media accounts",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Sign Up",
+                "text": "Fill out our simple application form and get approved within 24 hours.",
+                "url": "https://monetizedprofiles.com/affiliate"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Promote",
+                "text": "Share your affiliate link across your platforms with our marketing materials.",
+                "url": "https://monetizedprofiles.com/affiliate"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Get Paid",
+                "text": "Earn up to 25% commission on every sale and get paid regularly.",
+                "url": "https://monetizedprofiles.com/affiliate"
+              }
+            ]
+          }
+        ]}
       />
       <div className="bg-background">
       {/* Hero Section */}

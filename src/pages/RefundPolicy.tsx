@@ -10,6 +10,24 @@ const RefundPolicy = () => {
         description="Our comprehensive refund, replacement, and warranty policy. 30-day money-back guarantee, free replacements, and hassle-free returns."
         keywords="refund policy, warranty, money-back guarantee, replacement policy"
         canonical="https://monetizedprofiles.com/refund-policy"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://monetizedprofiles.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Refund Policy",
+              "item": "https://monetizedprofiles.com/refund-policy"
+            }
+          ]
+        }}
       />
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 py-12 sm:py-16 max-w-4xl">

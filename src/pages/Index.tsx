@@ -313,7 +313,19 @@ const Index = () => {
               "availableLanguage": "en"
             },
             "description": "Premium monetized social media accounts for content creators"
-          }
+          },
+          ...(data ? [{
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Featured Monetized Accounts",
+            "description": "Premium monetized YouTube and TikTok accounts available for purchase",
+            "numberOfItems": data.length,
+            "itemListElement": data.slice(0, 10).map((product: any, index: number) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "url": `https://monetizedprofiles.com/products/${product.node.handle}`
+            }))
+          }] : [])
         ]}
       />
       <div className="bg-background">
