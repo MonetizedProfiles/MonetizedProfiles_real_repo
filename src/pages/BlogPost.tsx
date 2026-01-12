@@ -6,22 +6,24 @@ import { storefrontApiRequest } from "@/lib/shopify";
 import { SEO } from "@/components/SEO";
 
 const BLOG_POST_QUERY = `
-  query GetBlogPost($blogHandle: String!, $articleHandle: String!) {
-    blog(handle: $blogHandle) {
-      articleByHandle(handle: $articleHandle) {
-        id
-        title
-        handle
-        content
-        contentHtml
-        excerpt
-        publishedAt
-        image {
-          url
-          altText
-        }
-        author {
-          name
+  query GetBlogPost($query: String!) {
+    articles(first: 1, query: $query) {
+      edges {
+        node {
+          id
+          title
+          handle
+          content
+          contentHtml
+          excerpt
+          publishedAt
+          image {
+            url
+            altText
+          }
+          author {
+            name
+          }
         }
       }
     }
@@ -30,19 +32,16 @@ const BLOG_POST_QUERY = `
 
 const BlogPost = () => {
   const { handle } = useParams<{ handle: string }>();
-  const searchParams = new URLSearchParams(window.location.search);
-  const blogHandle = searchParams.get('blog') || 'news';
   
   const { data, isLoading, error } = useQuery({
-    queryKey: ['blog-post', blogHandle, handle],
+    queryKey: ['blog-post', handle],
     queryFn: async () => {
       const response = await storefrontApiRequest(BLOG_POST_QUERY, { 
-        blogHandle, 
-        articleHandle: handle 
+        query: `handle:${handle}`
       });
-      return response.data.blog?.articleByHandle;
+      return response.data.articles?.edges?.[0]?.node;
     },
-    enabled: !!handle && !!blogHandle,
+    enabled: !!handle,
   });
 
   if (isLoading) {
