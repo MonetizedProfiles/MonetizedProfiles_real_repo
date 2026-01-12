@@ -10,6 +10,24 @@ const PrivacyPolicy = () => {
         description="Learn how MonetizedProfiles collects, uses, and protects your personal information. Our commitment to your privacy and data security."
         keywords="privacy policy, data protection, personal information, security"
         canonical="https://monetizedprofiles.com/privacy-policy"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://monetizedprofiles.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Privacy Policy",
+              "item": "https://monetizedprofiles.com/privacy-policy"
+            }
+          ]
+        }}
       />
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 py-12 sm:py-16 max-w-4xl">

@@ -79,60 +79,80 @@ const ContactUs = () => {
         description="Get help with your monetized account purchase. 24/7 live chat support, 1-hour response time. Contact us for order inquiries, account issues, and questions."
         keywords="customer support, contact monetizedprofiles, account help, order support"
         canonical="https://monetizedprofiles.com/contact"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "How quickly will I receive my account after purchase?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Delivery is usually between 12-24 hours via email. However, during periods of high demand, it can take up to 72 hours. You'll receive login credentials and step-by-step transfer instructions."
+        structuredData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://monetizedprofiles.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact Us",
+                "item": "https://monetizedprofiles.com/contact"
               }
-            },
-            {
-              "@type": "Question",
-              "name": "Is this legal? Will I get in trouble?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, it's completely legal. We provide access to legitimately grown accounts that comply with platform requirements. All accounts are in good standing with no violations."
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How quickly will I receive my account after purchase?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Delivery is usually between 12-24 hours via email. However, during periods of high demand, it can take up to 72 hours. You'll receive login credentials and step-by-step transfer instructions."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is this legal? Will I get in trouble?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, it's completely legal. We provide access to legitimately grown accounts that comply with platform requirements. All accounts are in good standing with no violations."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What happens if the account gets disabled or shadowbanned?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We offer a free replacement, no questions asked. All our accounts are healthy and in good standing with no violations, but if anything happens, you're fully covered by our replacement warranty."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are the followers/subscribers real people or bots?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "100% organic, real engagement. We never use bots or fake accounts. All of our accounts are grown naturally with real people who actively engage with content."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What payment methods do you accept?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We accept all major credit cards, debit cards, and secure payment methods. All transactions are processed through our encrypted, safe payment system."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I contact support?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Use our 24/7 live chat (bottom-right corner) for instant help, or email support@monetizedprofiles.com for a response within 1 hour during business hours."
+                }
               }
-            },
-            {
-              "@type": "Question",
-              "name": "What happens if the account gets disabled or shadowbanned?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We offer a free replacement, no questions asked. All our accounts are healthy and in good standing with no violations, but if anything happens, you're fully covered by our replacement warranty."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Are the followers/subscribers real people or bots?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "100% organic, real engagement. We never use bots or fake accounts. All of our accounts are grown naturally with real people who actively engage with content."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What payment methods do you accept?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We accept all major credit cards, debit cards, and secure payment methods. All transactions are processed through our encrypted, safe payment system."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do I contact support?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Use our 24/7 live chat (bottom-right corner) for instant help, or email support@monetizedprofiles.com for a response within 1 hour during business hours."
-              }
-            }
-          ]
-        }}
+            ]
+          }
+        ]}
       />
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 py-12 sm:py-16 max-w-5xl space-y-12 sm:space-y-20">

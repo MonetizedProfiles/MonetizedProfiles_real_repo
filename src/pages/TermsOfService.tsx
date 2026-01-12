@@ -10,6 +10,24 @@ const TermsOfService = () => {
         description="Read our terms and conditions for using MonetizedProfiles. Understand your rights and obligations when purchasing monetized social media accounts."
         keywords="terms of service, legal agreement, user agreement, terms and conditions"
         canonical="https://monetizedprofiles.com/terms-of-service"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://monetizedprofiles.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Terms of Service",
+              "item": "https://monetizedprofiles.com/terms-of-service"
+            }
+          ]
+        }}
       />
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 py-12 sm:py-16 max-w-4xl">
