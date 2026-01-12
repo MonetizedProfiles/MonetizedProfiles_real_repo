@@ -5,6 +5,43 @@ import { Calendar, ArrowLeft } from "lucide-react";
 import { storefrontApiRequest } from "@/lib/shopify";
 import { SEO } from "@/components/SEO";
 
+// Extract YouTube videos from HTML content for VideoObject structured data
+const extractVideosFromHtml = (html: string): Array<{
+  url: string;
+  embedUrl: string;
+  thumbnailUrl: string;
+  videoId: string;
+}> => {
+  const videos: Array<{
+    url: string;
+    embedUrl: string;
+    thumbnailUrl: string;
+    videoId: string;
+  }> = [];
+  
+  const seenIds = new Set<string>();
+  
+  // Match YouTube iframes and URLs
+  const youtubeRegex = /(?:youtube\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/g;
+  let match;
+  
+  while ((match = youtubeRegex.exec(html)) !== null) {
+    const videoId = match[1];
+    // Avoid duplicates
+    if (!seenIds.has(videoId)) {
+      seenIds.add(videoId);
+      videos.push({
+        videoId,
+        url: `https://www.youtube.com/watch?v=${videoId}`,
+        embedUrl: `https://www.youtube.com/embed/${videoId}`,
+        thumbnailUrl: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+      });
+    }
+  }
+  
+  return videos;
+};
+
 const BLOG_POST_QUERY = `
   query GetBlogPost($query: String!) {
     articles(first: 1, query: $query) {
@@ -74,6 +111,31 @@ const BlogPost = () => {
     );
   }
 
+  // Extract videos from blog content
+  const embeddedVideos = data?.contentHtml 
+    ? extractVideosFromHtml(data.contentHtml) 
+    : [];
+
+  // Create VideoObject structured data for each embedded video
+  const videoStructuredData = embeddedVideos.map((video, index) => ({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": `${data?.title}${embeddedVideos.length > 1 ? ` - Video ${index + 1}` : ''}`,
+    "description": data?.excerpt || data?.content?.substring(0, 155) || '',
+    "thumbnailUrl": video.thumbnailUrl,
+    "uploadDate": data?.publishedAt,
+    "contentUrl": video.url,
+    "embedUrl": video.embedUrl,
+    "publisher": {
+      "@type": "Organization",
+      "name": "MonetizedProfiles",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://monetizedprofiles.com/monetizedprofiles-logo.webp"
+      }
+    }
+  }));
+
   return (
     <>
       <SEO 
@@ -128,7 +190,8 @@ const BlogPost = () => {
                 "item": `https://monetizedprofiles.com/blog/${handle}`
               }
             ]
-          }
+          },
+          ...videoStructuredData
         ]}
       />
       <div className="bg-background">
