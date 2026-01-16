@@ -1,8 +1,10 @@
 import { corsHeaders } from '../_shared/cors.ts';
 
 const SHOPIFY_API_VERSION = '2025-07';
-const SHOPIFY_STORE_PERMANENT_DOMAIN = '1e3fcb-4e.myshopify.com';
+const SHOPIFY_STORE_PERMANENT_DOMAIN = 'checkout.monetizedprofiles.com';
 const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
+// Using the same token as frontend since it has blog access
+const SHOPIFY_STOREFRONT_TOKEN = 'beb3421674f494516a8b32b21007d94a';
 
 Deno.serve(async (req) => {
   // Handle CORS preflight requests
@@ -11,11 +13,6 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const storefrontToken = Deno.env.get('SHOPIFY_STOREFRONT_ACCESS_TOKEN');
-    
-    if (!storefrontToken) {
-      throw new Error('SHOPIFY_STOREFRONT_ACCESS_TOKEN not configured');
-    }
 
     // Fetch all products from Shopify
     const productsQuery = `
@@ -54,7 +51,7 @@ Deno.serve(async (req) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Shopify-Storefront-Access-Token': storefrontToken,
+          'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
         },
         body: JSON.stringify({ query: productsQuery }),
       }),
@@ -62,7 +59,7 @@ Deno.serve(async (req) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Shopify-Storefront-Access-Token': storefrontToken,
+          'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
         },
         body: JSON.stringify({ query: articlesQuery }),
       }),
@@ -72,6 +69,18 @@ Deno.serve(async (req) => {
       productsResponse.json(),
       articlesResponse.json(),
     ]);
+
+    // Log the full responses for debugging
+    console.log('Products response:', JSON.stringify(productsData, null, 2));
+    console.log('Articles response:', JSON.stringify(articlesData, null, 2));
+
+    // Check for GraphQL errors
+    if (productsData?.errors) {
+      console.error('Products query errors:', productsData.errors);
+    }
+    if (articlesData?.errors) {
+      console.error('Articles query errors:', articlesData.errors);
+    }
 
     const products = productsData?.data?.products?.edges || [];
     const articles = articlesData?.data?.articles?.edges || [];
