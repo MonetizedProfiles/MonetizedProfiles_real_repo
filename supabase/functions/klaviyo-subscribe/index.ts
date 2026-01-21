@@ -39,7 +39,7 @@ serve(async (req) => {
       
       console.log(`Subscribing ${email} to list ${listId}`);
 
-      // Create or update profile
+      // Create or update profile (without properties - not allowed in this endpoint)
       const profileResponse = await fetch(`${KLAVIYO_API_URL}/profile-subscription-bulk-create-jobs/`, {
         method: "POST",
         headers: {
@@ -57,7 +57,6 @@ serve(async (req) => {
                     type: "profile",
                     attributes: {
                       email,
-                      properties,
                     }
                   }
                 ]
@@ -83,6 +82,45 @@ serve(async (req) => {
 
       const result = await profileResponse.json();
       console.log("Subscription successful:", result);
+
+      // Track subscription source as a separate event if properties were provided
+      if (Object.keys(properties).length > 0) {
+        try {
+          await fetch(`${KLAVIYO_API_URL}/events/`, {
+            method: "POST",
+            headers: {
+              "Authorization": `Klaviyo-API-Key ${KLAVIYO_API_KEY}`,
+              "Content-Type": "application/json",
+              "revision": "2024-10-15",
+            },
+            body: JSON.stringify({
+              data: {
+                type: "event",
+                attributes: {
+                  profile: {
+                    data: {
+                      type: "profile",
+                      attributes: { email }
+                    }
+                  },
+                  metric: {
+                    data: {
+                      type: "metric",
+                      attributes: { name: "Newsletter Signup" }
+                    }
+                  },
+                  properties,
+                  time: new Date().toISOString(),
+                }
+              }
+            }),
+          });
+          console.log("Subscription source event tracked");
+        } catch (eventError) {
+          console.error("Failed to track subscription event:", eventError);
+          // Don't fail the subscription if event tracking fails
+        }
+      }
 
       return new Response(JSON.stringify({ success: true, data: result }), {
         status: 200,
