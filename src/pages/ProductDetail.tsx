@@ -1332,14 +1332,16 @@ const ProductDetail = () => {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-4" className="bg-card border rounded-lg px-6">
-                <AccordionTrigger className="text-left hover:no-underline">
-                  <span className="font-semibold">How much can I realistically earn in my first month?</span>
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Results vary based on your content quality and consistency, but our customers have seen incredible results: $2,000 from their first post and $5,000/month within 60 days. The accounts give you the platform – your effort determines the results. Plus, you'll receive our free YouTube/TikTok growth course to help you maximize your earnings.
-                </AccordionContent>
-              </AccordionItem>
+              {!isInstagramAged && (
+                <AccordionItem value="item-4" className="bg-card border rounded-lg px-6">
+                  <AccordionTrigger className="text-left hover:no-underline">
+                    <span className="font-semibold">How much can I realistically earn in my first month?</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    Results vary based on your content quality and consistency, but our customers have seen incredible results: $2,000 from their first post and $5,000/month within 60 days. The accounts give you the platform – your effort determines the results. Plus, you'll receive our free YouTube/TikTok growth course to help you maximize your earnings.
+                  </AccordionContent>
+                </AccordionItem>
+              )}
 
               <AccordionItem value="item-5" className="bg-card border rounded-lg px-6">
                 <AccordionTrigger className="text-left hover:no-underline">
