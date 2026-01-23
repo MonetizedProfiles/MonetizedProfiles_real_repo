@@ -19,8 +19,9 @@ export const TOTAL_3_STAR_COUNT = 65;
 export const TOTAL_2_STAR_COUNT = 8;
 export const TOTAL_1_STAR_COUNT = 4;
 
-// All reviews with images from CSV (8 total)
+// All active reviews with images from CSV (35 total)
 const reviewsWithImages: Review[] = [
+  // December 2024 uploads
   { id: "2v4Q1khkHLn", rating: 5, nickname: "Ibrahim V.", review: "I have oficially made back the money I invested into this account, will buy another one with the money and then repeat the loop", date: "2024-11-01", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/dWd2eorD8.jpg" },
   { id: "dBLdkI55Xba", rating: 5, nickname: "Ava A.", review: "The accounts are so good, RPM of 2,41 USD is just nuts", date: "2024-11-01", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/pHaHeSI4V.jpg" },
   { id: "dbZGM0E3tdE", rating: 5, nickname: "Mei W.", review: "The channel was solid, 1k subs and organically grown as promised now look at what I have acheived since buying it, it's actually crazy", date: "2024-10-25", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/M6rDd--kp6d.jpg" },
@@ -29,6 +30,36 @@ const reviewsWithImages: Review[] = [
   { id: "4T7y0TyXBye", rating: 5, nickname: "Ethan C.", review: "Changed my life fr", date: "2024-10-17", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/jFfRerbgN.jpg" },
   { id: "FXR_8ADTrdm", rating: 5, nickname: "Charlotte W.", review: "It is a lot of hard work even with the already monetized channel but it is so worth it in the end", date: "2024-10-11", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/u_s8lcWefB.jpg" },
   { id: "SF1dNrGEWXt", rating: 5, nickname: "Charlotte G.", review: "Guys this is absolutley crazy. 1 SHORT got 6.4M VIEWS and netted me 90k subscribers haha", date: "2024-10-09", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/CiT23r5fdRm.jpg" },
+  { id: "kj7RDc_6uPZ", rating: 5, nickname: "Kiran J.", review: "can not believe it works outside the US its amazing", date: "2024-11-19", productHandle: "tiktok-shop-affiliate-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/6D6L05-zU.jpg" },
+  { id: "priyaZ110", rating: 5, nickname: "Priya Z.", review: "so happy I was able to pickup this account on the sale", date: "2024-11-21", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/6Huztuzrj.jpg" },
+  { id: "sophiaJ148", rating: 4, nickname: "Sophia J.", review: "the course included was fire, thank you so much, almost too much value for the price", date: "2024-11-20", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/A36I14DGlD.jpg" },
+  { id: "masonX153", rating: 4, nickname: "Mason X.", review: "buy 3 accounts and the compund is crazy", date: "2024-11-11", productHandle: "tiktok-shop-affiliate-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/yTS0JW9aSt-.jpg" },
+  { id: "leilaT165", rating: 4, nickname: "Leila T.", review: "Making average belgian wage from selling to kids, thanks", date: "2024-11-09", productHandle: "tiktok-shop-affiliate-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/kBFlCLjEAn0.jpg" },
+  { id: "miaM757", rating: 5, nickname: "Mia M.", review: "No complaints haha", date: "2024-06-21", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/AZyXqaywCt.jpg" },
+  { id: "jamesO771", rating: 5, nickname: "James O.", review: "my account's already earning w the tiktok shop affiliate program, insane value fr", date: "2024-06-14", productHandle: "tiktok-shop-affiliate-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/ZVI1PFF_xm.jpg" },
+  { id: "aaravM808", rating: 5, nickname: "Aarav M.", review: "monetized as promised", date: "2024-10-09", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/Y58JBZ4Wv.jpg" },
+  { id: "avaG825", rating: 5, nickname: "Ava G.", review: "crazy good quality of the channel", date: "2024-06-06", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/nhZPuNgQST.jpg" },
+  { id: "aaravQ840", rating: 5, nickname: "Aarav Q.", review: "fully monetized & organic, insane", date: "2024-10-15", productHandle: "tiktok-shop-affiliate-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/dccEV55jK.jpg" },
+  { id: "lucasY1068", rating: 5, nickname: "Lucas Y.", review: "the value of this is crazy", date: "2024-04-30", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/12/1/E1s-SZ8tgV.jpg" },
+  // September 2024 uploads (rows 130-143)
+  { id: "hdDIL5TXc", rating: 5, nickname: "Ryan R.", review: "started earning right away, a couple of videos in now and i´m on my way to 1000$", date: "2024-09-05", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/6MRaUwEry.jpg" },
+  { id: "Z0SoCnSHtE", rating: 5, nickname: "Mohammed M.", review: "Got the account right away, hade no trouble with setup or payment 👌", date: "2024-09-05", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/7CHWcMIJZ.jpg" },
+  { id: "HkK1CgVTg", rating: 5, nickname: "Jack J.", review: "Account works really good, got i delivered quickly and everything worked straight away", date: "2024-09-05", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/oauGlJ33X.jpg" },
+  { id: "I9ewsYP_D", rating: 5, nickname: "Osman A.", review: "this is the best, saved so much time getting the account monitized directly 🤑💸", date: "2024-09-05", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/PwrbrPHDe.jpg" },
+  { id: "_d9uTSa-B", rating: 5, nickname: "Ali O.", review: "works best, 10/10, monitezed and started earning right away", date: "2024-09-05", productHandle: "youtube", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/ozsUJu0UP.jpg" },
+  { id: "sMxLiGrqD", rating: 5, nickname: "Cole C.", review: "AFFILIATES IS A MONEY MACHINE", date: "2024-09-05", productHandle: "uk-tiktok-shop-affiliate-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/JkkBC9ZF1.jpg" },
+  { id: "hE9moGS7V", rating: 5, nickname: "Evan A.", review: "Works outside the US, already started to make some money from affililitaes", date: "2024-09-05", productHandle: "uk-tiktok-shop-affiliate-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/mnr0ucgvo6.jpg" },
+  { id: "jsDpZe4X7", rating: 5, nickname: "Mason M.", review: "Works as promised!!🫡 already made my first dollars", date: "2024-09-05", productHandle: "tiktok-shop-affiliate-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/ormGB97TT.jpg" },
+  { id: "59TqyslFr", rating: 5, nickname: "Ethan E.", review: "smooth process all the way through, 10/10 all around", date: "2024-09-05", productHandle: "tiktok-shop-affiliate-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/P3obb2Sg0.jpg" },
+  { id: "wdeBPlFz5", rating: 5, nickname: "Luke L.", review: "Shop setup was easy, worked right away. Found some good affilliates and started earning at the getgo", date: "2024-09-05", productHandle: "uk-tiktok-shop-affiliate-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/CWPR5YigdH.jpg" },
+  { id: "ysZq0Zanf", rating: 5, nickname: "Drew D.", review: "came monitized and delivered quickly, alradey making money", date: "2024-09-05", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/7mhuPMZzN.jpg" },
+  { id: "eKtGfKuGq", rating: 5, nickname: "Sirvan J.", review: "Made my first money on this, and works outside amreica!!", date: "2024-09-05", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/4GCSqG_p9.jpg" },
+  { id: "62kmXulFd", rating: 5, nickname: "Max M.", review: "monitixed and earning straight away💰 making bags", date: "2024-09-05", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/RX1rJF1hZ.jpg" },
+  { id: "vlwZDiF5j", rating: 5, nickname: "Liam L.", review: "Account works as promised, came with over 10k followers and was monitiezed", date: "2024-09-05", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/9/5/eLeof42Fe.jpg" },
+  // August 2024 upload
+  { id: "andreG170", rating: 5, nickname: "Andre G.", review: "Works perfectly for people that live abroad, I am from Germany", date: "2024-08-20", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/8/20/gOVOmoL2E.jpg" },
+  // April 2024 upload
+  { id: "adamJ975", rating: 5, nickname: "Adam J.", review: "great quality account, no bots, works fantastic", date: "2024-04-24", productHandle: "monetized-tiktok-account", verified: true, imageUrl: "https://images.loox.io/uploads/2024/4/24/i--gBRSGu.jpg" },
 ];
 
 // Representative sample of text-only reviews (covering all products)
