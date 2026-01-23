@@ -155,14 +155,33 @@ const textOnlyReviews: Review[] = [
   { id: "mryyCP0C4K1", rating: 4, nickname: "Sofia L.", review: "works in indonesia", date: "2024-10-09", productHandle: "tiktok-shop-affiliate-account", verified: true },
 ];
 
-// Combine all reviews (images first for better display)
-export const reviews: Review[] = [...reviewsWithImages, ...textOnlyReviews];
+// Combine all reviews (5-star with images first, then other images, then rest)
+export const reviews: Review[] = [
+  ...reviewsWithImages.filter(r => r.rating === 5),
+  ...reviewsWithImages.filter(r => r.rating < 5),
+  ...textOnlyReviews
+];
 
 // Helper function to get ALL reviews (store-wide, not product-specific)
 export const getAllReviews = (): Review[] => reviews;
 
-// Get featured reviews (with images) - always returns all 8
+// Get featured reviews (with images) - returns all reviews with images
 export const getFeaturedReviews = (): Review[] => reviewsWithImages;
+
+// Get reviews with images for filtering
+export const getReviewsWithImages = (): Review[] => reviewsWithImages;
+
+// Product handle to display name mapping
+export const getProductDisplayName = (handle: string): string => {
+  const names: Record<string, string> = {
+    'monetized-tiktok-account': 'TikTok Account',
+    'youtube': 'YouTube Channel',
+    'tiktok-shop-affiliate-account': 'TikTok Shop Affiliate',
+    'uk-tiktok-shop-affiliate-account': 'UK TikTok Shop',
+    'aged-youtube-channel': 'Aged YouTube Channel',
+  };
+  return names[handle] || handle;
+};
 
 // Calculate average rating (store-wide)
 export const getAverageRating = (): number => {
