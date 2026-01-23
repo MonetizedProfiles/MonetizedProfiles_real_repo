@@ -338,6 +338,7 @@ const ProductDetail = () => {
   const isTikTokMonetized = handleLower.includes('tiktok') || titleLower.includes('tiktok');
   const isYouTubeMonetized = (handleLower.includes('youtube') && (handleLower.includes('monetiz') || titleLower.includes('monetiz'))) || titleLower.includes('monetized youtube');
   const isYouTubeAged = (handleLower.includes('aged') && handleLower.includes('youtube')) || titleLower.includes('aged youtube');
+  const isInstagramAged = (handleLower.includes('aged') && handleLower.includes('instagram')) || titleLower.includes('aged instagram');
   
   // Check if this is the Monetized TikTok Account product (for dynamic stock)
   const isMonetizedTikTokAccount = handleLower === 'monetized-tiktok-account';
@@ -350,7 +351,7 @@ const ProductDetail = () => {
       <SEO 
         title={`${product.title} - Buy Monetized Account`}
         description={product.description.substring(0, 155) + "..." || `Buy ${product.title} - Fully monetized account with organic followers. Secure transfer, instant earnings.`}
-        keywords={`${product.title}, buy monetized account, ${isTikTokMonetized ? 'tiktok monetized account' : 'youtube monetized channel'}, social media account for sale`}
+        keywords={`${product.title}, buy monetized account, ${isTikTokMonetized ? 'tiktok monetized account' : isInstagramAged ? 'aged instagram account, buy instagram account' : 'youtube monetized channel'}, social media account for sale`}
         canonical={`https://monetizedprofiles.com/products/${product.handle}`}
         ogImage={images[0]?.node.url}
         ogType="product"
@@ -536,6 +537,21 @@ const ProductDetail = () => {
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
                       <p className="text-lg font-medium">Created 2005-2013 - maximum authority</p>
+                    </div>
+                  </>
+                ) : isInstagramAged ? (
+                  <>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Algorithm Trust - established account history from day one</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Instant Authority - reduced ad rejections & shadowban risk</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Launch Fast - ready for dropshipping & brand pages</p>
                     </div>
                   </>
                 ) : (
@@ -1281,6 +1297,19 @@ const ProductDetail = () => {
                     Normally, TikTok requires a real ID from the country where the account was created, plus tax information (W-9 for US residents or W-8BEN for international users) before you can withdraw earnings. This creates major limitations.<br/><br/>
                     <strong>Good news:</strong> Our monetized TikTok accounts are pre-verified, meaning all ID and tax verification is already complete. You don't need to provide any documents or verify anything. This gives you the flexibility to use these accounts from anywhere in the world without restrictions.<br/><br/>
                     You can start earning and withdrawing payments immediately – no verification hassles, no location restrictions. We've handled the hard part for you.
+                  </AccordionContent>
+                </AccordionItem>
+              )}
+
+              {handle === 'aged-instagram-account' && (
+                <AccordionItem value="item-instagram-benefits" className="bg-card border rounded-lg px-6">
+                  <AccordionTrigger className="text-left hover:no-underline">
+                    <span className="font-semibold">Why should I buy an aged Instagram account?</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    <strong>Algorithm Trust:</strong> Instagram's algorithm favors accounts with established history. An aged account has built-in trust signals that new accounts lack, giving you better reach from day one.<br/><br/>
+                    <strong>Reduced Restrictions:</strong> New accounts often face ad rejections, shadowbans, and action blocks. Aged accounts have a proven track record with Instagram, significantly reducing these risks.<br/><br/>
+                    <strong>Perfect for Business:</strong> Whether you're launching a dropshipping store, building a brand page, or running ads, an aged account gives you the credibility and authority that takes months to build organically. You'll look professional and trustworthy to customers instantly.
                   </AccordionContent>
                 </AccordionItem>
               )}
