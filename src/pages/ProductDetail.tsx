@@ -961,6 +961,80 @@ const ProductDetail = () => {
                       </div>
                     </div>
                   </>
+                ) : isInstagramAged ? (
+                  <>
+                    {/* Instagram Aged - Benefit 1: Algorithm Trust */}
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <ShieldCheck className="w-8 h-8 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl mb-2">Algorithm Trust</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Established account history that Instagram already trusts from day one
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Instagram Aged - Benefit 2: Instant Authority */}
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Zap className="w-8 h-8 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl mb-2">Instant Authority</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Reduced risk of ad rejections, shadowbans, and account restrictions
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Instagram Aged - Benefit 3: Launch Fast */}
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <Truck className="w-8 h-8 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl mb-2">Launch Fast</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Faster setup for dropshipping, brand pages, and product launches
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Instagram Aged - Benefit 4: Credibility */}
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Users className="w-8 h-8 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl mb-2">Credibility</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Looks professional and trustworthy to customers instantly
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
                 ) : (
                   <>
                     {/* Default Benefit 1 */}
