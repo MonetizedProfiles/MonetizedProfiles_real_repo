@@ -50,9 +50,9 @@ const gmailSchema = z.object({
     )
 });
 
-// Helper function to get rating based on product handle
-const getProductRating = (productHandle: string): number => {
-  return getAverageRating(productHandle);
+// Helper function to get store-wide rating
+const getProductRating = (): number => {
+  return getAverageRating();
 };
 const ProductDetail = () => {
   const { handle } = useParams();
@@ -329,7 +329,7 @@ const ProductDetail = () => {
   const price = parseFloat(currentVariant.price.amount);
   const currency = currentVariant.price.currencyCode;
   const images = product.images.edges;
-  const rating = getProductRating(product.title);
+  const rating = getProductRating();
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 >= 0.5;
 
@@ -478,7 +478,7 @@ const ProductDetail = () => {
                     />
                   ))}
                 </div>
-                <span className="text-sm sm:text-base text-muted-foreground">{rating.toFixed(1)} ({getReviewCount(handle).toLocaleString()} reviews)</span>
+                <span className="text-sm sm:text-base text-muted-foreground">{rating.toFixed(1)} ({getReviewCount().toLocaleString()} reviews)</span>
               </button>
 
               <div className="flex items-baseline gap-2 sm:gap-3 mb-4 sm:mb-6">

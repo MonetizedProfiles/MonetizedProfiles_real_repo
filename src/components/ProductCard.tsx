@@ -14,9 +14,9 @@ interface ProductCardProps {
   product: ShopifyProduct;
 }
 
-// Helper function to get rating based on product handle
-const getProductRating = (productHandle: string): number => {
-  return getAverageRating(productHandle);
+// Helper function to get store-wide rating
+const getProductRating = (): number => {
+  return getAverageRating();
 };
 // Helper function to get product description based on product type
 const getProductDescription = (productTitle: string): string => {
@@ -80,8 +80,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const price = parseFloat(product.node.priceRange.minVariantPrice.amount);
   const currency = product.node.priceRange.minVariantPrice.currencyCode;
   const image = product.node.images.edges[0]?.node.url;
-  const rating = getProductRating(product.node.handle);
-  const reviewCount = getReviewCount(product.node.handle);
+  const rating = getProductRating();
+  const reviewCount = getReviewCount();
 
   return (
     <>
