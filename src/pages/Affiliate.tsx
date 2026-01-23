@@ -6,9 +6,11 @@ import { CheckCircle, Mail, ArrowRight, TrendingUp, Users, DollarSign, Video, Pa
 import { useState } from "react";
 import { useEffect, useRef } from "react";
 import { SEO } from "@/components/SEO";
+import { ReviewsPopup } from "@/components/ReviewsPopup";
 
 const Affiliate = () => {
   const [conversions, setConversions] = useState([10]);
+  const [reviewsOpen, setReviewsOpen] = useState(false);
   const conversionValue = 80;
   const monthlyEarnings = conversions[0] * conversionValue;
   const videoScrollRef = useRef<HTMLDivElement>(null);
@@ -352,7 +354,7 @@ const Affiliate = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <Card className="hover:shadow-lg transition-all">
+              <Card className="hover:shadow-lg transition-all cursor-pointer" onClick={() => setReviewsOpen(true)}>
                 <CardContent className="pt-6">
                   <Quote className="w-10 h-10 text-primary/20 mb-4" />
                   <p className="text-muted-foreground mb-6 italic">
@@ -370,7 +372,7 @@ const Affiliate = () => {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-all">
+              <Card className="hover:shadow-lg transition-all cursor-pointer" onClick={() => setReviewsOpen(true)}>
                 <CardContent className="pt-6">
                   <Quote className="w-10 h-10 text-primary/20 mb-4" />
                   <p className="text-muted-foreground mb-6 italic">
@@ -388,7 +390,7 @@ const Affiliate = () => {
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-all">
+              <Card className="hover:shadow-lg transition-all cursor-pointer" onClick={() => setReviewsOpen(true)}>
                 <CardContent className="pt-6">
                   <Quote className="w-10 h-10 text-primary/20 mb-4" />
                   <p className="text-muted-foreground mb-6 italic">
@@ -711,6 +713,11 @@ size="lg"
       </section>
 
     </div>
+    
+    <ReviewsPopup 
+      isOpen={reviewsOpen} 
+      onClose={() => setReviewsOpen(false)} 
+    />
     </>
   );
 };
