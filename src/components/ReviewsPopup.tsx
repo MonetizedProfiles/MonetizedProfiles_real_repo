@@ -177,7 +177,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
               </div>
               
               {/* Rating Bars - Full width on mobile */}
-              <div className="flex-1 w-full space-y-1">
+              <div className="flex-1 w-full min-w-0 space-y-1 overflow-hidden">
                 {[5, 4, 3, 2, 1].map((rating) => {
                   const count = ratingBreakdown[rating as keyof typeof ratingBreakdown];
                   const percentage = totalCount > 0 ? (count / totalCount) * 100 : 0;
@@ -185,9 +185,9 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                     <button
                       key={rating}
                       onClick={() => setFilter(rating >= 4 ? rating.toString() as FilterType : "3")}
-                      className="flex items-center gap-2 w-full hover:opacity-80 transition-opacity"
+                      className="flex items-center gap-1.5 sm:gap-2 w-full hover:opacity-80 transition-opacity"
                     >
-                      <span className="text-xs sm:text-sm w-3">{rating}</span>
+                      <span className="text-xs sm:text-sm w-3 flex-shrink-0">{rating}</span>
                       <Star className="w-3 h-3 fill-amber-400 text-amber-400 flex-shrink-0" />
                       <div className="flex-1 min-w-0 h-2 bg-muted rounded-full overflow-hidden">
                         <div
@@ -195,7 +195,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                           style={{ width: `${percentage}%` }}
                         />
                       </div>
-                      <span className="text-xs text-muted-foreground w-8 text-right flex-shrink-0">{count}</span>
+                      <span className="text-xs text-muted-foreground w-6 sm:w-8 text-right flex-shrink-0">{count}</span>
                     </button>
                   );
                 })}
@@ -281,7 +281,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                       key={product.handle}
                       onClick={() => setProductFilter(product.handle)}
                     >
-                      {product.name} ({product.count})
+                      {product.name}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
