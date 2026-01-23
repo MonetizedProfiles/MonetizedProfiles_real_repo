@@ -1235,7 +1235,7 @@ const ProductDetail = () => {
                      }}
                    >
                      {relatedProducts.map((product) => (
-                       <ProductCard key={product.node.id} product={product} />
+                       <ProductCard key={product.node.id} product={product} hideRating />
                      ))}
                    </div>
                  </div>
