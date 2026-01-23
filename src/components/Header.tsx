@@ -85,10 +85,6 @@ export const Header = () => {
             Monetized TikTok Accounts
           </Link>
 
-          <Link to="/products/aged-instagram-account" className="inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-            Aged Instagram Accounts
-          </Link>
-
           <Menubar className="bg-transparent border-0 p-0">
             <MenubarMenu>
               <MenubarTrigger className="inline-flex h-9 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium hover:bg-accent focus:bg-accent cursor-pointer">
@@ -99,8 +95,7 @@ export const Header = () => {
                 {data?.filter(
                   (product) =>
                     product.node.handle !== "youtube" &&
-                    product.node.handle !== "monetized-tiktok-account" &&
-                    product.node.handle !== "aged-instagram-account",
+                    product.node.handle !== "monetized-tiktok-account",
                 ).map((product) => (
                   <MenubarItem key={product.node.id} asChild className="py-3 px-4 text-base cursor-pointer">
                     <Link to={`/products/${product.node.handle}`} className="w-full">
@@ -284,14 +279,6 @@ export const Header = () => {
                   >
                     Monetized TikTok Accounts
                   </Link>
-
-                  <Link 
-                    to="/products/aged-instagram-account" 
-                    className="block text-base font-medium hover:text-primary transition-colors py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Aged Instagram Accounts
-                  </Link>
                 </div>
 
                 <div className="border-t pt-4">
@@ -300,8 +287,7 @@ export const Header = () => {
                     {data?.filter(
                       (product) =>
                         product.node.handle !== "youtube" &&
-                        product.node.handle !== "monetized-tiktok-account" &&
-                        product.node.handle !== "aged-instagram-account",
+                        product.node.handle !== "monetized-tiktok-account",
                     ).map((product) => (
                       <Link
                         key={product.node.id}
