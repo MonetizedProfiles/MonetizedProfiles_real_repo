@@ -7,19 +7,17 @@ import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ReviewsPopup } from "@/components/ReviewsPopup";
+import { getAverageRating, getReviewCount } from "@/data/reviews";
 
 interface ProductCardProps {
   product: ShopifyProduct;
 }
 
-// Helper function to get rating based on product type
-const getProductRating = (productTitle: string): number => {
-  const title = productTitle.toLowerCase();
-  if (title.includes('youtube')) return 4.9;
-  if (title.includes('tiktok')) return 4.8;
-  return 4.7; // Default rating for other products
+// Helper function to get rating based on product handle
+const getProductRating = (productHandle: string): number => {
+  return getAverageRating(productHandle);
 };
-
 // Helper function to get product description based on product type
 const getProductDescription = (productTitle: string): string => {
   const title = productTitle.toLowerCase();
@@ -50,6 +48,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
   const addItem = useCartStore(state => state.addItem);
   const [added, setAdded] = useState(false);
+  const [reviewsOpen, setReviewsOpen] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -73,37 +72,46 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     setTimeout(() => setAdded(false), 2000);
   };
 
+  const handleOpenReviews = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setReviewsOpen(true);
+  };
+
   const price = parseFloat(product.node.priceRange.minVariantPrice.amount);
   const currency = product.node.priceRange.minVariantPrice.currencyCode;
   const image = product.node.images.edges[0]?.node.url;
-  const rating = getProductRating(product.node.title);
-  const fullStars = Math.floor(rating);
-  const hasHalfStar = rating % 1 >= 0.5;
+  const rating = getProductRating(product.node.handle);
+  const reviewCount = getReviewCount(product.node.handle);
 
   return (
-    <Card 
-      className="group cursor-pointer overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-glow bg-card"
-      onClick={() => navigate(`/products/${product.node.handle}`)}
-    >
-      <div className="aspect-square overflow-hidden bg-secondary relative">
-        {image ? (
-          <img 
-            src={image} 
-            alt={product.node.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <ShoppingCart className="w-12 h-12 text-muted-foreground" />
-          </div>
-        )}
-        
-        {/* Review Badge */}
-        <Badge className="absolute top-3 right-3 bg-background/95 text-foreground border shadow-sm">
-          <Star className="w-3 h-3 fill-primary text-primary mr-1" />
-          <span className="font-semibold">{rating.toFixed(1)}</span>
-        </Badge>
-      </div>
+    <>
+      <Card 
+        className="group cursor-pointer overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-glow bg-card"
+        onClick={() => navigate(`/products/${product.node.handle}`)}
+      >
+        <div className="aspect-square overflow-hidden bg-secondary relative">
+          {image ? (
+            <img 
+              src={image} 
+              alt={product.node.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <ShoppingCart className="w-12 h-12 text-muted-foreground" />
+            </div>
+          )}
+          
+          {/* Clickable Review Badge */}
+          <button
+            onClick={handleOpenReviews}
+            className="absolute top-3 right-3 bg-background/95 text-foreground border shadow-sm rounded-full px-2 py-1 flex items-center gap-1 hover:bg-background transition-colors"
+          >
+            <Star className="w-3 h-3 fill-primary text-primary" />
+            <span className="font-semibold text-sm">{rating.toFixed(1)}</span>
+            <span className="text-xs text-muted-foreground">({reviewCount})</span>
+          </button>
+        </div>
       
       <CardHeader>
         <CardTitle className="line-clamp-1 text-[1.35rem] sm:text-2xl">{product.node.title}</CardTitle>
@@ -138,5 +146,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </Button>
       </CardFooter>
     </Card>
+    
+    <ReviewsPopup 
+      isOpen={reviewsOpen} 
+      onClose={() => setReviewsOpen(false)} 
+      productHandle={product.node.handle}
+    />
+  </>
   );
 };

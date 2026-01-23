@@ -21,6 +21,8 @@ import { z } from "zod";
 import { StockIndicator } from "@/components/StockIndicator";
 import { SEO } from "@/components/SEO";
 import { useDynamicStock } from "@/hooks/useDynamicStock";
+import { ReviewsPopup } from "@/components/ReviewsPopup";
+import { getAverageRating, getReviewCount } from "@/data/reviews";
 import sarahImg from "@/assets/testimonials/sarah.webp";
 import justjamestvImg from "@/assets/testimonials/justjamestv.webp";
 import mikeImg from "@/assets/testimonials/mike.webp";
@@ -48,14 +50,10 @@ const gmailSchema = z.object({
     )
 });
 
-// Helper function to get rating based on product type
-const getProductRating = (productTitle: string): number => {
-  const title = productTitle.toLowerCase();
-  if (title.includes('youtube')) return 4.9;
-  if (title.includes('tiktok')) return 4.8;
-  return 4.7; // Default rating for other products
+// Helper function to get rating based on product handle
+const getProductRating = (productHandle: string): number => {
+  return getAverageRating(productHandle);
 };
-
 const ProductDetail = () => {
   const { handle } = useParams();
   const navigate = useNavigate();
@@ -76,6 +74,7 @@ const ProductDetail = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [ownershipGmail, setOwnershipGmail] = useState("");
   const [gmailError, setGmailError] = useState("");
+  const [reviewsOpen, setReviewsOpen] = useState(false);
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', handle],
@@ -461,14 +460,9 @@ const ProductDetail = () => {
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">{product.title}</h1>
               
-              <div 
+              <button 
                 className="flex items-center gap-2 mb-4 sm:mb-6 cursor-pointer hover:opacity-80 transition-opacity"
-                onClick={() => {
-                  const loox = (window as any).loox;
-                  if (loox && loox.open_reviews) {
-                    loox.open_reviews();
-                  }
-                }}
+                onClick={() => setReviewsOpen(true)}
               >
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
@@ -484,8 +478,8 @@ const ProductDetail = () => {
                     />
                   ))}
                 </div>
-                <span className="text-sm sm:text-base text-muted-foreground">{rating.toFixed(1)} (500+ reviews)</span>
-              </div>
+                <span className="text-sm sm:text-base text-muted-foreground">{rating.toFixed(1)} ({getReviewCount(handle).toLocaleString()} reviews)</span>
+              </button>
 
               <div className="flex items-baseline gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary">
@@ -1891,6 +1885,12 @@ const ProductDetail = () => {
         </Card>
       </section>
     </div>
+    
+    <ReviewsPopup 
+      isOpen={reviewsOpen} 
+      onClose={() => setReviewsOpen(false)} 
+      productHandle={handle}
+    />
     </>
   );
 };
