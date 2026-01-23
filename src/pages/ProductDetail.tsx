@@ -974,7 +974,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Algorithm Trust</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Established account history that Instagram already trusts from day one
+                              Established history Instagram already trusts
                             </p>
                           </div>
                         </div>
@@ -992,7 +992,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Instant Authority</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Reduced risk of ad rejections, shadowbans, and account restrictions
+                              Reduced ad rejections and shadowban risk
                             </p>
                           </div>
                         </div>
@@ -1010,7 +1010,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Launch Fast</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Faster setup for dropshipping, brand pages, and product launches
+                              Ready for dropshipping and brand pages
                             </p>
                           </div>
                         </div>
@@ -1028,7 +1028,7 @@ const ProductDetail = () => {
                           <div>
                             <h3 className="font-bold text-xl mb-2">Credibility</h3>
                             <p className="text-sm text-muted-foreground leading-relaxed">
-                              Looks professional and trustworthy to customers instantly
+                              Professional and trustworthy to customers
                             </p>
                           </div>
                         </div>
