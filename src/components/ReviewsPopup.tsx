@@ -202,28 +202,6 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
               </div>
             </div>
 
-            {/* Featured Images - Responsive grid */}
-            {featuredReviews.length > 0 && (
-              <div className="mt-4">
-                <h4 className="text-sm font-medium mb-2">Customer Photos ({featuredReviews.length})</h4>
-                <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
-                  {featuredReviews.map((review) => (
-                    <button
-                      key={review.id}
-                      onClick={() => setSelectedImage(review.imageUrl!)}
-                      className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border hover:border-primary transition-colors"
-                    >
-                      <img
-                        src={review.imageUrl}
-                        alt={`Review by ${review.nickname}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Filter Buttons - Responsive wrap */}
             <div className="flex flex-wrap gap-2 mt-4">
               <Button
@@ -240,7 +218,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                 onClick={() => setFilter("5")}
                 className="text-xs sm:text-sm"
               >
-                5★ ({ratingBreakdown[5]})
+                5★
               </Button>
               <Button
                 variant={filter === "4" ? "default" : "outline"}
@@ -248,7 +226,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                 onClick={() => setFilter("4")}
                 className="text-xs sm:text-sm"
               >
-                4★ ({ratingBreakdown[4]})
+                4★
               </Button>
               <Button
                 variant={filter === "with-images" ? "default" : "outline"}
@@ -257,7 +235,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                 className="text-xs sm:text-sm"
               >
                 <ImageIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                Photos ({imageReviewCount})
+                Photos
               </Button>
               
               {/* Product Filter Dropdown */}
@@ -320,12 +298,12 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                     {review.imageUrl && (
                       <button
                         onClick={() => setSelectedImage(review.imageUrl!)}
-                        className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border hover:border-primary transition-colors"
+                        className="flex-shrink-0 w-24 h-auto sm:w-32 rounded-lg overflow-hidden border hover:border-primary transition-colors"
                       >
                         <img
                           src={review.imageUrl}
                           alt={`Review by ${review.nickname}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-auto object-contain"
                         />
                       </button>
                     )}
