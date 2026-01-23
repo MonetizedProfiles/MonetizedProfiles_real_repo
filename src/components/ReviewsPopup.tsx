@@ -9,7 +9,17 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Star, CheckCircle, ImageIcon, X } from "lucide-react";
-import { reviews, getReviewsByProduct, getAverageRating, getReviewCount, getFeaturedReviews, Review } from "@/data/reviews";
+import { 
+  reviews, 
+  getAllReviews,
+  getAverageRating, 
+  getReviewCount, 
+  getFeaturedReviews, 
+  getRatingBreakdown,
+  getImageReviewCount,
+  TOTAL_REVIEW_COUNT,
+  Review 
+} from "@/data/reviews";
 
 interface ReviewsPopupProps {
   isOpen: boolean;
@@ -19,13 +29,16 @@ interface ReviewsPopupProps {
 
 type FilterType = "all" | "5" | "4" | "3" | "with-images";
 
-export const ReviewsPopup = ({ isOpen, onClose, productHandle }: ReviewsPopupProps) => {
+export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
   const [filter, setFilter] = useState<FilterType>("all");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const allReviews = productHandle ? getReviewsByProduct(productHandle) : reviews;
-  const avgRating = getAverageRating(productHandle);
-  const totalCount = getReviewCount(productHandle);
+  // Always use ALL store reviews, not product-specific
+  const allReviews = getAllReviews();
+  const avgRating = getAverageRating();
+  const totalCount = getReviewCount();
+  const ratingBreakdown = getRatingBreakdown();
+  const imageReviewCount = getImageReviewCount();
 
   const filteredReviews = useMemo(() => {
     let filtered = [...allReviews];
@@ -81,19 +94,6 @@ export const ReviewsPopup = ({ isOpen, onClose, productHandle }: ReviewsPopupPro
     });
   };
 
-  // Rating breakdown
-  const ratingCounts = useMemo(() => {
-    const counts = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
-    allReviews.forEach(r => {
-      if (r.rating >= 1 && r.rating <= 5) {
-        counts[r.rating as keyof typeof counts]++;
-      }
-    });
-    return counts;
-  }, [allReviews]);
-
-  const imageReviewCount = allReviews.filter(r => r.imageUrl).length;
-
   return (
     <>
       <Dialog open={isOpen} onOpenChange={onClose}>
@@ -125,8 +125,8 @@ export const ReviewsPopup = ({ isOpen, onClose, productHandle }: ReviewsPopupPro
               {/* Rating Bars */}
               <div className="flex-1 space-y-1">
                 {[5, 4, 3, 2, 1].map((rating) => {
-                  const count = ratingCounts[rating as keyof typeof ratingCounts];
-                  const percentage = allReviews.length > 0 ? (count / allReviews.length) * 100 : 0;
+                  const count = ratingBreakdown[rating as keyof typeof ratingBreakdown];
+                  const percentage = totalCount > 0 ? (count / totalCount) * 100 : 0;
                   return (
                     <button
                       key={rating}
@@ -134,10 +134,10 @@ export const ReviewsPopup = ({ isOpen, onClose, productHandle }: ReviewsPopupPro
                       className="flex items-center gap-2 w-full hover:opacity-80 transition-opacity"
                     >
                       <span className="text-sm w-3">{rating}</span>
-                      <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                      <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                       <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-yellow-400 rounded-full transition-all"
+                          className="h-full bg-amber-400 rounded-full transition-all"
                           style={{ width: `${percentage}%` }}
                         />
                       </div>
@@ -148,12 +148,12 @@ export const ReviewsPopup = ({ isOpen, onClose, productHandle }: ReviewsPopupPro
               </div>
             </div>
 
-            {/* Featured Images */}
+            {/* Featured Images - Show all 8 customer photos */}
             {featuredReviews.length > 0 && (
               <div className="mt-4">
-                <h4 className="text-sm font-medium mb-2">Customer Photos</h4>
+                <h4 className="text-sm font-medium mb-2">Customer Photos ({featuredReviews.length})</h4>
                 <div className="flex gap-2 overflow-x-auto pb-2">
-                  {featuredReviews.slice(0, 6).map((review) => (
+                  {featuredReviews.map((review) => (
                     <button
                       key={review.id}
                       onClick={() => setSelectedImage(review.imageUrl!)}
@@ -184,14 +184,14 @@ export const ReviewsPopup = ({ isOpen, onClose, productHandle }: ReviewsPopupPro
                 size="sm"
                 onClick={() => setFilter("5")}
               >
-                5 Star ({ratingCounts[5]})
+                5 Star ({ratingBreakdown[5]})
               </Button>
               <Button
                 variant={filter === "4" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilter("4")}
               >
-                4 Star ({ratingCounts[4]})
+                4 Star ({ratingBreakdown[4]})
               </Button>
               <Button
                 variant={filter === "with-images" ? "default" : "outline"}
@@ -280,7 +280,6 @@ export const ReviewsPopup = ({ isOpen, onClose, productHandle }: ReviewsPopupPro
 // Clickable stars component for triggering the popup
 interface ClickableRatingProps {
   rating: number;
-  productHandle?: string;
   onOpenReviews: () => void;
   showCount?: boolean;
   size?: "sm" | "md" | "lg";
@@ -288,12 +287,11 @@ interface ClickableRatingProps {
 
 export const ClickableRating = ({ 
   rating, 
-  productHandle, 
   onOpenReviews, 
   showCount = true,
   size = "md" 
 }: ClickableRatingProps) => {
-  const count = getReviewCount(productHandle);
+  const count = getReviewCount();
   
   const sizeClasses = {
     sm: "w-3 h-3",
