@@ -150,12 +150,12 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
     <>
       <Dialog open={isOpen} onOpenChange={onClose}>
         <DialogContent className="w-[95vw] max-w-4xl max-h-[90vh] p-0 gap-0 overflow-hidden">
-          <DialogHeader className="p-4 sm:p-6 pb-4 border-b">
+          <DialogHeader className="p-4 sm:p-6 pb-4 border-b overflow-hidden">
             <DialogTitle className="text-lg sm:text-xl font-bold">Customer Reviews</DialogTitle>
             
             {/* Rating Summary - Responsive layout */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-4">
-              <div className="flex flex-row sm:flex-col items-center gap-3 sm:gap-0">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-4 w-full overflow-hidden">
+              <div className="flex flex-row sm:flex-col items-center gap-3 sm:gap-0 flex-shrink-0">
                 <span className="text-3xl sm:text-4xl font-bold">{avgRating.toFixed(1)}</span>
                 <div className="flex flex-col items-start sm:items-center">
                   <div className="flex gap-0.5">
@@ -176,27 +176,27 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                 </div>
               </div>
               
-              {/* Rating Bars - Full width on mobile */}
-              <div className="flex-1 w-full min-w-0 space-y-1 overflow-hidden">
+              {/* Rating Bars - Constrained width */}
+              <div className="w-full sm:flex-1 min-w-0 space-y-1">
                 {[5, 4, 3, 2, 1].map((rating) => {
                   const count = ratingBreakdown[rating as keyof typeof ratingBreakdown];
                   const percentage = totalCount > 0 ? (count / totalCount) * 100 : 0;
                   return (
-                    <button
+                    <div
                       key={rating}
                       onClick={() => setFilter(rating >= 4 ? rating.toString() as FilterType : "3")}
-                      className="flex items-center gap-1.5 sm:gap-2 w-full hover:opacity-80 transition-opacity"
+                      className="flex items-center gap-1.5 sm:gap-2 w-full hover:opacity-80 transition-opacity cursor-pointer"
                     >
                       <span className="text-xs sm:text-sm w-3 flex-shrink-0">{rating}</span>
                       <Star className="w-3 h-3 fill-amber-400 text-amber-400 flex-shrink-0" />
-                      <div className="flex-1 min-w-0 h-2 bg-muted rounded-full overflow-hidden">
+                      <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-amber-400 rounded-full transition-all"
+                          className="h-full bg-amber-400 rounded-full"
                           style={{ width: `${percentage}%` }}
                         />
                       </div>
                       <span className="text-xs text-muted-foreground w-6 sm:w-8 text-right flex-shrink-0">{count}</span>
-                    </button>
+                    </div>
                   );
                 })}
               </div>
