@@ -12,6 +12,7 @@ import { getAverageRating, getReviewCount } from "@/data/reviews";
 
 interface ProductCardProps {
   product: ShopifyProduct;
+  hideRating?: boolean;
 }
 
 // Helper function to get store-wide rating
@@ -44,7 +45,7 @@ const getProductDescription = (productTitle: string): string => {
   return "Fully monetized account with organic followers - start earning immediately";
 };
 
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const ProductCard = ({ product, hideRating = false }: ProductCardProps) => {
   const navigate = useNavigate();
   const addItem = useCartStore(state => state.addItem);
   const [added, setAdded] = useState(false);
@@ -103,14 +104,16 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           )}
           
           {/* Clickable Review Badge */}
-          <button
-            onClick={handleOpenReviews}
-            className="absolute top-3 right-3 bg-background/95 text-foreground border shadow-sm rounded-full px-2 py-1 flex items-center gap-1 hover:bg-background transition-colors"
-          >
-            <Star className="w-3 h-3 fill-primary text-primary" />
-            <span className="font-semibold text-sm">{rating.toFixed(1)}</span>
-            <span className="text-xs text-muted-foreground">({reviewCount})</span>
-          </button>
+          {!hideRating && (
+            <button
+              onClick={handleOpenReviews}
+              className="absolute top-3 right-3 bg-background/95 text-foreground border shadow-sm rounded-full px-2 py-1 flex items-center gap-1 hover:bg-background transition-colors"
+            >
+              <Star className="w-3 h-3 fill-primary text-primary" />
+              <span className="font-semibold text-sm">{rating.toFixed(1)}</span>
+              <span className="text-xs text-muted-foreground">({reviewCount})</span>
+            </button>
+          )}
         </div>
       
       <CardHeader>
