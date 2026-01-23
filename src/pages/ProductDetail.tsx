@@ -338,6 +338,7 @@ const ProductDetail = () => {
   const isTikTokMonetized = handleLower.includes('tiktok') || titleLower.includes('tiktok');
   const isYouTubeMonetized = (handleLower.includes('youtube') && (handleLower.includes('monetiz') || titleLower.includes('monetiz'))) || titleLower.includes('monetized youtube');
   const isYouTubeAged = (handleLower.includes('aged') && handleLower.includes('youtube')) || titleLower.includes('aged youtube');
+  const isInstagramAged = (handleLower.includes('aged') && handleLower.includes('instagram')) || titleLower.includes('aged instagram');
   
   // Check if this is the Monetized TikTok Account product (for dynamic stock)
   const isMonetizedTikTokAccount = handleLower === 'monetized-tiktok-account';
@@ -536,6 +537,21 @@ const ProductDetail = () => {
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
                       <p className="text-lg font-medium">Created 2005-2013 - maximum authority</p>
+                    </div>
+                  </>
+                ) : isInstagramAged ? (
+                  <>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Algorithm trust from established account history</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Reduced ad rejections & shadowban risk</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Ready for dropshipping & brand launches</p>
                     </div>
                   </>
                 ) : (
@@ -937,6 +953,80 @@ const ProductDetail = () => {
                       </div>
                     </div>
                   </>
+                ) : isInstagramAged ? (
+                  <>
+                    {/* Instagram Aged - Benefit 1: Algorithm Trust */}
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <ShieldCheck className="w-8 h-8 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl mb-2">Algorithm Trust</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Established account history signals authority to Instagram from day one
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Instagram Aged - Benefit 2: Instant Authority */}
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Check className="w-8 h-8 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl mb-2">Instant Authority</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Reduced risk of ad rejections, shadowbans, and restrictions
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Instagram Aged - Benefit 3: Launch Fast */}
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                            <Zap className="w-8 h-8 text-primary-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl mb-2">Launch Fast</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Ready for dropshipping, brand pages, and product launches
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Instagram Aged - Benefit 4: Save Time */}
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-primary/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
+                      <div className="relative bg-card/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-blue to-accent-blue/70 flex items-center justify-center shadow-lg">
+                            <Users className="w-8 h-8 text-accent-blue-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl mb-2">Save Time</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              Skip months of trial-and-error building trust from scratch
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
                 ) : (
                   <>
                     {/* Default Benefit 1 */}
@@ -1281,6 +1371,22 @@ const ProductDetail = () => {
                     Normally, TikTok requires a real ID from the country where the account was created, plus tax information (W-9 for US residents or W-8BEN for international users) before you can withdraw earnings. This creates major limitations.<br/><br/>
                     <strong>Good news:</strong> Our monetized TikTok accounts are pre-verified, meaning all ID and tax verification is already complete. You don't need to provide any documents or verify anything. This gives you the flexibility to use these accounts from anywhere in the world without restrictions.<br/><br/>
                     You can start earning and withdrawing payments immediately – no verification hassles, no location restrictions. We've handled the hard part for you.
+                  </AccordionContent>
+                </AccordionItem>
+              )}
+
+              {handle === 'aged-instagram-account' && (
+                <AccordionItem value="item-instagram-why" className="bg-card border rounded-lg px-6">
+                  <AccordionTrigger className="text-left hover:no-underline">
+                    <span className="font-semibold">Why should I buy an aged Instagram account instead of creating a new one?</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    Instagram's algorithm heavily favors accounts with established history. New accounts face numerous limitations including:<br/><br/>
+                    • <strong>Higher shadowban risk</strong> – New accounts are flagged more easily for spam-like behavior<br/>
+                    • <strong>Ad rejections</strong> – Fresh accounts often get ads rejected or face spending limits<br/>
+                    • <strong>Trust issues</strong> – Customers are skeptical of brand new business pages<br/>
+                    • <strong>Algorithm penalties</strong> – New accounts get less organic reach initially<br/><br/>
+                    Our aged Instagram accounts skip all these hurdles. They come with established history that Instagram's algorithm already trusts, making them perfect for dropshipping stores, brand pages, and businesses that need to hit the ground running.
                   </AccordionContent>
                 </AccordionItem>
               )}
