@@ -8,7 +8,13 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Star, CheckCircle, ImageIcon, X } from "lucide-react";
+import { Star, CheckCircle, ImageIcon, X, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { 
   reviews, 
   getAllReviews,
@@ -30,9 +36,29 @@ interface ReviewsPopupProps {
 }
 
 type FilterType = "all" | "5" | "4" | "3" | "with-images";
+type ProductFilterType = "all" | string;
+
+// Get unique product handles from reviews
+const getUniqueProducts = (): { handle: string; name: string; count: number }[] => {
+  const allReviews = getAllReviews();
+  const productCounts: Record<string, number> = {};
+  
+  allReviews.forEach(review => {
+    productCounts[review.productHandle] = (productCounts[review.productHandle] || 0) + 1;
+  });
+  
+  return Object.entries(productCounts)
+    .map(([handle, count]) => ({
+      handle,
+      name: getProductDisplayName(handle),
+      count
+    }))
+    .sort((a, b) => b.count - a.count);
+};
 
 export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
   const [filter, setFilter] = useState<FilterType>("all");
+  const [productFilter, setProductFilter] = useState<ProductFilterType>("all");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Always use ALL store reviews, not product-specific
@@ -41,13 +67,15 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
   const totalCount = getReviewCount();
   const ratingBreakdown = getRatingBreakdown();
   const imageReviewCount = getImageReviewCount();
+  const uniqueProducts = useMemo(() => getUniqueProducts(), []);
 
   // Get all reviews with images for the filter
-  const reviewsWithImages = getReviewsWithImages();
+  const reviewsWithImages = useMemo(() => getReviewsWithImages(), []);
 
   const filteredReviews = useMemo(() => {
     let filtered: Review[];
     
+    // First apply rating/image filter
     switch (filter) {
       case "5":
         filtered = allReviews.filter(r => r.rating === 5);
@@ -60,10 +88,15 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
         break;
       case "with-images":
         // Use the dedicated reviewsWithImages array for accurate filtering
-        filtered = reviewsWithImages;
+        filtered = [...reviewsWithImages];
         break;
       default:
         filtered = [...allReviews];
+    }
+    
+    // Then apply product filter
+    if (productFilter !== "all") {
+      filtered = filtered.filter(r => r.productHandle === productFilter);
     }
     
     // Sort: 5-star with images first, then by rating, then by date
@@ -83,7 +116,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
       // Then by date
       return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
-  }, [allReviews, filter, reviewsWithImages]);
+  }, [allReviews, filter, productFilter, reviewsWithImages]);
 
   const featuredReviews = getFeaturedReviews();
 
@@ -116,33 +149,35 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
   return (
     <>
       <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="max-w-2xl max-h-[90vh] p-0 gap-0 overflow-hidden">
-          <DialogHeader className="p-6 pb-4 border-b">
-            <DialogTitle className="text-xl font-bold">Customer Reviews</DialogTitle>
+        <DialogContent className="w-[95vw] max-w-4xl max-h-[90vh] p-0 gap-0 overflow-hidden">
+          <DialogHeader className="p-4 sm:p-6 pb-4 border-b">
+            <DialogTitle className="text-lg sm:text-xl font-bold">Customer Reviews</DialogTitle>
             
-            {/* Rating Summary */}
-            <div className="flex items-center gap-4 mt-4">
-              <div className="flex flex-col items-center">
-                <span className="text-4xl font-bold">{avgRating.toFixed(1)}</span>
-                <div className="flex gap-0.5 mt-1">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star
-                      key={star}
-                      className={`w-5 h-5 ${
-                        star <= Math.round(avgRating)
-                          ? "fill-yellow-400 text-yellow-400"
-                          : "fill-muted text-muted"
-                      }`}
-                    />
-                  ))}
+            {/* Rating Summary - Responsive layout */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-4">
+              <div className="flex flex-row sm:flex-col items-center gap-3 sm:gap-0">
+                <span className="text-3xl sm:text-4xl font-bold">{avgRating.toFixed(1)}</span>
+                <div className="flex flex-col items-start sm:items-center">
+                  <div className="flex gap-0.5">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                        key={star}
+                        className={`w-4 sm:w-5 h-4 sm:h-5 ${
+                          star <= Math.round(avgRating)
+                            ? "fill-yellow-400 text-yellow-400"
+                            : "fill-muted text-muted"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-xs sm:text-sm text-muted-foreground mt-1">
+                    {totalCount.toLocaleString()} reviews
+                  </span>
                 </div>
-                <span className="text-sm text-muted-foreground mt-1">
-                  {totalCount.toLocaleString()} reviews
-                </span>
               </div>
               
-              {/* Rating Bars */}
-              <div className="flex-1 space-y-1">
+              {/* Rating Bars - Full width on mobile */}
+              <div className="flex-1 w-full space-y-1">
                 {[5, 4, 3, 2, 1].map((rating) => {
                   const count = ratingBreakdown[rating as keyof typeof ratingBreakdown];
                   const percentage = totalCount > 0 ? (count / totalCount) * 100 : 0;
@@ -152,31 +187,31 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                       onClick={() => setFilter(rating >= 4 ? rating.toString() as FilterType : "3")}
                       className="flex items-center gap-2 w-full hover:opacity-80 transition-opacity"
                     >
-                      <span className="text-sm w-3">{rating}</span>
-                      <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                      <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+                      <span className="text-xs sm:text-sm w-3">{rating}</span>
+                      <Star className="w-3 h-3 fill-amber-400 text-amber-400 flex-shrink-0" />
+                      <div className="flex-1 min-w-0 h-2 bg-muted rounded-full overflow-hidden">
                         <div
                           className="h-full bg-amber-400 rounded-full transition-all"
                           style={{ width: `${percentage}%` }}
                         />
                       </div>
-                      <span className="text-xs text-muted-foreground w-8">{count}</span>
+                      <span className="text-xs text-muted-foreground w-8 text-right flex-shrink-0">{count}</span>
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            {/* Featured Images - Show all 8 customer photos */}
+            {/* Featured Images - Responsive grid */}
             {featuredReviews.length > 0 && (
               <div className="mt-4">
                 <h4 className="text-sm font-medium mb-2">Customer Photos ({featuredReviews.length})</h4>
-                <div className="flex gap-2 overflow-x-auto pb-2">
+                <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
                   {featuredReviews.map((review) => (
                     <button
                       key={review.id}
                       onClick={() => setSelectedImage(review.imageUrl!)}
-                      className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border hover:border-primary transition-colors"
+                      className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border hover:border-primary transition-colors"
                     >
                       <img
                         src={review.imageUrl}
@@ -189,64 +224,95 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
               </div>
             )}
 
-            {/* Filter Buttons */}
+            {/* Filter Buttons - Responsive wrap */}
             <div className="flex flex-wrap gap-2 mt-4">
               <Button
                 variant={filter === "all" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilter("all")}
+                className="text-xs sm:text-sm"
               >
-                All Reviews
+                All
               </Button>
               <Button
                 variant={filter === "5" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilter("5")}
+                className="text-xs sm:text-sm"
               >
-                5 Star ({ratingBreakdown[5]})
+                5★ ({ratingBreakdown[5]})
               </Button>
               <Button
                 variant={filter === "4" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilter("4")}
+                className="text-xs sm:text-sm"
               >
-                4 Star ({ratingBreakdown[4]})
+                4★ ({ratingBreakdown[4]})
               </Button>
               <Button
                 variant={filter === "with-images" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilter("with-images")}
+                className="text-xs sm:text-sm"
               >
-                <ImageIcon className="w-4 h-4 mr-1" />
-                With Photos ({imageReviewCount})
+                <ImageIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                Photos ({imageReviewCount})
               </Button>
+              
+              {/* Product Filter Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant={productFilter !== "all" ? "default" : "outline"}
+                    size="sm"
+                    className="text-xs sm:text-sm"
+                  >
+                    {productFilter === "all" ? "All Products" : getProductDisplayName(productFilter)}
+                    <ChevronDown className="w-3 h-3 ml-1" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="bg-popover z-50">
+                  <DropdownMenuItem onClick={() => setProductFilter("all")}>
+                    All Products
+                  </DropdownMenuItem>
+                  {uniqueProducts.map(product => (
+                    <DropdownMenuItem 
+                      key={product.handle}
+                      onClick={() => setProductFilter(product.handle)}
+                    >
+                      {product.name} ({product.count})
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </DialogHeader>
 
           {/* Reviews List */}
           <ScrollArea className="flex-1 max-h-[50vh]">
-            <div className="p-6 space-y-6">
+            <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
               {filteredReviews.map((review) => (
-                <div key={review.id} className="pb-6 border-b last:border-0">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="font-semibold">{review.nickname}</span>
+                <div key={review.id} className="pb-4 sm:pb-6 border-b last:border-0">
+                  <div className="flex items-start justify-between gap-3 sm:gap-4">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1 flex-wrap">
+                        <span className="font-semibold text-sm sm:text-base">{review.nickname}</span>
                         {review.verified && (
-                          <Badge variant="secondary" className="text-xs gap-1">
-                            <CheckCircle className="w-3 h-3" />
-                            Verified Purchase
+                          <Badge variant="secondary" className="text-[10px] sm:text-xs gap-1">
+                            <CheckCircle className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                            Verified
                           </Badge>
                         )}
                       </div>
                       <div className="flex items-center gap-2 mb-2">
                         {renderStars(review.rating)}
-                        <span className="text-xs text-muted-foreground">
+                        <span className="text-[10px] sm:text-xs text-muted-foreground">
                           {formatDate(review.date)}
                         </span>
                       </div>
-                      <p className="text-sm text-foreground/90">{review.review}</p>
-                      <span className="text-xs text-muted-foreground mt-1 inline-block">
+                      <p className="text-xs sm:text-sm text-foreground/90 break-words">{review.review}</p>
+                      <span className="text-[10px] sm:text-xs text-muted-foreground mt-1 inline-block">
                         {getProductDisplayName(review.productHandle)}
                       </span>
                     </div>
@@ -254,7 +320,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                     {review.imageUrl && (
                       <button
                         onClick={() => setSelectedImage(review.imageUrl!)}
-                        className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border hover:border-primary transition-colors"
+                        className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border hover:border-primary transition-colors"
                       >
                         <img
                           src={review.imageUrl}
@@ -268,7 +334,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
               ))}
               
               {filteredReviews.length === 0 && (
-                <div className="text-center py-8 text-muted-foreground">
+                <div className="text-center py-8 text-muted-foreground text-sm">
                   No reviews found for this filter.
                 </div>
               )}
@@ -279,7 +345,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
 
       {/* Image Lightbox */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-3xl p-2">
+        <DialogContent className="w-[95vw] max-w-3xl p-2">
           <button
             onClick={() => setSelectedImage(null)}
             className="absolute right-4 top-4 z-10 p-2 bg-background/80 rounded-full hover:bg-background transition-colors"
