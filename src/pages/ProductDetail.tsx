@@ -543,7 +543,7 @@ const ProductDetail = () => {
                   <>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <p className="text-lg font-medium">Algorithm Trust - established account history from day one</p>
+                      <p className="text-lg font-medium">Algorithm Trust - established history Instagram already trusts</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
@@ -552,6 +552,14 @@ const ProductDetail = () => {
                     <div className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
                       <p className="text-lg font-medium">Launch Fast - ready for dropshipping & brand pages</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Credibility - looks professional to customers instantly</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <p className="text-lg font-medium">Save Time - skip months of trial-and-error with new accounts</p>
                     </div>
                   </>
                 ) : (
