@@ -206,6 +206,28 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
               </div>
             </div>
 
+            {/* Customer Photos Gallery */}
+            {featuredReviews.length > 0 && (
+              <div className="mt-4">
+                <h4 className="text-sm font-medium mb-2">Customer Photos ({featuredReviews.length})</h4>
+                <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+                  {featuredReviews.map((review) => (
+                    <button
+                      key={review.id}
+                      onClick={() => setSelectedImage(review.imageUrl!)}
+                      className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border hover:border-primary transition-colors"
+                    >
+                      <img
+                        src={review.imageUrl}
+                        alt={`Review by ${review.nickname}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Filter Buttons - Responsive wrap */}
             <div className="flex flex-wrap gap-2 mt-4">
               <Button
