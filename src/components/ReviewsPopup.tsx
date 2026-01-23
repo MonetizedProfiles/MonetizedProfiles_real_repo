@@ -84,7 +84,7 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
         filtered = allReviews.filter(r => r.rating === 4);
         break;
       case "3":
-        filtered = allReviews.filter(r => r.rating <= 3);
+        filtered = allReviews.filter(r => r.rating === 3);
         break;
       case "with-images":
         // Use the dedicated reviewsWithImages array for accurate filtering
@@ -99,23 +99,27 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
       filtered = filtered.filter(r => r.productHandle === productFilter);
     }
     
-    // Sort: 5-star with images first, then by rating, then by date
-    return filtered.sort((a, b) => {
-      // First prioritize 5-star reviews with images
-      const aHasImage = !!a.imageUrl;
-      const bHasImage = !!b.imageUrl;
-      const aIs5Star = a.rating === 5;
-      const bIs5Star = b.rating === 5;
-      
-      if (aIs5Star && aHasImage && !(bIs5Star && bHasImage)) return -1;
-      if (bIs5Star && bHasImage && !(aIs5Star && aHasImage)) return 1;
-      
-      // Then by rating
+    // Sort: Pin first 2 image reviews at top, then mix by rating and date
+    const imageReviews = filtered.filter(r => !!r.imageUrl);
+    const textReviews = filtered.filter(r => !r.imageUrl);
+    
+    // Sort both by rating then date
+    const sortByRatingAndDate = (a: Review, b: Review) => {
       if (b.rating !== a.rating) return b.rating - a.rating;
-      
-      // Then by date
       return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
+    };
+    
+    imageReviews.sort(sortByRatingAndDate);
+    textReviews.sort(sortByRatingAndDate);
+    
+    // Take first 2 image reviews for the top
+    const pinnedImageReviews = imageReviews.slice(0, 2);
+    const remainingImageReviews = imageReviews.slice(2);
+    
+    // Merge remaining image reviews with text reviews, sorted together
+    const mixedReviews = [...remainingImageReviews, ...textReviews].sort(sortByRatingAndDate);
+    
+    return [...pinnedImageReviews, ...mixedReviews];
   }, [allReviews, filter, productFilter, reviewsWithImages]);
 
   const featuredReviews = getFeaturedReviews();
@@ -227,6 +231,14 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                 className="text-xs sm:text-sm"
               >
                 4★
+              </Button>
+              <Button
+                variant={filter === "3" ? "default" : "outline"}
+                size="sm"
+                onClick={() => setFilter("3")}
+                className="text-xs sm:text-sm"
+              >
+                3★
               </Button>
               <Button
                 variant={filter === "with-images" ? "default" : "outline"}
