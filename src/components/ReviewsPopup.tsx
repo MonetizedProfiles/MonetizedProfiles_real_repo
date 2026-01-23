@@ -17,6 +17,8 @@ import {
   getFeaturedReviews, 
   getRatingBreakdown,
   getImageReviewCount,
+  getReviewsWithImages,
+  getProductDisplayName,
   TOTAL_REVIEW_COUNT,
   Review 
 } from "@/data/reviews";
@@ -40,31 +42,48 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
   const ratingBreakdown = getRatingBreakdown();
   const imageReviewCount = getImageReviewCount();
 
+  // Get all reviews with images for the filter
+  const reviewsWithImages = getReviewsWithImages();
+
   const filteredReviews = useMemo(() => {
-    let filtered = [...allReviews];
+    let filtered: Review[];
     
     switch (filter) {
       case "5":
-        filtered = filtered.filter(r => r.rating === 5);
+        filtered = allReviews.filter(r => r.rating === 5);
         break;
       case "4":
-        filtered = filtered.filter(r => r.rating === 4);
+        filtered = allReviews.filter(r => r.rating === 4);
         break;
       case "3":
-        filtered = filtered.filter(r => r.rating <= 3);
+        filtered = allReviews.filter(r => r.rating <= 3);
         break;
       case "with-images":
-        filtered = filtered.filter(r => r.imageUrl);
+        // Use the dedicated reviewsWithImages array for accurate filtering
+        filtered = reviewsWithImages;
         break;
+      default:
+        filtered = [...allReviews];
     }
     
-    // Sort by date (newest first), then by rating
+    // Sort: 5-star with images first, then by rating, then by date
     return filtered.sort((a, b) => {
-      const dateCompare = new Date(b.date).getTime() - new Date(a.date).getTime();
-      if (dateCompare !== 0) return dateCompare;
-      return b.rating - a.rating;
+      // First prioritize 5-star reviews with images
+      const aHasImage = !!a.imageUrl;
+      const bHasImage = !!b.imageUrl;
+      const aIs5Star = a.rating === 5;
+      const bIs5Star = b.rating === 5;
+      
+      if (aIs5Star && aHasImage && !(bIs5Star && bHasImage)) return -1;
+      if (bIs5Star && bHasImage && !(aIs5Star && aHasImage)) return 1;
+      
+      // Then by rating
+      if (b.rating !== a.rating) return b.rating - a.rating;
+      
+      // Then by date
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
-  }, [allReviews, filter]);
+  }, [allReviews, filter, reviewsWithImages]);
 
   const featuredReviews = getFeaturedReviews();
 
@@ -227,6 +246,9 @@ export const ReviewsPopup = ({ isOpen, onClose }: ReviewsPopupProps) => {
                         </span>
                       </div>
                       <p className="text-sm text-foreground/90">{review.review}</p>
+                      <span className="text-xs text-muted-foreground mt-1 inline-block">
+                        {getProductDisplayName(review.productHandle)}
+                      </span>
                     </div>
                     
                     {review.imageUrl && (
