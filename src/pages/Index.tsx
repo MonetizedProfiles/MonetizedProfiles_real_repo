@@ -365,10 +365,13 @@ const Index = () => {
                 <div className="w-1.5 h-1.5 rounded-full bg-[#FF2929] animate-pulse" />
                 <span>{accountsSold.toLocaleString()}+ sold</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 bg-secondary rounded-full text-xs sm:text-sm font-medium">
+              <button 
+                onClick={() => setReviewsOpen(true)}
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 bg-secondary rounded-full text-xs sm:text-sm font-medium hover:bg-secondary/80 transition-colors cursor-pointer"
+              >
                 <Star className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-[#FFD700] text-[#FFD700]" />
                 <span>4.8 rating</span>
-              </div>
+              </button>
             </div>
 
             {/* Big Animated Gradient Headline */}
