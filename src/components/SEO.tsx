@@ -8,6 +8,7 @@ interface SEOProps {
   ogType?: string;
   structuredData?: object;
   keywords?: string;
+  noIndex?: boolean;
 }
 
 export const SEO = ({
@@ -18,6 +19,7 @@ export const SEO = ({
   ogType = "website",
   structuredData,
   keywords,
+  noIndex = false,
 }: SEOProps) => {
   const fullTitle = title.includes("MonetizedProfiles") ? title : `${title} | MonetizedProfiles`;
   const currentUrl = canonical || window.location.href;
@@ -27,6 +29,9 @@ export const SEO = ({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
+      
+      {/* No Index for hidden pages */}
+      {noIndex && <meta name="robots" content="noindex, nofollow" />}
       
       {/* Canonical URL */}
       <link rel="canonical" href={currentUrl} />
