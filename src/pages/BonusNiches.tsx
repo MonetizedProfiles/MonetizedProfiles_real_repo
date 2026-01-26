@@ -73,27 +73,54 @@ const tiktokNiches: NicheCategory[] = [
 
 const youtubeNiches: NicheCategory[] = [
   {
-    category: "Finance",
+    category: "Entertainment & Gaming",
     niches: [
-      { name: "Crypto Analysis", description: "Market updates and predictions" },
-      { name: "Stock Trading", description: "Investment tips and market analysis" },
-      { name: "Personal Finance", description: "Budgeting and saving strategies" },
+      { name: "Gaming", description: "Let's plays, walkthroughs, and gaming content", url: "https://www.youtube.com/@Caylus/videos" },
+      { name: "This or That", description: "Interactive choice-based content", url: "https://www.youtube.com/@corvscateee/videos" },
+      { name: "Gumball Universe", description: "Animated show fan content", url: "https://www.youtube.com/@ItsGumballsUniverse" },
+      { name: "Invincible", description: "Comic/show analysis and content", url: "https://www.youtube.com/@AyoZan3/videos" },
+      { name: "Criminal Movie Characters", description: "Movie villain analysis and breakdowns", url: "https://www.youtube.com/@realmousait/videos" },
     ],
   },
   {
-    category: "Technology",
+    category: "Tech & Finance",
     niches: [
-      { name: "Tech Reviews", description: "Gadget unboxings and reviews" },
-      { name: "AI Tutorials", description: "How to use AI tools and automation" },
-      { name: "Coding Tutorials", description: "Programming lessons and projects" },
+      { name: "Gadget Reviews", description: "Tech product reviews and unboxings", url: "https://www.youtube.com/@bensgadgetreviews/videos" },
+      { name: "Make Money Online", description: "Side hustles and income strategies", url: "https://www.youtube.com/@marktilbury/videos" },
     ],
   },
   {
-    category: "Entertainment",
+    category: "Lifestyle & How-To",
     niches: [
-      { name: "Documentary Recaps", description: "True crime and documentary summaries" },
-      { name: "Gaming Walkthroughs", description: "Game guides and let's plays" },
-      { name: "Movie Analysis", description: "Deep dives into films and shows" },
+      { name: "Mini Food Cooking", description: "Tiny kitchen cooking videos", url: "https://www.youtube.com/@HanaMiniCooking/videos" },
+      { name: "Amish Life Hacks", description: "Traditional living tips and tricks", url: "https://www.youtube.com/@FrugalSolutionsTV" },
+      { name: "Fashion", description: "Style tips and outfit inspiration", url: "https://www.youtube.com/@ezracaughtin4k" },
+      { name: "Travel Hacks", description: "Budget travel tips and guides", url: "https://www.youtube.com/@TravelHackLab" },
+      { name: "Safe by Design", description: "Safety tips and awareness content", url: "https://www.youtube.com/@SafeByDesign" },
+      { name: "Welding", description: "Metalwork tutorials and art", url: "https://www.youtube.com/@METALWELDINGART" },
+    ],
+  },
+  {
+    category: "Spirituality & Wellness",
+    niches: [
+      { name: "Islamic Teachings", description: "Religious education and inspiration", url: "https://www.youtube.com/@BrotherAqibOfficial" },
+      { name: "Healing Energy Frequencies", description: "Meditation and frequency content", url: "https://www.youtube.com/@AbundanceEnergy2104" },
+    ],
+  },
+  {
+    category: "Sports",
+    niches: [
+      { name: "Wrestling", description: "WWE/wrestling highlights and news", url: "https://www.youtube.com/@realwrestlemafia" },
+      { name: "Baseball", description: "MLB content and analysis", url: "https://www.youtube.com/@unidiamondtalk1" },
+    ],
+  },
+  {
+    category: "Unique Niches",
+    niches: [
+      { name: "Elderly Amazon Products", description: "Product reviews for seniors", url: "https://www.youtube.com/@MiniMart_1" },
+      { name: "HFY (Humanity F*** Yeah)", description: "Sci-fi stories celebrating humanity", url: "https://www.youtube.com/@SpaceHumansHFYSciFi/videos" },
+      { name: "Old Photos", description: "Historical photography and stories", url: "https://www.youtube.com/@Immorta-lChronicles" },
+      { name: "Who Died Today", description: "Celebrity death news and tributes", url: "https://www.youtube.com/@whodiedtoday-us/videos" },
     ],
   },
 ];
