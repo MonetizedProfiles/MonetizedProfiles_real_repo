@@ -229,19 +229,27 @@ const BonusNiches = () => {
         {/* CTA Section */}
         <section className="py-12 md:py-16">
           <div className="container max-w-4xl mx-auto px-4">
-            <Card className="bg-muted/50">
-              <CardContent className="p-8 md:p-10 text-center">
-                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">
-                  Want 160+ More Viral Niches?
+            <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-background">
+              <CardContent className="p-8 md:p-12 text-center">
+                <div className="inline-flex items-center gap-2 text-primary mb-4">
+                  <Sparkles className="h-5 w-5" />
+                  <span className="font-medium">Want 160+ More Niches?</span>
+                </div>
+
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                  Get the Full Niche Vault with Your First Purchase
                 </h2>
 
-                <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-                  Get the full niche vault as a bonus when you purchase your first monetized account.
+                <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+                  When you buy your first monetized TikTok or YouTube account, you'll unlock our 
+                  <span className="font-semibold text-foreground"> complete vault of 160+ viral niches</span> — 
+                  updated regularly with fresh opportunities.
                 </p>
 
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="gap-2">
                   <Link to="/">
-                    Browse Accounts
+                    Browse Monetized Accounts
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
               </CardContent>
