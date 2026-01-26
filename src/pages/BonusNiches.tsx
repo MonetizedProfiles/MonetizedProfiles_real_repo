@@ -21,30 +21,51 @@ interface NicheCategory {
   niches: Niche[];
 }
 
-// PLACEHOLDER DATA - Replace with your actual niches
 const tiktokNiches: NicheCategory[] = [
   {
     category: "Entertainment",
     niches: [
-      { name: "Movie Recaps", description: "Short film summaries with commentary" },
-      { name: "Celebrity News", description: "Trending celebrity updates and gossip" },
-      { name: "Reaction Videos", description: "Reacting to viral content and trends" },
+      { name: "Retro TV Shows", description: "Nostalgic clips from classic television" },
+      { name: "Anime Edits", description: "Creative anime compilations and edits" },
+      { name: "Funny Videos", description: "Viral comedy content and humor clips" },
+      { name: "Young Sheldon Clips", description: "Popular sitcom highlights" },
+      { name: "Impractical Jokers Clips", description: "Prank show best moments" },
     ],
   },
   {
-    category: "Education",
+    category: "Services & How-To",
     niches: [
-      { name: "Life Hacks", description: "Quick tips and tricks for daily life" },
-      { name: "Study Tips", description: "Academic advice and learning strategies" },
-      { name: "Language Learning", description: "Quick language lessons and vocabulary" },
+      { name: "Carpet Cleaning", description: "Satisfying cleaning transformations" },
+      { name: "Plumbing", description: "DIY fixes and professional tips" },
+      { name: "Pool Cleaning", description: "Oddly satisfying pool maintenance" },
+      { name: "Driving Instruction", description: "Tips for new drivers and road safety" },
+      { name: "Hair Styling", description: "Trending cuts, colors, and tutorials" },
     ],
   },
   {
-    category: "Lifestyle",
+    category: "Lifestyle & Fashion",
     niches: [
-      { name: "ASMR", description: "Relaxing sounds and satisfying content" },
-      { name: "Cooking Tutorials", description: "Quick recipe walkthroughs" },
-      { name: "Fitness Motivation", description: "Workout tips and transformation content" },
+      { name: "Sneakers", description: "Shoe reviews, drops, and collections" },
+      { name: "Fashion", description: "Outfit inspiration and style tips" },
+      { name: "Lifestyle", description: "Day-in-the-life and aesthetic content" },
+      { name: "Animated Knitting", description: "Creative craft content with animations" },
+    ],
+  },
+  {
+    category: "Unique & Creative",
+    niches: [
+      { name: "Hypnosis", description: "Hypnotherapy content and relaxation" },
+      { name: "AI Animal Rescues", description: "AI-generated heartwarming rescue stories" },
+      { name: "Miniature Items", description: "Tiny creations and mini worlds" },
+      { name: "Quiz", description: "Interactive trivia and brain teasers" },
+    ],
+  },
+  {
+    category: "Other Trending",
+    niches: [
+      { name: "Buy and Sell", description: "Flipping items and marketplace finds" },
+      { name: "News", description: "Breaking news and current events coverage" },
+      { name: "Darts", description: "Professional darts highlights and tips" },
     ],
   },
 ];
