@@ -7,9 +7,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Gift, Youtube, Music, Sparkles } from "lucide-react";
+import { Gift, Youtube, Music, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/monetizedprofiles-logo.webp";
 
 interface Niche {
   name: string;
@@ -183,8 +182,8 @@ const BonusNiches = () => {
   return (
     <>
       <SEO
-        title="Exclusive Bonus: Top Profitable Niches 2025"
-        description="Your exclusive list of the most profitable TikTok and YouTube niches for 2025."
+        title="Your Email Signup Bonus: 40 Viral Niches for 2026"
+        description="Your exclusive email signup bonus - 40 viral TikTok and YouTube niches with proven demand for 2026."
         noIndex={true}
       />
 
@@ -192,24 +191,18 @@ const BonusNiches = () => {
         {/* Hero Section */}
         <section className="py-12 md:py-16 bg-gradient-to-b from-primary/5 to-background">
           <div className="container max-w-4xl mx-auto px-4 text-center">
-            <img
-              src={logo}
-              alt="MonetizedProfiles"
-              className="h-10 md:h-12 mx-auto mb-8"
-            />
-            
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
               <Gift className="h-5 w-5" />
-              <span className="font-medium">Exclusive Bonus Content</span>
+              <span className="font-medium">Your Email Signup Bonus</span>
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Top Profitable Niches for 2025
+              40 Viral Niches for 2026
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Thanks for subscribing! As promised, here are the most profitable TikTok and YouTube niches 
-              that are dominating right now. Use these to find your perfect content angle.
+              Thanks for subscribing! As promised, here are <span className="font-semibold text-foreground">40 proven viral niches</span> for 
+              TikTok and YouTube — each with real demand and monetization potential. Use these to find your perfect content angle.
             </p>
           </div>
         </section>
@@ -234,27 +227,33 @@ const BonusNiches = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-12 md:py-16 bg-muted/30">
-          <div className="container max-w-4xl mx-auto px-4 text-center">
-            <div className="inline-flex items-center gap-2 text-primary mb-4">
-              <Sparkles className="h-5 w-5" />
-              <span className="font-medium">Ready to Start?</span>
-            </div>
+        <section className="py-12 md:py-16">
+          <div className="container max-w-4xl mx-auto px-4">
+            <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-background">
+              <CardContent className="p-8 md:p-12 text-center">
+                <div className="inline-flex items-center gap-2 text-primary mb-4">
+                  <Sparkles className="h-5 w-5" />
+                  <span className="font-medium">Want 160+ More Niches?</span>
+                </div>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Skip the Grind, Start Monetized
-            </h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                  Get the Full Niche Vault with Your First Purchase
+                </h2>
 
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Browse our collection of pre-monetized TikTok and YouTube accounts 
-              and start earning from day one.
-            </p>
+                <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+                  When you buy your first monetized TikTok or YouTube account, you'll unlock our 
+                  <span className="font-semibold text-foreground"> complete vault of 160+ viral niches</span> — 
+                  updated regularly with fresh opportunities.
+                </p>
 
-            <Button asChild size="lg" className="gap-2">
-              <Link to="/">
-                Browse Monetized Accounts
-              </Link>
-            </Button>
+                <Button asChild size="lg" className="gap-2">
+                  <Link to="/">
+                    Browse Monetized Accounts
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </section>
       </div>
