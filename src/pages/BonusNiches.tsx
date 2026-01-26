@@ -129,47 +129,66 @@ const NicheSection = ({
   icon: Icon,
   categories,
   iconColor,
+  bgGradient,
 }: {
   title: string;
   icon: typeof Youtube;
   categories: NicheCategory[];
   iconColor: string;
+  bgGradient: string;
 }) => (
-  <Card className="border-border/50">
-    <CardHeader className="pb-4">
+  <Card className="border-border/50 overflow-hidden">
+    <CardHeader className={`pb-4 ${bgGradient}`}>
       <CardTitle className="flex items-center gap-3 text-xl md:text-2xl">
-        <Icon className={`h-6 w-6 ${iconColor}`} />
+        <div className={`p-2 rounded-lg bg-background/80 backdrop-blur-sm`}>
+          <Icon className={`h-5 w-5 ${iconColor}`} />
+        </div>
         {title}
       </CardTitle>
     </CardHeader>
-    <CardContent>
-      <Accordion type="single" collapsible className="w-full">
+    <CardContent className="pt-6">
+      <Accordion type="single" collapsible className="w-full space-y-2">
         {categories.map((cat, index) => (
-          <AccordionItem key={cat.category} value={`item-${index}`}>
-            <AccordionTrigger className="text-base font-medium hover:no-underline">
-              {cat.category}
+          <AccordionItem 
+            key={cat.category} 
+            value={`item-${index}`}
+            className="border border-border/50 rounded-lg px-4 data-[state=open]:bg-muted/30 transition-colors"
+          >
+            <AccordionTrigger className="text-base font-semibold hover:no-underline py-4 gap-3">
+              <div className="flex items-center gap-3">
+                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold">
+                  {cat.niches.length}
+                </span>
+                {cat.category}
+              </div>
             </AccordionTrigger>
-            <AccordionContent>
-              <ul className="space-y-3 pt-2">
+            <AccordionContent className="pb-4">
+              <div className="grid gap-3 pt-2">
                 {cat.niches.map((niche) => (
-                  <li key={niche.name} className="flex flex-col gap-0.5 pl-4 border-l-2 border-primary/20">
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium text-foreground">{niche.name}</span>
-                      {niche.url && (
-                        <a
-                          href={niche.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs text-primary hover:underline"
-                        >
-                          View Example →
-                        </a>
-                      )}
+                  <div 
+                    key={niche.name} 
+                    className="group flex items-start gap-3 p-3 rounded-lg bg-background border border-border/50 hover:border-primary/30 hover:shadow-sm transition-all"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="font-medium text-foreground">{niche.name}</span>
+                        {niche.url && (
+                          <a
+                            href={niche.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 font-medium transition-colors"
+                          >
+                            View Example
+                            <ArrowRight className="h-3 w-3" />
+                          </a>
+                        )}
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-0.5">{niche.description}</p>
                     </div>
-                    <span className="text-sm text-muted-foreground">{niche.description}</span>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </AccordionContent>
           </AccordionItem>
         ))}
@@ -215,6 +234,7 @@ const BonusNiches = () => {
               icon={Music}
               categories={tiktokNiches}
               iconColor="text-pink-500"
+              bgGradient="bg-gradient-to-r from-pink-500/10 to-purple-500/10"
             />
 
             <NicheSection
@@ -222,6 +242,7 @@ const BonusNiches = () => {
               icon={Youtube}
               categories={youtubeNiches}
               iconColor="text-red-500"
+              bgGradient="bg-gradient-to-r from-red-500/10 to-orange-500/10"
             />
           </div>
         </section>
