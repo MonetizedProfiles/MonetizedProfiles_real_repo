@@ -13,4 +13,5 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://monetizedprofiles.com/sitemap.xml
+# Point directly to edge function for proper XML response
+Sitemap: https://csbwkcpugthkdvdpbtvd.supabase.co/functions/v1/sitemap
