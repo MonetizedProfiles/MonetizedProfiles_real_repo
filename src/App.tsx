@@ -23,7 +23,6 @@ import TermsOfService from "./pages/TermsOfService";
 import RefundPolicy from "./pages/RefundPolicy";
 import OrderTracking from "./pages/OrderTracking";
 import NotFound from "./pages/NotFound";
-import Sitemap from "./pages/Sitemap";
 import BonusNiches from "./pages/BonusNiches";
 
 const queryClient = new QueryClient();
@@ -58,7 +57,7 @@ const App = () => {
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/refund-policy" element={<RefundPolicy />} />
-              <Route path="/sitemap.xml" element={<Sitemap />} />
+              <Route path="/bonus/top-niches" element={<BonusNiches />} />
               <Route path="/bonus/top-niches" element={<BonusNiches />} />
               {/* Redirect /blogs (plural) to /blog (singular) for SEO */}
               <Route path="/blogs" element={<Navigate to="/blog" replace />} />
