@@ -14,6 +14,7 @@ import logo from "@/assets/monetizedprofiles-logo.webp";
 interface Niche {
   name: string;
   description: string;
+  url?: string;
 }
 
 interface NicheCategory {
@@ -25,47 +26,47 @@ const tiktokNiches: NicheCategory[] = [
   {
     category: "Entertainment",
     niches: [
-      { name: "Retro TV Shows", description: "Nostalgic clips from classic television" },
-      { name: "Anime Edits", description: "Creative anime compilations and edits" },
-      { name: "Funny Videos", description: "Viral comedy content and humor clips" },
-      { name: "Young Sheldon Clips", description: "Popular sitcom highlights" },
-      { name: "Impractical Jokers Clips", description: "Prank show best moments" },
+      { name: "Retro TV Shows", description: "Nostalgic clips from classic television", url: "https://www.tiktok.com/@toontv889" },
+      { name: "Anime Edits", description: "Creative anime compilations and edits", url: "https://www.tiktok.com/@vs.shark" },
+      { name: "Funny Videos", description: "Viral comedy content and humor clips", url: "https://www.tiktok.com/@funny.viedoo" },
+      { name: "Young Sheldon Clips", description: "Popular sitcom highlights", url: "https://www.tiktok.com/@clips21532" },
+      { name: "Impractical Jokers Clips", description: "Prank show best moments", url: "https://www.tiktok.com/@funnyimjclips" },
     ],
   },
   {
     category: "Services & How-To",
     niches: [
-      { name: "Carpet Cleaning", description: "Satisfying cleaning transformations" },
-      { name: "Plumbing", description: "DIY fixes and professional tips" },
-      { name: "Pool Cleaning", description: "Oddly satisfying pool maintenance" },
-      { name: "Driving Instruction", description: "Tips for new drivers and road safety" },
-      { name: "Hair Styling", description: "Trending cuts, colors, and tutorials" },
+      { name: "Carpet Cleaning", description: "Satisfying cleaning transformations", url: "https://www.tiktok.com/@soclean.yt" },
+      { name: "Plumbing", description: "DIY fixes and professional tips", url: "https://www.tiktok.com/@beaplumbertheysaid" },
+      { name: "Pool Cleaning", description: "Oddly satisfying pool maintenance", url: "https://www.tiktok.com/@thep00lguy" },
+      { name: "Driving Instruction", description: "Tips for new drivers and road safety", url: "https://www.tiktok.com/@clearviewdriving" },
+      { name: "Hair Styling", description: "Trending cuts, colors, and tutorials", url: "https://www.tiktok.com/@stash2.0" },
     ],
   },
   {
     category: "Lifestyle & Fashion",
     niches: [
-      { name: "Sneakers", description: "Shoe reviews, drops, and collections" },
-      { name: "Fashion", description: "Outfit inspiration and style tips" },
-      { name: "Lifestyle", description: "Day-in-the-life and aesthetic content" },
-      { name: "Animated Knitting", description: "Creative craft content with animations" },
+      { name: "Sneakers", description: "Shoe reviews, drops, and collections", url: "https://www.tiktok.com/@qiasomar24" },
+      { name: "Fashion", description: "Outfit inspiration and style tips", url: "https://www.tiktok.com/@cultureforce" },
+      { name: "Lifestyle", description: "Day-in-the-life and aesthetic content", url: "https://www.tiktok.com/@ashley.paiige" },
+      { name: "Animated Knitting", description: "Creative craft content with animations", url: "https://www.tiktok.com/@indiarosecrawford" },
     ],
   },
   {
     category: "Unique & Creative",
     niches: [
-      { name: "Hypnosis", description: "Hypnotherapy content and relaxation" },
-      { name: "AI Animal Rescues", description: "AI-generated heartwarming rescue stories" },
-      { name: "Miniature Items", description: "Tiny creations and mini worlds" },
-      { name: "Quiz", description: "Interactive trivia and brain teasers" },
+      { name: "Hypnosis", description: "Hypnotherapy content and relaxation", url: "https://www.tiktok.com/@hayleyadams_hypnotherapy" },
+      { name: "AI Animal Rescues", description: "AI-generated heartwarming rescue stories", url: "https://www.tiktok.com/@bluelifeheroes" },
+      { name: "Miniature Items", description: "Tiny creations and mini worlds", url: "https://www.tiktok.com/@realminiworld" },
+      { name: "Quiz", description: "Interactive trivia and brain teasers", url: "https://www.tiktok.com/@gugugagaquiz" },
     ],
   },
   {
     category: "Other Trending",
     niches: [
-      { name: "Buy and Sell", description: "Flipping items and marketplace finds" },
-      { name: "News", description: "Breaking news and current events coverage" },
-      { name: "Darts", description: "Professional darts highlights and tips" },
+      { name: "Buy and Sell", description: "Flipping items and marketplace finds", url: "https://www.tiktok.com/@buy.and.selll" },
+      { name: "News", description: "Breaking news and current events coverage", url: "https://www.tiktok.com/@aaronparnas1" },
+      { name: "Darts", description: "Professional darts highlights and tips", url: "https://www.tiktok.com/@switchdarts" },
     ],
   },
 ];
@@ -126,7 +127,19 @@ const NicheSection = ({
               <ul className="space-y-3 pt-2">
                 {cat.niches.map((niche) => (
                   <li key={niche.name} className="flex flex-col gap-0.5 pl-4 border-l-2 border-primary/20">
-                    <span className="font-medium text-foreground">{niche.name}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="font-medium text-foreground">{niche.name}</span>
+                      {niche.url && (
+                        <a
+                          href={niche.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-primary hover:underline"
+                        >
+                          View Example →
+                        </a>
+                      )}
+                    </div>
                     <span className="text-sm text-muted-foreground">{niche.description}</span>
                   </li>
                 ))}
