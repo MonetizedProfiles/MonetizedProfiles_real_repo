@@ -208,7 +208,7 @@ const BonusNiches = () => {
         </section>
 
         {/* Niches Content */}
-        <section className="py-12 md:py-16">
+        <section className="py-8 md:py-12">
           <div className="container max-w-4xl mx-auto px-4 space-y-8">
             <NicheSection
               title="TOP TIKTOK NICHES"
