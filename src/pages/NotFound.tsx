@@ -15,6 +15,7 @@ const NotFound = () => {
         title="Page Not Found - 404 Error"
         description="The page you're looking for doesn't exist. Return to our homepage to browse monetized YouTube and TikTok accounts."
         canonical="https://monetizedprofiles.com/404"
+        noIndex={true}
       />
       <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="text-center">
