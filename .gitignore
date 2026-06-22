@@ -10,8 +10,9 @@ dist
 dist-ssr
 
 # Environment
-*.local
-.env*.local
+.env
+.env.*
+!.env.example
 
 # Logs
 *.log
