@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { SITE_NAME, SITE_URL } from '@/lib/constants';
+import { breadcrumbJsonLd } from '@/lib/seo';
 import { Mail, MessageSquare, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -9,8 +10,17 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const breadcrumbs = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Contact', url: `${SITE_URL}/contact` },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-12 max-w-3xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
+      />
       <h1 className="text-4xl font-bold mb-4 text-center">Contact Us</h1>
       <p className="text-muted-foreground text-center mb-10">
         Have a question? We&apos;re here to help. Reach out through any of the channels below.

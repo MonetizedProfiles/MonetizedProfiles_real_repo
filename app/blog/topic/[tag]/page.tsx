@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getArticleListing, getArticleSummaries } from '@/lib/shopify';
-import { breadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { SITE_URL, SITE_NAME } from '@/lib/constants';
 import { Calendar, ArrowLeft } from 'lucide-react';
 
@@ -73,6 +73,20 @@ export default async function TopicPage({ params }: { params: Promise<{ tag: str
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd({
+          name: `${title} Articles`,
+          description: `Articles and guides about ${title.toLowerCase()} for creators and entrepreneurs.`,
+          url: `${SITE_URL}/blog/topic/${tag}`,
+          items: articles.map((a, i) => ({
+            name: a.title,
+            url: `${SITE_URL}/blog/${a.blog.handle}/${a.handle}`,
+            image: a.image?.url,
+            position: i + 1,
+          })),
+        })) }}
       />
 
       <nav className="text-sm text-muted-foreground mb-6">

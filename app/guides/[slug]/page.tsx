@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getProducts, formatPrice } from '@/lib/shopify';
-import { breadcrumbJsonLd, faqJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, faqJsonLd, guideArticleJsonLd } from '@/lib/seo';
 import { SITE_URL, SITE_NAME } from '@/lib/constants';
 import { ProductCard } from '@/components/product-card';
 import { FaqSection } from '@/components/faq-section';
@@ -117,6 +117,13 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(guide.faqs)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(guideArticleJsonLd({
+        title: guide.title,
+        description: guide.description,
+        slug: guide.slug,
+        datePublished: '2025-01-05T00:00:00Z',
+        dateModified: '2025-06-01T00:00:00Z',
+      })) }} />
 
       <article className="container mx-auto px-4 py-12 max-w-3xl">
         <nav className="text-sm text-muted-foreground mb-6">

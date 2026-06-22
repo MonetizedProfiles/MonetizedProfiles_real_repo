@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_NAME, SITE_URL } from '@/lib/constants';
+import { breadcrumbJsonLd } from '@/lib/seo';
 import { BookOpen, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -31,8 +32,17 @@ const guides = [
 ];
 
 export default function GuidesPage() {
+  const breadcrumbs = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Guides', url: `${SITE_URL}/guides` },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
+      />
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-4">
           <BookOpen className="h-4 w-4" />

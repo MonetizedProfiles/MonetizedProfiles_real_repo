@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getProducts, getCollectionHandles } from '@/lib/shopify';
 import { ProductCard } from '@/components/product-card';
-import { breadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { SITE_URL, SITE_NAME, PRODUCT_CATEGORIES } from '@/lib/constants';
 
 export const revalidate = 300;
@@ -78,11 +78,27 @@ export default async function CollectionPage({ params }: { params: Promise<{ han
     { name: title, url: `${SITE_URL}/collections/${handle}` },
   ];
 
+  const collectionItems = products.map((p, i) => ({
+    name: p.title,
+    url: `${SITE_URL}/products/${p.handle}`,
+    image: p.images[0]?.url,
+    position: i + 1,
+  }));
+
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd({
+          name: title,
+          description: meta?.description || `Browse our ${title.toLowerCase()} collection.`,
+          url: `${SITE_URL}/collections/${handle}`,
+          items: collectionItems,
+        })) }}
       />
 
       <nav className="text-sm text-muted-foreground mb-6">

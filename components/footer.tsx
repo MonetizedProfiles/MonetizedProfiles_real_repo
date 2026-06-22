@@ -13,7 +13,7 @@ const PRODUCT_DISPLAY_NAMES: Record<string, string> = {
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background py-12">
+    <footer className="bg-foreground text-background py-12" role="contentinfo">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
@@ -23,7 +23,7 @@ export function Footer() {
             </p>
             <p className="text-xs text-background/50">Secure checkout powered by Shopify</p>
           </div>
-          <div>
+          <nav aria-label="Products">
             <h4 className="font-semibold mb-4">Products</h4>
             <ul className="space-y-2 text-sm text-background/70">
               {PRODUCT_HANDLES.map((handle) => (
@@ -34,8 +34,8 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div>
+          </nav>
+          <nav aria-label="Company">
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-background/70">
               {NAV_LINKS.map((link) => (
@@ -46,8 +46,8 @@ export function Footer() {
               <li><Link href="/guides" className="hover:text-background transition-colors">Guides</Link></li>
               <li><Link href="/order-tracking" className="hover:text-background transition-colors">Order Tracking</Link></li>
             </ul>
-          </div>
-          <div>
+          </nav>
+          <nav aria-label="Legal">
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm text-background/70">
               <li><Link href="/policies/privacy-policy" className="hover:text-background transition-colors">Privacy Policy</Link></li>
@@ -60,7 +60,7 @@ export function Footer() {
                 support@monetizedprofiles.com
               </a>
             </div>
-          </div>
+          </nav>
         </div>
         <div className="border-t border-background/20 pt-8 text-center text-sm text-background/50">
           &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.

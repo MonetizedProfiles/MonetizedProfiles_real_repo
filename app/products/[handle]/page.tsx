@@ -2,8 +2,9 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getProductByHandle, getProductHandles, formatPrice } from '@/lib/shopify';
-import { productJsonLd, breadcrumbJsonLd } from '@/lib/seo';
+import { productJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/seo';
 import { SITE_NAME, SITE_URL, TRUST_STATS } from '@/lib/constants';
+import { getProductFaqs } from '@/data/faqs';
 import { AddToCart } from '@/components/add-to-cart';
 import { ProductReviews } from '@/components/product-reviews';
 import { TrustSignals } from '@/components/trust-signals';
@@ -61,6 +62,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
 
   const reviewStats = { count: TRUST_STATS.totalReviews, average: TRUST_STATS.averageRating };
   const includes = PRODUCT_INCLUDES[handle] || [];
+  const faqs = getProductFaqs(handle);
 
   const breadcrumbs = [
     { name: 'Home', url: SITE_URL },
@@ -78,6 +80,12 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
       />
+      {faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faqs)) }}
+        />
+      )}
 
       <div className="container mx-auto px-4 py-8 md:py-12">
         {/* Breadcrumbs */}

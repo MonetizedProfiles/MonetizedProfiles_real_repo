@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { SITE_NAME, SITE_URL } from '@/lib/constants';
+import { breadcrumbJsonLd } from '@/lib/seo';
 
 const policies: Record<string, { title: string; content: string }> = {
   'privacy-policy': {
@@ -78,8 +79,17 @@ export default async function PolicyPage({ params }: { params: Promise<{ slug: s
   const policy = policies[slug];
   if (!policy) notFound();
 
+  const breadcrumbs = [
+    { name: 'Home', url: SITE_URL },
+    { name: policy.title, url: `${SITE_URL}/policies/${slug}` },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-12 max-w-3xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
+      />
       <h1 className="text-4xl font-bold mb-8">{policy.title}</h1>
       <div className="prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: policy.content }} />
     </div>

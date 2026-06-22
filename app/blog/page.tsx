@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { SITE_NAME, SITE_URL } from '@/lib/constants';
 import { getArticleListing } from '@/lib/shopify';
-import { breadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { ArrowRight, Calendar } from 'lucide-react';
 
 export const revalidate = 3600;
@@ -55,6 +55,22 @@ export default async function BlogPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
       />
+      {articles.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd({
+            name: 'Blog — Tips & Guides for Creators',
+            description: `Tips, guides, and insights on monetizing YouTube and TikTok from the ${SITE_NAME} team.`,
+            url: `${SITE_URL}/blog`,
+            items: articles.slice(0, 50).map((a, i) => ({
+              name: a.title,
+              url: `${SITE_URL}/blog/${a.blog.handle}/${a.handle}`,
+              image: a.image?.url,
+              position: i + 1,
+            })),
+          })) }}
+        />
+      )}
 
       <nav className="text-sm text-muted-foreground mb-6">
         <ol className="flex items-center gap-1.5">

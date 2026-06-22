@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_NAME, SITE_URL } from '@/lib/constants';
+import { breadcrumbJsonLd } from '@/lib/seo';
 import { DollarSign, Users, TrendingUp, Gift } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -10,8 +11,17 @@ export const metadata: Metadata = {
 };
 
 export default function AffiliatePage() {
+  const breadcrumbs = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Affiliate Program', url: `${SITE_URL}/affiliate` },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs)) }}
+      />
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Affiliate Program</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
