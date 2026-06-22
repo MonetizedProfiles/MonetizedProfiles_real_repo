@@ -17,7 +17,6 @@ export interface ShopifyVariant {
   price: { amount: string; currencyCode: string };
   compareAtPrice: { amount: string; currencyCode: string } | null;
   availableForSale: boolean;
-  quantityAvailable: number | null;
   selectedOptions: Array<{ name: string; value: string }>;
 }
 
@@ -109,7 +108,6 @@ const PRODUCT_FRAGMENT = `
           price { amount currencyCode }
           compareAtPrice { amount currencyCode }
           availableForSale
-          quantityAvailable
           selectedOptions { name value }
         }
       }
