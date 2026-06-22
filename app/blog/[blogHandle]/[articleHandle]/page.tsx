@@ -119,9 +119,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ blogHa
 
         {article.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-8">
-            {article.tags.slice(0, 5).map(tag => (
-              <span key={tag} className="text-xs bg-secondary text-muted-foreground px-2.5 py-1 rounded-full">{tag}</span>
-            ))}
+            {article.tags.slice(0, 8).map(tag => {
+              const slug = tag.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+              return (
+                <Link key={tag} href={`/blog/topic/${slug}`} className="text-xs bg-secondary hover:bg-secondary/80 text-muted-foreground px-2.5 py-1 rounded-full transition-colors">
+                  {tag}
+                </Link>
+              );
+            })}
           </div>
         )}
 

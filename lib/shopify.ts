@@ -200,34 +200,82 @@ export interface ShopifyArticle {
   seo: { title: string | null; description: string | null };
 }
 
-export async function getArticles(first = 100): Promise<ShopifyArticle[]> {
+export async function getArticles(limit = 250): Promise<ShopifyArticle[]> {
+  const all: ShopifyArticle[] = [];
+  let cursor: string | null = null;
+  let hasNext = true;
+
   try {
-    const data = await storefrontFetch<any>(`
-      query GetArticles($first: Int!) {
-        articles(first: $first, sortKey: PUBLISHED_AT, reverse: true) {
-          edges {
-            node {
-              id
-              title
-              handle
-              excerpt
-              contentHtml
-              publishedAt
-              tags
-              seo { title description }
-              image { url altText width height }
-              author { name }
-              blog { title handle }
+    while (hasNext && all.length < limit) {
+      const batchSize = Math.min(250, limit - all.length);
+      const data: any = await storefrontFetch<any>(`
+        query GetArticles($first: Int!, $after: String) {
+          articles(first: $first, after: $after, sortKey: PUBLISHED_AT, reverse: true) {
+            pageInfo { hasNextPage }
+            edges {
+              cursor
+              node {
+                id
+                title
+                handle
+                excerpt
+                contentHtml
+                publishedAt
+                tags
+                seo { title description }
+                image { url altText width height }
+                author { name }
+                blog { title handle }
+              }
             }
           }
         }
-      }
-    `, { first });
+      `, { first: batchSize, after: cursor });
 
-    return data.articles.edges.map((e: any) => e.node);
-  } catch {
-    return [];
-  }
+      const edges = data.articles.edges;
+      all.push(...edges.map((e: any) => e.node));
+      hasNext = data.articles.pageInfo.hasNextPage;
+      cursor = edges.length > 0 ? edges[edges.length - 1].cursor : null;
+    }
+  } catch {}
+
+  return all;
+}
+
+export async function getArticleListing(limit = 500): Promise<Omit<ShopifyArticle, 'contentHtml'>[]> {
+  const all: Omit<ShopifyArticle, 'contentHtml'>[] = [];
+  let cursor: string | null = null;
+  let hasNext = true;
+
+  try {
+    while (hasNext && all.length < limit) {
+      const batchSize = Math.min(250, limit - all.length);
+      const data: any = await storefrontFetch<any>(`
+        query GetArticleListing($first: Int!, $after: String) {
+          articles(first: $first, after: $after, sortKey: PUBLISHED_AT, reverse: true) {
+            pageInfo { hasNextPage }
+            edges {
+              cursor
+              node {
+                id title handle excerpt publishedAt tags
+                seo { title description }
+                image { url altText width height }
+                author { name }
+                blog { title handle }
+              }
+            }
+          }
+        }
+      `, { first: batchSize, after: cursor });
+
+      const edges = data.articles.edges;
+      all.push(...edges.map((e: any) => e.node));
+      hasNext = data.articles.pageInfo.hasNextPage;
+      cursor = edges.length > 0 ? edges[edges.length - 1].cursor : null;
+    }
+  } catch {}
+
+  return all;
 }
 
 export async function getArticleByHandle(blogHandle: string, articleHandle: string): Promise<ShopifyArticle | null> {
@@ -259,20 +307,78 @@ export async function getArticleByHandle(blogHandle: string, articleHandle: stri
 }
 
 export async function getArticleHandles(): Promise<Array<{ blogHandle: string; articleHandle: string }>> {
-  try {
-    const data = await storefrontFetch<any>(`
-      query { articles(first: 250, sortKey: PUBLISHED_AT, reverse: true) {
-        edges { node { handle blog { handle } } }
-      }}
-    `);
+  const all: Array<{ blogHandle: string; articleHandle: string }> = [];
+  let cursor: string | null = null;
+  let hasNext = true;
 
-    return data.articles.edges.map((e: any) => ({
-      blogHandle: e.node.blog.handle,
-      articleHandle: e.node.handle,
-    }));
-  } catch {
-    return [];
-  }
+  try {
+    while (hasNext) {
+      const data: any = await storefrontFetch<any>(`
+        query GetArticleHandles($first: Int!, $after: String) {
+          articles(first: 250, after: $after, sortKey: PUBLISHED_AT, reverse: true) {
+            pageInfo { hasNextPage }
+            edges {
+              cursor
+              node { handle blog { handle } seo { title description } tags }
+            }
+          }
+        }
+      `, { first: 250, after: cursor });
+
+      const edges = data.articles.edges;
+      all.push(...edges.map((e: any) => ({
+        blogHandle: e.node.blog.handle,
+        articleHandle: e.node.handle,
+      })));
+      hasNext = data.articles.pageInfo.hasNextPage;
+      cursor = edges.length > 0 ? edges[edges.length - 1].cursor : null;
+    }
+  } catch {}
+
+  return all;
+}
+
+export async function getArticleSummaries(): Promise<Array<{
+  handle: string;
+  blogHandle: string;
+  title: string;
+  seoTitle: string | null;
+  seoDescription: string | null;
+  tags: string[];
+}>> {
+  const all: Array<{ handle: string; blogHandle: string; title: string; seoTitle: string | null; seoDescription: string | null; tags: string[] }> = [];
+  let cursor: string | null = null;
+  let hasNext = true;
+
+  try {
+    while (hasNext) {
+      const data: any = await storefrontFetch<any>(`
+        query GetArticleSummaries($after: String) {
+          articles(first: 250, after: $after, sortKey: PUBLISHED_AT, reverse: true) {
+            pageInfo { hasNextPage }
+            edges {
+              cursor
+              node { handle title blog { handle } seo { title description } tags }
+            }
+          }
+        }
+      `, { after: cursor });
+
+      const edges = data.articles.edges;
+      all.push(...edges.map((e: any) => ({
+        handle: e.node.handle,
+        blogHandle: e.node.blog.handle,
+        title: e.node.title,
+        seoTitle: e.node.seo?.title || null,
+        seoDescription: e.node.seo?.description || null,
+        tags: e.node.tags || [],
+      })));
+      hasNext = data.articles.pageInfo.hasNextPage;
+      cursor = edges.length > 0 ? edges[edges.length - 1].cursor : null;
+    }
+  } catch {}
+
+  return all;
 }
 
 // ─── Collections ───────────────────────────────────────────────────

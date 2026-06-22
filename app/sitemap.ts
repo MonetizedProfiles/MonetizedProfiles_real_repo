@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getProductHandles, getArticleHandles, getCollectionHandles } from '@/lib/shopify';
+import { getProductHandles, getArticleHandles, getCollectionHandles, getArticleSummaries } from '@/lib/shopify';
 import { SITE_URL } from '@/lib/constants';
 import { LANDING_PAGES } from '@/data/landing-pages';
 
@@ -75,5 +75,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }));
   } catch {}
 
-  return [...staticPages, ...productPages, ...landingPages, ...guidePages, ...articlePages, ...collectionPages];
+  let topicPages: MetadataRoute.Sitemap = [];
+  try {
+    const summaries = await getArticleSummaries();
+    const tagCounts = new Map<string, number>();
+    for (const article of summaries) {
+      for (const tag of article.tags) {
+        const slug = tag.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        if (slug) tagCounts.set(slug, (tagCounts.get(slug) || 0) + 1);
+      }
+    }
+    topicPages = Array.from(tagCounts.entries())
+      .filter(([, count]) => count >= 2)
+      .map(([tag]) => ({
+        url: `${SITE_URL}/blog/topic/${tag}`,
+        lastModified: now,
+        changeFrequency: 'weekly' as const,
+        priority: 0.6,
+      }));
+  } catch {}
+
+  return [...staticPages, ...productPages, ...landingPages, ...guidePages, ...articlePages, ...topicPages, ...collectionPages];
 }

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { SITE_NAME, SITE_URL } from '@/lib/constants';
-import { getArticles } from '@/lib/shopify';
+import { getArticleListing } from '@/lib/shopify';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { ArrowRight, Calendar } from 'lucide-react';
 
@@ -42,7 +42,7 @@ const GUIDE_POSTS = [
 ];
 
 export default async function BlogPage() {
-  const articles = await getArticles(100);
+  const articles = await getArticleListing(500);
 
   const breadcrumbs = [
     { name: 'Home', url: SITE_URL },
@@ -125,6 +125,41 @@ export default async function BlogPage() {
           </div>
         </section>
       )}
+
+      {/* Topic Hub Links */}
+      {articles.length > 0 && (() => {
+        const tagCounts = new Map<string, { display: string; count: number }>();
+        for (const article of articles) {
+          for (const tag of article.tags) {
+            const slug = tag.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            if (slug && !tagCounts.has(slug)) {
+              tagCounts.set(slug, { display: tag, count: 0 });
+            }
+            if (slug) tagCounts.get(slug)!.count++;
+          }
+        }
+        const topTags = Array.from(tagCounts.entries())
+          .filter(([, v]) => v.count >= 2)
+          .sort((a, b) => b[1].count - a[1].count)
+          .slice(0, 20);
+
+        return topTags.length > 0 ? (
+          <section className="mt-12">
+            <h2 className="text-2xl font-semibold mb-4">Browse by Topic</h2>
+            <div className="flex flex-wrap gap-2">
+              {topTags.map(([slug, { display, count }]) => (
+                <Link
+                  key={slug}
+                  href={`/blog/topic/${slug}`}
+                  className="text-sm bg-secondary hover:bg-secondary/80 text-foreground px-3 py-1.5 rounded-full transition-colors"
+                >
+                  {display} ({count})
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null;
+      })()}
 
       <div className="mt-12 bg-secondary rounded-xl p-8 text-center">
         <h2 className="text-xl font-semibold mb-2">Want More Guides?</h2>
