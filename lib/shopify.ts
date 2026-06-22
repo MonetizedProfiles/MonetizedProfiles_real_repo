@@ -183,3 +183,139 @@ export function formatPrice(amount: string, currencyCode = 'USD'): string {
     currency: currencyCode,
   }).format(parseFloat(amount));
 }
+
+// ─── Blog / Articles ───────────────────────────────────────────────
+
+export interface ShopifyArticle {
+  id: string;
+  title: string;
+  handle: string;
+  excerpt: string | null;
+  contentHtml: string;
+  publishedAt: string;
+  image: ShopifyImage | null;
+  author: { name: string };
+  blog: { title: string; handle: string };
+  tags: string[];
+  seo: { title: string | null; description: string | null };
+}
+
+export async function getArticles(first = 100): Promise<ShopifyArticle[]> {
+  try {
+    const data = await storefrontFetch<any>(`
+      query GetArticles($first: Int!) {
+        articles(first: $first, sortKey: PUBLISHED_AT, reverse: true) {
+          edges {
+            node {
+              id
+              title
+              handle
+              excerpt
+              contentHtml
+              publishedAt
+              tags
+              seo { title description }
+              image { url altText width height }
+              author { name }
+              blog { title handle }
+            }
+          }
+        }
+      }
+    `, { first });
+
+    return data.articles.edges.map((e: any) => e.node);
+  } catch {
+    return [];
+  }
+}
+
+export async function getArticleByHandle(blogHandle: string, articleHandle: string): Promise<ShopifyArticle | null> {
+  try {
+    const data = await storefrontFetch<any>(`
+      query GetArticle($blogHandle: String!, $articleHandle: String!) {
+        blog(handle: $blogHandle) {
+          articleByHandle(handle: $articleHandle) {
+            id
+            title
+            handle
+            excerpt
+            contentHtml
+            publishedAt
+            tags
+            seo { title description }
+            image { url altText width height }
+            author { name }
+            blog { title handle }
+          }
+        }
+      }
+    `, { blogHandle, articleHandle });
+
+    return data.blog?.articleByHandle || null;
+  } catch {
+    return null;
+  }
+}
+
+export async function getArticleHandles(): Promise<Array<{ blogHandle: string; articleHandle: string }>> {
+  try {
+    const data = await storefrontFetch<any>(`
+      query { articles(first: 250, sortKey: PUBLISHED_AT, reverse: true) {
+        edges { node { handle blog { handle } } }
+      }}
+    `);
+
+    return data.articles.edges.map((e: any) => ({
+      blogHandle: e.node.blog.handle,
+      articleHandle: e.node.handle,
+    }));
+  } catch {
+    return [];
+  }
+}
+
+// ─── Collections ───────────────────────────────────────────────────
+
+export async function getCollections(first = 20): Promise<ShopifyCollection[]> {
+  try {
+    const data = await storefrontFetch<any>(`
+      query GetCollections($first: Int!) {
+        collections(first: $first) {
+          edges {
+            node {
+              id
+              title
+              description
+              handle
+              image { url altText width height }
+              seo { title description }
+              products(first: 20) {
+                edges { node { handle } }
+              }
+            }
+          }
+        }
+      }
+    `);
+
+    return data.collections.edges.map((e: any) => ({
+      ...e.node,
+      image: e.node.image || null,
+      products: e.node.products.edges.map((pe: any) => pe.node),
+    }));
+  } catch {
+    return [];
+  }
+}
+
+export async function getCollectionHandles(): Promise<string[]> {
+  try {
+    const data = await storefrontFetch<any>(`
+      query { collections(first: 50) { edges { node { handle } } } }
+    `);
+    return data.collections.edges.map((e: any) => e.node.handle);
+  } catch {
+    return [];
+  }
+}

@@ -1,8 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SITE_NAME, SITE_URL } from '@/lib/constants';
-import { ArrowRight } from 'lucide-react';
+import { getArticles } from '@/lib/shopify';
 import { breadcrumbJsonLd } from '@/lib/seo';
+import { ArrowRight, Calendar } from 'lucide-react';
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Blog — Tips & Guides for Creators',
@@ -10,13 +14,14 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/blog` },
 };
 
-const posts = [
+const GUIDE_POSTS = [
   {
     slug: 'how-to-make-money-on-youtube',
     title: 'How to Make Money on YouTube in 2025: Complete Guide',
     excerpt: 'Everything you need to know about YouTube monetization requirements, revenue streams, and strategies for maximizing your earnings.',
     date: '2025-01-15',
     category: 'YouTube',
+    href: '/guides/how-to-make-money-on-youtube',
   },
   {
     slug: 'how-to-make-money-on-tiktok',
@@ -24,6 +29,7 @@ const posts = [
     excerpt: "A deep dive into TikTok's Creativity Program, how much creators are earning, and tips to maximize your RPM.",
     date: '2025-01-10',
     category: 'TikTok',
+    href: '/guides/how-to-make-money-on-tiktok',
   },
   {
     slug: 'top-niches',
@@ -31,10 +37,13 @@ const posts = [
     excerpt: 'Discover the most profitable niches for YouTube and TikTok — data-driven picks based on RPM, competition, and growth.',
     date: '2025-01-05',
     category: 'Niche Research',
+    href: '/guides/top-niches',
   },
 ];
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const articles = await getArticles(100);
+
   const breadcrumbs = [
     { name: 'Home', url: SITE_URL },
     { name: 'Blog', url: `${SITE_URL}/blog` },
@@ -56,27 +65,66 @@ export default function BlogPage() {
       </nav>
 
       <h1 className="text-4xl font-bold mb-4">Blog</h1>
-      <p className="text-muted-foreground mb-10">Tips and guides for monetizing your social media accounts.</p>
+      <p className="text-muted-foreground mb-10">Tips, guides, and insights on monetizing your social media accounts.</p>
 
-      <div className="space-y-6">
-        {posts.map((post) => (
-          <article key={post.slug} className="border border-border rounded-xl p-6 hover:shadow-md hover:border-primary/30 transition-all group">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-xs font-medium text-primary uppercase tracking-wider">{post.category}</span>
-              <time className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
-            </div>
-            <h2 className="text-xl font-semibold mb-2">
-              <Link href={`/guides/${post.slug}`} className="group-hover:text-primary transition-colors">
-                {post.title}
+      {/* Featured Guides */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-6">Featured Guides</h2>
+        <div className="space-y-4">
+          {GUIDE_POSTS.map((post) => (
+            <article key={post.slug} className="border border-border rounded-xl p-6 hover:shadow-md hover:border-primary/30 transition-all group">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-xs font-medium text-primary uppercase tracking-wider">{post.category}</span>
+                <time className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">
+                <Link href={post.href} className="group-hover:text-primary transition-colors">{post.title}</Link>
+              </h3>
+              <p className="text-muted-foreground text-sm mb-3">{post.excerpt}</p>
+              <Link href={post.href} className="text-sm font-medium text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+                Read Guide <ArrowRight className="h-4 w-4" />
               </Link>
-            </h2>
-            <p className="text-muted-foreground text-sm mb-3">{post.excerpt}</p>
-            <Link href={`/guides/${post.slug}`} className="text-sm font-medium text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
-              Read More <ArrowRight className="h-4 w-4" />
-            </Link>
-          </article>
-        ))}
-      </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Shopify Blog Articles */}
+      {articles.length > 0 && (
+        <section>
+          <h2 className="text-2xl font-semibold mb-6">Latest Articles</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {articles.map((article) => (
+              <article key={article.id} className="border border-border rounded-xl overflow-hidden hover:shadow-md hover:border-primary/30 transition-all group">
+                {article.image && (
+                  <div className="relative aspect-video">
+                    <Image
+                      src={article.image.url}
+                      alt={article.image.altText || article.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                )}
+                <div className="p-5">
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                    <Calendar className="h-3 w-3" />
+                    <time>{new Date(article.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
+                    {article.blog.title && <span className="text-primary font-medium">· {article.blog.title}</span>}
+                  </div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                    <Link href={`/blog/${article.blog.handle}/${article.handle}`}>{article.title}</Link>
+                  </h3>
+                  {article.excerpt && (
+                    <p className="text-sm text-muted-foreground line-clamp-2">{article.excerpt}</p>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="mt-12 bg-secondary rounded-xl p-8 text-center">
         <h2 className="text-xl font-semibold mb-2">Want More Guides?</h2>

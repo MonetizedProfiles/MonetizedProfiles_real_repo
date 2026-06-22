@@ -98,6 +98,38 @@ export function faqJsonLd(faqs: Array<{ question: string; answer: string }>) {
   };
 }
 
+export function articleJsonLd(article: {
+  title: string;
+  excerpt: string | null;
+  contentHtml: string;
+  publishedAt: string;
+  image: { url: string } | null;
+  author: { name: string };
+  blog: { handle: string };
+  handle: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: article.title,
+    description: article.excerpt || article.title,
+    datePublished: article.publishedAt,
+    dateModified: article.publishedAt,
+    author: { '@type': 'Person', name: article.author.name },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.webp` },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/blog/${article.blog.handle}/${article.handle}`,
+    },
+    ...(article.image ? { image: article.image.url } : {}),
+  };
+}
+
 export function organizationJsonLd() {
   return {
     '@context': 'https://schema.org',

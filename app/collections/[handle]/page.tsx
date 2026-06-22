@@ -1,36 +1,77 @@
 import type { Metadata } from 'next';
-import { getProducts } from '@/lib/shopify';
+import { getProducts, getCollectionHandles } from '@/lib/shopify';
 import { ProductCard } from '@/components/product-card';
 import { breadcrumbJsonLd } from '@/lib/seo';
-import { SITE_URL, SITE_NAME } from '@/lib/constants';
+import { SITE_URL, SITE_NAME, PRODUCT_CATEGORIES } from '@/lib/constants';
 
 export const revalidate = 300;
 
-export function generateStaticParams() {
-  return [{ handle: 'all' }];
+const CATEGORY_META: Record<string, { title: string; description: string; filterHandles?: string[] }> = {
+  all: {
+    title: 'All Products',
+    description: 'Browse all monetized social media accounts. YouTube channels, TikTok accounts, and more. Instant delivery, organic growth.',
+  },
+  youtube: {
+    title: 'Monetized YouTube Channels',
+    description: 'Buy monetized YouTube channels with 1,000+ subscribers and 4,000+ watch hours. YouTube Partner Program approved. Instant delivery.',
+    filterHandles: [...PRODUCT_CATEGORIES.youtube.handles],
+  },
+  tiktok: {
+    title: 'Monetized TikTok Accounts',
+    description: 'Buy monetized TikTok accounts with 10,000+ followers. Creativity Program and Shop Affiliate accounts available. Instant delivery.',
+    filterHandles: [...PRODUCT_CATEGORIES.tiktok.handles],
+  },
+  instagram: {
+    title: 'Aged Instagram Accounts',
+    description: 'Buy aged Instagram accounts with established history. Perfect for brand building and fast growth.',
+    filterHandles: [...PRODUCT_CATEGORIES.instagram.handles],
+  },
+};
+
+const STATIC_HANDLES = ['all', 'youtube', 'tiktok', 'instagram'];
+
+export async function generateStaticParams() {
+  const params = STATIC_HANDLES.map(handle => ({ handle }));
+
+  try {
+    const shopifyHandles = await getCollectionHandles();
+    for (const h of shopifyHandles) {
+      if (!STATIC_HANDLES.includes(h)) {
+        params.push({ handle: h });
+      }
+    }
+  } catch {}
+
+  return params;
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ handle: string }> }): Promise<Metadata> {
   const { handle } = await params;
-  const title = handle === 'all' ? 'All Products' : handle.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  const meta = CATEGORY_META[handle];
+  const title = meta?.title || handle.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  const description = meta?.description || `Browse our ${title.toLowerCase()} collection. All accounts are organically grown and fully monetized. Instant delivery.`;
 
   return {
     title: `${title} — ${SITE_NAME}`,
-    description: `Browse our ${title.toLowerCase()} collection. All accounts are organically grown and fully monetized. Instant delivery.`,
+    description,
     alternates: { canonical: `${SITE_URL}/collections/${handle}` },
   };
 }
 
 export default async function CollectionPage({ params }: { params: Promise<{ handle: string }> }) {
   const { handle } = await params;
+  const meta = CATEGORY_META[handle];
+
   let products: Awaited<ReturnType<typeof getProducts>> = [];
   try {
     products = await getProducts(20);
-  } catch {
-    products = [];
+  } catch {}
+
+  if (meta?.filterHandles) {
+    products = products.filter(p => meta.filterHandles!.includes(p.handle));
   }
 
-  const title = handle === 'all' ? 'All Products' : handle.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  const title = meta?.title || handle.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 
   const breadcrumbs = [
     { name: 'Home', url: SITE_URL },
@@ -52,7 +93,10 @@ export default async function CollectionPage({ params }: { params: Promise<{ han
         </ol>
       </nav>
 
-      <h1 className="text-3xl md:text-4xl font-bold mb-8">{title}</h1>
+      <h1 className="text-3xl md:text-4xl font-bold mb-3">{title}</h1>
+      {meta?.description && (
+        <p className="text-muted-foreground mb-8 max-w-2xl">{meta.description}</p>
+      )}
 
       {products.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -62,6 +106,12 @@ export default async function CollectionPage({ params }: { params: Promise<{ han
         </div>
       ) : (
         <p className="text-muted-foreground">Products loading — check back shortly.</p>
+      )}
+
+      {handle !== 'all' && (
+        <div className="mt-12 text-center">
+          <a href="/collections/all" className="text-primary font-medium hover:underline">View All Products →</a>
+        </div>
       )}
     </div>
   );

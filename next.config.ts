@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
     return [
       { source: '/product/:handle', destination: '/products/:handle', permanent: true },
       { source: '/blogs', destination: '/blog', permanent: true },
+      { source: '/blogs/:blogHandle/:articleHandle', destination: '/blog/:blogHandle/:articleHandle', permanent: true },
       { source: '/bonus/top-niches', destination: '/guides/top-niches', permanent: true },
     ];
   },
