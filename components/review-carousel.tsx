@@ -15,7 +15,7 @@ export function ReviewCarousel() {
         </div>
       </div>
 
-      <div className="flex gap-6 animate-scroll-left hover:[animation-play-state:paused]">
+      <div className="flex gap-6 motion-safe:animate-scroll-left hover:[animation-play-state:paused]">
         {[...featuredReviews, ...featuredReviews].map((review, i) => (
           <div
             key={`${review.id}-${i}`}

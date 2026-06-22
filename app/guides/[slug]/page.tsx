@@ -130,6 +130,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           <ol className="flex items-center gap-1.5">
             <li><a href="/" className="hover:text-foreground">Home</a></li>
             <li>/</li>
+            <li><a href="/guides" className="hover:text-foreground">Guides</a></li>
+            <li>/</li>
             <li className="text-foreground font-medium">{guide.h1}</li>
           </ol>
         </nav>

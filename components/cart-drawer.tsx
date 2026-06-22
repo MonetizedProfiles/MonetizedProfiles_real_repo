@@ -1,6 +1,6 @@
 'use client';
 
-import { X, Minus, Plus, Trash2, Shield, CreditCard } from 'lucide-react';
+import { X, Minus, Plus, Trash2, Shield, CreditCard, Loader } from 'lucide-react';
 import Image from 'next/image';
 import { useCartStore } from '@/lib/cart-store';
 import { formatPrice } from '@/lib/shopify';
@@ -43,15 +43,15 @@ export function CartDrawer() {
                     {formatPrice(item.price.amount, item.price.currencyCode)}
                   </p>
                   <div className="flex items-center gap-2 mt-2">
-                    <button onClick={() => updateQuantity(item.variantId, item.quantity - 1)} className="p-1 hover:bg-secondary rounded" aria-label="Decrease">
-                      <Minus className="h-3 w-3" />
+                    <button onClick={() => updateQuantity(item.variantId, item.quantity - 1)} className="p-2 hover:bg-secondary rounded-lg" aria-label="Decrease quantity">
+                      <Minus className="h-4 w-4" />
                     </button>
                     <span className="text-sm w-6 text-center">{item.quantity}</span>
-                    <button onClick={() => updateQuantity(item.variantId, item.quantity + 1)} className="p-1 hover:bg-secondary rounded" aria-label="Increase">
-                      <Plus className="h-3 w-3" />
+                    <button onClick={() => updateQuantity(item.variantId, item.quantity + 1)} className="p-2 hover:bg-secondary rounded-lg" aria-label="Increase quantity">
+                      <Plus className="h-4 w-4" />
                     </button>
-                    <button onClick={() => removeItem(item.variantId)} className="p-1 hover:bg-destructive/10 text-destructive rounded ml-auto" aria-label="Remove">
-                      <Trash2 className="h-3 w-3" />
+                    <button onClick={() => removeItem(item.variantId)} className="p-2 hover:bg-destructive/10 text-destructive rounded-lg ml-auto" aria-label="Remove item">
+                      <Trash2 className="h-4 w-4" />
                     </button>
                   </div>
                 </div>
@@ -77,7 +77,12 @@ export function CartDrawer() {
               disabled={isCheckingOut}
               className="w-full bg-primary text-primary-foreground py-3.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50"
             >
-              {isCheckingOut ? 'Redirecting to checkout...' : 'Secure Checkout — Start Earning'}
+              {isCheckingOut ? (
+                <span className="flex items-center justify-center gap-2">
+                  <Loader className="h-5 w-5 animate-spin" />
+                  Redirecting to checkout...
+                </span>
+              ) : 'Secure Checkout — Start Earning'}
             </button>
 
             <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground pt-1">
