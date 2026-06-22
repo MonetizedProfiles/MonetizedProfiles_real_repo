@@ -78,7 +78,7 @@ export function ProductCard({ product }: { product: ShopifyProduct }) {
             )}
           </div>
           <span className="text-sm font-medium text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
-            View <ArrowRight className="h-4 w-4" />
+            Shop Now <ArrowRight className="h-4 w-4" />
           </span>
         </div>
       </div>

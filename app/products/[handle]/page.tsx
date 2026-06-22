@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { getProductByHandle, getProductHandles, formatPrice } from '@/lib/shopify';
+import { getProductByHandle, getProductHandles, getProducts, formatPrice } from '@/lib/shopify';
 import { productJsonLd, breadcrumbJsonLd, faqJsonLd } from '@/lib/seo';
 import { SITE_NAME, SITE_URL, TRUST_STATS } from '@/lib/constants';
 import { getProductFaqs } from '@/data/faqs';
@@ -10,6 +10,8 @@ import { ProductReviews } from '@/components/product-reviews';
 import { TrustSignals } from '@/components/trust-signals';
 import { ProductFaq } from '@/components/product-faq';
 import { GuaranteeBadge } from '@/components/guarantee-badge';
+import { StockIndicator } from '@/components/stock-indicator';
+import { CrossSell } from '@/components/cross-sell';
 import { Shield, Truck, Award, CheckCircle, Star, BookOpen, Headphones } from 'lucide-react';
 
 export const revalidate = 300;
@@ -59,6 +61,9 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
   const { handle } = await params;
   const product = await getProductByHandle(handle);
   if (!product) notFound();
+
+  let allProducts: Awaited<ReturnType<typeof getProducts>> = [];
+  try { allProducts = await getProducts(20); } catch {}
 
   const reviewStats = { count: TRUST_STATS.totalReviews, average: TRUST_STATS.averageRating };
   const includes = PRODUCT_INCLUDES[handle] || [];
@@ -202,6 +207,11 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
             {/* Description */}
             <div className="prose prose-sm max-w-none mb-6 text-muted-foreground" dangerouslySetInnerHTML={{ __html: product.descriptionHtml || product.description }} />
 
+            {/* Stock Indicator */}
+            <div className="mb-4">
+              <StockIndicator handle={handle} />
+            </div>
+
             {/* Add to Cart */}
             <AddToCart product={product} />
 
@@ -224,6 +234,9 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
 
         {/* FAQ */}
         <ProductFaq handle={handle} />
+
+        {/* Cross-Sell */}
+        <CrossSell currentHandle={handle} products={allProducts} />
       </div>
     </>
   );

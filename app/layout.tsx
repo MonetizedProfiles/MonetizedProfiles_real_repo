@@ -6,6 +6,8 @@ import { Footer } from '@/components/footer';
 import { Analytics } from '@/components/analytics';
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '@/lib/constants';
 import { organizationJsonLd, websiteJsonLd } from '@/lib/seo';
+import { SocialProofPopup } from '@/components/social-proof-popup';
+import { ExitIntent } from '@/components/exit-intent';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -45,6 +47,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <SocialProofPopup />
+        <ExitIntent />
         <Analytics />
       </body>
     </html>

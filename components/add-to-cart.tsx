@@ -94,7 +94,7 @@ export function AddToCart({ product }: { product: ShopifyProduct }) {
         }`}
       >
         <ShoppingCart className="h-5 w-5" />
-        {!variant.availableForSale ? 'Sold Out' : added ? 'Added to Cart!' : 'Add to Cart — Start Earning'}
+        {!variant.availableForSale ? 'Sold Out' : added ? 'Added to Cart!' : 'Start Earning Now — Add to Cart'}
       </button>
 
       <p className="text-center text-xs text-muted-foreground">

@@ -129,6 +129,14 @@ export default async function CollectionPage({ params }: { params: Promise<{ han
           <a href="/collections/all" className="text-primary font-medium hover:underline">View All Products →</a>
         </div>
       )}
+
+      <div className="mt-12 bg-secondary rounded-xl p-8 text-center">
+        <h2 className="text-xl font-semibold mb-2">Not Sure Which Account Is Right for You?</h2>
+        <p className="text-muted-foreground text-sm mb-4">
+          Our team can help you choose the perfect account for your goals. All purchases include a 30-day money-back guarantee.
+        </p>
+        <a href="/contact" className="text-primary font-medium hover:underline">Talk to Our Team →</a>
+      </div>
     </div>
   );
 }

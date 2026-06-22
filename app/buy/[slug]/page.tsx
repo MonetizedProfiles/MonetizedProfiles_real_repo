@@ -10,6 +10,7 @@ import { TrustBar } from '@/components/trust-bar';
 import { ReviewCarousel } from '@/components/review-carousel';
 import { FaqSection } from '@/components/faq-section';
 import { GuaranteeBadge } from '@/components/guarantee-badge';
+import { StockIndicator } from '@/components/stock-indicator';
 import { Shield, Zap, Star, CheckCircle } from 'lucide-react';
 
 export function generateStaticParams() {
@@ -77,13 +78,14 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">{page.h1}</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">{page.description}</p>
           {product && (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col gap-4 items-center">
               <Link
                 href={`/products/${page.productHandle}`}
-                className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors animate-pulse-glow"
               >
-                Start Earning — From {formatPrice(product.priceRange.minVariantPrice.amount)}
+                Start Earning Now — From {formatPrice(product.priceRange.minVariantPrice.amount)}
               </Link>
+              <StockIndicator handle={page.productHandle} />
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
                 <div className="flex">
                   {Array.from({ length: 5 }).map((_, i) => (

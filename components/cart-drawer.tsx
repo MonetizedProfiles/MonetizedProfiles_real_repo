@@ -67,21 +67,25 @@ export function CartDrawer() {
               <span>{formatPrice(total.toString())}</span>
             </div>
 
+            <div className="flex items-center gap-2 bg-green-50 border border-green-200 rounded-lg p-2.5 mb-1">
+              <Shield className="h-5 w-5 text-green-600 flex-shrink-0" />
+              <p className="text-xs text-green-800 font-medium">30-day money-back guarantee on all accounts</p>
+            </div>
+
             <button
               onClick={checkout}
               disabled={isCheckingOut}
               className="w-full bg-primary text-primary-foreground py-3.5 rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50"
             >
-              {isCheckingOut ? 'Redirecting to checkout...' : 'Secure Checkout'}
+              {isCheckingOut ? 'Redirecting to checkout...' : 'Secure Checkout — Start Earning'}
             </button>
 
-            {/* Reassurance */}
             <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground pt-1">
               <span className="flex items-center gap-1"><Shield className="h-3 w-3 text-green-600" /> SSL Secure</span>
               <span className="flex items-center gap-1"><CreditCard className="h-3 w-3" /> All cards accepted</span>
             </div>
             <p className="text-center text-xs text-muted-foreground">
-              Instant delivery &bull; 30-day money-back guarantee
+              Instant delivery to your email within minutes
             </p>
           </div>
         )}
