@@ -53,6 +53,10 @@ export interface ShopifyCollection {
 }
 
 async function storefrontFetch<T>(query: string, variables: Record<string, unknown> = {}): Promise<T> {
+  if (!SHOPIFY_STOREFRONT_TOKEN) {
+    throw new Error('SHOPIFY_STOREFRONT_TOKEN is not configured');
+  }
+
   const res = await fetch(STOREFRONT_URL, {
     method: 'POST',
     headers: {
@@ -123,35 +127,47 @@ function normalizeProduct(raw: any): ShopifyProduct {
 }
 
 export async function getProducts(first = 20): Promise<ShopifyProduct[]> {
-  const data = await storefrontFetch<any>(`
-    ${PRODUCT_FRAGMENT}
-    query GetProducts($first: Int!) {
-      products(first: $first) {
-        edges { node { ...ProductFields } }
+  try {
+    const data = await storefrontFetch<any>(`
+      ${PRODUCT_FRAGMENT}
+      query GetProducts($first: Int!) {
+        products(first: $first) {
+          edges { node { ...ProductFields } }
+        }
       }
-    }
-  `, { first });
+    `, { first });
 
-  return data.products.edges.map((e: any) => normalizeProduct(e.node));
+    return data.products.edges.map((e: any) => normalizeProduct(e.node));
+  } catch {
+    return [];
+  }
 }
 
 export async function getProductByHandle(handle: string): Promise<ShopifyProduct | null> {
-  const data = await storefrontFetch<any>(`
-    ${PRODUCT_FRAGMENT}
-    query GetProductByHandle($handle: String!) {
-      productByHandle(handle: $handle) { ...ProductFields }
-    }
-  `, { handle });
+  try {
+    const data = await storefrontFetch<any>(`
+      ${PRODUCT_FRAGMENT}
+      query GetProductByHandle($handle: String!) {
+        productByHandle(handle: $handle) { ...ProductFields }
+      }
+    `, { handle });
 
-  if (!data.productByHandle) return null;
-  return normalizeProduct(data.productByHandle);
+    if (!data.productByHandle) return null;
+    return normalizeProduct(data.productByHandle);
+  } catch {
+    return null;
+  }
 }
 
 export async function getProductHandles(): Promise<string[]> {
-  const data = await storefrontFetch<any>(`
-    query { products(first: 100) { edges { node { handle } } } }
-  `);
-  return data.products.edges.map((e: any) => e.node.handle);
+  try {
+    const data = await storefrontFetch<any>(`
+      query { products(first: 100) { edges { node { handle } } } }
+    `);
+    return data.products.edges.map((e: any) => e.node.handle);
+  } catch {
+    return [];
+  }
 }
 
 export async function createCart(lines: Array<{ merchandiseId: string; quantity: number; attributes?: Array<{ key: string; value: string }> }>) {
