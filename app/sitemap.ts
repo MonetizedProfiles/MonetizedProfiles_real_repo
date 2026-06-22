@@ -10,6 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: SITE_URL, lastModified: now, changeFrequency: 'daily', priority: 1.0 },
     { url: `${SITE_URL}/collections/all`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE_URL}/guides`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/affiliate`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${SITE_URL}/policies/privacy-policy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
@@ -35,5 +36,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...productPages, ...landingPages];
+  const guidePages: MetadataRoute.Sitemap = [
+    'top-niches',
+    'how-to-make-money-on-youtube',
+    'how-to-make-money-on-tiktok',
+  ].map((slug) => ({
+    url: `${SITE_URL}/guides/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...productPages, ...landingPages, ...guidePages];
 }

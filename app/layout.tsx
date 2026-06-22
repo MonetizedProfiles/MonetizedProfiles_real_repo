@@ -27,6 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.className}>
       <head>
+        {/* Preconnect to critical origins for faster resource loading */}
+        <link rel="preconnect" href="https://cdn.shopify.com" />
+        <link rel="preconnect" href="https://images.loox.io" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://script.tapfiliate.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}

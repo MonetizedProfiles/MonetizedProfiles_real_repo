@@ -10,6 +10,7 @@ export function AddToCart({ product }: { product: ShopifyProduct }) {
   const addItem = useCartStore((s) => s.addItem);
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [added, setAdded] = useState(false);
 
   const variant = product.variants[selectedVariantIndex];
   if (!variant) return null;
@@ -26,12 +27,16 @@ export function AddToCart({ product }: { product: ShopifyProduct }) {
       quantity,
       selectedOptions: variant.selectedOptions,
     });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
   };
+
+  const hasMultipleVariants = product.options.length > 0 && product.options[0].name !== 'Title';
 
   return (
     <div className="space-y-4">
       {/* Variant Selection */}
-      {product.options.length > 0 && product.options[0].name !== 'Title' && (
+      {hasMultipleVariants && (
         <div>
           {product.options.map((option) => (
             <div key={option.name} className="mb-3">
@@ -52,11 +57,9 @@ export function AddToCart({ product }: { product: ShopifyProduct }) {
                       disabled={!v.availableForSale}
                     >
                       {optionValue}
-                      {v.title !== 'Default Title' && (
-                        <span className="ml-1 text-muted-foreground">
-                          — {formatPrice(v.price.amount, v.price.currencyCode)}
-                        </span>
-                      )}
+                      <span className="ml-1 text-muted-foreground">
+                        — {formatPrice(v.price.amount, v.price.currencyCode)}
+                      </span>
                     </button>
                   );
                 })}
@@ -84,11 +87,19 @@ export function AddToCart({ product }: { product: ShopifyProduct }) {
       <button
         onClick={handleAdd}
         disabled={!variant.availableForSale}
-        className="w-full bg-primary text-primary-foreground py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className={`w-full py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
+          added
+            ? 'bg-green-600 text-white'
+            : 'bg-primary text-primary-foreground hover:bg-primary/90'
+        }`}
       >
         <ShoppingCart className="h-5 w-5" />
-        {variant.availableForSale ? 'Add to Cart' : 'Sold Out'}
+        {!variant.availableForSale ? 'Sold Out' : added ? 'Added to Cart!' : 'Add to Cart — Start Earning'}
       </button>
+
+      <p className="text-center text-xs text-muted-foreground">
+        Instant delivery to your email &bull; Secure Shopify checkout &bull; Lifetime support
+      </p>
     </div>
   );
 }

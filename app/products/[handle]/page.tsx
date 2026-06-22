@@ -8,7 +8,8 @@ import { AddToCart } from '@/components/add-to-cart';
 import { ProductReviews } from '@/components/product-reviews';
 import { TrustSignals } from '@/components/trust-signals';
 import { ProductFaq } from '@/components/product-faq';
-import { Shield, Truck, Award, CheckCircle } from 'lucide-react';
+import { GuaranteeBadge } from '@/components/guarantee-badge';
+import { Shield, Truck, Award, CheckCircle, Star, BookOpen, Headphones } from 'lucide-react';
 
 export const revalidate = 300;
 
@@ -26,8 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ handle: s
   const product = await getProductByHandle(handle);
   if (!product) return {};
 
-  const title = product.seo.title || product.title;
-  const description = product.seo.description || `Buy ${product.title} — ${product.description.slice(0, 150)}`;
+  const title = product.seo.title || `Buy ${product.title} — Instant Delivery`;
+  const description = product.seo.description || `Buy ${product.title}. ${product.description.slice(0, 140)}. Organic growth, instant delivery, 30-day guarantee.`;
 
   return {
     title,
@@ -43,12 +44,23 @@ export async function generateMetadata({ params }: { params: Promise<{ handle: s
   };
 }
 
+const PRODUCT_INCLUDES: Record<string, string[]> = {
+  youtube: ['Monetized YouTube channel (YPP approved)', '1,000+ organic subscribers', '4,000+ watch hours', 'Full Google account transfer', 'Course materials & niche list', 'Lifetime support'],
+  'aged-youtube': ['Aged YouTube channel (est. 2010+)', 'Algorithm-boosted authority', 'Full Google account transfer', 'Course materials & niche list', 'Lifetime support'],
+  'monetized-tiktok-account': ['Monetized TikTok account', '10,000+ organic followers', 'US e-SIM card included', 'Creativity Program enabled', 'Course materials & niche list', 'Lifetime support'],
+  'tiktok-shop-affiliate-account': ['TikTok Shop affiliate account', '5,000+ US followers', 'Shop affiliate program approved', 'Course materials & niche list', 'Lifetime support'],
+  'uk-tiktok-shop-affiliate-account': ['TikTok Shop affiliate account', '5,000+ UK followers', 'UK Shop marketplace approved', 'Course materials & niche list', 'Lifetime support'],
+  'aged-instagram-account': ['Aged Instagram account', 'Established account history', 'Lifetime support'],
+  'niche-list': ['50+ curated profitable niches', 'RPM estimates per niche', 'Content ideas & strategy', 'Works for YouTube & TikTok'],
+};
+
 export default async function ProductPage({ params }: { params: Promise<{ handle: string }> }) {
   const { handle } = await params;
   const product = await getProductByHandle(handle);
   if (!product) notFound();
 
   const reviewStats = { count: TRUST_STATS.totalReviews, average: TRUST_STATS.averageRating };
+  const includes = PRODUCT_INCLUDES[handle] || [];
 
   const breadcrumbs = [
     { name: 'Home', url: SITE_URL },
@@ -123,32 +135,35 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
             <div className="flex items-center gap-2 mb-4">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <svg key={i} className={`h-5 w-5 ${i < Math.round(reviewStats.average) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} viewBox="0 0 20 20">
-                    <path d="M10 1l2.39 6.56H19l-5.3 4.03L15.91 19 10 15.27 4.09 19l2.21-7.41L1 7.56h6.61z" />
-                  </svg>
+                  <Star key={i} className={`h-5 w-5 ${i < Math.round(reviewStats.average) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200'}`} />
                 ))}
               </div>
-              <span className="text-sm text-muted-foreground">{reviewStats.average}/5 ({reviewStats.count} reviews)</span>
+              <span className="text-sm text-muted-foreground">{reviewStats.average}/5 ({reviewStats.count} verified reviews)</span>
             </div>
 
             {/* Price */}
-            <div className="flex items-baseline gap-3 mb-6">
+            <div className="flex items-baseline gap-3 mb-4">
               <span className="text-3xl font-bold text-primary">
                 {formatPrice(product.priceRange.minVariantPrice.amount, product.priceRange.minVariantPrice.currencyCode)}
               </span>
               {product.variants[0]?.compareAtPrice && (
-                <span className="text-lg text-muted-foreground line-through">
-                  {formatPrice(product.variants[0].compareAtPrice.amount)}
-                </span>
+                <>
+                  <span className="text-lg text-muted-foreground line-through">
+                    {formatPrice(product.variants[0].compareAtPrice.amount)}
+                  </span>
+                  <span className="text-sm font-semibold text-green-600 bg-green-50 px-2 py-0.5 rounded">
+                    Save {formatPrice((parseFloat(product.variants[0].compareAtPrice.amount) - parseFloat(product.priceRange.minVariantPrice.amount)).toString())}
+                  </span>
+                </>
               )}
             </div>
 
             {/* Trust badges inline */}
-            <div className="flex flex-wrap gap-3 mb-6">
+            <div className="flex flex-wrap gap-2 mb-6">
               {[
                 { icon: Shield, label: '100% Organic' },
                 { icon: Truck, label: 'Instant Delivery' },
-                { icon: Award, label: 'Money-Back Guarantee' },
+                { icon: Award, label: '30-Day Guarantee' },
                 { icon: CheckCircle, label: 'Verified Accounts' },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-1.5 text-sm text-muted-foreground bg-secondary px-3 py-1.5 rounded-full">
@@ -158,14 +173,41 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
               ))}
             </div>
 
+            {/* What's Included */}
+            {includes.length > 0 && (
+              <div className="bg-secondary/50 border border-border rounded-lg p-4 mb-6">
+                <h3 className="font-semibold text-sm mb-2 flex items-center gap-1.5">
+                  <BookOpen className="h-4 w-4 text-primary" />
+                  What&apos;s Included
+                </h3>
+                <ul className="space-y-1.5">
+                  {includes.map((item) => (
+                    <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Description */}
-            <div className="prose prose-sm max-w-none mb-8 text-muted-foreground" dangerouslySetInnerHTML={{ __html: product.descriptionHtml || product.description }} />
+            <div className="prose prose-sm max-w-none mb-6 text-muted-foreground" dangerouslySetInnerHTML={{ __html: product.descriptionHtml || product.description }} />
 
             {/* Add to Cart */}
             <AddToCart product={product} />
 
+            {/* Guarantee */}
+            <GuaranteeBadge variant="inline" />
+
             {/* Trust Signals */}
             <TrustSignals />
+
+            {/* Support note */}
+            <div className="flex items-center gap-2 mt-4 text-sm text-muted-foreground">
+              <Headphones className="h-4 w-4" />
+              <span>Need help? <a href="/contact" className="text-primary hover:underline">Contact our support team</a></span>
+            </div>
           </div>
         </div>
 

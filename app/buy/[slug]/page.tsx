@@ -9,6 +9,7 @@ import { ProductCard } from '@/components/product-card';
 import { TrustBar } from '@/components/trust-bar';
 import { ReviewCarousel } from '@/components/review-carousel';
 import { FaqSection } from '@/components/faq-section';
+import { GuaranteeBadge } from '@/components/guarantee-badge';
 import { Shield, Zap, Star, CheckCircle } from 'lucide-react';
 
 export function generateStaticParams() {
@@ -23,6 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: page.title,
     description: page.description,
+    keywords: page.keywords.join(', '),
     alternates: { canonical: `${SITE_URL}/buy/${slug}` },
     openGraph: {
       type: 'website',
@@ -80,7 +82,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
                 href={`/products/${page.productHandle}`}
                 className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors"
               >
-                Buy Now — {formatPrice(product.priceRange.minVariantPrice.amount)}
+                Start Earning — From {formatPrice(product.priceRange.minVariantPrice.amount)}
               </Link>
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
                 <div className="flex">
@@ -88,7 +90,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
                     <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                   ))}
                 </div>
-                {TRUST_STATS.totalReviews}+ reviews
+                {TRUST_STATS.totalReviews}+ verified reviews
               </div>
             </div>
           )}
@@ -127,6 +129,8 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
       )}
+
+      <GuaranteeBadge variant="banner" />
 
       <ReviewCarousel />
 
