@@ -15,6 +15,7 @@ import { useQuery } from "@tanstack/react-query";
 import { STOREFRONT_QUERY, storefrontApiRequest, ShopifyProduct } from "@/lib/shopify";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+import { trackKlaviyoEvent } from "@/lib/klaviyo";
 
 export const CartDrawer = () => {
   const { 
@@ -64,9 +65,28 @@ export const CartDrawer = () => {
     console.log('🛒 CHECKOUT BUTTON CLICKED');
     try {
       console.log('Starting checkout process...');
+
+      const storedEmail = localStorage.getItem('klaviyo_email');
+      if (storedEmail) {
+        trackKlaviyoEvent(storedEmail, "Checkout Started", {
+          item_count: totalItems,
+          total_price: totalPrice,
+          currency: items[0]?.price.currencyCode || "USD",
+          items: items.map(item => ({
+            product_name: item.product.node.title,
+            product_handle: item.product.node.handle,
+            variant_title: item.variantTitle,
+            price: item.price.amount,
+            quantity: item.quantity,
+          })),
+        }).catch(error => {
+          console.error("Failed to track checkout started:", error);
+        });
+      }
+
       const checkoutUrl = await createCheckout();
       console.log('Checkout URL received:', checkoutUrl);
-      
+
       if (checkoutUrl) {
         console.log('Redirecting to checkout...');
         setCartOpen(false);
