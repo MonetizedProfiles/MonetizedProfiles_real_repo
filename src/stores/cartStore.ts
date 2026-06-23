@@ -212,6 +212,7 @@ export const useCartStore = create<CartStore>()(
         if (storedEmail) {
           import("@/lib/klaviyo").then(({ trackKlaviyoEvent }) => {
             trackKlaviyoEvent(storedEmail, "Added to Cart", {
+              $value: parseFloat(item.price.amount) * item.quantity,
               product_name: item.product.node.title,
               product_handle: item.product.node.handle,
               variant_title: item.variantTitle,

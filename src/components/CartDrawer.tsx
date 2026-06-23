@@ -69,8 +69,8 @@ export const CartDrawer = () => {
       const storedEmail = localStorage.getItem('klaviyo_email');
       if (storedEmail) {
         trackKlaviyoEvent(storedEmail, "Checkout Started", {
+          $value: totalPrice,
           item_count: totalItems,
-          total_price: totalPrice,
           currency: items[0]?.price.currencyCode || "USD",
           items: items.map(item => ({
             product_name: item.product.node.title,

@@ -89,6 +89,7 @@ const ProductDetail = () => {
         try {
           const { trackKlaviyoEvent } = await import("@/lib/klaviyo");
           await trackKlaviyoEvent(storedEmail, "Viewed Product", {
+            $value: parseFloat(productData.variants?.edges?.[0]?.node?.price?.amount || "0"),
             product_name: productData.title,
             product_handle: productData.handle,
             product_price: productData.variants?.edges?.[0]?.node?.price?.amount || "0",
