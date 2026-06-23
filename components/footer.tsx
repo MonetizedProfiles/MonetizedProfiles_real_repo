@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SITE_NAME, NAV_LINKS, PRODUCT_HANDLES } from '@/lib/constants';
-import { CreditCard, Lock } from 'lucide-react';
+import { Lock } from 'lucide-react';
+import { klaviyoSubscribe } from '@/lib/klaviyo';
 
 const PRODUCT_DISPLAY_NAMES: Record<string, string> = {
   youtube: 'Monetized YouTube Channel',
@@ -20,10 +21,31 @@ const PAYMENT_METHODS = ['Visa', 'Mastercard', 'Amex', 'Apple Pay', 'Google Pay'
 export function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  useEffect(() => {
+    if (localStorage.getItem('mp-footer-subscribed')) {
+      setSubscribed(true);
+    }
+  }, []);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) setSubscribed(true);
+    if (!email || submitting) return;
+
+    setSubmitting(true);
+    setError('');
+
+    try {
+      await klaviyoSubscribe(email, 'footer_newsletter');
+      setSubscribed(true);
+      localStorage.setItem('mp-footer-subscribed', '1');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -50,12 +72,14 @@ export function Footer() {
                 />
                 <button
                   type="submit"
-                  className="text-sm font-medium px-3 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                  disabled={submitting}
+                  className="text-sm font-medium px-3 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50"
                 >
-                  Join
+                  {submitting ? '...' : 'Join'}
                 </button>
               </form>
             )}
+            {error && <p className="text-xs text-red-400 mt-1">{error}</p>}
             <p className="text-xs text-background/60 mt-2">Get tips & deals. No spam.</p>
           </div>
           <nav aria-label="Products">
