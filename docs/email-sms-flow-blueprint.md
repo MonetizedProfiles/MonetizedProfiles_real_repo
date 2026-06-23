@@ -674,7 +674,10 @@ were created with blueprint copy. Swap them in the Klaviyo flow builder:
 - [ ] Merge Post-Purchase flows (XYcnt9 + RRHZ2s) - swap template (see above), add review request email at 7 days
 - [ ] Update Winback flow (R4Pahj) - swap templates (see above), change trigger to 45 days, add 3rd email (SmQd5k)
 - [ ] CREATE new VIP/Repeat Buyer flow - trigger on 2+ orders, use templates UVprNK + RNicHC
-- [ ] Fix SMS Welcome (YtR9wx) - change TikAccounts → MonetizedProfiles
+- [ ] Fix SMS Welcome (YtR9wx) - change TikAccounts → MonetizedProfiles in 2 messages:
+  - **Main action (70161605)** message XRMkXb: Change "TikAccounts family" → "MonetizedProfiles family" and tikaccounts.com → monetizedprofiles.com
+  - **Coupon reminder (70161609)** message VmHauF: Change tikaccounts.com → monetizedprofiles.com
+  - Note: A/B test variations (70161831, 70161832) are already updated
 - [ ] CREATE SMS Abandoned Cart flow
 - [ ] CREATE SMS Back-in-Stock flow
 
@@ -714,6 +717,8 @@ tracking serves as a **backup** and also captures users who start checkout but d
 Shopify's checkout page (e.g., if the redirect fails or is slow).
 
 ### Environment Variables Needed
-- [ ] Add `KLAVIYO_PRIVATE_API_KEY` to Supabase/Vercel environment variables
+- [ ] Add `KLAVIYO_PRIVATE_API_KEY` as a **Supabase secret** (NOT Vercel — Vercel is only for hosting)
+  - Run: `supabase secrets set KLAVIYO_PRIVATE_API_KEY=pk_your_key_here`
+  - Find the key in Klaviyo → Settings → API Keys (starts with `pk_`)
   - The Supabase edge function already reads from `Deno.env.get("KLAVIYO_PRIVATE_API_KEY")`
   - Without this key, all Klaviyo tracking calls will fail silently
