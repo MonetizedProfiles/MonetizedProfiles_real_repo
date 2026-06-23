@@ -689,3 +689,31 @@ were created with blueprint copy. Swap them in the Klaviyo flow builder:
 - [x] Analyzed 71 sent campaigns: $25.7K total revenue, 20.12% avg open rate, 1.33% avg click rate
 - [x] Key insight: product-focused subjects + scarcity = highest performing combo
 - [x] All template copy updated to reflect winning patterns from campaign data
+
+### Klaviyo Event Tracking (Code Changes - DONE)
+- [x] "Checkout Started" event added to CartDrawer.tsx handleCheckout function
+- [x] `$value` (revenue attribution) added to all 3 tracked events:
+  - Viewed Product (ProductDetail.tsx)
+  - Added to Cart (cartStore.ts)
+  - Checkout Started (CartDrawer.tsx)
+- [x] All events fire through Supabase edge function → Klaviyo Events API
+
+### Important: Flow Trigger Metric Mapping
+The existing Klaviyo flows trigger on **Shopify-integrated metrics** (e.g., "Started Checkout"
+from the Shopify integration). The custom events tracked from our site code create **separate
+custom metrics** in Klaviyo with the same names.
+
+**Action required in Klaviyo UI:** Either:
+1. Update flow triggers to use the custom metrics (if Shopify checkout isn't used), OR
+2. Keep using Shopify-integrated metrics if Shopify native checkout handles the tracking
+   (current Shopify checkout redirect already fires these metrics automatically)
+
+Since the site redirects to Shopify checkout (window.location.href = checkoutUrl), Shopify's
+built-in integration will fire its own "Started Checkout" and "Placed Order" events. Our custom
+tracking serves as a **backup** and also captures users who start checkout but don't reach
+Shopify's checkout page (e.g., if the redirect fails or is slow).
+
+### Environment Variables Needed
+- [ ] Add `KLAVIYO_PRIVATE_API_KEY` to Supabase/Vercel environment variables
+  - The Supabase edge function already reads from `Deno.env.get("KLAVIYO_PRIVATE_API_KEY")`
+  - Without this key, all Klaviyo tracking calls will fail silently
