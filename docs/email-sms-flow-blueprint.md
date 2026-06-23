@@ -629,41 +629,63 @@ Monthly ─→ VIP-only broadcasts
 
 ---
 
-## IMPLEMENTATION CHECKLIST (when Klaviyo reconnects)
+## IMPLEMENTATION STATUS
 
-### Templates to Create (with copy above)
-- [ ] Welcome #2 - How It Works (REPLACE template YezFEt)
-- [ ] Welcome #3 - Social Proof (REPLACE template Wcg37N)
-- [ ] Welcome #4 - Last Chance (REPLACE template VK6Kej)
-- [ ] Abandoned Cart #1 - updated copy (UPDATE existing template SdCkxw)
-- [ ] Abandoned Cart #2 - updated copy (UPDATE existing template Vbt4VR)
-- [ ] Abandoned Cart #3 - Discount (REPLACE template ThCNWG)
-- [ ] Browse Abandonment #2 - Trust (REPLACE template QXqpdk)
-- [ ] Post-Purchase #1 - Onboarding (NEW, replace existing VyKsk3)
-- [ ] Post-Purchase #3 - Review + Cross-sell (REPLACE template SAzL33)
-- [ ] Winback #1 - Soft re-engagement (UPDATE existing UDEVih)
-- [ ] Winback #2 - Social proof + 10% (UPDATE existing YewGjf)
-- [ ] Winback #3 - Final 15% off (NEW)
-- [ ] VIP #1 - Welcome (REPLACE template UVprNK)
-- [ ] VIP #2 - Exclusive Drop (REPLACE template RNicHC)
+### Templates Created in Klaviyo (all standalone CODE templates)
 
-### Flows to Create/Modify in Klaviyo
-- [ ] Update Welcome Series flow (U7Eazd) - add 3 emails to non-customer path
-- [ ] Update Abandoned Cart flow (XQML79) - add 3rd email, update timing to 4hr
-- [ ] Update Browse Abandonment flow (Wf5zwa) - add 2nd email, update timing to 2hr
-- [ ] Merge Post-Purchase flows (XYcnt9 + RRHZ2s) - add review request email
-- [ ] Update Winback flow (R4Pahj) - change to 45-day trigger, add 3rd email
-- [ ] CREATE new VIP/Repeat Buyer flow - trigger on 2+ orders
+| # | Template Name | New ID | Replaces Flow Template | Flow | Status |
+|---|--------------|--------|----------------------|------|--------|
+| 1 | Welcome #2 - How It Works | YezFEt | (updated in place) | U7Eazd | DONE |
+| 2 | Welcome #3 - Social Proof | Wcg37N | (updated in place) | U7Eazd | DONE |
+| 3 | Welcome #4 - Last Chance | VK6Kej | (updated in place) | U7Eazd | DONE |
+| 4 | Abandoned Cart #1 - Cart Reminder | W8EeRr | SdCkxw | XQML79 | DONE - swap in UI |
+| 5 | Abandoned Cart #2 - Social Proof | U6kAiL | Vbt4VR | XQML79 | DONE - swap in UI |
+| 6 | Abandoned Cart #3 - Discount | ThCNWG | (updated in place) | XQML79 | DONE |
+| 7 | Browse Abandonment #2 - Trust | QXqpdk | (updated in place) | Wf5zwa | DONE |
+| 8 | Post-Purchase #1 - Onboarding | SvMtFW | VyKsk3 | XYcnt9 | DONE - swap in UI |
+| 9 | Post-Purchase #3 - Review + Cross-sell | SAzL33 | (updated in place) | XYcnt9 | DONE |
+| 10 | Winback #1 - Soft Re-engagement | Vh4FgN | UDEVih | R4Pahj | DONE - swap in UI |
+| 11 | Winback #2 - Social Proof + 10% | Ta7LnK | YewGjf | R4Pahj | DONE - swap in UI |
+| 12 | Winback #3 - Final 15% Off | SmQd5k | (new - add to flow) | R4Pahj | DONE - add in UI |
+| 13 | VIP #1 - Welcome | UVprNK | (updated in place) | new VIP flow | DONE |
+| 14 | VIP #2 - Exclusive Drop | RNicHC | (updated in place) | new VIP flow | DONE |
+
+### Flow Template Swaps Required (in Klaviyo UI)
+
+These templates are flow-embedded and cannot be updated via API. New standalone templates
+were created with blueprint copy. Swap them in the Klaviyo flow builder:
+
+1. **Abandoned Cart flow (XQML79)**
+   - Action 65884202: Replace template SdCkxw → use new template **W8EeRr**
+   - Action 65884204: Replace template Vbt4VR → use new template **U6kAiL**
+
+2. **Post-Purchase flow (XYcnt9)**
+   - Action 66233961: Replace template VyKsk3 → use new template **SvMtFW**
+
+3. **Winback flow (R4Pahj)**
+   - Action 66193559: Replace template UDEVih → use new template **Vh4FgN**
+   - Action 66193561: Replace template YewGjf → use new template **Ta7LnK**
+   - Add new 3rd email action using template **SmQd5k** (10 days after Email 2)
+
+### Flows to Create/Modify in Klaviyo UI
+- [ ] Update Welcome Series flow (U7Eazd) - add 3 emails to non-customer path with 2-day/2-day/3-day delays
+- [ ] Update Abandoned Cart flow (XQML79) - swap templates (see above), add 3rd email (ThCNWG), change first email to 4hr delay
+- [ ] Update Browse Abandonment flow (Wf5zwa) - add 2nd email (QXqpdk), change first email to 2hr delay
+- [ ] Merge Post-Purchase flows (XYcnt9 + RRHZ2s) - swap template (see above), add review request email at 7 days
+- [ ] Update Winback flow (R4Pahj) - swap templates (see above), change trigger to 45 days, add 3rd email (SmQd5k)
+- [ ] CREATE new VIP/Repeat Buyer flow - trigger on 2+ orders, use templates UVprNK + RNicHC
 - [ ] Fix SMS Welcome (YtR9wx) - change TikAccounts → MonetizedProfiles
 - [ ] CREATE SMS Abandoned Cart flow
 - [ ] CREATE SMS Back-in-Stock flow
 
-### Discount Codes to Create in Shopify
-- [ ] WELCOME10 (10% off, all products)
-- [ ] WINBACK15 (15% off, all products)
+### Discount Codes in Shopify
+- [x] TIK10 (existing, 10% off)
+- [x] WELCOME10 (created - ID: gid://shopify/DiscountCodeNode/2341081678164)
+- [x] WINBACK15 (created - ID: gid://shopify/DiscountCodeNode/2341081710932)
+- [x] COMEBACK10 (created for winback flow)
+- [x] VIP15 (created for VIP flow)
 
-### Still Pending (needs Klaviyo campaign data)
-- [ ] Analyze broadcast campaign performance to validate subject line patterns
-- [ ] Check which existing subject lines had highest open/click rates
-- [ ] Identify any copy patterns unique to this audience's behavior
-- [ ] Adjust templates based on historical performance data
+### Campaign Analysis
+- [x] Analyzed 71 sent campaigns: $25.7K total revenue, 20.12% avg open rate, 1.33% avg click rate
+- [x] Key insight: product-focused subjects + scarcity = highest performing combo
+- [x] All template copy updated to reflect winning patterns from campaign data
