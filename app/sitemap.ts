@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getProductHandles, getArticleHandles, getCollectionHandles, getArticleSummaries } from '@/lib/shopify';
 import { SITE_URL } from '@/lib/constants';
 import { LANDING_PAGES } from '@/data/landing-pages';
+import { COMPARISONS } from '@/data/comparisons';
+import { GLOSSARY_TERMS } from '@/data/glossary';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();
@@ -96,5 +98,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }));
   } catch {}
 
-  return [...staticPages, ...productPages, ...landingPages, ...guidePages, ...articlePages, ...topicPages, ...collectionPages];
+  const comparisonPages: MetadataRoute.Sitemap = COMPARISONS.map((c) => ({
+    url: `${SITE_URL}/compare/${c.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  const glossaryPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/glossary`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.7 },
+    ...GLOSSARY_TERMS.map((t) => ({
+      url: `${SITE_URL}/glossary/${t.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
+  ];
+
+  return [...staticPages, ...productPages, ...landingPages, ...guidePages, ...comparisonPages, ...glossaryPages, ...articlePages, ...topicPages, ...collectionPages];
 }

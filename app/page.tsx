@@ -8,7 +8,7 @@ import { GuaranteeBadge } from '@/components/guarantee-badge';
 import { SITE_NAME, TRUST_STATS } from '@/lib/constants';
 import { faqJsonLd } from '@/lib/seo';
 import { homepageFaqs } from '@/data/faqs';
-import { Shield, Zap, Headphones, Star, CheckCircle } from 'lucide-react';
+import { Shield, Zap, Headphones, Star, CheckCircle, ArrowRight, BookOpen, GitCompareArrows } from 'lucide-react';
 
 export const revalidate = 300;
 
@@ -135,6 +135,48 @@ export default async function HomePage() {
 
       {/* Reviews */}
       <ReviewCarousel />
+
+      {/* Resources */}
+      <section className="py-16 bg-secondary">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Free Resources</h2>
+          <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
+            Learn about monetization, compare platforms, and understand key industry terms before you buy.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <Link
+              href="/compare/youtube-channel-vs-tiktok-account"
+              className="group bg-background rounded-xl border border-border p-6 hover:border-primary/30 hover:shadow-lg transition-all"
+            >
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <GitCompareArrows className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Platform Comparisons</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                YouTube vs TikTok, US vs UK TikTok Shop, buying vs growing — side-by-side breakdowns to help you decide.
+              </p>
+              <span className="text-sm font-medium text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+                Browse Comparisons <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+            <Link
+              href="/glossary"
+              className="group bg-background rounded-xl border border-border p-6 hover:border-primary/30 hover:shadow-lg transition-all"
+            >
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                <BookOpen className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Glossary</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                RPM, CPM, YPP, Content ID — learn every term you need to know about channel monetization.
+              </p>
+              <span className="text-sm font-medium text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+                Read the Glossary <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ */}
       <FaqSection faqs={homepageFaqs} />
