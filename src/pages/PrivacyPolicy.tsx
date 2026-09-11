@@ -37,11 +37,11 @@ const PrivacyPolicy = () => {
               <Shield className="h-6 w-6" />
               Privacy Policy
             </CardTitle>
-            <CardDescription>Last updated: April 16, 2024</CardDescription>
+            <CardDescription>Last updated: September 11, 2026</CardDescription>
           </CardHeader>
           <CardContent className="prose prose-sm max-w-none dark:prose-invert">
             <p>
-              This Privacy Policy describes how MonetizedProfiles (the "Site", "we", "us", or "our") collects, uses, and discloses your personal information when you visit, use our services, or make a purchase from tikaccounts.com (the "Site") or otherwise communicate with us (collectively, the "Services"). For purposes of this Privacy Policy, "you" and "your" means you as the user of the Services, whether you are a customer, website visitor, or another individual whose information we have collected pursuant to this Privacy Policy.
+              This Privacy Policy describes how Ascentir Management Consultancies FZCO (registration number 49188), trading as MonetizedProfiles (the "Site", "we", "us", or "our"), collects, uses, and discloses your personal information when you visit, use our services, or make a purchase from monetizedprofiles.com (the "Site") or otherwise communicate with us (collectively, the "Services"). For purposes of this Privacy Policy, "you" and "your" means you as the user of the Services, whether you are a customer, website visitor, or another individual whose information we have collected pursuant to this Privacy Policy.
             </p>
             <p>
               Please read this Privacy Policy carefully. By using and accessing any of the Services, you agree to the collection, use, and disclosure of your information as described in this Privacy Policy. If you do not agree to this Privacy Policy, please do not use or access any of the Services.
@@ -120,6 +120,11 @@ const PrivacyPolicy = () => {
               <li>In connection with a business transaction such as a merger or bankruptcy, to comply with any applicable legal obligations (including to respond to subpoenas, search warrants and similar requests), to enforce any applicable terms of service, and to protect or defend the Services, our rights, and the rights of our users or others.</li>
             </ul>
 
+            <h2>SMS Privacy</h2>
+            <p>
+              When you opt in to text messages, we use your phone number and consent records to send the messages you requested, manage preferences and process opt-out requests. We use Klaviyo and messaging service providers to deliver this service. We do not sell or share SMS opt-in data or consent status with third parties or affiliates for their own marketing. The sharing provisions elsewhere in this policy do not override this restriction. Service providers may process this information to operate the messaging service on our behalf.
+            </p>
+
             <h2>User Generated Content</h2>
             <p>
               The Services may enable you to post product reviews and other user-generated content. If you choose to submit user generated content to any public area of the Services, this content will be public and accessible by anyone.
@@ -182,12 +187,12 @@ const PrivacyPolicy = () => {
             </p>
 
             <h2>Mobile Terms of Service</h2>
-            <p className="font-semibold">Last updated: October 10, 2024</p>
+            <p className="font-semibold">Last updated: September 11, 2026</p>
             <p>
-              The MonetizedProfiles mobile message service (the "Service") is operated by MonetizedProfiles ("MonetizedProfiles", "we", or "us"). Your use of the Service constitutes your agreement to these terms and conditions ("Mobile Terms"). We may modify or cancel the Service or any of its features without notice. To the extent permitted by applicable law, we may also modify these Mobile Terms at any time and your continued use of the Service following the effective date of any such changes shall constitute your acceptance of such changes.
+              The MonetizedProfiles mobile message service (the "Service") is operated by Ascentir Management Consultancies FZCO (registration number 49188), trading as MonetizedProfiles ("MonetizedProfiles", "we", or "us"). Your use of the Service constitutes your agreement to these terms and conditions ("Mobile Terms"). We may modify or cancel the Service or any of its features without notice. To the extent permitted by applicable law, we may also modify these Mobile Terms at any time and your continued use of the Service following the effective date of any such changes shall constitute your acceptance of such changes.
             </p>
             <p>
-              By consenting to MonetizedProfiles's SMS/text messaging service, you agree to receive recurring SMS/text messages from and on behalf of MonetizedProfiles through your wireless provider to the mobile number you provided, even if your mobile number is registered on any state or federal Do Not Call list. Text messages may be sent using an automatic telephone dialing system or other technology. Promotional messages may include promotions, specials, and other marketing offers (e.g., cart reminders).
+              By consenting to MonetizedProfiles's SMS/text messaging service, you agree to receive recurring SMS/text messages from and on behalf of MonetizedProfiles through your wireless provider to the mobile number you provided, even if your mobile number is registered on any state or federal Do Not Call list. Text messages may be sent using an automatic telephone dialing system or other technology. Promotional messages may include promotions, specials, and other marketing offers.
             </p>
             <p>
               You understand that you do not have to sign up for this program in order to make any purchases, and your consent is not a condition of any purchase with MonetizedProfiles. Your participation in this program is completely voluntary.
@@ -196,10 +201,10 @@ const PrivacyPolicy = () => {
               We do not charge for the Service, but you are responsible for all charges and fees associated with text messaging imposed by your wireless provider. Message frequency varies. Message and data rates may apply. Check your mobile plan and contact your wireless provider for details. You are solely responsible for all charges related to SMS/text messages, including charges from your wireless provider.
             </p>
             <p>
-              You may opt-out of the Service at any time. Text the single keyword command STOP to MonetizedProfiles or click the unsubscribe link (where available) in any text message to cancel. You'll receive a one-time opt-out confirmation text message. No further messages will be sent to your mobile device, unless initiated by you. If you have subscribed to other MonetizedProfiles mobile message programs and wish to cancel, except where applicable law requires otherwise, you will need to opt out separately from those programs by following the instructions provided in their respective mobile terms.
+              You may opt out of the Service at any time. In the United States and Canada, text STOP to +1 (844) 629-4072. For messages from a branded sender name that cannot receive replies, use the unsubscribe link in the message. You may receive a one-time opt-out confirmation text message. No further messages will be sent to your mobile device, unless initiated by you. If you have subscribed to other MonetizedProfiles mobile message programs and wish to cancel, except where applicable law requires otherwise, you will need to opt out separately from those programs by following the instructions provided in their respective mobile terms.
             </p>
             <p>
-              For Service support or assistance, text HELP to MonetizedProfiles or email support@monetizedprofiles.com.
+              For Service support in the United States and Canada, text HELP to +1 (844) 629-4072. Branded sender names cannot receive replies. You can also email <a href="mailto:support@monetizedprofiles.com">support@monetizedprofiles.com</a>.
             </p>
             <p>
               We may change any short code or telephone number we use to operate the Service at any time and will notify you of these changes. You acknowledge that any messages, including any STOP or HELP requests, you send to a short code or telephone number we have changed may not be received and we will not be responsible for honouring requests made in such messages.
